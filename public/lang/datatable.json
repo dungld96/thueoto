@@ -1,0 +1,12 @@
+{
+    "processing": "<i class='fa fa-refresh fa-spin'></i>",
+    "search": "Tìm kiếm",
+    "paginate":
+    {
+        "first": "Đầu tiên",
+        "previous": "Quay lại",
+        "next": "Tiếp theo",
+        "sLast": "Cuối cùng"
+    },
+    "emptyTable": "Chưa có dữ liệu"
+}

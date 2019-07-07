@@ -1,0 +1,66 @@
+.dataTables_wrapper .dataTables_filter input{
+	height: 30px;
+}
+
+#carsdata_processing {
+	margin: 0;
+    padding: 15px 20px;
+  	width: 150px;
+  	height: 50px;
+}
+
+#carsdata_processing .fa-refresh{
+    font-size: 20px;
+}
+
+.content-header .actions{
+	margin: 20px 0px;
+    text-align: right;
+}
+
+.input-full{
+	width: 100% !important;
+}
+
+/* start dropzone*/
+#dropzone{
+	min-height: 20px !important;
+}
+
+.dz-image-preview{
+	display: inline-block;
+    position: relative;
+    margin: 3px;
+    margin: 2px;
+}
+.dz-remove
+{
+    display:inline-block !important;
+    width:1.2em;
+    height:1.2em;
+    
+    position:absolute;
+    top:0px;
+    right:0px;
+    z-index:1000;
+    
+    font-size:1.2em !important;
+    line-height:1em;
+   
+    text-align:center;
+    font-weight:bold;
+    border:1px solid gray !important;
+    border-radius:1.2em;
+    color:gray;
+    background-color:white;
+    opacity:.5;
+    
+}
+
+.dz-remove:hover
+{
+    text-decoration:none !important;
+    opacity:1;
+}
+
+/* end dropzone*/
