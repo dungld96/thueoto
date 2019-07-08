@@ -136,8 +136,7 @@
 @endsection
 
 @section('script-datatable')
-<script type="text/javascript" src="{{asset('admin-assets/global/plugins/jquery-validation/js/jquery.validate.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('admin-assets/global/plugins/jquery-validation/js/additional-methods.min.js')}}"></script>
+<script src="{{asset('js/admin/cars.js')}}" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 	    $('#carsdata').DataTable({

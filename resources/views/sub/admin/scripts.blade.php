@@ -43,7 +43,8 @@
 <script src="{{asset('admin-assets/admin/pages/scripts/index.js')}}" type="text/javascript"></script>
 <script src="{{asset('admin-assets/admin/pages/scripts/tasks.js')}}" type="text/javascript"></script>
 <script src="{{asset('admin-assets/global/plugins/dropzone/dropzone.js')}}"></script>
-
+<script type="text/javascript" src="{{asset('admin-assets/global/plugins/jquery-validation/js/jquery.validate.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin-assets/global/plugins/jquery-validation/js/additional-methods.min.js')}}"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- DataTables -->
 <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>

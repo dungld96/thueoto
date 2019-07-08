@@ -16,11 +16,11 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('car_manufacturer');
             $table->string('number_plate')->nullable();;
             $table->string('color')->nullable();;
-            $table->string('seats')->nullable();;
+            $table->integer('seats')->nullable();;
             $table->string('description')->nullable();
             $table->string('mortgage')->nullable();
             $table->string('rules')->nullable();
