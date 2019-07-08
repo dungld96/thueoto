@@ -15,9 +15,9 @@ Route::group(['middleware' => ['auth', 'check-admin']], function(){
 		'uses'=> 'Admin\CarController@getAll'
 	]);
 
-	Route::get('/cars/add', [
-		'as'=> 'admin_car_add',
-		'uses'=> 'Admin\CarController@add'
+	Route::post('/cars/store', [
+		'as'=> 'admin_car_store',
+		'uses'=> 'Admin\CarController@store'
 	]);
 
 	Route::get('/cars/images/upload/store', [

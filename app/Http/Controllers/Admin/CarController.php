@@ -29,9 +29,22 @@ class CarController extends Controller
 	    ->make();
 	}
 
-    public function add(Request $request)
+    public function store(Request $request)
     {
-        # code...
+        try {
+            $car = new Car();
+            $car->code = $request->code;
+            $car->car_manufacturer = $request->car_manufacturer;
+            $car->description = $request->description;
+            $car->name = $request->name;
+            $car->seats = $request->seats;
+            $car->status = 2;
+            $car->save();
+            return response()->json(['message'=>'Thành công', 'status' => 'success']);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+        
     }
 }
 

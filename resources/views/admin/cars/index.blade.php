@@ -137,27 +137,5 @@
 
 @section('script-datatable')
 <script src="{{asset('js/admin/cars.js')}}" type="text/javascript"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-	    $('#carsdata').DataTable({
-	        processing: true,
-	        serverSide: true,
-	        ajax: '{{ route('admin_cars_getdata') }}',
-            language: {url: '{{asset('lang/datatable.json')}}'},
-	        columns: [
-	         	{ data: 'DT_Row_Index', name: 'DT_Row_Index' },
-	            {data: 'code', name: 'code'},
-	            {data: 'name', name: 'name'},
-	            {data: 'status', name: 'status'},
-	            {data: 'action', name: 'action', orderable: false, searchable: false}
-	        ]
-	    });
 
-    
-        
-        
-
-	});
-
-</script>
 @endsection
