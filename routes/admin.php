@@ -20,13 +20,19 @@ Route::group(['middleware' => ['auth', 'check-admin']], function(){
 		'uses'=> 'Admin\CarController@store'
 	]);
 
-	Route::get('/cars/images/upload/store', [
+	Route::post('/cars/images/upload/store', [
 		'as'=> 'admin_car_image_store',
-		'uses'=> 'Admin\CarController@imageStore'
+		'uses'=> 'ImagesController@imageStore'
 	]);
 
-	
-
+	Route::get('/cars/create', [
+		'as'=> 'car.create',
+		'uses'=> 'Admin\CarController@create'
+	]);
+	Route::get('/cars/delete/{id}', [
+        'as' => 'car.delete',
+        'uses' => 'Admin\CarController@delete'
+    ]);
 
 
 

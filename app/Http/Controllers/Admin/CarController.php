@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DataTables;
 use App\Models\Car;
+use App\Models\CarImages;
 
 class CarController extends Controller
 {
@@ -20,7 +21,9 @@ class CarController extends Controller
 
     	return DataTables::of($cars)
     	->addColumn('action', function ($cars) {
-            return '<a href="#edit-'.$cars->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Sửa</a> <a href="#delete-'.$cars->id.'" class="btn btn-xs btn-danger btn-delete"><i class="fa fa-times"></i> Xóa</a>';
+            return 
+            '<a data-id="'.$cars->id.'" class="btnEditCar btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Sửa</a> 
+            <a data-id="'.$cars->id.'" class="btnDeleteCar btn btn-xs btn-danger btn-delete"><i class="fa fa-times"></i> Xóa</a>';
         })
         ->editColumn('status', function($cars) {
                     return getCarStatus($cars->status);
@@ -40,11 +43,38 @@ class CarController extends Controller
             $car->seats = $request->seats;
             $car->status = 2;
             $car->save();
+
+            foreach ($request->input('document', []) as $file) {
+                $carImage = new CarImages;
+                $carImage->car_id = $car->id;
+                $carImage->name = $file;
+                $carImage->save();
+            }
+            
             return response()->json(['message'=>'Thành công', 'status' => 'success']);
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return response()->json(['message'=>$e->getMessage(), 'status' => 'success']);
         }
         
     }
+
+    public function create()
+    {
+        return view('admin.cars._edit');
+    }
+
+    public function delete($id)
+    {
+        try {
+            $car = Car::find($id);
+            if ($car) {
+               $car->delete();
+            }
+        } catch (Exception $e) {
+            return response()->json(['message'=>$e->getMessage(), 'status' => 'success']);
+        }
+        return response()->json(['message'=>'Thành công', 'status' => 'success']);
+    }
+
 }
 
