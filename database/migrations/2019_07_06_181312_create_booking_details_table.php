@@ -15,8 +15,8 @@ class CreateBookingDetailsTable extends Migration
     {
         Schema::create('booking_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('trip_code');
             $table->string('user_id');
+            $table->string('car_id');
             $table->string('booking_date');
             $table->string('start_date');
             $table->string('end_date');

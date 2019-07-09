@@ -4,8 +4,8 @@
   <div class="page-header-inner">
     <!-- BEGIN LOGO -->
     <div class="page-logo">
-      <a href="index.html">
-      <img src="{{asset('assets/admin/layout/img/logo.png')}}" alt="logo" class="logo-default"/>
+      <a href="#">
+        VT
       </a>
       <div class="menu-toggler sidebar-toggler hide">
       </div>
@@ -119,7 +119,7 @@
             <li class="divider">
             </li>
             <li>
-              <a href="{{route('admin_logout')}}">
+              <a href="{{route('user.logout')}}">
               <i class="icon-key"></i> Log Out </a>
             </li>
           </ul>

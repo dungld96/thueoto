@@ -27,4 +27,15 @@
 		'uses'=> 'Auth\LoginController@logout'
 	]);
 
+	Route::get('/car/{id}', [
+        'as' => 'car.detail',
+        'uses' => 'Client\BookingController@getDetail'
+    ]);
+
+	Route::post('/car/booking', [
+        'as' => 'car.booking',
+        'uses' => 'Client\BookingController@booking'
+    ]);
+
+
 

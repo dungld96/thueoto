@@ -26,16 +26,16 @@ class LoginController extends Controller
         }
 
     	if(Auth::attempt($attempt)){
-            // $role = Auth::user()->getRole();
+            $role = Auth::user()->getRole();
     		// if($role == 1){
             //     return redirect()->route('home-client');
             // }else if($role > 1){
             //     return redirect()->route('dashboard');
             // }
 
-            return response()->json(['message'=>'Thành công', 'status' => 'success']);
+            return response()->json(['message'=>'Thành công', 'status' => 'success', 'role' => $role]);
     	}else{
-            return response()->json(['message'=>$e->getMessage(), 'status' => 'success']);
+            return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
     }
     

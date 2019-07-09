@@ -10,8 +10,8 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                         @if (Auth::guest())
-                        <li><a href="{{route('user.signup')}}"><i class="fas fa-user"></i> Đăng ký</a></li>
-                        <li><a id="btnLogin" href="javascript:;" data-href="{{route('user.login.view')}}"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a></li>
+                        <li><a id="btnLogin" href="javascript:;" data-href="{{route('user.login.view')}}">Đăng nhập</a></li>
+                        <li><a  id="btnRegister" href="{{route('user.signup')}}">Đăng ký</a></li>
                         @endif
                         @if (Auth::check())
                         <li class="dropdown">

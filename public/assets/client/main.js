@@ -86,7 +86,6 @@ $(document).ready(function() {
 
 	$('#btnLogin').on('click', function(e) {
 		var target = $(this).attr("data-href");
-		console.log(target);
         // load the url and show modal on success
         $("#loginModal .modal-content").load(target, function () {
             $("#loginModal").modal("show");

@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\RoleUser;
 use App\Models\Role;
+use App\Models\Image;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -37,6 +38,12 @@ class User extends Authenticatable
     {
       return $this->belongsToMany(Role::class);
     }
+
+    // public function images()
+    // {
+    //     return $this->hasMany(Image::class);
+    // }
+
 
     public function checkAdmin(){
         $role = $this->getRole();

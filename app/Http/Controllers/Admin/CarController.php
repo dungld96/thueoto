@@ -34,6 +34,7 @@ class CarController extends Controller
 
     public function store(Request $request)
     {
+        $files = $request->input('document', []);
         try {
             $car = new Car();
             $car->code = $request->code;
@@ -41,10 +42,12 @@ class CarController extends Controller
             $car->description = $request->description;
             $car->name = $request->name;
             $car->seats = $request->seats;
+            $car->costs = $request->costs;
             $car->status = 2;
+            $car->thumbnail = $files[0];
             $car->save();
 
-            foreach ($request->input('document', []) as $file) {
+            foreach ( $files as $file) {
                 $carImage = new CarImages;
                 $carImage->car_id = $car->id;
                 $carImage->name = $file;

@@ -48,9 +48,9 @@ input, textarea {
 
 .navbar-nav > li > span {
 	display: block;
-	padding: 20px 15px;
-	color: #fff;
-	line-height: 20px;
+    padding: 0px 15px;
+    color: #fff;
+    line-height: 60px;
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
@@ -254,6 +254,16 @@ input, textarea {
 
 .section .swiper-pagination, .swiper-similar .swiper-pagination {
 	position: unset;
+}
+
+.swiper-slide .car_image .car_price {
+	position: absolute;
+	right: 0;
+	bottom: 47px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #28a745;
+	padding: 4px 12px;
 }
 
 .car_cover .swiper-slide img {
@@ -523,4 +533,26 @@ input, textarea {
 
 .m-b-lg {
 	margin-bottom: 30px;
+}
+
+.content-detail .car_info {
+    padding: 40px 0;
+    font-size: 16px;
+}
+
+.content-detail .car_info .group {
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.content-detail .car_info .col_1 {
+    width: 25%;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #6c757d;
+}
+
+.content-detail .car_info .col_2 {
+    width: 75%;
 }

@@ -16,10 +16,12 @@ $(document).ready(function() {
                         $('#addCar').modal('hide');
                         var oTable = $('#carsdata').dataTable(); 
                         oTable.fnDraw(false);
+                    }else{
+                        alert(e);
                     }
                 },
                 error: function(e) {
-                    console.log(e);
+                    alert(e);
                 }
 
             });

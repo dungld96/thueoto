@@ -34,6 +34,14 @@ Route::group(['middleware' => ['check-admin']], function(){
         'uses' => 'Admin\CarController@delete'
     ]);
 
+	Route::get('/booking', [
+		'as'=> 'booking.list',
+		'uses'=> 'Admin\BookingController@index'
+	]);
+	Route::get('/booking/getdata', [
+		'as'=> 'booking.list.getdata',
+		'uses'=> 'Admin\BookingController@index'
+	]);
 
 
 

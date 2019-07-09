@@ -9,9 +9,9 @@
                                     <form class="form-horizontal" role="form" id="carInfoForm">
                                         {{csrf_field()}}
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Mã xe <span class="required">
+                                            <label class="col-md-3 control-label">Mã xe <span class="required">
                                         * </span></label>
-                                            <div class="col-md-10">
+                                            <div class="col-md-9">
                                                 <div class="input-icon right">
                                                     <i class="fa"></i>
                                                     <input type="text" class="form-control input-full" name="code" placeholder="Mã xe"/>
@@ -19,9 +19,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Tên Xe <span class="required">
+                                            <label class="col-md-3 control-label">Tên Xe <span class="required">
                                         * </span></label>
-                                            <div class="col-md-10">
+                                            <div class="col-md-9">
                                                 <div class="input-icon right">
                                                     <i class="fa"></i>
                                                     <input type="text" class="form-control input-full" name="name" placeholder="Tên xe"/>
@@ -29,9 +29,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Hãng xe <span class="required">
+                                            <label class="col-md-3 control-label">Hãng xe <span class="required">
                                         * </span></label>
-                                            <div class="col-md-10">
+                                            <div class="col-md-9">
                                                 <div class="input-icon right">
                                                     <i class="fa"></i>
                                                     <input type="text" class="form-control input-full" name="car_manufacturer" placeholder="Hãng xe"/>
@@ -39,9 +39,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Số ghế <span class="required">
+                                            <label class="col-md-3 control-label">Số ghế <span class="required">
                                         * </span></label>
-                                            <div class="col-md-10">
+                                            <div class="col-md-9">
                                                  <div class="input-icon right">
                                                     <i class="fa"></i>
                                                     <select name="seats" class="form-control input-full" data-placeholder="Số ghế">
@@ -53,8 +53,18 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Mô tả</label>
-                                            <div class="col-md-10">
+                                            <label class="col-md-3 control-label">Giá thuê<span class="required">
+                                        * </span></label>
+                                            <div class="col-md-9">
+                                                <div class="input-icon right">
+                                                    <i class="fa"></i>
+                                                    <input type="text" class="form-control input-full" name="costs" placeholder="Giá thuê theo ngày"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Mô tả</label>
+                                            <div class="col-md-9">
                                                 <textarea class="form-control input-full" rows="3" name="description" placeholder="Mô tả"></textarea>
                                             </div>
                                         </div>

@@ -10,7 +10,7 @@ class ImagesController extends Controller
     {
     	$image = $request->file;
     	$imageName = uniqid(). "_" . trim($image->getClientOriginalName());
-    	$image->move(storage_path('images'),$imageName);
+    	$image->storeAs('uploads', $imageName);
         return response()->json([
 	        'name'          => $imageName,
 	        'original_name' => $image->getClientOriginalName(),

@@ -1,4 +1,4 @@
-<!-- BEGIN SIDEBAR -->
+BEGIN SIDEBAR -->
   <div class="page-sidebar-wrapper">
     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
     <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
@@ -51,11 +51,11 @@
           </a>
           <ul class="sub-menu">
             <li>
-              <a href="javascript:;">
+              <a href="{{route('booking.list')}}">
               <i class="icon-home"></i>
               Xe đang được đặt</a>
             </li>
-            <li>
+            {{-- <li>
               <a href="javascript:;">
               <i class="icon-basket"></i>
               Xe đã đặt xong</a>
@@ -64,7 +64,7 @@
               <a href="javascript:;">
               <i class="icon-tag"></i>
               Xe chờ xác nhận</a>
-            </li>
+            </li> --}}
           </ul>
         </li>
 
@@ -75,17 +75,17 @@
           <span class="arrow "></span>
           </a>
           <ul class="sub-menu">
-            <li>
+            {{-- <li>
               <a href="javascript:;">
               <i class="icon-home"></i>
               Danh mục khách hàng</a>
-            </li>
+            </li> --}}
             <li>
               <a href="{{route('admin_cars_index')}}">
               <i class="icon-basket"></i>
               Danh mục xe</a>
             </li>
-            <li>
+           {{--  <li>
               <a href="javascript:;">
               <i class="icon-tag"></i>
               Danh mục giá</a>
@@ -94,10 +94,10 @@
               <a href="javascript:;">
               <i class="icon-handbag"></i>
               Danh mục giảm giá</a>
-            </li>
+            </li> --}}
           </ul>
         </li>
-        <li>
+       {{--  <li>
           <a href="javascript:;">
           <i class="icon-basket"></i>
           <span class="title">Quản trị hệ thống</span>
@@ -115,9 +115,9 @@
               Tham số hệ thống</a>
             </li>
           </ul>
-        </li>
+        </li> --}}
       </ul>
       <!-- END SIDEBAR MENU -->
     </div>
   </div>
-  <!-- END SIDEBAR -->
+  <!-- END SIDEBAR
