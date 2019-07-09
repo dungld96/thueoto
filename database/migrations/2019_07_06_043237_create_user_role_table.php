@@ -13,7 +13,7 @@ class CreateUserRoleTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_role', function (Blueprint $table) {
+        Schema::create('role_user', function (Blueprint $table) {
             $table->engine = 'MyISAM';
             $table->integer('user_id');
             $table->integer('role_id');

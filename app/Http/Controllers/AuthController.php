@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\auth\logintest;
 use App\Http\Requests\auth\logintest2;
 use App\User;
-use App\Models\UserRole;
+use App\Models\RoleUser;
 class AuthController extends Controller
 {
     
@@ -32,13 +32,10 @@ class AuthController extends Controller
     }
 
     public function auth_logincheck(Request $request, logintest2 $check){
-            dd('a');
-        
     	$attempt = array('email'=> $request['email'], 'password'=> $request['password']);
-
     	if(Auth::attempt($attempt)){
             dd('a');
-            $role_id = UserRole::where('user_id', Auth::user()->id);
+            $role_id = RoleUser::where('user_id', Auth::user()->id);
     		if($role_id == 1){
                 return redirect()->route('user_reservation');
             }else if(Auth::user()->role_id >= 2){

@@ -15,7 +15,7 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(!Auth::user()->checkAdmin()){
+        if(!Auth::user() || !Auth::user()->checkAdmin()){
             return redirect(route('home-client'));
         }
         return $next($request);

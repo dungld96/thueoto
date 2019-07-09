@@ -7,22 +7,41 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;	
 use App\User;
-use App\Models\UserRole;
+use App\Models\RoleUser;
 use App\Models\Role;
+
 class LoginController extends Controller
 {
+
+    public function loginView()
+    {
+        return view('auth._login');
+    }
+
     public function login(LoginRequest $request){
-    	$attempt = array('email'=> $request['email'], 'password'=> $request['password']);
+        if(is_numeric($request->get('email'))){
+            $attempt = array('phone_number'=> $request['email'], 'password'=> $request['password']);
+        }else{
+            $attempt = array('email'=> $request['email'], 'password'=> $request['password']);
+        }
+
     	if(Auth::attempt($attempt)){
-            $role = Auth::user()->getRole();
-    		if($role == 1){
-                return redirect()->route('user_reservation');
-            }else if($role > 1){
-                return redirect()->route('dashboard');
-            }
+            // $role = Auth::user()->getRole();
+    		// if($role == 1){
+            //     return redirect()->route('home-client');
+            // }else if($role > 1){
+            //     return redirect()->route('dashboard');
+            // }
+
+            return response()->json(['message'=>'Thành công', 'status' => 'success']);
     	}else{
-    		return 'invalid email/password';
-    	}
+            return response()->json(['message'=>$e->getMessage(), 'status' => 'success']);
+        }
+    }
+    
+    public function logout(){
+        Auth::logout();
+    	return redirect()->route('home-client');
     }
    
 }

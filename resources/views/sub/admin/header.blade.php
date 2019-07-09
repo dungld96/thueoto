@@ -5,7 +5,7 @@
     <!-- BEGIN LOGO -->
     <div class="page-logo">
       <a href="index.html">
-      <img src="{{asset('admin-assets/admin/layout/img/logo.png')}}" alt="logo" class="logo-default"/>
+      <img src="{{asset('assets/admin/layout/img/logo.png')}}" alt="logo" class="logo-default"/>
       </a>
       <div class="menu-toggler sidebar-toggler hide">
       </div>
@@ -66,7 +66,7 @@
                 <li>
                   <a href="inbox.html?a=view">
                   <span class="photo">
-                  <img src="{{asset('admin-assets/admin/layout3/img/avatar2.jpg')}}" class="img-circle" alt="">
+                  <img src="{{asset('assets/admin/layout3/img/avatar2.jpg')}}" class="img-circle" alt="">
                   </span>
                   <span class="subject">
                   <span class="from">
@@ -80,7 +80,7 @@
                 <li>
                   <a href="inbox.html?a=view">
                   <span class="photo">
-                  <img src="{{asset('admin-assets/admin/layout3/img/avatar3.jpg')}}" class="img-circle" alt="">
+                  <img src="{{asset('assets/admin/layout3/img/avatar3.jpg')}}" class="img-circle" alt="">
                   </span>
                   <span class="subject">
                   <span class="from">
@@ -100,7 +100,7 @@
         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
         <li class="dropdown dropdown-user">
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-          <img alt="" class="img-circle" src="{{asset('admin-assets/admin/layout/img/avatar3_small.jpg')}}"/>
+          <img alt="" class="img-circle" src="{{asset('assets/admin/layout/img/avatar3_small.jpg')}}"/>
           <span class="username username-hide-on-mobile">
           Nick </span>
           <i class="fa fa-angle-down"></i>

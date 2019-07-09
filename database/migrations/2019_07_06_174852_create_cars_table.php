@@ -21,7 +21,7 @@ class CreateCarsTable extends Migration
             $table->string('number_plate')->nullable();;
             $table->string('color')->nullable();;
             $table->integer('seats')->nullable();;
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('mortgage')->nullable();
             $table->string('rules')->nullable();
             $table->string('status'); // 1: deactive, 2: active , 2: đang book, 3: đã book

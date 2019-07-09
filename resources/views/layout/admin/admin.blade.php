@@ -13,8 +13,8 @@
 <meta content="" name="description"/>
 <meta content="" name="author"/>
 <meta name="_token" content="{{csrf_token()}}" />
-@include('sub.admin.style')
 <link rel="shortcut icon" href="favicon.ico"/>
+@include('sub.admin.style')
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->

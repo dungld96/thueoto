@@ -1,7 +1,7 @@
 @extends('layout.admin.admin')
 @section('title', 'Danh sách xe')
 @section('style-page')
-    <link href="{{asset('admin-assets/global/plugins/dropzone/css/dropzone.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/global/plugins/dropzone/css/dropzone.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
     <div class="row content-header">

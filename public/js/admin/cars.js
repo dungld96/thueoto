@@ -4,7 +4,6 @@ $(document).ready(function() {
         ev.preventDefault();
 
         var target = $(this).attr("data-href");
-        console.log(target)
         // load the url and show modal on success
         $("#addCar .modal-content").load(target, function () {
             $("#addCar").modal("show");

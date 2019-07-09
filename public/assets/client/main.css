@@ -1,0 +1,526 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=latin-ext,vietnamese');
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+a:link, a:hover {
+	text-decoration: none;
+}
+
+.tooltip, .popover, .daterangepicker {
+	font-family: 'Roboto', sans-serif;
+}
+
+.modal-dialog {
+	width: 570px;
+}
+
+input, textarea {
+	box-shadow: none;
+}
+
+.modal-dialog.modal-lg {
+	width: 870px;
+}
+
+.navbar {
+	margin-bottom: 0;
+	border: none;
+	border-radius: 0;
+	min-height: 60px;
+	font-size: 16px;
+}
+
+.navbar-brand {
+	height: 60px;
+	padding: 20px 15px;
+	text-transform: uppercase;
+}
+
+.navbar-nav {
+	margin-left: 80px;
+}
+
+.navbar-nav > li > a {
+	padding: 20px 15px;
+}
+
+.navbar-nav > li > span {
+	display: block;
+	padding: 20px 15px;
+	color: #fff;
+	line-height: 20px;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+	color: #fff;
+}
+
+.section.banner {
+	position: relative;
+}
+
+.section.banner .cover {
+	height: calc(100vh - 60px);
+	background-image: url('../../images/street-background-full-hd-1920x1080-492595.jpg');
+	background-size: cover;
+}
+
+.section.banner .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #fff;
+}
+
+.section.banner .wrap {
+	position: relative;
+	top: 35%;
+	transform: translateY(-50%);
+}
+
+.section.banner .content {
+	width: 88%;
+	margin: 0 auto;
+}
+
+.section.banner .content h1 {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 25px;
+	font-weight: bold;
+}
+
+.search_form {
+	border: 1px solid #fff;
+	border-radius: 40px;
+	background: rgba(0,0,0,.5);
+	padding: 15px 25px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.search_form .sub_group {
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+}
+
+.search_form .group {
+	position: relative;
+	display: flex;
+	flex: 1 1 50%;
+	align-items: center;
+	flex-wrap: wrap;
+	font-size: 16px;
+}
+
+.search_form .group:not(:first-child) {
+	padding-left: 20px;
+}
+
+.search_form .group::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	width: 1px;
+	height: 35px;
+	background: #fff;
+}
+
+.search_form .datetime {
+	width: 100%;
+}
+
+.search_form label, .search_form .sub_group a, .form_container .input-group i {
+	color: #28a745;
+}
+
+.search_form .btn_search {
+	background: #fff;
+	width: 35px;
+	height: 35px;
+	border-radius: 100%;
+	text-align: center;
+	line-height: 35px;
+}
+
+.search_form input[type=text] {
+	width: 100%;
+	padding: 0 10px 0 0;
+}
+
+.search_form .date i {
+	padding-left: 3px;
+}
+
+.search_form select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	margin-left: 30px;
+}
+
+.search_form .date, .search_form select {
+	cursor: pointer;
+}
+
+.search_form input[type=text], .search_form .date, .search_form select {
+	background-color: unset;
+	color: #fff;
+	border: none;
+}
+
+.place_wrap {
+	position: relative;
+	width: 100%;
+}
+
+.place_result {
+	position: absolute;
+	width: 100%;
+}
+
+.place_result a {
+	display: block;
+	padding: 10px 15px;
+	font-size: 13px;
+	line-height: 1.8;
+}
+
+.place_result i {
+	margin-right: 10px;
+	color: #28a745;
+}
+
+.search_form .place_result {
+	border: 1px solid #fff;
+	background: rgba(0,0,0,.9);
+}
+
+.search_form .place_result a {
+	color: #fff;
+}
+
+.search_form .place_result a:hover {
+	background-color: #6c757d;
+}
+
+.car_booking .place_result {
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.car_booking .place_result a {
+	color: #333;
+}
+
+.car_booking .place_result a:hover {
+	background-color: #eee;
+}
+
+.section h2 {
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.section.top_car, .section.latest_car {
+	padding: 50px 0;
+}
+
+.section .swiper-slide a {
+	display: block;
+}
+
+.section .swiper-slide img, .swiper-similar .swiper-slide img {
+	width: 100%;
+	border-radius: 4px;
+}
+
+.section .swiper-slide h3, .swiper-similar .swiper-slide h3 {
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #000;
+}
+
+.section .swiper-button-next, .section .swiper-button-prev {
+	top: 40%;
+}
+
+.section .swiper-pagination, .swiper-similar .swiper-pagination {
+	position: unset;
+}
+
+.car_cover .swiper-slide img {
+	width: 100%;
+}
+
+.car_content {
+	width: 60%;
+	float: left;
+	padding-right: 25px;
+}
+
+.car_sidebar {
+	width: 40%;
+	float: right;
+	/*margin-top: 40px;*/
+	margin-bottom: 80px;
+}
+
+.car_title {
+	text-transform: uppercase;
+	font-size: 28px;
+	font-weight: bold;
+	margin: 30px 0 20px 0;
+}
+
+.car_info {
+	display: flex;
+	/*width: 100%;*/
+	padding: 40px 0;
+	font-size: 16px;
+	color: #6c757d;
+}
+
+.car_info .col_1 {
+	width: 25%;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.car_info .col_2 {
+	width: 75%;
+}
+
+.car_info ul {
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.car_info ul li {
+	width: 50%;
+	margin-bottom: 15px;
+}
+
+.car_booking {
+	padding: 15px 45px;
+	/*border-radius: 15px;*/
+	background-color: #f5f5f5;
+	box-shadow: 0 1px 6px rgba(0,0,0,.3);
+}
+
+.car_booking .price h3 {
+	text-align: center;
+	color: #28a745;
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.car_booking .price span {
+	font-size: 13px;
+	color: #6c757d;
+}
+
+.car_booking .datetime {
+	width: 100%;
+
+}
+
+.car_booking .datetime span.date {
+	width: 60%;
+	text-align: left;
+	background-color: #fff;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.car_booking .datetime .date, .car_booking .datetime .time, .car_booking .address {
+	font-size: 14px;
+}
+
+.form-control:focus {
+	border-color: #ccc;
+	box-shadow: none;
+}
+
+.car_booking .form-group {
+	margin-bottom: 20px;
+}
+
+.car_booking .form-group .error {
+	margin-top: 10px;
+}
+
+.car_booking label {
+	margin-bottom: 10px;
+}
+
+.bill_wrap .panel-body {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.car_bill .group {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 10px;
+	line-height: 30px;
+}
+
+.car_bill .group:first-child {
+	padding-top: 0;
+}
+
+.car_bill .group p {
+	margin: 0;
+}
+
+.car_bill .group.line {
+	border-top: 1px solid #ccc;
+	padding-top: 5px;
+	margin-top: 5px;
+}
+
+.group .days, .group .sum_amount {
+	font-weight: bold;
+}
+
+.car_booking button {
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.form_container {
+	max-width: 420px;
+	margin: 0 auto;
+}
+
+.form_container input {
+	font-size: 14px;
+	box-shadow: none;
+}
+
+.form_container .form-group {
+	margin-bottom: 20px;
+}
+
+.form_container .input-group input {
+	border-left: none;
+	padding-left: 6px;
+}
+
+.form_container .input-group-addon {
+	background-color: unset;
+}
+
+.form_container .input-group-addon:first-child {
+	padding-right: 6px;
+}
+
+.form_container img {
+	max-width: 100%;
+}
+
+#signup_form {
+	padding: 60px 0 80px 0;
+}
+
+#login_form {
+	padding-bottom: 20px;
+}
+
+#bookingModal .form_container {
+	max-width: 770px;
+	margin: 0 auto 20px;
+}
+
+#bookingModal h4 {
+	text-transform: uppercase;
+}
+
+#bookingModal label {
+	margin-bottom: 10px;
+}
+
+#bookingModal hr {
+	margin-top: 10px;
+}
+
+#bookingModal .group {
+	display: flex;
+	justify-content: space-between;
+	/*margin-bottom: 30px;*/
+}
+
+.form_container h2 {
+	margin-top: 0;
+	font-size: 28px;
+	text-align: center;
+	font-weight: bold;
+	padding-bottom: 40px;
+}
+
+.similar-wrap {
+	clear: both;
+	margin-bottom: 60px;
+}
+
+.similar-wrap h2 {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+}
+
+.footer {
+	background-color: #222;
+	color: #fff;
+	font-size: 16px;
+}
+
+.footer .container {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.footer h4 {
+	margin-bottom: 30px;
+}
+
+.footer ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.footer ul li {
+	padding: 5px 0;
+}
+
+.footer .copyright {
+	text-align: center;
+	padding-top: 30px;
+}
+
+.modal-header {
+	border-bottom: none;
+}
+
+.vt_404 {
+	min-height: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.m-b-lg {
+	margin-bottom: 30px;
+}

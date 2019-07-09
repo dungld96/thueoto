@@ -53,7 +53,7 @@ class CarController extends Controller
             
             return response()->json(['message'=>'Thành công', 'status' => 'success']);
         } catch (\Exception $e) {
-            return response()->json(['message'=>$e->getMessage(), 'status' => 'success']);
+            return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
         
     }
@@ -71,7 +71,7 @@ class CarController extends Controller
                $car->delete();
             }
         } catch (Exception $e) {
-            return response()->json(['message'=>$e->getMessage(), 'status' => 'success']);
+            return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
         return response()->json(['message'=>'Thành công', 'status' => 'success']);
     }

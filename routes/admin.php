@@ -1,5 +1,5 @@
 <?php
-Route::group(['middleware' => ['auth', 'check-admin']], function(){
+Route::group(['middleware' => ['check-admin']], function(){
 	Route::get('/dashboard', [
 		'as'=> 'dashboard',
 		'uses'=> 'Admin\DashboardController@index'
