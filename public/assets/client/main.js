@@ -61,8 +61,12 @@ $(document).ready(function() {
 				data: $('#signup_form').serialize(),
 				dataType: 'json',
 				success: function(result) {
-					alert(result.msg);
-				}
+					alert(result.message);
+					window.location.href = '/';
+				},
+				error: function(e) {
+					alert(e.responseText);
+				  }
 			});
 		}
 	});

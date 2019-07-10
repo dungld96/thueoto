@@ -22,9 +22,9 @@
                         <thead>
                             <tr>
                             	<th width="80px">STT</th>
-                                <th width="180px">Tên khách hàng</th>
+                                {{-- <th width="180px">Tên khách hàng</th>
                                 <th width="180px">Số điện thoại</th>
-                                <th>Tên xe</th>
+                                <th>Tên xe</th> --}}
                                 <th>Ngày nhận xe</th>
                                 <th>Ngày trả xe</th>
                                 <th>Ngày tạo</th>
@@ -48,19 +48,18 @@
 @endsection
 
 @section('script-datatable')
-<script src="{{asset('js/admin/cars.js')}}" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     var carsTable = $('#carsdata').DataTable({
         processing: true,
-        // serverSide: true,
+        serverSide: true,
         ajax: '{{route('booking.list.getdata')}}',
         language: {url: '{{asset('lang/datatable.json')}}'},
         columns: [
             { data: 'DT_Row_Index', name: 'DT_Row_Index' },
-            {data: 'name', name: 'name'},
-            {data: 'phone', name: 'phone'},
-            {data: 'carName', name: 'carName'},
+            // {data: 'name', name: 'name'},
+            // {data: 'phone', name: 'phone'},
+            // {data: 'carName', name: 'carName'},
             {data: 'startDate', name: 'startDate'},
             {data: 'endDate', name: 'endDate'},
             {data: 'bookingDate', name: 'bookingDate'},
