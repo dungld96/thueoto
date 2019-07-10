@@ -14,6 +14,8 @@
 		'as'=> 'user.signup.create',
 		'uses'=> 'Auth\RegisterController@create'
 	]);
+
+
 	Route::get('/login/view', [
 		'as'=> 'user.login.view',
 		'uses'=> 'Auth\LoginController@loginView'
@@ -27,6 +29,7 @@
 		'uses'=> 'Auth\LoginController@logout'
 	]);
 
+
 	Route::get('/car/{id}', [
         'as' => 'car.detail',
         'uses' => 'Client\BookingController@getDetail'
@@ -35,6 +38,11 @@
 	Route::post('/car/booking', [
         'as' => 'car.booking',
         'uses' => 'Client\BookingController@booking'
+    ]);
+
+	Route::get('/cars/filter', [
+        'as' => 'car.filter',
+        'uses' => 'Client\FilterController@filter'
     ]);
 
 

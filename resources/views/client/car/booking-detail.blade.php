@@ -2,7 +2,7 @@
 @section('content')
     <div class="section content-detail">
         <div class="container">
-            <h1 class="car_title">Ford Ranger 2015</h1>
+        <h1 class="car_title">{{$car->name}}</h1>
             <div class="row">
                 <div class="col-md-7" >
                     <div class="album">

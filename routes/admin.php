@@ -40,7 +40,7 @@ Route::group(['middleware' => ['check-admin']], function(){
 	]);
 	Route::get('/booking/getdata', [
 		'as'=> 'booking.list.getdata',
-		'uses'=> 'Admin\BookingController@index'
+		'uses'=> 'Admin\BookingController@getAll'
 	]);
 
 

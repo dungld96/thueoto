@@ -53,6 +53,7 @@ ol, ul, ul li {
 }
 
 #help-section{
-    height: 530px;
+    height: 500px;
     background-image: url("../../images/help.png");
+    background-size: cover;
 }

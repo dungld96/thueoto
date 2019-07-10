@@ -56,9 +56,9 @@
                                             <label class="col-md-3 control-label">Giá thuê<span class="required">
                                         * </span></label>
                                             <div class="col-md-9">
-                                                <div class="input-icon right">
-                                                    <i class="fa"></i>
+                                                <div class="input-icon right input-group">
                                                     <input type="text" class="form-control input-full" name="costs" placeholder="Giá thuê theo ngày"/>
+                                                    <span class="input-group-addon">.000đ</span>
                                                 </div>
                                             </div>
                                         </div>

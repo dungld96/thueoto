@@ -17,7 +17,7 @@ $(document).ready(function() {
                         var oTable = $('#carsdata').dataTable(); 
                         oTable.fnDraw(false);
                     }else{
-                        alert(e);
+                        alert(data.message);
                     }
                 },
                 error: function(e) {

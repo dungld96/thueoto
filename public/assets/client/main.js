@@ -44,7 +44,23 @@ function placesSuggest(text) {
 }
 
 $(document).ready(function() {
-	
+	toastr.options = {
+		"closeButton": false,
+		"debug": false,
+		"newestOnTop": false,
+		"progressBar": false,
+		"positionClass": "toast-top-center",
+		"preventDuplicates": false,
+		"onclick": null,
+		"showDuration": "100",
+		"hideDuration": "500",
+		"timeOut": "5000",
+		"extendedTimeOut": "1000",
+		"showEasing": "swing",
+		"hideEasing": "linear",
+		"showMethod": "fadeIn",
+		"hideMethod": "fadeOut"
+	}
 
 	$('#signup_form').submit(function(e) {
 		e.preventDefault();
@@ -107,6 +123,7 @@ $(document).ready(function() {
 		$(this).closest('.place_wrap').find('input').val($(this).text());
 		$('.place_result').remove();
 	});
+
 });
 
 $(document).mouseup(function(e) {
@@ -123,3 +140,4 @@ function toTimestamp(date, time) {
 	return datetime.getTime() / 1000;
 
 }
+

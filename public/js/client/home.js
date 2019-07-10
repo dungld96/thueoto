@@ -59,10 +59,14 @@ $(document).ready(function () {
     });
 
     $('.search_form .btn_search').on('click', function () {
-        let address = $('input[name=place]').val();
+        let address = $('input[name=place]').val().trim();
         let starDateTime = moment(startDate + " " +  startTime, "MM/DD/YYYY HH:mm:ss").valueOf();
         let endDateTime = moment(endDate + " " +  endTime, "MM/DD/YYYY HH:mm:ss").valueOf();
-        window.location.href = `/filter?startDate=${starDateTime}&endDate=${endDateTime}&address=${address}`;
+        if(!address){
+            toastr.error('Bạn phải nhập điạ điểm để tìm kiếm');
+            return;
+        }
+        window.location.href = `/cars/filter?startDate=${starDateTime}&endDate=${endDateTime}&address=${address}`;
     });
     
 
