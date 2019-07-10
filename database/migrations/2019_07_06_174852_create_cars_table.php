@@ -25,7 +25,7 @@ class CreateCarsTable extends Migration
             $table->string('mortgage')->nullable();
             $table->string('rules')->nullable();
             $table->string('thumbnail')->nullable();
-            $table->string('costs');
+            $table->integer('costs');
 
             $table->string('status'); // 1: deactive, 2: active , 2: đang book, 3: đã book
             $table->timestamps();

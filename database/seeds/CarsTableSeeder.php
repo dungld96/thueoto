@@ -18,6 +18,7 @@ class CarsTableSeeder extends Seeder
            'name' => 'Huyndai 2018',
            'car_manufacturer' => 'Huyndai',
            'seats' => 4,
+           'costs' => 500,
            'status' => 2,
            ]
        );
@@ -27,6 +28,7 @@ class CarsTableSeeder extends Seeder
                 'name' => 'Audi 2017',
                 'car_manufacturer' => 'Audi',
                 'seats' => 4,
+                'costs' => 600,
                 'status' => 2,
             ]
        );
@@ -36,6 +38,7 @@ class CarsTableSeeder extends Seeder
                 'name' => 'Toyota 2017',
                 'car_manufacturer' => 'Toyota',
                 'seats' => 4,
+                'costs' => 800,
                 'status' => 1,
             ]
        );

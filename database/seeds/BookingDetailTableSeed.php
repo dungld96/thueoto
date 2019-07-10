@@ -14,8 +14,8 @@ class BookingDetailTableSeed extends Seeder
     {
         DB::table('booking_details')->insert(
             [
-	           'trip_code' => 'T1',
 	           'user_id' => 1,
+	           'car_id' => 1,
 	           'booking_date' => '2019-07-09 03:07:91',
 	           'start_date' => '2019-07-11 09:07:91',
 	           'end_date' => '2019-07-15 09:07:91',
@@ -25,8 +25,8 @@ class BookingDetailTableSeed extends Seeder
        	);
        	DB::table('booking_details')->insert(
             [
-	           'trip_code' => 'T2',
 	           'user_id' => 1,
+	           'car_id' => 2,
 	           'booking_date' => '2019-07-09 02:07:91',
 	           'start_date' => '2019-07-14 09:07:91',
 	           'end_date' => '2019-07-19 09:07:91',
@@ -36,8 +36,8 @@ class BookingDetailTableSeed extends Seeder
        	);
        	DB::table('booking_details')->insert(
             [
-	           'trip_code' => 'T3',
 	           'user_id' => 1,
+	           'car_id' => 3,
 	           'booking_date' => '2019-07-05 03:07:91',
 	           'start_date' => '2019-07-18 09:07:91',
 	           'end_date' => '2019-07-30 09:07:91',
