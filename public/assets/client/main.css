@@ -414,7 +414,7 @@ input, textarea {
 	margin: 0 auto;
 }
 
-.form_modal_container {
+.confirmBookingModal .form_container {
 	max-width: 770px;
     margin: 0 auto 20px
 }

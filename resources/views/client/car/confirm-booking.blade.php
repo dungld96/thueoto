@@ -2,7 +2,7 @@
         <button type="button" class="close" data-dismiss="modal">×</button>
     </div>
     <div class="modal-body">
-        <div class="form_modal_container">
+        <div class="form_container">
             <h2>Xác nhận đặt xe</h2>
             <h4>Ford Transit 2019</h4>
             <hr>
