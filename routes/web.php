@@ -38,6 +38,11 @@
 	Route::post('/car/booking', [
         'as' => 'car.booking',
         'uses' => 'Client\BookingController@booking'
+	]);
+	
+	Route::post('/car/booking/confirm', [
+        'as' => 'car.booking.confirm',
+        'uses' => 'Client\BookingController@confirmBooking'
     ]);
 
 	Route::get('/cars/filter', [

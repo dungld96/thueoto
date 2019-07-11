@@ -9,14 +9,18 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function(result) {
                     if (result.status == 'error') {
-                        alert(result.message);
+                        toastr.error(result.message);
                     } else {
+                        toastr.success(result.message);
                         let role = result.role;
-                        if(role > 1){
-                            window.location.href = "/admin/dashboard";
-                        }else{
-                            window.location.href = window.location.search;
-                        }
+                        setTimeout(() => {
+                            if(role > 1){
+                                window.location.href = "/admin/dashboard";
+                            }else{
+                                window.location.href = window.location.search;
+                            }
+                        }, 1000);
+                        
                     }
                 }
             });

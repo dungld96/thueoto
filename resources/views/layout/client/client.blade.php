@@ -13,7 +13,7 @@
 <meta content="" name="description"/>
 <meta content="" name="author"/>
 <meta name="_token" content="{{csrf_token()}}" />
-<link rel="shortcut icon" href="favicon.ico"/>
+<link rel="shortcut icon" href="{{asset('favicon.ico')}}"/>
 @include('sub.client.style')
 </head>
     <body cz-shortcut-listen="true">

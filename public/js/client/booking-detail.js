@@ -159,7 +159,7 @@ $(document).ready(function () {
 			dataType: 'json',
 			success: function(result) {
 				if (result.error) {
-					if (result.status == 'login') {
+					if (result.status == 'no-auth') {
 						let target = site_url + '/login/view';
 						$("#loginModal .modal-content").load(target, function () {
 				            $("#loginModal").modal("show");
@@ -167,11 +167,9 @@ $(document).ready(function () {
 						$('#loginModal').modal('show');
 					}
 				} else {
-					alert('Bạn đã đặt xe thành công');
-					window.location.href = '/';
-					// $('#bookingModal .modal-body').html(result.html);
-					// $('#bookingModal').modal('show');
-					// $('[data-toggle="tooltip"]').tooltip();
+					$('#confirmBookingModal .modal-content').html(result.html);
+					$('#confirmBookingModal').modal('show');
+					$('[data-toggle="tooltip"]').tooltip();
 				}
 			}
 		});

@@ -33,9 +33,9 @@ class LoginController extends Controller
             //     return redirect()->route('dashboard');
             // }
 
-            return response()->json(['message'=>'Thành công', 'status' => 'success', 'role' => $role]);
+            return response()->json(['message'=>'Đăng nhập thành công', 'status' => 'success', 'role' => $role]);
     	}else{
-            return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
+            return response()->json(['message'=>'Thông tin đăng nhập không chính xác', 'status' => 'error']);
         }
     }
     

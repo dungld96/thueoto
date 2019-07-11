@@ -90,7 +90,7 @@
                                         </div>
                                         <div class="group line">
                                             <p><b>Tổng cộng</b></p>
-                                            <p><span class="sum_amount">630.000</span><b>đ</b></p>
+                                            <p><span class="sum_amount"></span><b>đ</b></p>
                                         </div>
                                     </div>
                                 </div>
@@ -102,11 +102,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
     <div class="section similar-wrap">
         <div class="container">
             <h2>Xe liên quan</h2>
@@ -129,6 +124,12 @@
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>
                 <div class="swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></div>
+            </div>
+        </div>
+    </div>
+    <div id="confirmBookingModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
             </div>
         </div>
     </div>

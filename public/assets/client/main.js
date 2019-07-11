@@ -67,7 +67,7 @@ $(document).ready(function() {
 		var password = $('input[name=password]').val().trim();
 		var password_confirm = $('input[name=password_confirm]').val().trim();
 		if (password != password_confirm) {
-			alert('Xác nhận mật khẩu không chính xác!');
+			toastr.error('Xác nhận mật khẩu không chính xác!')
 			return false;
 		}
 		if (validate_form($(this))) {
@@ -77,8 +77,10 @@ $(document).ready(function() {
 				data: $('#signup_form').serialize(),
 				dataType: 'json',
 				success: function(result) {
-					alert(result.message);
-					window.location.href = '/';
+					toastr.error(result.message)
+					setTimeout(() => {
+						window.location.href = '/';
+					}, 1200);
 				},
 				error: function(e) {
 					alert(e.responseText);
@@ -90,15 +92,18 @@ $(document).ready(function() {
 	$('body').on('submit', '#confirm_form', function(e) {
 		e.preventDefault();
 		$.ajax({
-			url: site_url + '/ajax/booking_car',
+			url: site_url + '/car/booking/confirm',
 			type: 'POST',
 			data: $('#confirm_form').serialize(),
 			dataType: 'json',
 			success: function(result) {
-				if (result.error) {
-					alert(result.msg);
+				if (result.status == 'success') {
+					toastr.success("Bạn đã đặt xe thành công!");
+					setTimeout(() => {
+						window.location.href = '/';
+					}, 1200);
 				} else {
-					$('#bookingModal .form_container').html('<h2>Đã đặt xe thành công!</h2>');
+					toastr.error(result.message)
 				}
 			}
 		});

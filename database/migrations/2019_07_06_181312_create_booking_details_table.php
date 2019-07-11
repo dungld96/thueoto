@@ -21,6 +21,7 @@ class CreateBookingDetailsTable extends Migration
             $table->string('start_date');
             $table->string('end_date');
             $table->string('place_delivery');
+            $table->string('description')->nullable();
             $table->string('discount_code')->nullable();
             $table->string('status');  // 1: chưa duyệt, 2: đã duyêt, 3: kết thúc
             $table->timestamps();
