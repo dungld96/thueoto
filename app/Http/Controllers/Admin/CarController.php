@@ -79,5 +79,11 @@ class CarController extends Controller
         return response()->json(['message'=>'Thành công', 'status' => 'success']);
     }
 
+    public function edit($id)
+    {
+        $car = Car::find($id);
+        return view('admin.cars._edit', ['car' => $car]);
+    }
+
 }
 

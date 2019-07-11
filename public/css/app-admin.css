@@ -1,7 +1,10 @@
 .dataTables_wrapper .dataTables_filter input{
 	height: 30px;
 }
-
+.dataTables_wrapper table.dataTable.no-footer{
+    border: none;
+    border-top: 1px solid #ddd;
+}
 #carsdata_processing {
 	margin: 0;
     padding: 15px 20px;

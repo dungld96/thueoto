@@ -14,7 +14,8 @@
                                             <div class="col-md-9">
                                                 <div class="input-icon right">
                                                     <i class="fa"></i>
-                                                    <input type="text" class="form-control input-full" name="code" placeholder="Mã xe"/>
+                                                    <input type="text" class="form-control input-full" name="code" 
+                                                    placeholder="Mã xe" value="{{old('code', $car->code)}}"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -24,7 +25,8 @@
                                             <div class="col-md-9">
                                                 <div class="input-icon right">
                                                     <i class="fa"></i>
-                                                    <input type="text" class="form-control input-full" name="name" placeholder="Tên xe"/>
+                                                    <input type="text" class="form-control input-full" name="name" 
+                                                    placeholder="Tên xe" value="{{old('name', $car->name)}}"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -34,7 +36,7 @@
                                             <div class="col-md-9">
                                                 <div class="input-icon right">
                                                     <i class="fa"></i>
-                                                    <input type="text" class="form-control input-full" name="car_manufacturer" placeholder="Hãng xe"/>
+                                                    <input type="text" class="form-control input-full" name="car_manufacturer" placeholder="Hãng xe" value="{{old('car_manufacturer', $car->car_manufacturer)}}"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -46,7 +48,10 @@
                                                     <i class="fa"></i>
                                                     <select name="seats" class="form-control input-full" data-placeholder="Số ghế">
                                                         @for ($i = 1; $i < 30; $i++)
-                                                            <option value="{{$i}}">{{$i}}</option>
+                                                            <option 
+                                                            @if($car->seats == $i) selectd
+                                                            @endif
+                                                            value="{{$i}}">{{$i}}</option>
                                                         @endfor
                                                     </select>
                                                 </div>
@@ -57,7 +62,8 @@
                                         * </span></label>
                                             <div class="col-md-9">
                                                 <div class="input-icon right input-group">
-                                                    <input type="text" class="form-control input-full" name="costs" placeholder="Giá thuê theo ngày"/>
+                                                    <input type="text" class="form-control input-full" name="costs" 
+                                                    placeholder="Giá thuê theo ngày" value="{{old('costs', $car->costs)}}"/>
                                                     <span class="input-group-addon">.000đ</span>
                                                 </div>
                                             </div>
@@ -65,7 +71,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Mô tả</label>
                                             <div class="col-md-9">
-                                                <textarea class="form-control input-full" rows="3" name="description" placeholder="Mô tả"></textarea>
+                                                <textarea class="form-control input-full" rows="3" name="description" placeholder="Mô tả">{{$car->description}}</textarea>
                                             </div>
                                         </div>
                                     </form>

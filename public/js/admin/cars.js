@@ -31,13 +31,17 @@ $(document).ready(function() {
         
     });
     
-    // $('body').on('click', '.btnEditCar',function (ev) {
-    //     ev.preventDefault();
-    //     var carId = $(this).data("id");
-    //     target = BASE_URL + "/admin/cars/edit/"+carId,
-    //     $("#addCar .modal-content").load(target, function () {
-    //     $("#addCar").modal("show");
-        
-    // });
+    $('body').on('click', '.btnEditCar',function (ev) {
+        ev.preventDefault();
+        var carId = $(this).data("id");
+        target = BASE_URL + "/admin/cars/edit/"+carId,
+        $("#addCar .modal-content").load(target, function () {
+            $("#addCar").modal("show");
+        });
+    });
+
+
+
+    
 });
 

@@ -29,7 +29,13 @@ Route::group(['middleware' => ['check-admin']], function(){
 		'as'=> 'car.create',
 		'uses'=> 'Admin\CarController@create'
 	]);
-	Route::get('/cars/delete/{id}', [
+
+	Route::get('/cars/edit/{id}', [
+        'as' => 'car.edit',
+        'uses' => 'Admin\CarController@edit'
+    ]);
+
+    Route::get('/cars/delete/{id}', [
         'as' => 'car.delete',
         'uses' => 'Admin\CarController@delete'
     ]);
