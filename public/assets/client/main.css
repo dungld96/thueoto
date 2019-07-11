@@ -410,6 +410,11 @@ input, textarea {
 }
 
 .form_container {
+	max-width: 420px;
+	margin: 0 auto;
+}
+
+.form_modal_container {
 	max-width: 770px;
     margin: 0 auto 20px
 }
