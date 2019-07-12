@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DataTables;
+use File;
 use App\Models\Car;
 use App\Models\CarImages;
 
@@ -54,7 +55,7 @@ class CarController extends Controller
                 $carImage->save();
             }
             
-            return response()->json(['message'=>'Thành công', 'status' => 'success']);
+            return response()->json(['message'=>'Thêm xe thành công', 'status' => 'success']);
         } catch (\Exception $e) {
             return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
@@ -63,16 +64,23 @@ class CarController extends Controller
 
     public function create()
     {
-        return view('admin.cars._edit');
+        $car = new Car();
+
+        return view('admin.cars._edit', ['car' => $car]);
     }
 
     public function delete($id)
     {
         try {
-            $car = Car::find($id);
-            if ($car) {
-               $car->delete();
+            $images = CarImages::select('id','name')->where('car_id', $id)->get()->toArray();;
+            $idImages_to_delete = array_map(function($item){ return $item['id']; }, $images);
+            foreach ($images as $img) {
+			    File::delete('uploads/'.$img['name']);
             }
+
+            CarImages::whereIn('id', $idImages_to_delete)->delete();
+            Car::find($id)->delete();;
+
         } catch (Exception $e) {
             return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
@@ -82,7 +90,44 @@ class CarController extends Controller
     public function edit($id)
     {
         $car = Car::find($id);
-        return view('admin.cars._edit', ['car' => $car]);
+        $images = CarImages::select('name')->where('car_id', $id)->get();
+        foreach ($images as $i=> $img) {
+            $img->size = File::size('uploads/'.$img->name);
+            
+        }
+        return view('admin.cars._edit', ['car' => $car, 'images' => $images]);
+    }
+
+    public function update(Request $request)
+    {
+        $files = $request->input('document', []);
+        try {
+            $car = Car::find($request->id);
+            $car->code = $request->code;
+            $car->car_manufacturer = $request->car_manufacturer;
+            $car->description = $request->description;
+            $car->name = $request->name;
+            $car->seats = $request->seats;
+            $car->costs = $request->costs;
+            $car->status = 2;
+            $car->thumbnail = $files[0];
+            $car->save();
+
+            $images = CarImages::select('id','name')->where('car_id', $request->id)->get()->toArray();
+            $idImages_to_delete = array_map(function($item){ return $item['id']; }, $images);
+            CarImages::whereIn('id', $idImages_to_delete)->delete();
+
+            foreach ( $files as $file) {
+                $carImage = new CarImages;
+                $carImage->car_id = $car->id;
+                $carImage->name = $file;
+                $carImage->save();
+            }
+            
+            return response()->json(['message'=>'Thành công', 'status' => 'success']);
+        } catch (\Exception $e) {
+            return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
+        }
     }
 
 }

@@ -25,6 +25,11 @@ Route::group(['middleware' => ['check-admin']], function(){
 		'uses'=> 'ImagesController@imageStore'
 	]);
 
+	Route::post('/cars/images/remove/{name}', [
+		'as'=> 'admin_car_image_remove',
+		'uses'=> 'ImagesController@imageRemove'
+	]);
+
 	Route::get('/cars/create', [
 		'as'=> 'car.create',
 		'uses'=> 'Admin\CarController@create'
@@ -33,6 +38,11 @@ Route::group(['middleware' => ['check-admin']], function(){
 	Route::get('/cars/edit/{id}', [
         'as' => 'car.edit',
         'uses' => 'Admin\CarController@edit'
+	]);
+	
+	Route::put('/cars/update', [
+        'as' => 'car.update',
+        'uses' => 'Admin\CarController@update'
     ]);
 
     Route::get('/cars/delete/{id}', [
@@ -48,41 +58,10 @@ Route::group(['middleware' => ['check-admin']], function(){
 		'as'=> 'booking.list.getdata',
 		'uses'=> 'Admin\BookingController@getAll'
 	]);
-
-
-
-
-
-
-
-
-
-
-
-	Route::get('/reservation-list', [
-		'as'=> 'admin_reservation',
-		'uses'=> 'AdminController@admin_reservation'
+	Route::get('/booking/view/{id}', [
+		'as'=> 'booking.view',
+		'uses'=> 'Admin\BookingController@view'
 	]);
 
-	Route::get('/logout', [
-		'as'=> 'admin_logout',
-		'uses'=> 'AdminController@admin_logout'
-	]);
-
-
-	Route::get('/customer-list', [
-		'as'=> 'admin_custoemr',
-		'uses'=> 'AdminController@admin_custoemr'
-	]);
-
-	Route::get('/messages', [
-		'as'=> 'admin_message',
-		'uses'=> 'AdminController@admin_message'
-	]);
-
-	Route::get('/gwapoko2', [
-		'as'=> 'gwapo2',
-		'uses'=> 'AdminController@gwapo2'
-	]);	
 });
 	

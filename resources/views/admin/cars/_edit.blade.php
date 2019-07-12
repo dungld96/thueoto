@@ -8,6 +8,9 @@
                                 <div class="col-md-7">
                                     <form class="form-horizontal" role="form" id="carInfoForm">
                                         {{csrf_field()}}
+                                        @if (isset($car->id))
+                                        <input type="hidden" name="id" value="{{old('id', $car->id)}}"/>
+                                        @endif
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Mã xe <span class="required">
                                         * </span></label>
@@ -49,7 +52,7 @@
                                                     <select name="seats" class="form-control input-full" data-placeholder="Số ghế">
                                                         @for ($i = 1; $i < 30; $i++)
                                                             <option 
-                                                            @if($car->seats == $i) selectd
+                                                            @if($car->seats == $i) selected
                                                             @endif
                                                             value="{{$i}}">{{$i}}</option>
                                                         @endfor
@@ -106,8 +109,25 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" data-dismiss="modal" class="btn">Hủy</button>
+                        @if (isset($car->id))
+                        <button type="button" id="btnUpdateCar" class="btn green">Lưu</button>
+                        @else
                         <button type="button" id="btnAddCar" class="btn green">Thêm</button>
+                        @endif
                     </div>
 
 
-<script src="{{asset('js/admin/car_edit.js')}}" type="text/javascript"></script>
+    @if (isset($images))
+        <script>
+            var $images = {!! json_encode($images->toArray()) !!};
+        </script>
+    @endif
+
+    @if (isset($car->id))
+        <script>
+            var $carId= {!! $car->id !!};
+        </script>
+    @endif
+    
+    
+    <script src="{{asset('js/admin/car_edit.js')}}" type="text/javascript"></script>

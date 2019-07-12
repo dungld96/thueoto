@@ -9,6 +9,7 @@ $(document).ready(function() {
             $("#addCar").modal("show");
         });
 
+
     });
 
     $('body').on('click', '.btnDeleteCar',function (ev) {
@@ -40,6 +41,13 @@ $(document).ready(function() {
         });
     });
 
+
+    $('#addCar').on('hidden.bs.modal', function () {
+        $("#addCar .modal-content").html('');
+        if(typeof $images !== 'undefined'){
+            $images = undefined;
+        }
+    });
 
 
     

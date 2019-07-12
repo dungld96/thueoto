@@ -8,10 +8,10 @@
             <hr>
             <form id="confirm_form" method="post">
                     {{ csrf_field() }}
-                <input type="hidden" name="id" value="2">
-                <input type="hidden" name="start_date" value="1562778000">
-                <input type="hidden" name="end_date" value="1562869800">
-                <input type="hidden" name="address" value="Hanoi (Ha Noi), Hà Nội, Vietnam">
+                <input type="hidden" name="id" value="{{$car->id}}">
+                <input type="hidden" name="start_date" value="{{$dataBooking['startDateTt']}}">
+                <input type="hidden" name="end_date" value="{{$dataBooking['endDateTt']}}">
+                <input type="hidden" name="address" value="{{$dataBooking['placeDelivery']}}">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-4">

@@ -36,23 +36,28 @@
           </form>
           <!-- END RESPONSIVE QUICK SEARCH FORM -->
         </li>
-        <li class="start active open">
+        <li class="start {{ request()->is('admin/dashboard') ? 'active open' : '' }} ">
           <a href="{{route('dashboard')}}">
           <i class="icon-home"></i>
           <span class="title">Dashboard</span>
-          <span class="selected"></span>
+          @if (request()->is('admin/dashboard'))
+            <span class="selected"></span>
+          @endif
           </a>
         </li>
-        <li>
+        <li class="{{ request()->is('admin/booking*') ? 'active open' : '' }}">
           <a href="javascript:;">
           <i class="icon-basket"></i>
           <span class="title">Quản lý chuyến xe</span>
-          <span class="arrow "></span>
+          @if (request()->is('admin/booking*'))
+            <span class="selected"></span>
+          @endif
+          {{-- <span class="arrow"></span> --}}
           </a>
           <ul class="sub-menu">
-            <li>
+            <li class="{{request()->is('admin/booking') ? 'active' : ''}}">
               <a href="{{route('booking.list')}}">
-              <i class="icon-home"></i>
+              <i class="fas fa-edit"></i>
               Xe đang được đặt</a>
             </li>
             {{-- <li>
@@ -68,11 +73,14 @@
           </ul>
         </li>
 
-        <li>
+        <li class="{{ request()->is('admin/cars*') ? 'active open' : '' }}">
           <a href="javascript:;">
-          <i class="icon-basket"></i>
+          <i class="fas fa-list-alt"></i>
           <span class="title">Danh mục</span>
-          <span class="arrow "></span>
+          @if (request()->is('admin/cars*'))
+            <span class="selected"></span>
+          @endif
+          {{-- <span class="arrow"></span> --}}
           </a>
           <ul class="sub-menu">
             {{-- <li>
@@ -80,9 +88,9 @@
               <i class="icon-home"></i>
               Danh mục khách hàng</a>
             </li> --}}
-            <li>
+            <li class="{{request()->is('admin/cars') ? 'active' : ''}}">
               <a href="{{route('admin_cars_index')}}">
-              <i class="icon-basket"></i>
+              <i class="fas fa-car"></i>
               Danh mục xe</a>
             </li>
            {{--  <li>

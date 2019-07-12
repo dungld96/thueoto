@@ -1,11 +1,10 @@
 const BASE_URL = window.location.origin;
 $(document).ready(function() {
     $('#btnAddCar').click(() => {
-        $('#btnAddCar').attr('disabled', 'disabled');
+        $('#btnSaveCar').attr('disabled', 'disabled');
         let valid = $('#carInfoForm').valid();
         let carInfo = $('#carInfoForm').serialize();
         let url = BASE_URL + '/admin/cars/store';
-        console.log(carInfo);
         if (valid) {
             $.ajax({
                 type: 'POST',
@@ -13,11 +12,12 @@ $(document).ready(function() {
                 data: carInfo,
                 success: function(data) {
                     if (data.status == 'success') {
+                        toastr.success(data.message);
                         $('#addCar').modal('hide');
                         var oTable = $('#carsdata').dataTable(); 
                         oTable.fnDraw(false);
                     }else{
-                        alert(data.message);
+                        toastr.error(data.message);
                     }
                 },
                 error: function(e) {
@@ -26,7 +26,36 @@ $(document).ready(function() {
 
             });
         }
-    })
+    });
+
+    $('#btnUpdateCar').click(() => {
+        $('#btnUpdateCar').attr('disabled', 'disabled');
+        let valid = $('#carInfoForm').valid();
+        let carInfo = $('#carInfoForm').serialize();
+        let url = BASE_URL + '/admin/cars/update';
+        console.log(url);
+        if (valid) {
+            $.ajax({
+                type: 'PUT',
+                url: url,
+                data: carInfo,
+                success: function(data) {
+                    if (data.status == 'success') {
+                        toastr.success(data.message);
+                        $('#addCar').modal('hide');
+                        var oTable = $('#carsdata').dataTable(); 
+                        oTable.fnDraw(false);
+                    }else{
+                        toastr.error(data.message);
+                    }
+                },
+                error: function(e) {
+                    alert(e);
+                }
+
+            });
+        }
+    });
     // Dropzone.autoDiscover = false;
     var uploadedDocumentMap = {}
     Dropzone.autoDiscover = false;
@@ -48,11 +77,23 @@ $(document).ready(function() {
         thumbnailHeight: 60,
         // autoProcessQueue: false,
         dictMaxFilesExceeded: "Bạn chỉ được tải lên 12 file.",
+        init: function () {
+            if(typeof $images !== 'undefined'){
+                $images.forEach( img => {
+                    let mockFile = { file_name: img.name, size: img.size }; // here we get the file name and size as response 
+                    this.options.addedfile.call(this, mockFile);
+                    this.emit("complete", mockFile);
+                    this.options.thumbnail.call(this, mockFile, BASE_URL+ "/uploads/"+img.name);
+                    $('#carInfoForm').append('<input type="hidden" name="document[]" value="' + img.name + '">')
+                });
+            }
+        },
         success: function(file, response) {
             $('#carInfoForm').append('<input type="hidden" name="document[]" value="' + response.name + '">')
             uploadedDocumentMap[file.name] = response.name
         },
         removedfile: function(file) {
+            console.log(file);
             file.previewElement.remove()
             var name = ''
             if (typeof file.file_name !== 'undefined') {
@@ -60,7 +101,44 @@ $(document).ready(function() {
             } else {
                 name = uploadedDocumentMap[file.name]
             }
-            $('form').find('input[name="document[]"][value="' + name + '"]').remove()
+            
+            let url = BASE_URL + '/admin/cars/images/remove/' + name;
+            let token = $('meta[name="_token"]').attr('content');
+            let isStored = false;
+            console.log('file.file_name', name);
+            if(typeof $images !== 'undefined'){
+                $images.forEach( img => {
+                    if(name == img.name){
+                        isStored = true;
+                    }
+                });
+            }
+            if(typeof $carId == 'undefined' || !isStored){
+                console.log('img no store');
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: {
+                        "name": name,
+                        "_token": token,
+                    },
+                    success: function(data) {
+                        if(data.status == 'success'){
+                            $('form').find('input[name="document[]"][value="' + name + '"]').remove();
+                        }else{
+                            console.log(data.message);
+                        }
+                    },
+                    error: function(e) {
+                        console.log(e);
+                    }
+                });
+            }else{
+                console.log('store');
+
+                $('form').find('input[name="document[]"][value="' + name + '"]').remove();
+            }
+            
         },
         error: function(file, response) {
             return false;
@@ -87,6 +165,10 @@ $(document).ready(function() {
                 required: true,
                 number: true
             },
+            costs: {
+                required: true,
+                number: true
+            },
         },
         messages: {
             name: {
@@ -103,6 +185,10 @@ $(document).ready(function() {
             seats: {
                 required: "Số ghế không được để trống",
                 number: "Số ghế phải dạng chữ số",
+            },
+            costs: {
+                required: "Số tiền không được để trống",
+                number: "Số tiền phải dạng chữ số",
             },
         },
         highlight: function(element) { // hightlight error inputs

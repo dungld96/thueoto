@@ -15,6 +15,8 @@
 <script src="{{asset('assets/global/plugins/jquery.cokie.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/global/plugins/uniform/jquery.uniform.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 {{-- <script src="{{asset('assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js')}}" type="text/javascript"></script>
@@ -48,8 +50,8 @@
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- DataTables -->
 <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<script src="{{asset('js/admin/app-admin.js')}}" type="text/javascript"></script>
 @yield('script-datatable')
-<script src="{{asset('js/app-admin.js')}}" type="text/javascript"></script>
 <script>
 jQuery(document).ready(function() {    
    Metronic.init(); // init metronic core componets

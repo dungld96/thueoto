@@ -53,7 +53,7 @@ $(document).ready(function() {
 		"preventDuplicates": false,
 		"onclick": null,
 		"showDuration": "100",
-		"hideDuration": "500",
+		"hideDuration": "1000",
 		"timeOut": "5000",
 		"extendedTimeOut": "1000",
 		"showEasing": "swing",
@@ -77,7 +77,7 @@ $(document).ready(function() {
 				data: $('#signup_form').serialize(),
 				dataType: 'json',
 				success: function(result) {
-					toastr.error(result.message)
+					toastr.success("Bạn đã đăng ký tài khoản thành công")
 					setTimeout(() => {
 						window.location.href = '/';
 					}, 1200);

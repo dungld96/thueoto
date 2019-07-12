@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <span class="text-muted">Bạn chưa là thành viên?</span>
-                        <a href="#">Hãy đăng ký ngay!</a>
+                    <a href="{{route('user.signup')}}">Hãy đăng ký ngay!</a>
                     </div>
                 </form>
             </div>

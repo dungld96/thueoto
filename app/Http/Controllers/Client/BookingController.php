@@ -40,6 +40,8 @@ class BookingController extends Controller
 			$endDate = date('h:i - d/m/Y', $request->end_date);
 			
 			$dataBooking['placeDelivery'] = $request->address;
+			$dataBooking['startDateTt'] = $request->start_date;
+			$dataBooking['endDateTt'] = $request->end_date;
 			$dataBooking['startDate'] = $startDate;
 			$dataBooking['endDate'] = $endDate;
 			$dataBooking['sumAmount'] = number_format($sumAmount, 0, ',', '.');
