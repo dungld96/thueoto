@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="group line">
                                             <p>Tổng phí thuê xe</p>
-                                            <p><span>{{$car->costs+30}}.000</span> × <span class="days">2 ngày</span></p>
+                                            <p><span>{{$car->costs+30}}.000</span> × <span class="days">{{$dataBooking['diffDays']}} ngày</span></p>
                                         </div>
                                         <div class="group line">
                                             <p><b>Tổng cộng</b></p>

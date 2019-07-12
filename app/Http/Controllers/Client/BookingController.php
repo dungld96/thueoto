@@ -23,21 +23,34 @@ class BookingController extends Controller
     public function booking(Request $request)
     {
     	if(Auth::guest()){
-    		return response()->json(['message'=>'Thất bại', 'status' => 'no-auth', 'error' => 'no auth']);
+    		return response()->json(['message'=>'Thất bại', 'status' => 'error', 'error' => 'no-auth']);
     	}
+
     	try {
 			$dataBooking = [];
-			$car = Car::find($request->id);
+			$id = $request->id;
+			$car = Car::find($id);
 			
-			$startDate = date('Y-m-d', $request->start_date);
-			$endDate = date('Y-m-d', $request->end_date);
-			$startDate = Carbon::createFromFormat('Y-m-d', $startDate);
-			$endDate = Carbon::createFromFormat('Y-m-d', $endDate);
-			
+			$startDate = Carbon::createFromTimestamp($request->start_date);
+			$endDate = Carbon::createFromTimestamp($request->end_date);
+
+			$bookedOfCar = BookingDetail::where('car_id',$id)->get();
+			if($bookedOfCar){
+				foreach ($bookedOfCar as $book) {
+					$bookedStartDate = new Carbon($book['start_date']);
+					$bookedEndDate = new Carbon($book['end_date']);
+					if($startDate->between($bookedStartDate, $bookedEndDate) 
+						|| $endDate->between($bookedStartDate, $bookedEndDate)){
+						return response()->json(['message'=> 'Xe đã được đặt trong thời gian trên, vui lòng chọn lại thời gian', 'status' => 'error', 'error' => 'booked']);
+					}
+
+				}
+			}
+
 			$diffDays = $endDate->diff($startDate)->days + 1;
 			$sumAmount = ($car->costs + 30) * $diffDays;
-	    	$startDate = date('h:i - d/m/Y', $request->start_date);
-			$endDate = date('h:i - d/m/Y', $request->end_date);
+	    	$startDate = $startDate->format('H:i - d/m/Y');
+			$endDate = $endDate->format('H:i - d/m/Y');
 			
 			$dataBooking['placeDelivery'] = $request->address;
 			$dataBooking['startDateTt'] = $request->start_date;
@@ -66,9 +79,9 @@ class BookingController extends Controller
     		$booking = new BookingDetail();
 	    	$booking->user_id = Auth::user()->id;
 	    	$booking->car_id = $request->id;
-	    	$booking->booking_date = date('Y-m-d h:i:s');
-	    	$booking->start_date = date('Y-m-d h:i:s', $request->start_date);
-	    	$booking->end_date = date('Y-m-d h:i:s', $request->end_date);
+	    	$booking->booking_date = date('Y-m-d H:i:s');
+	    	$booking->start_date = date('Y-m-d H:i:s', $request->start_date);
+	    	$booking->end_date = date('Y-m-d H:i:s', $request->end_date);
 	    	$booking->place_delivery = $request->address;	
 	    	$booking->description = $request->description;	
 	    	$booking->status = 1;
@@ -81,4 +94,6 @@ class BookingController extends Controller
     	return response()->json(['message'=>'Thành công', 'status' => 'success']);
     	
 	}
+
+
 }

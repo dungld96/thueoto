@@ -158,13 +158,15 @@ $(document).ready(function () {
 			data: $('#booking_form').serialize(),
 			dataType: 'json',
 			success: function(result) {
-				if (result.error) {
-					if (result.status == 'no-auth') {
+				if (result.status == 'error') {
+					if (result.error == 'no-auth') {
 						let target = site_url + '/login/view';
 						$("#loginModal .modal-content").load(target, function () {
 				            $("#loginModal").modal("show");
 						});
 						$('#loginModal').modal('show');
+					}else if(result.error == 'booked'){
+						toastr.error(result.message);
 					}
 				} else {
 					$('#confirmBookingModal .modal-content').html(result.html);

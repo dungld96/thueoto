@@ -23,6 +23,7 @@
                                         </div>
                                         <div class="snippet">
                                             <div class="item-title">
+                                                <i class="fas fa-user-circle"></i>
                                                 <span >{{Auth::user()->name}}</span>
                                                 <i class="fas fa-angle-down"></i>
                                             </div>

@@ -72,11 +72,11 @@
 										</div>
 										<div class="group line">
 											<p>Tổng phí thuê xe</p>
-											<p><span>{{$car->costs+30}}.000</span> × <span><b>1 ngày</b></span></p>
+											<p><span>{{$car->costs+30}}.000</span> × <span><b>{{$diffDays}} ngày</b></span></p>
 										</div>
 										<div class="group line">
 											<p><b>Tổng cộng</b></p>
-											<p><span><b>.000đ</b></span></p>
+											<p><span><b>{{$sumAmount}}.000đ</b></span></p>
 										</div>
 									</div>
 								</div>
