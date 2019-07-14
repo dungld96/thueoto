@@ -28,4 +28,12 @@ class LoginRequest extends FormRequest
             'password'=> 'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'email.required' => 'Email hoặc số điện thoại không được để trống',
+            'password.required'  => 'Mật khẩu không được để trống',
+        ];
+    }
 }

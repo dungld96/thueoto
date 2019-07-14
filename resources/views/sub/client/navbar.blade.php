@@ -31,7 +31,8 @@
                                     </div>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <ul>
-                                            <li><a id="btnLogin" href="{{route('user.logout')}}">Đăng Xuất</a></li>
+                                            <li><a href="{{route('user.logout')}}">Đăng Xuất</a></li>
+                                            <li><a href="{{route('user.account')}}">Tài khoản</a></li>
                                         </ul>
                                     </div>
                                 </span>

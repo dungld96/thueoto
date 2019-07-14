@@ -15,19 +15,19 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('code')->unique();
-            $table->string('car_manufacturer');
-            $table->string('number_plate')->nullable();;
-            $table->string('color')->nullable();;
-            $table->integer('seats')->nullable();;
+            $table->string('name', 100);
+            $table->string('code', 100)->unique();
+            $table->string('car_manufacturer', 100);
+            $table->string('number_plate', 100)->nullable();;
+            $table->string('color', 100)->nullable();;
+            $table->smallInteger('seats')->nullable();;
             $table->longText('description')->nullable();
             $table->string('mortgage')->nullable();
-            $table->string('rules')->nullable();
+            $table->longText('rules')->nullable();
             $table->string('thumbnail')->nullable();
             $table->integer('costs');
 
-            $table->string('status'); // 1: deactive, 2: active , 2: đang book, 3: đã book
+            $table->smallInteger('status'); // 1: deactive, 2: active , 2: đang book, 3: đã book
             $table->timestamps();
         });
     }

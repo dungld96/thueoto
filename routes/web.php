@@ -29,6 +29,43 @@
 		'uses'=> 'Auth\LoginController@logout'
 	]);
 
+	Route::get('/user/account', [
+		'as'=> 'user.account',
+		'uses'=> 'UserController@getAccount'
+	]);
+
+	Route::get('/user/account/editinfo', [
+		'as'=> 'user.account.editinfo',
+		'uses'=> 'UserController@editInfo'
+	]);
+
+	Route::post('/user/account/saveinfo', [
+		'as'=> 'user.account.saveinfo',
+		'uses'=> 'UserController@saveInfo'
+	]);
+
+	Route::get('/user/account/editphonenumber', [
+		'as'=> 'user.account.editphonenumber',
+		'uses'=> 'UserController@editPhoneNumber'
+	]);
+
+	Route::post('/user/account/savephonenumber', [
+		'as'=> 'user.account.saveinfo',
+		'uses'=> 'UserController@savePhoneNumber'
+	]);
+
+	Route::get('/user/account/editemail', [
+		'as'=> 'user.account.editemail',
+		'uses'=> 'UserController@editEmail'
+	]);
+
+	Route::post('/user/account/saveemail', [
+		'as'=> 'user.account.saveemail',
+		'uses'=> 'UserController@saveEmail'
+	]);
+
+
+
 
 	Route::get('/car/{id}', [
         'as' => 'car.detail',

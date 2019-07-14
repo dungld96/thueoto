@@ -13,7 +13,7 @@ ol, ul, ul li {
 }
 
 .navbar-nav .dropdown-menu ul {
-    padding-left: 15px;
+    padding-left: 0;
 }
 .navbar-nav .dropdown-menu ul li a {
     display: block;
@@ -21,9 +21,12 @@ ol, ul, ul li {
     width: 100%;
     height: auto;
     line-height: 20px;
-    padding: 7px 0px;
+    padding: 7px 0px 7px 15px;
     color: #fff;
     font-size: 15px;
+}
+.navbar-nav .dropdown-menu ul li a:hover {
+    background-color: #202020;
 }
  
 .navbar-nav li a {

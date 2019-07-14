@@ -15,15 +15,15 @@ class CreateBookingDetailsTable extends Migration
     {
         Schema::create('booking_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
-            $table->string('car_id');
-            $table->string('booking_date');
-            $table->string('start_date');
-            $table->string('end_date');
-            $table->string('place_delivery');
-            $table->string('description')->nullable();
-            $table->string('discount_code')->nullable();
-            $table->string('status');  // 1: chưa duyệt, 2: đã duyêt, 3: kết thúc
+            $table->integer('user_id');
+            $table->integer('car_id');
+            $table->dateTime('booking_date');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+            $table->string('place_delivery', 100);
+            $table->longText('description')->nullable();
+            $table->string('discount_code', 100)->nullable();
+            $table->smallInteger('status');  // 1: chưa duyệt, 2: đã duyêt, 3: kết thúc
             $table->timestamps();
         });
     }

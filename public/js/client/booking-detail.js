@@ -153,14 +153,14 @@ $(document).ready(function () {
 			return;
 		}
 		$.ajax({
-			url: site_url + '/car/booking',
+			url: BASE_URL + '/car/booking',
 			type: 'POST',
 			data: $('#booking_form').serialize(),
 			dataType: 'json',
 			success: function(result) {
 				if (result.status == 'error') {
 					if (result.error == 'no-auth') {
-						let target = site_url + '/login/view';
+						let target = BASE_URL + '/login/view';
 						$("#loginModal .modal-content").load(target, function () {
 				            $("#loginModal").modal("show");
 						});

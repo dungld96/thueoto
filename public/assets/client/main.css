@@ -4,8 +4,24 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-a:link, a:hover {
+a, a:link, a:hover {
 	text-decoration: none;
+	cursor: pointer;
+	color: #141414;
+}
+
+p{
+	margin: 0;
+}
+
+ol, ul, ul li {
+    list-style: none;
+}
+
+.d-flex{
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tooltip, .popover, .daterangepicker {
@@ -686,3 +702,222 @@ input, textarea {
     font-weight: 600;
 }
 
+.cover-profile.new-profile {
+    height: 26vw;
+    background-position: right 100%;
+}
+
+.content-profile .desc-profile.desc-account {
+    margin-bottom: .75rem;
+    align-items: flex-end;
+    display: flex;
+}
+
+.content-profile .desc-profile {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.content-profile {
+    background: #e8eaef;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-profile .desc-profile.desc-account .snippet {
+    padding-top: 20px;
+    margin-left: 0;
+    width: 70%;
+}
+
+.content-profile .desc-profile .item-title {
+    color: #141414;
+    font-size: 1.875em;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: .25rem;
+    position: relative;
+    justify-content: flex-start;
+}
+
+.content-profile .desc-profile .item-title p{
+	display: inline-block;
+}
+.content-profile .desc-profile .item-title a.func-edit {
+    margin-left: 10px;
+}
+
+.content-profile .desc-profile .item-title a.func-edit i{
+    opacity: .65;
+    font-size: 20px;
+}
+
+.content-profile .desc-profile .avatar-box {
+    width: 30%;
+    display: flex;
+}
+
+.content-profile .desc-profile.desc-account .avatar-box {
+    margin: -100px 0 30px;
+    justify-content: center
+}
+
+.content-profile .desc-profile .avatar.has-edit {
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    box-shadow: 0 3px 4px rgba(0,0,0,.3);
+}
+
+.content-profile .desc-profile .avatar--xl {
+    background: #fff;
+}
+
+.avatar--xl {
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+}
+
+.avatar {
+    position: relative;
+}
+
+.avatar, .avatar-img, .borderRadius-circle {
+    border-radius: 100%;
+}
+
+.content-profile .desc-profile .avatar.has-edit .avatar-img {
+    box-shadow: 0 3px 4px rgba(0,0,0,.3);
+}
+
+.avatar-img {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.avatar-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+}
+
+.content-profile .bar-line{
+    width: 45px;
+    height: 1px;
+    background: #141414;
+    margin: 0 10px;
+}
+
+.content-profile .snippet .d-flex{
+	justify-content: flex-start;
+	margin-bottom: 10px;
+}
+
+.content-profile .line-info .d-flex{
+	width: calc(35% - 1rem);
+    margin-right: 1rem;
+}
+
+.content-profile .line-info .info{
+	display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    background: hsla(0,0%,100%,.8);
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: .25rem 1rem;
+    width: calc(50% - .5rem);
+    align-items: center;
+    min-height: 58px;
+}
+
+.content-profile .line-info .info .label{
+	color: #6e6e6e;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: .25rem;
+}
+
+.content-profile .line-info .info .ctn{
+	position: relative;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.content-profile .desc-profile .information.information--acc {
+    width: 100%;
+    margin-left: 0;
+}
+
+.content-profile .desc-profile .inside {
+    padding: 20px 0;
+    background: hsla(0,0%,100%,.8);
+    margin-bottom: 20px;
+}
+
+.content-profile .information .inside {
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+.content-profile .desc-profile .inside ul {
+    align-items: flex-start;
+    text-align: center;
+    display: flex;
+}
+
+.content-profile .desc-profile .inside li {
+    position: relative;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content-profile .desc-profile .inside li span.label {
+    width: 100%;
+    color: #141414;
+    font-size: 16px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.content-profile .desc-profile .inside li span.label i{
+	margin-left: 10px;
+	opacity: .65;
+}
+.content-profile .desc-profile .inside li span.ctn {
+    position: relative;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#editInfoForm{
+    margin-bottom: 50px;
+}
+#editInfoForm .form-group{
+    margin-bottom: 20px;
+}
+
+#editInfoForm .input-group{
+    width: 100%;
+}
+
+#editInfoForm .input-group select{
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+#modelEdit input.input-lg{
+	height: 50px;
+}

@@ -1,5 +1,4 @@
-const site_url = window.location.origin;
-
+const BASE_URL = window.location.origin;
 $('body').tooltip({
 	selector: '[data-toggle="tooltip"]'
 });
@@ -52,8 +51,8 @@ $(document).ready(function() {
 		"positionClass": "toast-top-center",
 		"preventDuplicates": false,
 		"onclick": null,
-		"showDuration": "100",
-		"hideDuration": "1000",
+		"showDuration": "1",
+		"hideDuration": "1",
 		"timeOut": "5000",
 		"extendedTimeOut": "1000",
 		"showEasing": "swing",
@@ -72,7 +71,7 @@ $(document).ready(function() {
 		}
 		if (validate_form($(this))) {
 			$.ajax({
-				url: site_url + '/signup/create',
+				url: BASE_URL + '/signup/create',
 				type: 'POST',
 				data: $('#signup_form').serialize(),
 				dataType: 'json',
@@ -92,7 +91,7 @@ $(document).ready(function() {
 	$('body').on('submit', '#confirm_form', function(e) {
 		e.preventDefault();
 		$.ajax({
-			url: site_url + '/car/booking/confirm',
+			url: BASE_URL + '/car/booking/confirm',
 			type: 'POST',
 			data: $('#confirm_form').serialize(),
 			dataType: 'json',
@@ -119,7 +118,7 @@ $(document).ready(function() {
 	});
 
 	$('#btnLogout').on('click', function(e) {
-		$.post(site_url + '/ajax/logout', function() {
+		$.post(BASE_URL + '/ajax/logout', function() {
 			window.location.href = window.location.search;
 		})
 	});

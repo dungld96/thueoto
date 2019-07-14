@@ -19,7 +19,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="button" id="btnSubmitLogin" class="btn btn-success btn-lg btn-block">Đăng nhập</button>
+                        <button type="submit" id="btnSubmitLogin" class="btn btn-success btn-lg btn-block">Đăng nhập</button>
                     </div>
                     <div class="form-group">
                         <span class="text-muted">Bạn chưa là thành viên?</span>
