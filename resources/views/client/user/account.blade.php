@@ -13,7 +13,9 @@
                         <div class="snippet">
                             <div class="item-title">
                                 <p>{{$user->name}}</p><a id="editInfoAcc" class="func-edit" title="Chỉnh sửa"><i class="far fa-edit"></i></a></div>
-                            <div class="d-flex"><span class="join">Tham gia: {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$user->created_at)->format('d/m/Y')}}</span>
+                            <div class="d-flex"><span class="join">Tham gia: 
+                                    {{ isset($user->created_at) ? Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$user->created_at)->format('d/m/Y') : ''}}
+                                </span>
                                 <div class="bar-line"></div><span class="sum-trips">Chưa có chuyến</span></div>
                             <div class="line-info">
                                 <div class="d-flex">
