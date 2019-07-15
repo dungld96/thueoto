@@ -26,10 +26,10 @@ function placesSuggest(text) {
 			app_id: 'DemoAppId01082013GAL',
 			app_code: 'AJKnXv84fjrb0KIHawS0Tg'
 		},
-		success: function(result) {
+		success: function (result) {
 			var i = 0;
 			var html = '';
-			$.each(result.suggestions, function(k, v) {
+			$.each(result.suggestions, function (k, v) {
 				if (i < 5) html += '<a href="javascript:void(0)"><i class="fas fa-map-marker-alt"></i>' + v + '</a>';
 				i++;
 			});
@@ -42,7 +42,7 @@ function placesSuggest(text) {
 
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 	toastr.options = {
 		"closeButton": false,
 		"debug": false,
@@ -61,7 +61,7 @@ $(document).ready(function() {
 		"hideMethod": "fadeOut"
 	}
 
-	$('#signup_form').submit(function(e) {
+	$('#signup_form').submit(function (e) {
 		e.preventDefault();
 		var password = $('input[name=password]').val().trim();
 		var password_confirm = $('input[name=password_confirm]').val().trim();
@@ -75,27 +75,27 @@ $(document).ready(function() {
 				type: 'POST',
 				data: $('#signup_form').serialize(),
 				dataType: 'json',
-				success: function(result) {
+				success: function (result) {
 					toastr.success("Bạn đã đăng ký tài khoản thành công")
 					setTimeout(() => {
 						window.location.href = '/';
 					}, 1200);
 				},
-				error: function(e) {
+				error: function (e) {
 					alert(e.responseText);
-				  }
+				}
 			});
 		}
 	});
 
-	$('body').on('submit', '#confirm_form', function(e) {
+	$('body').on('submit', '#confirm_form', function (e) {
 		e.preventDefault();
 		$.ajax({
 			url: BASE_URL + '/car/booking/confirm',
 			type: 'POST',
 			data: $('#confirm_form').serialize(),
 			dataType: 'json',
-			success: function(result) {
+			success: function (result) {
 				if (result.status == 'success') {
 					toastr.success("Bạn đã đặt xe thành công!");
 					setTimeout(() => {
@@ -108,29 +108,33 @@ $(document).ready(function() {
 		});
 	});
 
-	$('#btnLogin').on('click', function(e) {
+	$('#btnLogin').on('click', function (e) {
 		var target = $(this).attr("data-href");
-        // load the url and show modal on success
-        $("#loginModal .modal-content").load(target, function () {
-            $("#loginModal").modal("show");
+		// load the url and show modal on success
+		$("#loginModal .modal-content").load(target, function () {
+			$("#loginModal").modal("show");
 		});
 
 	});
 
-	$('#btnLogout').on('click', function(e) {
-		$.post(BASE_URL + '/ajax/logout', function() {
+	$('#btnLogout').on('click', function (e) {
+		$.post(BASE_URL + '/ajax/logout', function () {
 			window.location.href = window.location.search;
 		})
 	});
 
-	$('.place_wrap').on('click', '.place_result a', function() {
+	$('.place_wrap').on('click', '.place_result a', function () {
 		$(this).closest('.place_wrap').find('input').val($(this).text());
 		$('.place_result').remove();
 	});
 
+	$('#notifiModal').on('hidden.bs.modal', function () {
+		$("#notifiModal .modal-content").html('');
+	});
+
 });
 
-$(document).mouseup(function(e) {
+$(document).mouseup(function (e) {
 	var container = $('.place_wrap');
 	if (!container.is(e.target) && container.has(e.target).length === 0) {
 		$('.place_result').remove();

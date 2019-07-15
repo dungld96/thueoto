@@ -159,14 +159,28 @@ $(document).ready(function () {
 			dataType: 'json',
 			success: function(result) {
 				if (result.status == 'error') {
-					if (result.error == 'no-auth') {
-						let target = BASE_URL + '/login/view';
-						$("#loginModal .modal-content").load(target, function () {
-				            $("#loginModal").modal("show");
-						});
-						$('#loginModal').modal('show');
-					}else if(result.error == 'booked'){
-						toastr.error(result.message);
+					switch (result.error) {
+						case 'no-auth':
+							let target = BASE_URL + '/login/view';
+							$("#loginModal .modal-content").load(target, function () {
+								$("#loginModal").modal("show");
+							});
+							$('#loginModal').modal('show');
+							break;
+
+						case 'no-phone-number':
+							$("#notifiModal .modal-content").html(result.html);
+							$('#notifiModal').modal('show');
+							$('[data-toggle="tooltip"]').tooltip();
+							break;
+					
+						case 'booked':
+							toastr.error(result.message);
+							break;
+
+						default:
+							console.log(result.message)
+							break;
 					}
 				} else {
 					$('#confirmBookingModal .modal-content').html(result.html);

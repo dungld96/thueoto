@@ -36,6 +36,14 @@ input, textarea {
 	box-shadow: none;
 }
 
+.textAlign-center{
+	text-align: center;
+}
+
+.paddingBottom-30{
+	padding-bottom: 30px !important;
+}
+
 .modal-dialog.modal-lg {
 	width: 870px;
 }
@@ -704,7 +712,8 @@ input, textarea {
 
 .cover-profile.new-profile {
     height: 26vw;
-    background-position: right 100%;
+	background-position: right 100%;
+	background-size: 100%;
 }
 
 .content-profile .desc-profile.desc-account {
@@ -920,4 +929,8 @@ input, textarea {
 
 #modelEdit input.input-lg{
 	height: 50px;
+}
+
+#notifiModal i.fa-exclamation-triangle{
+	color: #d60c0c;
 }

@@ -13,7 +13,7 @@
                         <div class="snippet">
                             <div class="item-title">
                                 <p>{{$user->name}}</p><a id="editInfoAcc" class="func-edit" title="Chỉnh sửa"><i class="far fa-edit"></i></a></div>
-                            <div class="d-flex"><span class="join">Tham gia: {{$user->created_at}}</span>
+                            <div class="d-flex"><span class="join">Tham gia: {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$user->created_at)->format('d/m/Y')}}</span>
                                 <div class="bar-line"></div><span class="sum-trips">Chưa có chuyến</span></div>
                             <div class="line-info">
                                 <div class="d-flex">
@@ -48,7 +48,6 @@
                                             </a>
                                         </span>
                                         <span class="ctn">
-                                            {{-- <i class="ic ic-verify"></i>kenjav96@gmail.com --}}
                                             {{$user->email}}
                                               
                                         </span>
@@ -56,17 +55,12 @@
                                     <li>
                                         <span class="label">Facebook</span>
                                         <span class="ctn">
-                                            <a class="func-edit"><i class="ic ic-link"></i></a>
                                         </span>
                                     </li>
                                     <li>
                                         <span class="label">Google</span>
                                         <span class="ctn">
-                                            <span>Entertainment News 
-                                                <span>
-                                                    <a class="func-edit"><i class="ic ic-remove"></i></a>
-                                                </span> 
-                                            </span>
+                                           
                                         </span>
                                     </li>
                                 </ul>

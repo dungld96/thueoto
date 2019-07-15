@@ -25,6 +25,12 @@ class BookingController extends Controller
     	if(Auth::guest()){
     		return response()->json(['message'=>'Thất bại', 'status' => 'error', 'error' => 'no-auth']);
     	}
+    	if(!isset(Auth::user()->phone_number)){
+			$notiHtml = view('client.app.notification')
+						->with(['message' => 'Bạn cập nhật số điện thoại mới có thể đặt xe.', 'route' => 'user.account'])
+						->render();
+    		return response()->json(['html'=>$notiHtml, 'status' => 'error', 'error' => 'no-phone-number']);
+    	}
 
     	try {
 			$dataBooking = [];

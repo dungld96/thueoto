@@ -11,14 +11,18 @@ class UserController extends Controller
 
     public function getAccount(){
         $user = Auth::user();
-        $user->birthday = Carbon::createFromFormat('Y-m-d',$user->birthday)->format('d/m/Y');
+        if(isset($user->birthday)){
+            $user->birthday = Carbon::createFromFormat('Y-m-d',$user->birthday)->format('d/m/Y');
+        }
         return view('client.user.account', ['user' => $user]);
     }
 
     public function editInfo()
     {
-    	$user = Auth::user();
-        $user->birthday = Carbon::createFromFormat('Y-m-d',$user->birthday)->format('d/m/Y');
+        $user = Auth::user();
+        if(isset($user->birthday)){
+            $user->birthday = Carbon::createFromFormat('Y-m-d',$user->birthday)->format('d/m/Y');
+        }
     	return view('client.user._edit_info', ['user' => $user]);
     }
 
