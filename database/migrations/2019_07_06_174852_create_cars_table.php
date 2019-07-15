@@ -26,8 +26,8 @@ class CreateCarsTable extends Migration
             $table->longText('rules')->nullable();
             $table->string('thumbnail')->nullable();
             $table->integer('costs');
-
-            $table->smallInteger('status'); // 1: deactive, 2: active , 2: đang book, 3: đã book
+            $table->string('slug')->unique();
+            $table->smallInteger('status'); // 1: deactive, 2: active
             $table->timestamps();
         });
     }
