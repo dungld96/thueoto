@@ -17,11 +17,23 @@
 @include('sub.client.style')
 </head>
     <body cz-shortcut-listen="true">
-        
-        @include('sub.client.navbar')
-        @yield('content')
+        <!-- BEGIN HEADER -->
+        <div>
+            @include('sub.client.navbar')
+        </div>
+        <!-- END HEADER -->
 
+        <!-- BEGIN BODY -->
+        <section class="body">
+            @yield('content')
+        </section>
+        <!-- END BODY -->
+
+        <!-- BEGIN FOOTER -->
         @include('sub.client.footer')
+        <!-- END FOOTER -->
+
+        
         @include('sub.client.scripts')
 
         <div id="loginModal" class="modal fade" role="dialog">

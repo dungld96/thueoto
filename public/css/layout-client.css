@@ -60,3 +60,64 @@ ol, ul, ul li {
     background-image: url("../../images/help.png");
     background-size: cover;
 }
+
+body {
+    font-family: "Lato", sans-serif;
+  }
+  .navbar-header{
+    display: flex;
+    justify-content: space-between;
+  }
+  .navbar-header .header-icon{
+    margin-left: auto;
+    margin-right: 10px;
+    line-height: 55px;
+  }
+  .navbar-header .header-icon .trigger-menu{
+    font-size: 30px;
+    cursor: pointer;
+    color: #cacaca;
+  }
+  
+  .menu-wrap {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .menu-wrap ul{
+      padding: 0;
+  }
+  
+  .menu-wrap ul li a {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #141414;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .menu-wrap a:hover {
+    color: #f1f1f1;
+  }
+  
+  .menu-wrap .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .menu-wrap {padding-top: 15px;}
+    .menu-wrap a {font-size: 18px;}
+  }
