@@ -1,6 +1,9 @@
-ol, ul, ul li {
+ol,
+ul,
+ul li {
     list-style: none;
 }
+
 .navbar-nav .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -15,6 +18,7 @@ ol, ul, ul li {
 .navbar-nav .dropdown-menu ul {
     padding-left: 0;
 }
+
 .navbar-nav .dropdown-menu ul li a {
     display: block;
     position: relative;
@@ -25,10 +29,11 @@ ol, ul, ul li {
     color: #fff;
     font-size: 15px;
 }
+
 .navbar-nav .dropdown-menu ul li a:hover {
     background-color: #202020;
 }
- 
+
 .navbar-nav li a {
     display: block;
     height: 60px;
@@ -37,15 +42,16 @@ ol, ul, ul li {
     color: #fff;
 }
 
-#btnLogin:hover {
+ .navbar-nav.navbar-right #btnLogin:hover {
     color: #00a550;
 }
-#btnRegister:hover {
+
+ .navbar-nav.navbar-right #btnRegister:hover {
     color: #00a550;
     box-shadow: inset 0 0 0 1px #00a550;
 }
 
-#btnRegister{
+ .navbar-nav.navbar-right #btnRegister {
     height: 44px;
     margin: 8px 0 8px 18px;
     line-height: 44px;
@@ -55,7 +61,7 @@ ol, ul, ul li {
     box-shadow: inset 0 0 0 1px #f8f9fb;
 }
 
-#help-section{
+#help-section {
     height: 500px;
     background-image: url("../../images/help.png");
     background-size: cover;
@@ -63,61 +69,78 @@ ol, ul, ul li {
 
 body {
     font-family: "Lato", sans-serif;
-  }
-  .navbar-header{
+}
+
+.navbar-header {
     display: flex;
     justify-content: space-between;
-  }
-  .navbar-header .header-icon{
+}
+
+.navbar-header .header-icon {
     margin-left: auto;
     margin-right: 10px;
-    line-height: 55px;
-  }
-  .navbar-header .header-icon .trigger-menu{
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+}
+
+
+.navbar-header .header-icon .trigger-menu {
     font-size: 30px;
     cursor: pointer;
     color: #cacaca;
-  }
-  
-  .menu-wrap {
+}
+
+.menu-wrap {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 20;
     top: 0;
     left: 0;
     background-color: #FFFFFF;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-  }
+}
 
-  .menu-wrap ul{
-      padding: 0;
-  }
-  
-  .menu-wrap ul li a {
+.menu-wrap ul {
+    padding: 0;
+}
+
+.menu-wrap ul li a {
     padding: 15px 30px;
     text-decoration: none;
     font-size: 20px;
     color: #141414;
     display: block;
     transition: 0.3s;
-  }
-  
-  .menu-wrap a:hover {
+}
+
+.menu-wrap a:hover {
     color: #f1f1f1;
-  }
-  
-  .menu-wrap .closebtn {
+}
+
+.menu-wrap .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .menu-wrap {
+        padding-top: 15px;
+    }
+
+    .menu-wrap a {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+  .modal-dialog {
+    width: 550px;
   }
-  
-  @media screen and (max-height: 450px) {
-    .menu-wrap {padding-top: 15px;}
-    .menu-wrap a {font-size: 18px;}
-  }
+}

@@ -28,10 +28,6 @@ ol, ul, ul li {
 	font-family: 'Roboto', sans-serif;
 }
 
-.modal-dialog {
-	width: 570px;
-}
-
 input, textarea {
 	box-shadow: none;
 }

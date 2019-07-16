@@ -125,6 +125,15 @@ $(document).ready(function () {
 
 	});
 
+	$('#btnLoginMb').on('click', function (e) {
+		var target = $(this).attr("data-href");
+		// load the url and show modal on success
+		$("#loginModal .modal-content").load(target, function () {
+			$("#loginModal").modal("show");
+		});
+
+	});
+
 	$('#btnLogout').on('click', function (e) {
 		$.post(BASE_URL + '/ajax/logout', function () {
 			window.location.href = window.location.search;
