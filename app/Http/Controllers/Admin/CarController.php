@@ -45,14 +45,16 @@ class CarController extends Controller
             $car->seats = $request->seats;
             $car->costs = $request->costs;
             $car->status = 2;
-            $car->thumbnail = $files[0];
+            $car->thumbnail = isset($files[0]) ? $files[0] : '';
             $car->save();
 
-            foreach ( $files as $file) {
-                $carImage = new CarImages;
-                $carImage->car_id = $car->id;
-                $carImage->name = $file;
-                $carImage->save();
+            if(isset($files)){
+                foreach ( $files as $file) {
+                    $carImage = new CarImages;
+                    $carImage->car_id = $car->id;
+                    $carImage->name = $file;
+                    $carImage->save();
+                }
             }
             
             return response()->json(['message'=>'Thêm xe thành công', 'status' => 'success']);

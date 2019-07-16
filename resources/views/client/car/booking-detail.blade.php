@@ -109,7 +109,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($carSimilars as $carSimilar)
                          <div class="swiper-slide">
-                            <a href="{{URL::to('/car/'.$carSimilar->id)}}">
+                            <a href="{{URL::to('/car/'.$carSimilar->slug)}}">
                             <div class="car_image">
                                 <img src="{{asset('uploads/'.$carSimilar->thumbnail)}}">
                                 <div class="car_price">{{$carSimilar->costs}}K</div>

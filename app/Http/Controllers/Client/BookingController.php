@@ -12,11 +12,11 @@ use Carbon\Carbon;
 
 class BookingController extends Controller
 {
-    public function getDetail($id)
+    public function getDetail($slug)
     {
-    	$car = Car::find($id);
+    	$car = Car::where('slug', $slug)->first();
     	$carSimilars = Car::all();
-    	$carImages = CarImages::where('car_id', $id)->get();
+    	$carImages = CarImages::where('car_id', $car->id)->get();
     	return view('client.car.booking-detail', ['car' => $car, 'carSimilars' => $carSimilars, 'carImages' => $carImages]);
     }
 

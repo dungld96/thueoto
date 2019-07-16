@@ -155,7 +155,7 @@
 
                     @foreach ($cars as $car)
                          <div class="swiper-slide">
-                            <a href="{{URL::to('/car/'.$car->id)}}">
+                            <a href="{{URL::to('/car/'.$car->slug)}}">
                             <div class="car_image">
                                 <img src="{{asset('uploads/'.$car->thumbnail)}}">
                                 <div class="car_price">{{$car->costs}}K</div>
@@ -187,9 +187,9 @@
             <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
                 <div class="swiper-wrapper">
 
-                    @foreach ($cars as $car)
+                    @foreach ($newCars as $car)
                          <div class="swiper-slide">
-                            <a href="{{URL::to('/car/'.$car->id)}}">
+                            <a href="{{URL::to('/car/'.$car->slug)}}">
                             <div class="car_image">
                                 <img src="{{asset('uploads/'.$car->thumbnail)}}">
                                 <div class="car_price">{{$car->costs}}K</div>

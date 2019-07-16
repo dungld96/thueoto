@@ -12,6 +12,7 @@ class HomeController extends Controller
     public function index()
     {
     	$cars = Car::all();
-    	return view('client.welcome', ['cars' => $cars]);
+    	$newCars = Car::orderBy('created_at', 'desc')->get();
+    	return view('client.welcome', ['cars' => $cars, 'newCars' => $newCars]);
     }
 }

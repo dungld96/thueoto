@@ -67,7 +67,7 @@
 
 
 
-	Route::get('/car/{id}', [
+	Route::get('/car/{slug}', [
         'as' => 'car.detail',
         'uses' => 'Client\BookingController@getDetail'
     ]);
