@@ -24,21 +24,20 @@
                             <span style="cursor: pointer;">
                                 <div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="avatar avatar--s">
-                                            <div class="avatar-img">
+                                            <div class="avatar-img" style="background-image: url({{asset('images/avatars/'.strtolower(Auth::user()->name[0]).'.jpg')}});">
                                             </div>
                                         </div>
                                         <div class="snippet">
                                             <div class="item-title">
-                                                <i class="fas fa-user-circle"></i>
                                                 <span >{{Auth::user()->name}}</span>
-                                                <i class="fas fa-angle-down"></i>
+                                                {{-- <i class="fas fa-angle-down"></i> --}}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <ul>
-                                            <li><a href="{{route('user.logout')}}">Đăng Xuất</a></li>
                                             <li><a href="{{route('user.account')}}">Tài khoản</a></li>
+                                            <li><a href="{{route('user.logout')}}">Đăng Xuất</a></li>
                                         </ul>
                                     </div>
                                 </span>
@@ -53,6 +52,26 @@
                     @if (Auth::guest())
                     <li><a id="btnLoginMb" href="javascript:;" data-href="{{route('user.login.view')}}">Đăng nhập</a></li>
                     <li><a id="btnRegisterMb" href="{{route('user.signup')}}">Đăng ký</a></li>
+                    @endif
+                    @if (Auth::check())
+                    <li>
+                        <div class="mb-snippet">
+                            <div class="avatar avatar--m">
+                                <div class="avatar-img" style="background-image: url({{asset('images/avatars/'.strtolower(Auth::user()->name[0]).'.jpg')}});">
+                                </div>
+                            </div>
+                            <div class="item-title">
+                                <span >{{Auth::user()->name}}</span>
+                            </div>
+                        </div>
+                        <div class="space m"></div>
+                        <div class="sideBody">
+                            <ul>
+                                <li><a href="{{route('user.account')}}">Tài khoản</a></li>
+                                <li><a href="{{route('user.logout')}}">Đăng Xuất</a></li>
+                            </ul>
+                        </div>
+                    </li>
                     @endif
                 </ul>
                 

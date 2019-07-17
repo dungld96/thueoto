@@ -1,66 +1,14 @@
 $(document).ready(function () {
-	var swiper = new Swiper('.swiper-album', {
-		slidesPerView: 1,
-		centeredSlides: true,
-		// loop: true,
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-		},
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-		breakpoints: {
-			1024: {
-				slidesPerView: 4,
-				spaceBetween: 40,
-			},
-			768: {
-				slidesPerView: 3,
-				spaceBetween: 30,
-			},
-			640: {
-				slidesPerView: 2,
-				spaceBetween: 20,
-			},
-			320: {
-				slidesPerView: 1,
-				spaceBetween: 10,
-			}
-		}
+	$("#owl-album_car_detail").owlCarousel({
+		slideSpeed : 300,
+		paginationSpeed : 400,
+		singleItem:true,
+		navigation : true, 
+		navigationText: [
+			"<i class='carousel-control-prev-icon'></i>",
+			"<i class='carousel-control-next-icon'></i>"
+		],
 	});
-	var swiper = new Swiper('.swiper-similar', {
-		slidesPerView: 4,
-		spaceBetween: 25,
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-		},
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-		breakpoints: {
-			1024: {
-				slidesPerView: 4,
-				spaceBetween: 40,
-			},
-			768: {
-				slidesPerView: 3,
-				spaceBetween: 30,
-			},
-			640: {
-				slidesPerView: 2,
-				spaceBetween: 20,
-			},
-			320: {
-				slidesPerView: 1,
-				spaceBetween: 10,
-			}
-		}
-	});
-
 
 	var date = moment();
 	$.fn.digits = function(){

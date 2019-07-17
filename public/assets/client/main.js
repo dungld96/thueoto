@@ -45,7 +45,7 @@ function placesSuggest(text) {
 function openNav() {
 	document.getElementById("mySidenav").style.width = "100%";
 }
-  
+
 function closeNav() {
 	document.getElementById("mySidenav").style.width = "0";
 }
@@ -68,6 +68,16 @@ $(document).ready(function () {
 		"showMethod": "fadeIn",
 		"hideMethod": "fadeOut"
 	}
+
+	$(".cars-owl-carousel").owlCarousel({
+		loop: true,
+		items: 4,
+		navigation: true,
+		navigationText: [
+			"<i class='carousel-control-prev-icon'></i>",
+			"<i class='carousel-control-next-icon'></i>"
+		],
+	});
 
 	$('#signup_form').submit(function (e) {
 		e.preventDefault();

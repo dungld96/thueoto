@@ -139,7 +139,7 @@
                                 </div>
                             </div>
                             <div class="sub_group">
-                                <a class="btn_search" href="#"><i class="fas fa-search"></i></a>
+                                <a class="btn_search" href="#"><i class="fas fa-search"></i><span>Tìm xe ngay</span></a>
                             </div>
                         </div>
                     </div>
@@ -150,64 +150,50 @@
     <div class="section top_car">
         <div class="container">
             <h2>Xe nổi bật</h2>
-            <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
-                <div class="swiper-wrapper">
 
-                    @foreach ($cars as $car)
-                         <div class="swiper-slide">
-                            <a href="{{URL::to('/car/'.$car->slug)}}">
-                            <div class="car_image">
-                                <img src="{{asset('uploads/'.$car->thumbnail)}}">
-                                <div class="car_price">{{$car->costs}}K</div>
-                            </div>
-                            <div>
-                                <h3>{{$car->name}}</h3>
-                            </div>
-                        </a>
+            <div id="owl-top_car" class="owl-carousel cars-owl-carousel">
+                @foreach ($cars as $car)
+                    <div class="item car-item">
+                       <a href="{{URL::to('/car/'.$car->slug)}}">
+                        <div class="car-item-image">
+                            <img src="{{asset('uploads/'.$car->thumbnail)}}">
+                            <div class="car-price">{{$car->costs}}K</div>
+                        </div>
+                        <div class="desc-car-item">
+                            <h3>{{$car->name}}</h3>
+                            <div class="location">
+                                    <p><i class="fas fa-map-marked-alt"></i></i>Hoàn Kiếm, Hà Nội</p>
+                                </div>
+                        </div>
+                       </a>
                     </div>
-                    @endforeach
-                   
-                        
-                        
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>
-                <div class="swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></div>
+                @endforeach
             </div>
         </div>
     </div>
     <div class="section" id="help-section">
     </div>
-
-
-
     <div class="section latest_car">
         <div class="container">
             <h2>Xe mới đăng ký</h2>
-            <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
-                <div class="swiper-wrapper">
-
-                    @foreach ($newCars as $car)
-                         <div class="swiper-slide">
-                            <a href="{{URL::to('/car/'.$car->slug)}}">
-                            <div class="car_image">
+            <div id="owl-latest_car" class="owl-carousel cars-owl-carousel">
+                @foreach ($newCars as $car)
+                    <div class="item car-item">
+                        <a href="{{URL::to('/car/'.$car->slug)}}">
+                            <div class="car-item-image">
                                 <img src="{{asset('uploads/'.$car->thumbnail)}}">
-                                <div class="car_price">{{$car->costs}}K</div>
+                                <div class="car-price">{{$car->costs}}K</div>
                             </div>
-                            <div>
+                            <div class="desc-car-item">
                                 <h3>{{$car->name}}</h3>
+                                <div class="location">
+                                <p><i class="fas fa-map-marked-alt"></i></i>Hoàn Kiếm, Hà Nội</p>
+                                </div>
                             </div>
                         </a>
                     </div>
-                    @endforeach
-                   
-                        
-                        
+                @endforeach
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>
-                <div class="swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></div>
-            </div>
         </div>
     </div>
 @endsection

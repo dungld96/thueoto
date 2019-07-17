@@ -6,28 +6,22 @@
             <div class="row">
                 <div class="col-md-7" >
                     <div class="album">
-                        <div class="swiper-container swiper-album swiper-container-initialized swiper-container-horizontal">
-                            <div class="swiper-wrapper">
-                                @foreach ($carImages as $image)
-                                     <div class="swiper-slide">
-                                        <div class="car_image">
-                                            <img src="{{asset('uploads/'.$image->name)}}">
-                                        </div>
-                                    </a>
-                                </div>
-                                @endforeach
-                            </div>
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>
-                            <div class="swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></div>
+                        <div id="owl-album_car_detail" class="owl-carousel">
+                            @foreach ($carImages as $image)
+                                <div class="item car-item">
+                                   <div class="car_image">
+                                       <img src="{{asset('uploads/'.$image->name)}}">
+                                   </div>
+                               </div>
+                           @endforeach
                         </div>
                     </div>
                     <div class="car_info">
                         <div class="group">
-                            <div class="col_1">
+                            <div class="col_title">
                                 Đặc điểm
                             </div>
-                            <div class="col_2">
+                            <div class="col_content">
                                 <ul class="features">
                                     <li>Số ghế: {{$car->seats}}</li>
                                     <li>Truyền động: Số tự động</li>
@@ -105,26 +99,24 @@
     <div class="section similar-wrap">
         <div class="container">
             <h2>Xe liên quan</h2>
-            <div class="swiper-container swiper-similar swiper-container-initialized swiper-container-horizontal">
-                <div class="swiper-wrapper">
-                    @foreach ($carSimilars as $carSimilar)
-                         <div class="swiper-slide">
-                            <a href="{{URL::to('/car/'.$carSimilar->slug)}}">
-                            <div class="car_image">
-                                <img src="{{asset('uploads/'.$carSimilar->thumbnail)}}">
-                                <div class="car_price">{{$carSimilar->costs}}K</div>
+            <div id="owl-similar_car" class="owl-carousel cars-owl-carousel">
+                    @foreach ($carSimilars as $car)
+                        <div class="item car-item">
+                           <a href="{{URL::to('/car/'.$car->slug)}}">
+                            <div class="car-item-image">
+                                <img src="{{asset('uploads/'.$car->thumbnail)}}">
+                                <div class="car-price">{{$car->costs}}K</div>
                             </div>
-                            <div>
-                                <h3>{{$carSimilar->name}}</h3>
+                            <div class="desc-car-item">
+                                <h3>{{$car->name}}</h3>
+                                <div class="location">
+                                        <p><i class="fas fa-map-marked-alt"></i></i>Hoàn Kiếm, Hà Nội</p>
+                                    </div>
                             </div>
-                        </a>
-                    </div>
+                           </a>
+                        </div>
                     @endforeach
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>
-                <div class="swiper-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></div>
-            </div>
         </div>
     </div>
     <div id="confirmBookingModal" class="modal fade" role="dialog">
