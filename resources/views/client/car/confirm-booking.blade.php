@@ -17,7 +17,7 @@
                         <div class="col-md-4">
                         <img src="{{asset('uploads/'.$car->thumbnail)}}">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 info-date-dress">
                             <div class="form-group">
                                 <label>Thời gian thuê xe</label>
                                 <div class="group m-b-lg">
@@ -65,7 +65,7 @@
                         <div class="col-md-6">
                             <button class="btn btn-default btn-lg btn-block" data-dismiss="modal">Hủy</button>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 btn-cf-book">
                             <button class="btn btn-success btn-lg btn-block">Đặt xe</button>
                         </div>
                     </div>

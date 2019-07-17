@@ -4,12 +4,12 @@
         <div class="container">
             <div class="result-header">
                 <div class="tab-mode">
-                    <p> <i class="far fa-list-alt"></i>Danh sách</p>
+                    <p class="list-result-title"> <i class="far fa-list-alt"></i>Danh sách</p>
                 </div>
             </div>
             <div class="content-result">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 hidden-sm hidden-xs">
                         <div class="sidebar-result">
                           <div class="scroll-inner">
                                 <form action="#" class="form-horizontal" role="form">
@@ -33,8 +33,8 @@
                         <div class="list-result">
                             <ul>
                                 @foreach ($carResults as $car)
-                                    <li class="col-md-6">
-                                        <a href="{{URL::to('/car/'.$car->id)}}">
+                                    <li class="col-md-6 col-sm-6 col-xs-6">
+                                        <a href="{{URL::to('/car/'.$car->slug)}}">
                                             <div class="car-item">
                                                     <div class="car-item-image">
                                                         <img src="{{asset('uploads/'.$car->thumbnail)}}">

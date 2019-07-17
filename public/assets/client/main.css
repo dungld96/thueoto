@@ -40,9 +40,9 @@ input, textarea {
 	padding-bottom: 30px !important;
 }
 
-.modal-dialog.modal-lg {
+/* .modal-dialog.modal-lg {
 	width: 870px;
-}
+} */
 
 .navbar {
 	margin-bottom: 0;
@@ -1059,6 +1059,19 @@ input, textarea {
 	.section.top_car, .section.latest_car {
 		padding: 30px 0;
 	}
+	.filter-result .list-result-title{
+		display: none;
+	}
+	#confirmBookingModal .form_container hr{
+		display: none;
+	}
+	#confirmBookingModal .info-date-dress{
+		margin-top: 20px;
+	}
+
+	#confirmBookingModal .btn-cf-book{
+		margin-top: 10px;
+	}
 }
 
 @media screen and (max-width: 767px) {
@@ -1140,6 +1153,9 @@ input, textarea {
 	.content-detail .car_booking {
 		padding: 15px 10px;
 	}
+	.search_form .place_result{
+		z-index: 1;
+	}
 	
 }
 
@@ -1169,6 +1185,9 @@ input, textarea {
 		word-break: break-word;
 	}
 	.content-detail .car_info ul li {
+		width: 100%;
+	}
+	.content-result .list-result ul li{
 		width: 100%;
 	}
 }

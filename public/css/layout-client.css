@@ -229,6 +229,13 @@ body {
         height: 150px;
         line-height: 150px;
     }
+     #vtNavbar .navbar-nav.nav-contact > li > span {
+      font-size: 15px;
+      padding: 0 5px;
+    }
+    #vtNavbar .navbar-nav {
+      margin-left: 10px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -256,7 +263,7 @@ body {
 
 
 @media screen and (min-width: 768px) {
-    .modal-dialog {
+    #loginModal .modal-dialog {
       width: 550px;
     }
   }

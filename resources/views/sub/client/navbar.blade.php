@@ -10,7 +10,7 @@
             </div>
 
             <div class="collapse navbar-collapse" id="vtNavbar">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav nav-contact">
                     <li><span><i class="fas fa-phone-alt"></i> 08 6869 8682 | 0246 327 8686</span></li>
                     <li><span><i class="fas fa-envelope"></i> vinhtin2069@gmail.com</span></li>
                 </ul>
