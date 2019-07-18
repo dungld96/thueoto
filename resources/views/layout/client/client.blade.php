@@ -14,6 +14,7 @@
 <meta content="" name="author"/>
 <meta name="_token" content="{{csrf_token()}}" />
 <link rel="shortcut icon" href="{{asset('favicon.ico')}}"/>
+@yield('custom-style')
 @include('sub.client.style')
 </head>
     <body cz-shortcut-listen="true">

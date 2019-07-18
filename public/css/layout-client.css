@@ -73,9 +73,7 @@ body {
 }
 
 #help-section {
-    height: 500px;
-    background-image: url("../../images/help.png");
-    background-size: cover;
+    background-color: #E5F6EA;
 }
 
 #dropdownMenuButton{
@@ -207,9 +205,6 @@ body {
 
 
 
-
-
-
 @media screen and (max-height: 450px) {
     .menu-wrap {
         padding-top: 15px;
@@ -222,6 +217,31 @@ body {
     
 }
 
+@media screen and (max-width: 1199px) {
+    #vtNavbar .navbar-nav.nav-contact > li > span {
+        font-size: 15px;
+        padding: 0 5px;
+      }
+      #vtNavbar .navbar-nav {
+        margin-left: 15px;
+      }
+      .navbar-header .logo-container .navbar-brand {
+          height: 35px;
+          padding: 17px 4px;
+          margin-top: 12px;
+      }
+  
+      .navbar-right li a{
+          padding: 0 5px;
+          font-size: 15px;
+      }
+      
+      .navbar-nav.navbar-right #btnRegister{
+          margin: 12px 5px;
+          height: 35px;
+          line-height: 35px;
+      }
+}
 
 @media screen and (max-width: 991px) {
     .avatar--xl {
@@ -229,13 +249,10 @@ body {
         height: 150px;
         line-height: 150px;
     }
-     #vtNavbar .navbar-nav.nav-contact > li > span {
-      font-size: 15px;
-      padding: 0 5px;
-    }
     #vtNavbar .navbar-nav {
-      margin-left: 10px;
-    }
+        margin-left: 5px;
+      }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -247,10 +264,17 @@ body {
 		padding: 8px 0;
 	}
 
-	.navbar .navbar-brand {
+	.navbar-header .logo-container .navbar-brand {
 		height: 30px;
 		padding: 15px 4px;
-	}
+    }
+    .footer ul li{
+        font-size: 14px;
+    }
+    .footer h4{
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
   }
 
 @media screen and (max-width: 480px) {

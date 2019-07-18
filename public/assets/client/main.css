@@ -272,7 +272,7 @@ input, textarea {
 	margin-bottom: 50px;
 }
 
-.section.top_car, .section.latest_car {
+.section.section-body {
 	padding: 50px 0;
 }
 
@@ -975,6 +975,27 @@ input, textarea {
 	color: #d60c0c;
 }
 
+#help-section .helps-step{
+	margin-bottom: 15px;
+}
+
+#help-section .helps-step .step-item{
+	padding: 0 35px;
+}
+
+#help-section .helps-step .step-item .step-detail h3{
+	color: #6c6c6e;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: .5rem;
+}
+
+
+/* MOBILE */
+
+
 @media screen and (max-width: 1399px) {
 	.section .owl-theme .owl-controls .owl-buttons .owl-prev{
 		left: -55px;
@@ -1072,9 +1093,16 @@ input, textarea {
 	#confirmBookingModal .btn-cf-book{
 		margin-top: 10px;
 	}
+	.section .owl-theme .owl-controls .owl-buttons .owl-prev{
+		left: -40px;
+	}
+	
+	.section .owl-theme .owl-controls .owl-buttons .owl-next{
+		right: -40px;
+	}
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 769px) {
 	.content-profile .desc-profile.desc-account .snippet{
 		width: 100%;
 	}
@@ -1156,7 +1184,39 @@ input, textarea {
 	.search_form .place_result{
 		z-index: 1;
 	}
-	
+	.content-detail .car_title{
+		font-size: 21px;
+	}
+	#help-section .helps-step{
+		padding: 0 50px;
+	}
+	#help-section .helps-step .step-item .step-img{
+		padding: 0 25px;
+	}
+	#help-section .helps-step .step-item{
+		padding: 15px 20px;
+	}
+	#help-section .helps-step .step-item .step-detail h3{
+		font-size: 18px;
+	}
+	#help-section .helps-step {
+		margin-bottom: 0;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	#help-section .helps-step .step-item .step-detail h3{
+		font-size: 16px;
+	}
+
+	#help-section .helps-step{
+		padding: 0 30px;
+	}
+
+	.footer .container {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
 }
 
 @media screen and (max-width: 480px) {
@@ -1189,5 +1249,30 @@ input, textarea {
 	}
 	.content-result .list-result ul li{
 		width: 100%;
+	}
+	#help-section .helps-step .step-item .step-img{
+		padding: 0 10px;
+	}
+	#help-section .helps-step .step-item{
+		padding: 10px 12px;
+	}
+	#help-section .helps-step .step-item .step-detail h3{
+		font-size: 15px;
+	}
+
+	#help-section .helps-step{
+		padding: 0 20px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	#help-section .helps-step .step-item .step-img{
+		padding: 0 10px;
+	}
+	#help-section .helps-step .step-item{
+		padding: 5px 10px;
+	}
+	#help-section .helps-step .step-item .step-detail h3{
+		font-size: 13px;
 	}
 }

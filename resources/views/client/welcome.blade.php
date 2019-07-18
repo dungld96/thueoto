@@ -147,7 +147,7 @@
             </div>
         </div>
     </div>
-    <div class="section top_car">
+    <div class="section section-body top_car">
         <div class="container">
             <h2>Xe nổi bật</h2>
 
@@ -171,9 +171,57 @@
             </div>
         </div>
     </div>
-    <div class="section" id="help-section">
+    <div class="section section-body" id="help-section">
+        <div class="container">
+            <h2>Hướng dẫn thuê xe</h2>
+            <div class="helps-step">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6 step-item">
+                        <div class="step-img">
+                            <div class="img-box">
+                                <img src="{{asset('images/step-1.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe tự lái">
+                            </div>
+                        </div>
+                        <div class="step-detail">
+                            <h3>Đặt xe trên website</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6 step-item">
+                        <div class="step-img">
+                            <div class="img-box">
+                                <img src="{{asset('images/step-2.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe tự lái">
+                            </div>
+                        </div>
+                        <div class="step-detail">
+                            <h3>Nhận xe</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6 step-item">
+                        <div class="step-img">
+                            <div class="img-box">
+                                <img src="{{asset('images/step-3.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe tự lái">
+                            </div>
+                        </div>
+                        <div class="step-detail">
+                            <h3>Trải nghiệm chuyến đi</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6 step-item">
+                        <div class="step-img">
+                            <div class="img-box">
+                                <img src="{{asset('images/step-4.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe tự lái">
+                            </div>
+                        </div>
+                        <div class="step-detail">
+                            <h3>Kết thúc giao dịch</h3>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="section latest_car">
+    <div class="section section-body latest_car">
         <div class="container">
             <h2>Xe mới đăng ký</h2>
             <div id="owl-latest_car" class="owl-carousel cars-owl-carousel">

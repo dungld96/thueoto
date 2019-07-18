@@ -9,7 +9,7 @@
                         <li>Email: vinhtin2069@gmail.com</li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 col-xs-6">
                     <h4>Chính sách</h4>
                     <ul>
                         <li>Bài viết 01</li>
@@ -17,7 +17,7 @@
                         <li>Bài viết 03</li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 col-xs-6">
                     <h4>Tìm hiểu thêm</h4>
                     <ul>
                         <li>Bài viết 01</li>
