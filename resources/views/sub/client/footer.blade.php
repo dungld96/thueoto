@@ -5,8 +5,8 @@
                     <h4>Thông tin liên hệ</h4>
                     <ul>
                         <li>Địa chỉ: Sân bay Nội Bài - Sóc Sơn - Hà Nội</li>
-                        <li>Điện thoại: 08 6869 8682 | 0246 327 8686</li>
-                        <li>Email: vinhtin2069@gmail.com</li>
+                        <li>Điện thoại: <a href="tel:+84868698682">08 6869 8682</a> | <a href="tel:+842463278686">0246 327 8686</a></li>
+                        <li>Email: <a>vinhtin2069@gmail.com</a> </li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-xs-6">

@@ -190,6 +190,12 @@ body {
     font-size: 36px;
     margin-left: 50px;
 }
+.footer ul li a{
+    color: #FFFFFF;
+}
+.footer ul li a:hover{
+    color: #00a550;
+}
 
 #dropdownMenuButton::before {
     position: absolute;
