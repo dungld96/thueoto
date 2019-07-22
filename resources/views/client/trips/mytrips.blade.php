@@ -21,7 +21,7 @@
                                     </div>
                                     <div class="trip-body">
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="trip-box-left col-md-3 col-sm-4 col-xs-4 ">
                                                 <div class="car-image">
                                                     <a href="{{URL::to('/trip/detail/'.$trip->tripCode)}}">
                                                         <div class="thumbnail">
@@ -30,7 +30,7 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="col-md-9">
+                                            <div class="trip-box-right col-md-9 col-sm-8 col-xs-8">
                                                 <p>Bắt đầu: {{$trip->startDate}}</p>
                                                 <p>Kết thúc: {{$trip->endDate}}</p>
                                                 <p>Tổng tiền {{$trip->sumAmount}}K</p>

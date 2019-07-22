@@ -66,7 +66,7 @@ $(document).ready(function () {
             toastr.error('Bạn phải nhập điạ điểm để tìm kiếm');
             return;
         }
-        window.location.href = `/cars/filter?startDate=${starDateTime}&endDate=${endDateTime}&address=${address}`;
+        window.location.href = `/car/filter?startDate=${starDateTime}&endDate=${endDateTime}&address=${address}`;
     });
    
 

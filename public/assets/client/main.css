@@ -678,7 +678,7 @@ input, textarea {
 }
 
 .result-header .tab-mode{
-	width: 30%;
+	width: 40%;
     padding: 0px 30px;
 }
 .result-header .tab-mode p{
@@ -1006,7 +1006,7 @@ input, textarea {
 }
 
 .mytrips-header .tab-mode{
-	width: 30%;
+	width: 40%;
     padding: 0px 30px;
 }
 .mytrips-header .tab-mode p{
@@ -1093,6 +1093,13 @@ input, textarea {
 	font-size: 16px;
 }
 
+.list-mytrips .trip-box .trip-box-left{
+	padding-right: 0;
+}
+
+.list-mytrips .trip-box .trip-box-right{
+	padding-right: 0;
+}
 
 
 
@@ -1203,6 +1210,20 @@ input, textarea {
 	.section .owl-theme .owl-controls .owl-buttons .owl-next{
 		right: -40px;
 	}
+
+	.mytrips-header .tab-mode p{
+		font-size: 17px;
+	}
+
+	.section.list-mytrips{
+		min-height: 700px;
+	}
+
+	.list-mytrips .has-trips {
+		margin: 0;
+		padding-top: 40px;
+	}
+	
 }
 
 @media screen and (max-width: 769px) {
@@ -1305,6 +1326,13 @@ input, textarea {
 	#help-section .helps-step {
 		margin-bottom: 0;
 	}
+	.mytrips-header .tab-mode p{
+		font-size: 16px;
+	}
+	.mytrips-header .container{
+		width: 100%;
+	}
+	
 }
 
 @media screen and (max-width: 576px) {
@@ -1320,6 +1348,17 @@ input, textarea {
 		padding-top: 30px;
 		padding-bottom: 30px;
 	}
+
+	.section.list-mytrips{
+		min-height: 500px;
+	}
+
+
+	.mytrips-header .tab-mode {
+		width: 60%;
+		padding: 0px 10px;
+	}
+	
 }
 
 @media screen and (max-width: 480px) {
@@ -1366,9 +1405,17 @@ input, textarea {
 	#help-section .helps-step{
 		padding: 0 20px;
 	}
+
+	.list-mytrips .has-trips .trip-box .trip-header .car-name {
+		font-size: 18px;
+	}
+
+	.list-mytrips .has-trips p {
+		font-size: 14px;
+	}
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 367px) {
 	#help-section .helps-step .step-item .step-img{
 		padding: 0 10px;
 	}
@@ -1377,5 +1424,18 @@ input, textarea {
 	}
 	#help-section .helps-step .step-item .step-detail h3{
 		font-size: 13px;
+	}
+
+	.list-mytrips .has-trips .trip-box .trip-body p {
+		margin-bottom: 5px;
+	}
+
+	.list-mytrips .has-trips p {
+		font-size: 12px;
+	}
+
+	
+	.list-mytrips .has-trips .trip-box .trip-header .car-name {
+		font-size: 16px;
 	}
 }
