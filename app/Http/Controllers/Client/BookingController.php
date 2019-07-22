@@ -12,7 +12,7 @@ use Carbon\Carbon;
 
 class BookingController extends Controller
 {
-    public function getDetail($slug)
+    public function carDetail($slug)
     {
     	$car = Car::where('slug', $slug)->first();
     	$carSimilars = Car::all();
@@ -63,7 +63,7 @@ class BookingController extends Controller
 			$dataBooking['endDateTt'] = $request->end_date;
 			$dataBooking['startDate'] = $startDate;
 			$dataBooking['endDate'] = $endDate;
-			$dataBooking['sumAmount'] = number_format($sumAmount, 0, ',', '.');
+			$dataBooking['sumAmount'] = $sumAmount;
 			$dataBooking['diffDays'] = $diffDays;
 			$returnHTML = view('client.car.confirm-booking')->with(['car'=> $car, 'dataBooking' => $dataBooking])->render();
 
@@ -85,12 +85,14 @@ class BookingController extends Controller
     		$booking = new BookingDetail();
 	    	$booking->user_id = Auth::user()->id;
 	    	$booking->car_id = $request->id;
+	    	$booking->trip_code = $this->generateTripCode();
 	    	$booking->booking_date = date('Y-m-d H:i:s');
 	    	$booking->start_date = date('Y-m-d H:i:s', $request->start_date);
 	    	$booking->end_date = date('Y-m-d H:i:s', $request->end_date);
 	    	$booking->place_delivery = $request->address;	
 	    	$booking->description = $request->description;	
-	    	$booking->status = 1;
+	    	$booking->sum_amount = $request->sum_amount;	
+	    	$booking->status = BookingDetail::STATUS_PENDING;
 
 	    	$booking->save();
     	} catch (\Exception $e) {
@@ -99,6 +101,81 @@ class BookingController extends Controller
     	}
     	return response()->json(['message'=>'Thành công', 'status' => 'success']);
     	
+	}
+	
+	public function generateTripCode()
+	{
+		$str = "";
+		$characters = array_merge(range('A','Z'),range('0','9'));
+		$max = count($characters) - 1;
+		for ($i = 0; $i < 6; $i++) {
+			$rand = mt_rand(0, $max);
+			$str .= $characters[$rand];
+		}
+		$checkFound = BookingDetail::where('trip_code', $str);
+		if ($checkFound->exists()) {
+			$this->generateTripCode();
+		}else{
+			return $str;
+		}
+	}
+
+	public function getMyTrips()
+	{
+
+		$myTrips = BookingDetail::join('cars', 'booking_details.car_id', '=', 'cars.id')
+					->select(
+						'cars.name as carName', 
+						'cars.thumbnail as carThumbnail', 
+						'booking_details.trip_code as tripCode', 
+						'booking_details.start_date as startDate', 
+						'booking_details.end_date as endDate', 
+						'booking_details.booking_date as bookingDate', 
+						'booking_details.status as bookingStatus', 
+						'booking_details.sum_amount as sumAmount'
+					)
+					->where('booking_details.user_id', Auth::user()->id)
+					->orderBy('booking_details.created_at', 'desc')
+					->get();
+
+		foreach ($myTrips as $trip) {
+			$trip->startDate = Carbon::createFromFormat('Y-m-d H:i:s',$trip->startDate)->format('H:i - d/m/Y');
+			$trip->endDate = Carbon::createFromFormat('Y-m-d H:i:s',$trip->endDate)->format('H:i - d/m/Y');
+			$trip->bookingDate = Carbon::createFromFormat('Y-m-d H:i:s',$trip->bookingDate);
+			$trip['tripTime'] = Carbon::today()->diffInDays($trip->bookingDate);
+			$trip['tripStatus'] = BookingDetail::getStatus($trip->bookingStatus);
+		}
+		return view('client.trips.mytrips', ['myTrips'=> $myTrips]);
+	}
+
+	public function tripDetail($tripCode)
+	{
+		$trip = BookingDetail::join('cars', 'booking_details.car_id', '=', 'cars.id')
+					->select(
+						'cars.name as carName', 
+						'cars.mortgage as carMortgage', 
+						'cars.rules as carRules', 
+						'cars.thumbnail as carThumbnail', 
+						'cars.costs as carCosts', 
+						'cars.slug as carSlug', 
+						'booking_details.trip_code as tripCode', 
+						'booking_details.start_date as startDate', 
+						'booking_details.end_date as endDate', 
+						'booking_details.place_delivery as bookingPlaceDelivery', 
+						'booking_details.description as bookingDescription', 
+						'booking_details.status as bookingStatus', 
+						'booking_details.sum_amount as sumAmount'
+					)
+					->where('booking_details.trip_code', $tripCode)
+					->first();
+		$startDate =  Carbon::createFromFormat('Y-m-d H:i:s',$trip->startDate);
+		$endDate = Carbon::createFromFormat('Y-m-d H:i:s',$trip->endDate);
+		$trip->startDate = $startDate->format('H:i - d/m/Y');
+		$trip->endDate = $endDate->format('H:i - d/m/Y');
+		$trip['diffDays'] = $endDate->diffInDays($startDate);
+		$trip['tripStatus'] = BookingDetail::getStatus($trip->bookingStatus);
+
+		return view('client.trips.detail', ['trip'=> $trip]);
 	}
 
 

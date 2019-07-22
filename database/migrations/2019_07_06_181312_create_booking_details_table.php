@@ -17,13 +17,15 @@ class CreateBookingDetailsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('car_id');
+            $table->string('trip_code', 10)->unique();
             $table->dateTime('booking_date');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->string('place_delivery', 100);
+            $table->mediumInteger('sum_amount');
             $table->longText('description')->nullable();
             $table->string('discount_code', 100)->nullable();
-            $table->smallInteger('status');  // 1: chưa duyệt, 2: đã duyêt, 3: kết thúc
+            $table->smallInteger('status');  
             $table->timestamps();
         });
     }

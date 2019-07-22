@@ -117,7 +117,7 @@ $(document).ready(function () {
 				if (result.status == 'success') {
 					toastr.success("Bạn đã đặt xe thành công!");
 					setTimeout(() => {
-						window.location.href = '/';
+						window.location.href = BASE_URL + '/user/mytrips';
 					}, 1200);
 				} else {
 					toastr.error(result.message)

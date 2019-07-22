@@ -36,6 +36,7 @@ input, textarea {
 	text-align: center;
 }
 
+
 .paddingBottom-30{
 	padding-bottom: 30px !important;
 }
@@ -991,6 +992,108 @@ input, textarea {
     line-height: 24px;
     margin-bottom: .5rem;
 }
+
+.section.list-mytrips{
+	min-height: 900px;
+}
+
+.section.list-mytrips .mytrips-header{
+	background-color: #FFF;
+	box-shadow: 0 1px 1px rgba(0,0,0,.3);
+	min-height: 60px;
+	padding: 10px 0;
+	display: flex;
+}
+
+.mytrips-header .tab-mode{
+	width: 30%;
+    padding: 0px 30px;
+}
+.mytrips-header .tab-mode p{
+	font-size: 18px;
+    color: #00a550;
+    font-weight: 600;
+    height: 40px;
+    margin: 0;
+    line-height: 40px;
+}
+.mytrips-header .tab-mode p i{
+	margin-right: 5px;
+}
+
+.list-mytrips .mytrips-content .no-has-trip img{
+	width: 60%;
+}
+
+.list-mytrips .has-trips{
+	margin: 0 150px;
+	padding-top: 40px; 
+}
+
+.list-mytrips .has-trips p{
+	font-size: 16px;
+}
+
+.list-mytrips .has-trips .trip-box{
+	background-color: #fff;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+.list-mytrips .has-trips .trip-box .trip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px 5px;
+}
+
+.list-mytrips .has-trips .trip-box .trip-header .car-name{
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+.list-mytrips .has-trips .trip-box .trip-body {
+	padding: 0 30px 0px;
+}
+
+.list-mytrips .has-trips .trip-box .trip-body p{
+	margin-bottom: 10px;
+}
+
+.list-mytrips .has-trips .trip-box .trip-body p:last-child{
+	font-weight: 600;
+}
+
+.list-mytrips .has-trips .trip-box .trip-footer{
+	border-top: 1px solid #e0e0e0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: #f8f9fb;
+    padding: 15px 30px;
+}
+
+.trip-detail .trip-detail-container{
+	margin: 50px 100px;
+}
+
+.trip-detail .content-trip-detail{
+	background-color: #FFFFFF;
+	padding: 40px 30px;
+	
+}
+
+.trip-detail .trip-status-detail{
+	background-color: #FFFFFF;
+	padding: 15px 25px;
+	border-bottom: 1px solid #ddd;
+}
+
+.trip-detail .trip-status-detail p{
+	font-size: 16px;
+}
+
+
 
 
 /* MOBILE */

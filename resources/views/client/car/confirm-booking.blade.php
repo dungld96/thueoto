@@ -12,6 +12,7 @@
                 <input type="hidden" name="start_date" value="{{$dataBooking['startDateTt']}}">
                 <input type="hidden" name="end_date" value="{{$dataBooking['endDateTt']}}">
                 <input type="hidden" name="address" value="{{$dataBooking['placeDelivery']}}">
+                <input type="hidden" name="sum_amount" value="{{$dataBooking['sumAmount']}}">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-4">
@@ -56,7 +57,7 @@
                                         </div>
                                         <div class="group line">
                                             <p><b>Tổng cộng</b></p>
-                                            <p><span class="sum_amount">{{$dataBooking['sumAmount']}}.000</span><b>đ</b></p>
+                                            <p><span class="sum_amount">{{number_format($dataBooking['sumAmount'], 0, ',', '.')}}.000</span><b>đ</b></p>
                                         </div>
                                     </div>
                                 </div>

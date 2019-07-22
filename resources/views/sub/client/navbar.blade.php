@@ -37,6 +37,7 @@
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <ul>
                                             <li><a href="{{route('user.account')}}">Tài khoản</a></li>
+                                            <li><a href="{{route('user.mytrips')}}">Chuyến của tôi</a></li>
                                             <li><a href="{{route('user.logout')}}">Đăng Xuất</a></li>
                                         </ul>
                                     </div>
@@ -68,6 +69,7 @@
                         <div class="sideBody">
                             <ul>
                                 <li><a href="{{route('user.account')}}">Tài khoản</a></li>
+                                <li><a href="{{route('user.mytrips')}}">Chuyến của tôi</a></li>
                                 <li><a href="{{route('user.logout')}}">Đăng Xuất</a></li>
                             </ul>
                         </div>

@@ -64,12 +64,15 @@
 		'uses'=> 'UserController@saveEmail'
 	]);
 
-
+	Route::get('/user/mytrips', [
+		'as'=> 'user.mytrips',
+		'uses'=> 'Client\BookingController@getMyTrips'
+	]);
 
 
 	Route::get('/car/{slug}', [
         'as' => 'car.detail',
-        'uses' => 'Client\BookingController@getDetail'
+        'uses' => 'Client\BookingController@carDetail'
     ]);
 
 	Route::post('/car/booking', [
@@ -85,6 +88,11 @@
 	Route::get('/cars/filter', [
         'as' => 'car.filter',
         'uses' => 'Client\FilterController@filter'
+    ]);
+
+	Route::get('/trip/detail/{tripCode}', [
+        'as' => 'trip.detail',
+        'uses' => 'Client\BookingController@tripDetail'
     ]);
 
 
