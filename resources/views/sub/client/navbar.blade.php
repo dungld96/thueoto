@@ -38,6 +38,7 @@
                                         <ul>
                                             <li><a href="{{route('user.account')}}">Tài khoản</a></li>
                                             <li><a href="{{route('user.mytrips')}}">Chuyến của tôi</a></li>
+                                            <li><a href="{{route('user.changepassword')}}">Đổi mật khẩu</a></li>
                                             <li><a href="{{route('user.logout')}}">Đăng Xuất</a></li>
                                         </ul>
                                     </div>
@@ -70,6 +71,7 @@
                             <ul>
                                 <li><a href="{{route('user.account')}}">Tài khoản</a></li>
                                 <li><a href="{{route('user.mytrips')}}">Chuyến của tôi</a></li>
+                                <li><a href="{{route('user.changepassword')}}">Đổi mật khẩu</a></li>
                                 <li><a href="{{route('user.logout')}}">Đăng Xuất</a></li>
                             </ul>
                         </div>

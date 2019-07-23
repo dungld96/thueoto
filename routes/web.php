@@ -31,6 +31,8 @@
 	]);
 
 
+
+
 	Route::prefix('car')->group(function () {
 		Route::get('/{slug}', [
 			'as' => 'car.detail',
@@ -89,19 +91,33 @@
 				'as'=> 'user.account.saveemail',
 				'uses'=> 'UserController@saveEmail'
 			]);
+
+			Route::get('/password', [
+				'as'=> 'user.changepassword',
+				'uses'=> 'UserController@changePassword'
+			]);
 		
 			Route::get('/mytrips', [
 				'as'=> 'user.mytrips',
 				'uses'=> 'Client\BookingController@getMyTrips'
 			]);
+
+
 		});
 
+		Route::prefix('trip')->group(function () {
+			Route::get('/detail/{tripCode}', [
+				'as' => 'trip.detail',
+				'uses' => 'Client\BookingController@tripDetail'
+			]);
+			
+			Route::get('/cancel/{tripCode}', [
+				'as' => 'trip.cancel',
+				'uses' => 'Client\BookingController@tripCancel'
+			]);
+
+		});		
 		
-		
-		Route::get('/trip/detail/{tripCode}', [
-			'as' => 'trip.detail',
-			'uses' => 'Client\BookingController@tripDetail'
-		]);
 
 	});
 	

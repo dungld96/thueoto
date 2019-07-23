@@ -94,10 +94,14 @@ $(document).ready(function () {
 				data: $('#signup_form').serialize(),
 				dataType: 'json',
 				success: function (result) {
-					toastr.success("Bạn đã đăng ký tài khoản thành công")
-					setTimeout(() => {
-						window.location.href = '/';
-					}, 1200);
+					toastr.success("Bạn đã đăng ký tài khoản thành công");
+					let noti = `
+						<div class="noti-reg-success">
+							<h3 class="title-after-signup">Đăng ký tài khoản</h3>
+							<p>Bạn đã đăng kí tài khoản thành công. Hãy đăng nhập để tiếp tục sử dụng dịch vụ của Vĩnh Tín Auto.</p>
+						</div>
+					`;
+					$('#signupContainer').html(noti);
 				},
 				error: function (e) {
 					alert(e.responseText);

@@ -18,12 +18,12 @@
                     </div>
                     <div class="content-trip-detail">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-4">
                                     <div class="thumbnail">
                                         <img src="{{asset('uploads/'.$trip->carThumbnail)}}">
                                     </div>
                                 </div>
-                                <div class="col-md-8 info-date-dress">
+                                <div class="col-md-8 col-sm-8 info-date-dress">
                                     <div class="form-group">
                                         <label>Thời gian thuê xe</label>
                                         <div class="group m-b-lg">
@@ -70,6 +70,11 @@
                                         </div>
                                     </div>
                                 </div>
+                        </div>
+                        <div class="trip-actions">
+                            @if ($trip->bookingStatus < 3)
+                                <a class="btn btn-default" href="{{URL::to('/trip/cancel/'.$trip->tripCode)}}">Hủy</a>
+                            @endif
                         </div>
                 </div>
             </div>

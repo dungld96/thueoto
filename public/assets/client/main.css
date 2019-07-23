@@ -573,6 +573,16 @@ input, textarea {
 	padding-bottom: 40px;
 }
 
+#signupContainer .noti-reg-success{
+	min-height: 400px;
+	margin-top: 30%;
+	text-align: center;
+}
+
+#signupContainer .noti-reg-success .title-after-signup{
+	font-weight: 600;
+}
+
 .similar-wrap {
 	clear: both;
 	margin-bottom: 60px;
@@ -1073,6 +1083,16 @@ input, textarea {
     padding: 15px 30px;
 }
 
+
+.list-mytrips .trip-box .trip-box-left{
+	padding-right: 0;
+}
+
+.list-mytrips .trip-box .trip-box-right{
+	padding-right: 0;
+}
+
+
 .trip-detail .trip-detail-container{
 	margin: 50px 100px;
 }
@@ -1093,12 +1113,13 @@ input, textarea {
 	font-size: 16px;
 }
 
-.list-mytrips .trip-box .trip-box-left{
-	padding-right: 0;
+.trip-detail .trip-actions {
+	display: flex;
+    justify-content: center;
 }
 
-.list-mytrips .trip-box .trip-box-right{
-	padding-right: 0;
+.trip-detail .trip-actions .btn{
+	padding: 6px 30px;
 }
 
 
@@ -1134,6 +1155,10 @@ input, textarea {
 		font-size: 13px;
 		font-weight: 600;
 		margin-bottom: 0;
+	}
+
+	.trip-detail .trip-detail-container {
+		margin: 30px 50px;
 	}
 }
 
@@ -1222,6 +1247,10 @@ input, textarea {
 	.list-mytrips .has-trips {
 		margin: 0;
 		padding-top: 40px;
+	}
+
+	.trip-detail .trip-detail-container {
+		margin: 15px 25px;
 	}
 	
 }
@@ -1358,7 +1387,9 @@ input, textarea {
 		width: 60%;
 		padding: 0px 10px;
 	}
-	
+	.trip-detail .trip-detail-container {
+		margin: 0;
+	}
 }
 
 @media screen and (max-width: 480px) {

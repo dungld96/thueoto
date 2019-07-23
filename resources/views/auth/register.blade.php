@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6">
-			<div class="form_container">
+			<div class="form_container" id="signupContainer">
 				<form id="signup_form" method="post">
                     {{csrf_field()}}
 					<h2>Đăng ký tài khoản</h2>

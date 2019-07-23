@@ -135,6 +135,7 @@ class BookingController extends Controller
 						'booking_details.sum_amount as sumAmount'
 					)
 					->where('booking_details.user_id', Auth::user()->id)
+					->orderBy('booking_details.status', 'asc')
 					->orderBy('booking_details.created_at', 'desc')
 					->get();
 
@@ -178,5 +179,14 @@ class BookingController extends Controller
 		return view('client.trips.detail', ['trip'=> $trip]);
 	}
 
+	public function tripCancel($tripCode)
+	{
+		$trip = BookingDetail::where('trip_code', $tripCode)->firstOrFail();
+		if(isset($trip->status) && $trip->status < 3){
+			$trip->status = BookingDetail::STATUS_CL_CANCEL;
+			$trip->save();
+		}
+		return redirect()->route('user.mytrips');
+	}
 
 }

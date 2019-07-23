@@ -110,5 +110,10 @@ class UserController extends Controller
         return response()->json(['message'=>'Thành công', 'status' => 'success']);
     }
 
+    public function changePassword()
+    {
+        return view('auth.change-password');
+    }
+
 
 }
