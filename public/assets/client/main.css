@@ -1122,6 +1122,14 @@ input, textarea {
 	padding: 6px 30px;
 }
 
+.content-change-pass{
+	min-height: 500px;
+}
+
+#changePassForm{
+	margin: 50px 0;
+}
+
 
 
 /* MOBILE */
