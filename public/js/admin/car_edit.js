@@ -14,9 +14,9 @@ $(document).ready(function() {
                     if (data.status == 'success') {
                         toastr.success(data.message);
                         $('#addCar').modal('hide');
-                        var oTable = $('#carsdata').dataTable(); 
+                        var oTable = $('#carsdata').dataTable();
                         oTable.fnDraw(false);
-                    }else{
+                    } else {
                         toastr.error(data.message);
                     }
                 },
@@ -33,7 +33,6 @@ $(document).ready(function() {
         let valid = $('#carInfoForm').valid();
         let carInfo = $('#carInfoForm').serialize();
         let url = BASE_URL + '/admin/cars/update';
-        console.log(url);
         if (valid) {
             $.ajax({
                 type: 'PUT',
@@ -43,9 +42,9 @@ $(document).ready(function() {
                     if (data.status == 'success') {
                         toastr.success(data.message);
                         $('#addCar').modal('hide');
-                        var oTable = $('#carsdata').dataTable(); 
+                        var oTable = $('#carsdata').dataTable();
                         oTable.fnDraw(false);
-                    }else{
+                    } else {
                         toastr.error(data.message);
                     }
                 },
@@ -77,13 +76,13 @@ $(document).ready(function() {
         thumbnailHeight: 60,
         // autoProcessQueue: false,
         dictMaxFilesExceeded: "Bạn chỉ được tải lên 12 file.",
-        init: function () {
-            if(typeof $images !== 'undefined'){
-                $images.forEach( img => {
+        init: function() {
+            if (typeof $images !== 'undefined') {
+                $images.forEach(img => {
                     let mockFile = { file_name: img.name, size: img.size }; // here we get the file name and size as response 
                     this.options.addedfile.call(this, mockFile);
                     this.emit("complete", mockFile);
-                    this.options.thumbnail.call(this, mockFile, BASE_URL+ "/uploads/"+img.name);
+                    this.options.thumbnail.call(this, mockFile, BASE_URL + "/uploads/" + img.name);
                     $('#carInfoForm').append('<input type="hidden" name="document[]" value="' + img.name + '">')
                 });
             }
@@ -101,19 +100,18 @@ $(document).ready(function() {
             } else {
                 name = uploadedDocumentMap[file.name]
             }
-            
+
             let url = BASE_URL + '/admin/cars/images/remove/' + name;
             let token = $('meta[name="_token"]').attr('content');
             let isStored = false;
-            console.log('file.file_name', name);
-            if(typeof $images !== 'undefined'){
-                $images.forEach( img => {
-                    if(name == img.name){
+            if (typeof $images !== 'undefined') {
+                $images.forEach(img => {
+                    if (name == img.name) {
                         isStored = true;
                     }
                 });
             }
-            if(typeof $carId == 'undefined' || !isStored){
+            if (typeof $carId == 'undefined' || !isStored) {
                 console.log('img no store');
                 $.ajax({
                     type: 'POST',
@@ -123,9 +121,9 @@ $(document).ready(function() {
                         "_token": token,
                     },
                     success: function(data) {
-                        if(data.status == 'success'){
+                        if (data.status == 'success') {
                             $('form').find('input[name="document[]"][value="' + name + '"]').remove();
-                        }else{
+                        } else {
                             console.log(data.message);
                         }
                     },
@@ -133,12 +131,12 @@ $(document).ready(function() {
                         console.log(e);
                     }
                 });
-            }else{
+            } else {
                 console.log('store');
 
                 $('form').find('input[name="document[]"][value="' + name + '"]').remove();
             }
-            
+
         },
         error: function(file, response) {
             return false;

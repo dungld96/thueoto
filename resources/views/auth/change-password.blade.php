@@ -10,15 +10,15 @@
 					<h2>Đổi mật khẩu</h2>
 					<div class="form-group">
 						<div class="input-group margin-top-m">
-							<span class="input-group-addon"><i class="fas fa-phone-alt fa-fw"></i></span>
-							<input type="password" name="old_password" class="form-control input-lg" placeholder="Mật khẩu hiện tại">
+							<span class="input-group-addon"><i class="fas fa-lock"></i></span>
+							<input type="password" name="current_password" class="form-control input-lg" placeholder="Mật khẩu hiện tại">
 						</div>
 						<div class="input-group margin-top-m">
-							<span class="input-group-addon"><i class="fas fa-phone-alt fa-fw"></i></span>
-                            <input type="password" name="password" class="form-control input-lg" placeholder="Mật khẩu mới" >
+							<span class="input-group-addon"><i class="fas fa-lock"></i></span>
+                            <input id="password" type="password" name="password" class="form-control input-lg" placeholder="Mật khẩu mới" >
 						</div>
 						<div class="input-group margin-top-m">
-							<span class="input-group-addon"><i class="fas fa-phone-alt fa-fw"></i></span>
+							<span class="input-group-addon"><i class="fas fa-lock"></i></span>
                             <input type="password" name="password_confirm" class="form-control input-lg" placeholder="Xác nhận mật khẩu mới">
 						</div>
 					</div>
@@ -28,4 +28,7 @@
 		</div>
 	</div>
 </div>
+@endsection
+@section('script-client')
+<script src="{{asset('js/client/account.js')}}" type="text/javascript"></script>
 @endsection

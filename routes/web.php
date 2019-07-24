@@ -96,6 +96,11 @@
 				'as'=> 'user.changepassword',
 				'uses'=> 'UserController@changePassword'
 			]);
+
+			Route::post('/passward/update', [
+				'as'=> 'user.updatepassword',
+				'uses'=> 'UserController@updatePassword'
+			]);
 		
 			Route::get('/mytrips', [
 				'as'=> 'user.mytrips',

@@ -115,5 +115,34 @@ class UserController extends Controller
         return view('auth.change-password');
     }
 
+    public function updatePassword(Request $request)
+    {
+        $validatedData = $request->validate(
+            [
+                'password' => 'required|string|min:6',
+            ],
+            [
+                'password.required' => 'Mật khẩu không được để trống',
+                'password.string' => 'Mật khẩu không hợp lệ',
+                'password.min' => 'Mật khẩu phải dài hơn 6 ký tự'
+            ]);
+
+            try {
+                $current_password = Auth::User()->password;
+                if(password_verify($request->current_password, $current_password))
+                {           
+                    $userId = Auth::User()->id;                       
+                    $user = User::find($userId);
+                    $user->password = bcrypt($request->password);;
+                    $user->save(); 
+                }else{
+                    return response()->json(['message'=> 'Mật khẩu hiện tại không đúng', 'status' => 'error']);
+                }
+            } catch (\Exception $e) {
+                return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
+            }
+            return response()->json(['message'=>'Thành công', 'status' => 'success']);
+    }
+
 
 }
