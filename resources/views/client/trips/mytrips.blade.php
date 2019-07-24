@@ -56,7 +56,7 @@
                                                 @if ($trip->tripTime === 0)
                                                     <p>Hôm nay</p>
                                                 @else
-                                                    <p>$trip->tripTime ngày trước</p>
+                                                    <p>{{ $trip->tripTime }} ngày trước</p>
                                                 @endif
                                             </div>
                                         </div>
