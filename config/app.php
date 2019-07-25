@@ -170,6 +170,7 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Yoeunes\Toastr\ToastrServiceProvider::class,
         /*
          * Application Service Providers...
          */
