@@ -40,6 +40,16 @@
 		'uses'=> 'Auth\FaceBookAuthController@handleProviderCallback'
 	]);
 
+	Route::get('/login/google', [
+		'as'=> 'login.google',
+		'uses'=> 'Auth\GoogleAuthController@redirectToProvider'
+	]);
+
+	Route::get('/login/google/callback', [
+		'as'=> 'login.google.callback',
+		'uses'=> 'Auth\GoogleAuthController@handleProviderCallback'
+	]);
+
 
 
 

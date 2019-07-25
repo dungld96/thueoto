@@ -26,6 +26,16 @@
                     <a href="{{route('user.signup')}}">Hãy đăng ký ngay!</a>
                     </div>
                 </form>
+                <hr>
+				<div class="row login-social">
+					<p>Hoặc đăng nhập bằng tài khoản</p>
+					<div class="col-md-6 form-group">
+						<a type="button" href="{{ route('login.facebook')}}" target="_blank" class="btn btn-primary btn-lg" id="loginFb"><i class="fab fa-facebook-f"></i> Facebook</a>
+					</div>
+					<div class="col-md-6 form-group">
+						<a type="button" href="{{ route('login.google')}}" target="_blank" class="btn btn-danger btn-lg" id="loginGg"><i class="fab fa-google"></i> Google</a>
+					</div>
+				</div>
             </div>
         </div>
 <script src="{{asset('js/client/login.js')}}" type="text/javascript"></script>

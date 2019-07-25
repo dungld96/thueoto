@@ -1,60 +1,66 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=latin-ext,vietnamese');
-
 body {
-	font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
-a, a:link, a:hover {
-	text-decoration: none;
-	cursor: pointer;
-	color: #141414;
+a,
+a:link,
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #141414;
 }
 
-p{
-	margin: 0;
+p {
+    margin: 0;
 }
 
-ol, ul, ul li {
+ol,
+ul,
+ul li {
     list-style: none;
 }
 
-.d-flex{
-	display: flex;
+.d-flex {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.tooltip, .popover, .daterangepicker {
-	font-family: 'Roboto', sans-serif;
+.tooltip,
+.popover,
+.daterangepicker {
+    font-family: 'Roboto', sans-serif;
 }
 
-input, textarea {
-	box-shadow: none;
+input,
+textarea {
+    box-shadow: none;
 }
 
-.textAlign-center{
-	text-align: center;
+.textAlign-center {
+    text-align: center;
 }
 
-
-.paddingBottom-30{
-	padding-bottom: 30px !important;
+.paddingBottom-30 {
+    padding-bottom: 30px !important;
 }
+
 
 /* .modal-dialog.modal-lg {
 	width: 870px;
 } */
 
 .navbar {
-	margin-bottom: 0;
-	border: none;
-	border-radius: 0;
-	height: 60px;
-	font-size: 16px;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    height: 60px;
+    font-size: 16px;
 }
 
 .navbar-brand {
-	height: 40px;
+    height: 40px;
     margin: 10px 0 10px 18px;
     line-height: 3px;
     font-weight: 400;
@@ -62,607 +68,625 @@ input, textarea {
     padding: 20px 7px;
     border-radius: 5px;
     box-shadow: inset 0 0 0 2px #f8f9fb;
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .navbar-nav {
-	margin-left: 80px;
+    margin-left: 80px;
 }
 
-.navbar-nav > li > a {
-	padding: 20px 15px;
+.navbar-nav>li>a {
+    padding: 20px 15px;
 }
 
-.navbar-nav > li > span {
-	display: block;
+.navbar-nav>li>span {
+    display: block;
     padding: 0px 15px;
     color: #fff;
     line-height: 60px;
 }
 
-.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
-	color: #fff;
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
 }
 
 .section.banner {
-	position: relative;
+    position: relative;
 }
 
 .section.banner .cover {
-	height: calc(100vh - 60px);
-	background-image: url('../../images/street-background-full-hd-1920x1080-492595.jpg');
-	background-size: cover;
+    height: calc(100vh - 60px);
+    background-image: url('../../images/street-background-full-hd-1920x1080-492595.jpg');
+    background-size: cover;
 }
 
 .section.banner .overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.3);
-	color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
 }
 
 .section.banner .wrap {
-	position: relative;
-	top: 35%;
-	transform: translateY(-50%);
+    position: relative;
+    top: 35%;
+    transform: translateY(-50%);
 }
 
 .section.banner .content {
-	width: 88%;
-	margin: 0 auto;
+    width: 88%;
+    margin: 0 auto;
 }
 
 .section.banner .content h1 {
-	text-align: center;
-	margin-top: 0;
-	margin-bottom: 25px;
-	font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: bold;
 }
 
 .search_form {
-	border: 1px solid #fff;
-	border-radius: 40px;
-	background: rgba(0,0,0,.5);
-	padding: 15px 25px;
-	display: flex;
-	justify-content: space-between;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    background: rgba(0, 0, 0, .5);
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .search_form .sub_group {
-	display: flex;
-	align-items: center;
-	padding-left: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
 }
 
-.search_form .sub_group .btn_search>span{
-	display: none;
+.search_form .sub_group .btn_search>span {
+    display: none;
 }
 
 .search_form .group {
-	position: relative;
-	display: flex;
-	flex: 1 1 50%;
-	align-items: center;
-	flex-wrap: wrap;
-	font-size: 16px;
+    position: relative;
+    display: flex;
+    flex: 1 1 50%;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 16px;
 }
 
 .search_form .group:not(:first-child) {
-	padding-left: 20px;
+    padding-left: 20px;
 }
 
 .search_form .group::after {
-	content: "";
-	position: absolute;
-	right: 0;
-	width: 1px;
-	height: 35px;
-	background: #fff;
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 1px;
+    height: 35px;
+    background: #fff;
 }
 
-.search_form label{
-	font-weight: 500
+.search_form label {
+    font-weight: 500
 }
 
 .search_form .datetime {
-	width: 100%;
+    width: 100%;
 }
 
-.search_form .datetime select{
-	margin-left: 15px;
-	padding: 0 5px;
+.search_form .datetime select {
+    margin-left: 15px;
+    padding: 0 5px;
 }
 
 .search_form .datetime option {
-	background: rgba(0,0,0,.8);
+    background: rgba(0, 0, 0, .8);
 }
 
-.search_form label, .search_form .sub_group a, .form_container .input-group i {
-	color: #28a745;
+.search_form label,
+.search_form .sub_group a,
+.form_container .input-group i {
+    color: #28a745;
 }
 
 .search_form .btn_search {
-	background: #fff;
-	width: 35px;
-	height: 35px;
-	border-radius: 100%;
-	text-align: center;
-	line-height: 35px;
+    background: #fff;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 35px;
 }
 
 .search_form input[type=text] {
-	width: 100%;
-	padding: 0 10px 0 0;
+    width: 100%;
+    padding: 0 10px 0 0;
 }
 
 .search_form .date i {
-	padding-left: 3px;
+    padding-left: 3px;
 }
 
 .search_form select {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	margin-left: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-left: 30px;
 }
 
-.search_form .date, .search_form select {
-	cursor: pointer;
+.search_form .date,
+.search_form select {
+    cursor: pointer;
 }
 
-.search_form input[type=text], .search_form .date, .search_form select {
-	background-color: unset;
-	color: #fff;
-	border: none;
+.search_form input[type=text],
+.search_form .date,
+.search_form select {
+    background-color: unset;
+    color: #fff;
+    border: none;
 }
 
 .place_wrap {
-	position: relative;
-	width: 100%;
+    position: relative;
+    width: 100%;
 }
 
 .place_result {
-	position: absolute;
-	width: 100%;
+    position: absolute;
+    width: 100%;
 }
 
 .place_result a {
-	display: block;
-	padding: 10px 15px;
-	font-size: 13px;
-	line-height: 1.8;
+    display: block;
+    padding: 10px 15px;
+    font-size: 13px;
+    line-height: 1.8;
 }
 
 .place_result i {
-	margin-right: 10px;
-	color: #28a745;
+    margin-right: 10px;
+    color: #28a745;
 }
 
 .search_form .place_result {
-	border: 1px solid #fff;
-	background: rgba(0,0,0,.9);
+    border: 1px solid #fff;
+    background: rgba(0, 0, 0, .9);
 }
 
 .search_form .place_result a {
-	color: #fff;
+    color: #fff;
 }
 
 .search_form .place_result a:hover {
-	background-color: #6c757d;
+    background-color: #6c757d;
 }
 
 .car_booking .place_result {
-	border: 1px solid #ccc;
-	background-color: #fff;
+    border: 1px solid #ccc;
+    background-color: #fff;
 }
 
 .car_booking .place_result a {
-	color: #333;
+    color: #333;
 }
 
 .car_booking .place_result a:hover {
-	background-color: #eee;
+    background-color: #eee;
 }
 
 .section h2 {
-	font-size: 24px;
-	font-weight: bold;
-	text-align: center;
-	margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .section.section-body {
-	padding: 50px 0;
+    padding: 50px 0;
 }
 
-.owl-carousel.cars-owl-carousel .item{
-	display: block;
-	margin: 10px;
-	color: #FFF;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	text-align: center;
-  }
+.owl-carousel.cars-owl-carousel .item {
+    display: block;
+    margin: 10px;
+    color: #FFF;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+}
 
-  .owl-theme .owl-controls .owl-page span {
+.owl-theme .owl-controls .owl-page span {
     width: 7px;
     height: 7px;
-	margin: 5px 3px;
-  }
-  .section .owl-theme .owl-controls .owl-buttons div {
-	padding: 5px 9px;
-  }
+    margin: 5px 3px;
+}
 
-  .section .owl-theme .owl-buttons i{
-	margin-top: 5px;
-  }
+.section .owl-theme .owl-controls .owl-buttons div {
+    padding: 5px 9px;
+}
 
-  /*To move navigation buttons outside use these settings:*/
+.section .owl-theme .owl-buttons i {
+    margin-top: 5px;
+}
 
-  .section .owl-theme .owl-controls .owl-buttons div {
-	position: absolute;
-  }
-  .section .carousel-control-prev-icon, .carousel-control-next-icon {
+
+/*To move navigation buttons outside use these settings:*/
+
+.section .owl-theme .owl-controls .owl-buttons div {
+    position: absolute;
+}
+
+.section .carousel-control-prev-icon,
+.carousel-control-next-icon {
     display: inline-block;
     width: 17px;
     height: 16px;
     background: no-repeat 50%/100% 100%;
-	}
-  .section .carousel-control-prev-icon {
-	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
-  }
-  
-  .section .carousel-control-next-icon {
-	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
-  }
+}
 
-  .section .owl-theme .owl-controls .owl-buttons .owl-prev{
-	left: -120px;
-	top: 30%; 
-	background: rgba(0,160,80,.8);
-	opacity: 1;
-  }
+.section .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+}
 
-  .section .owl-theme .owl-controls .owl-buttons .owl-next{
-	right: -120px;
-	top: 30%;
-	background: rgba(0,160,80,.8);
-	opacity: 1;
-  }
+.section .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+}
 
-.section .owl-carousel .owl-item img{
-	width: 100%;
-  }
+.section .owl-theme .owl-controls .owl-buttons .owl-prev {
+    left: -120px;
+    top: 30%;
+    background: rgba(0, 160, 80, .8);
+    opacity: 1;
+}
 
-  .section .owl-carousel a {
-	display: block;
+.section .owl-theme .owl-controls .owl-buttons .owl-next {
+    right: -120px;
+    top: 30%;
+    background: rgba(0, 160, 80, .8);
+    opacity: 1;
+}
+
+.section .owl-carousel .owl-item img {
+    width: 100%;
+}
+
+.section .owl-carousel a {
+    display: block;
 }
 
 .section .owl-carousel h3 {
-	font-size: 16px;
-	text-transform: uppercase;
-	color: #000;
-}
-.section .owl-carousel .car-item-image{
-	position: relative;
-	margin-bottom: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #000;
 }
 
-.section .owl-carousel .desc-car-item{
-	padding: 0;
+.section .owl-carousel .car-item-image {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.section .owl-carousel .desc-car-item {
+    padding: 0;
 }
 
 .section .owl-carousel .car-item-image .car-price {
-	position: absolute;
-	right: 0px;
+    position: absolute;
+    right: 0px;
     bottom: 0px;
-	font-weight: bold;
-	color: #fff;
-	background-color: #28a745;
-	padding: 4px 12px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    padding: 4px 12px;
 }
 
-.section .owl-carousel .desc-car{
-	padding: 10px 0;
+.section .owl-carousel .desc-car {
+    padding: 10px 0;
 }
 
 .car_content {
-	width: 60%;
-	float: left;
-	padding-right: 25px;
+    width: 60%;
+    float: left;
+    padding-right: 25px;
 }
 
 .car_sidebar {
-	width: 40%;
-	float: right;
-	/*margin-top: 40px;*/
-	margin-bottom: 80px;
+    width: 40%;
+    float: right;
+    /*margin-top: 40px;*/
+    margin-bottom: 80px;
 }
 
 .car_title {
-	text-transform: uppercase;
-	font-size: 28px;
-	font-weight: bold;
-	margin: 30px 0 20px 0;
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 30px 0 20px 0;
 }
 
 .car_info {
-	display: flex;
-	/*width: 100%;*/
-	padding: 40px 0;
-	font-size: 16px;
-	color: #6c757d;
+    display: flex;
+    /*width: 100%;*/
+    padding: 40px 0;
+    font-size: 16px;
+    color: #6c757d;
 }
 
 .car_info ul {
-	list-style-type: none;
-	padding: 0;
-	display: flex;
-	flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .car_info ul li {
-	width: 50%;
-	margin-bottom: 15px;
+    width: 50%;
+    margin-bottom: 15px;
 }
 
 .car_booking {
-	padding: 15px 45px;
-	/*border-radius: 15px;*/
-	background-color: #f5f5f5;
-	box-shadow: 0 1px 6px rgba(0,0,0,.3);
+    padding: 15px 45px;
+    /*border-radius: 15px;*/
+    background-color: #f5f5f5;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
 }
 
 .car_booking .price h3 {
-	text-align: center;
-	color: #28a745;
-	font-weight: bold;
-	font-size: 36px;
+    text-align: center;
+    color: #28a745;
+    font-weight: bold;
+    font-size: 36px;
 }
 
 .car_booking .price span {
-	font-size: 13px;
-	color: #6c757d;
+    font-size: 13px;
+    color: #6c757d;
 }
 
 .car_booking .datetime {
-	width: 100%;
-
+    width: 100%;
 }
 
 .car_booking .datetime span.date {
-	width: 60%;
-	text-align: left;
-	background-color: #fff;
-	font-size: 14px;
-	cursor: pointer;
+    width: 60%;
+    text-align: left;
+    background-color: #fff;
+    font-size: 14px;
+    cursor: pointer;
 }
 
-.car_booking .datetime .date, .car_booking .datetime .time, .car_booking .address {
-	font-size: 14px;
+.car_booking .datetime .date,
+.car_booking .datetime .time,
+.car_booking .address {
+    font-size: 14px;
 }
 
 .form-control:focus {
-	border-color: #ccc;
-	box-shadow: none;
+    border-color: #ccc;
+    box-shadow: none;
 }
 
 .car_booking .form-group {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .car_booking .form-group .error {
-	margin-top: 10px;
+    margin-top: 10px;
 }
 
 .car_booking label {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .bill_wrap .panel-body {
-	padding-left: 20px;
-	padding-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .car_bill .group {
-	display: flex;
-	justify-content: space-between;
-	padding-top: 10px;
-	line-height: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    line-height: 30px;
 }
 
 .car_bill .group:first-child {
-	padding-top: 0;
+    padding-top: 0;
 }
 
 .car_bill .group p {
-	margin: 0;
+    margin: 0;
 }
 
 .car_bill .group.line {
-	border-top: 1px solid #ccc;
-	padding-top: 5px;
-	margin-top: 5px;
+    border-top: 1px solid #ccc;
+    padding-top: 5px;
+    margin-top: 5px;
 }
 
-.group .days, .group .sum_amount {
-	font-weight: bold;
+.group .days,
+.group .sum_amount {
+    font-weight: bold;
 }
 
 .car_booking button {
-	margin-bottom: 20px;
-	text-transform: uppercase;
-	font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .form_container {
-	max-width: 420px;
-	margin: 0 auto;
+    max-width: 420px;
+    margin: 0 auto;
 }
 
 #confirmBookingModal .form_container {
-	max-width: 770px;
+    max-width: 770px;
     margin: 0 auto 20px
 }
 
 .form_container input {
-	font-size: 14px;
-	box-shadow: none;
+    font-size: 14px;
+    box-shadow: none;
 }
 
 .form_container .form-group {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .form_container .input-group input {
-	border-left: none;
-	padding-left: 6px;
+    border-left: none;
+    padding-left: 6px;
 }
 
 .form_container .input-group-addon {
-	background-color: unset;
+    background-color: unset;
 }
 
 .form_container .input-group-addon:first-child {
-	padding-right: 6px;
+    padding-right: 6px;
 }
 
 .form_container img {
-	max-width: 100%;
+    max-width: 100%;
 }
 
 #signup_form {
-	margin: 60px 0 20px 0;
+    margin: 60px 0 20px 0;
 }
+
+#loginModal .login-social {
+    margin-bottom: 20px;
+}
+
 .login-social {
-	text-align: center;
+    text-align: center;
 }
 
-.login-social p{
-	margin-bottom: 15px;
+.login-social p {
+    margin-bottom: 15px;
 }
 
-.login-social .form-group a{
-	width: 100%;
-}
-
-#login_form {
-	padding-bottom: 20px;
+.login-social .form-group a {
+    width: 100%;
+    color: #FFFFFF;
+    border: none;
 }
 
 #bookingModal .form_container {
-	max-width: 770px;
-	margin: 0 auto 20px;
+    max-width: 770px;
+    margin: 0 auto 20px;
 }
 
 #bookingModal h4 {
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 #bookingModal label {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #bookingModal hr {
-	margin-top: 10px;
+    margin-top: 10px;
 }
 
 #bookingModal .group {
-	display: flex;
-	justify-content: space-between;
-	/*margin-bottom: 30px;*/
+    display: flex;
+    justify-content: space-between;
+    /*margin-bottom: 30px;*/
 }
 
 .form_container h2 {
-	margin-top: 0;
-	font-size: 28px;
-	text-align: center;
-	font-weight: bold;
-	padding-bottom: 40px;
-}
-#signupContainer{
-	margin-bottom: 60px;
+    margin-top: 0;
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 40px;
 }
 
-#signupContainer .noti-reg-success{
-	min-height: 400px;
-	margin-top: 30%;
-	text-align: center;
+#signupContainer {
+    margin-bottom: 60px;
 }
 
-#signupContainer .noti-reg-success .title-after-signup{
-	font-weight: 600;
+#signupContainer .noti-reg-success {
+    min-height: 400px;
+    margin-top: 30%;
+    text-align: center;
+}
+
+#signupContainer .noti-reg-success .title-after-signup {
+    font-weight: 600;
 }
 
 .similar-wrap {
-	clear: both;
-	margin-bottom: 60px;
-	margin-top: 20px;
+    clear: both;
+    margin-bottom: 60px;
+    margin-top: 20px;
 }
 
 .similar-wrap h2 {
-	font-size: 24px;
-	font-weight: bold;
-	margin-bottom: 30px;
-	text-align: left;
-	text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: left;
+    text-transform: uppercase;
 }
 
 .footer {
-	background-color: #141414;
-	color: #fff;
-	font-size: 16px;
+    background-color: #141414;
+    color: #fff;
+    font-size: 16px;
 }
 
 .footer .container {
-	padding-top: 50px;
-	padding-bottom: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .footer h4 {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .footer ul {
-	list-style-type: none;
-	padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
 .footer ul li {
-	padding: 5px 0;
+    padding: 5px 0;
 }
 
 .footer .copyright {
-	text-align: center;
-	padding-top: 30px;
+    text-align: center;
+    padding-top: 30px;
 }
 
 .modal-header {
-	border-bottom: none;
+    border-bottom: none;
 }
 
 .vt_404 {
-	min-height: 500px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .m-b-lg {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
-#owl-album_car_detail .owl-controls .owl-buttons .owl-prev{
-	left: 10px;
-	background: rgba(0,0,0,0);
-  }
+#owl-album_car_detail .owl-controls .owl-buttons .owl-prev {
+    left: 10px;
+    background: rgba(0, 0, 0, 0);
+}
 
-#owl-album_car_detail .owl-controls .owl-buttons .owl-next{
-	right: 10px;
-	background: rgba(0,0,0,0);
+#owl-album_car_detail .owl-controls .owl-buttons .owl-next {
+    right: 10px;
+    background: rgba(0, 0, 0, 0);
 }
 
 .content-detail .car_info {
@@ -673,8 +697,8 @@ input, textarea {
 .content-detail .car_info .group {
     display: flex;
     margin-bottom: 20px;
-	width: 100%;
-	align-items: flex-start;
+    width: 100%;
+    align-items: flex-start;
     flex-wrap: wrap;
 }
 
@@ -688,82 +712,87 @@ input, textarea {
 .content-detail .car_info .col_content {
     width: 75%;
 }
+
 .bg-gray {
     background-color: #e8eaef;
 }
 
 .result-header {
-	width: 100%;
+    width: 100%;
     background: #fff;
     position: relative;
-	z-index: 10;
-	padding: 10px 0;
-    box-shadow: 0 1px 1px rgba(0,0,0,.3)
+    z-index: 10;
+    padding: 10px 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .3)
 }
 
-.result-header .tab-mode{
-	width: 40%;
+.result-header .tab-mode {
+    width: 40%;
     padding: 0px 30px;
 }
-.result-header .tab-mode p{
-	font-size: 18px;
+
+.result-header .tab-mode p {
+    font-size: 18px;
     color: #00a550;
     font-weight: 600;
     height: 40px;
     margin: 0;
     line-height: 40px;
 }
-.result-header .tab-mode p i{
-	margin-right: 5px;
+
+.result-header .tab-mode p i {
+    margin-right: 5px;
 }
 
-.sidebar-result{
-	height: calc(100vh - 120px);
-	background-color: #fff;
-	box-shadow: 0 1px 3px rgba(0,0,0,.3)
+.sidebar-result {
+    height: calc(100vh - 120px);
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .3)
 }
 
-.sidebar-result .scroll-inner{
-	height: 100%;
+.sidebar-result .scroll-inner {
+    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 30px 35px;
 }
+
 .content-result .col-md-8 {
-	padding: 0;
+    padding: 0;
 }
+
 .list-result li {
     float: left;
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .list-result ul {
     padding: 0;
 }
 
-.list-result .car-item-image img{
-	width: 100%;
+.list-result .car-item-image img {
+    width: 100%;
 }
 
-.list-result .car-item-image{
-	margin-bottom: 20px;
+.list-result .car-item-image {
+    margin-bottom: 20px;
 }
 
-.list-result .car-item{
-	background-color: #fff;
+.list-result .car-item {
+    background-color: #fff;
     padding: 0;
-    -webkit-transition: all .35s cubic-bezier(.7,0,.3,1);
-    transition: all .35s cubic-bezier(.7,0,.3,1);
-	box-shadow: 0 13px 34px 0 rgba(0,0,0,.1);
+    -webkit-transition: all .35s cubic-bezier(.7, 0, .3, 1);
+    transition: all .35s cubic-bezier(.7, 0, .3, 1);
+    box-shadow: 0 13px 34px 0 rgba(0, 0, 0, .1);
 }
 
 .car-item .desc-car-item {
     position: relative;
-	padding: 0 15px 15px;
-	text-align: left;
+    padding: 0 15px 15px;
+    text-align: left;
 }
 
-.car-item .desc-car-item .car-price{
+.car-item .desc-car-item .car-price {
     right: 20px;
     color: #67737f;
     font-size: 15px;
@@ -771,9 +800,9 @@ input, textarea {
     text-align: right;
 }
 
-.list-result a{
-	text-decoration: none;
-	color: #141414
+.list-result a {
+    text-decoration: none;
+    color: #141414
 }
 
 .car-item .desc-car-item h3 {
@@ -787,15 +816,15 @@ input, textarea {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-	word-wrap: normal;
+    word-wrap: normal;
 }
 
-.desc-car-item .location p i{
-	margin-right: 5px;
+.desc-car-item .location p i {
+    margin-right: 5px;
 }
 
-.sidebar-result .slstitle{
-	margin-bottom: 10px;
+.sidebar-result .slstitle {
+    margin-bottom: 10px;
     color: #141414;
     font-size: 15px;
     font-weight: 600;
@@ -803,8 +832,8 @@ input, textarea {
 
 .cover-profile.new-profile {
     height: 26vw;
-	background-position: right 100%;
-	background-size: 100%;
+    background-position: right 100%;
+    background-size: 100%;
 }
 
 .content-profile .desc-profile.desc-account {
@@ -841,14 +870,15 @@ input, textarea {
     justify-content: flex-start;
 }
 
-.content-profile .desc-profile .item-title p{
-	display: inline-block;
+.content-profile .desc-profile .item-title p {
+    display: inline-block;
 }
+
 .content-profile .desc-profile .item-title a.func-edit {
     margin-left: 10px;
 }
 
-.content-profile .desc-profile .item-title a.func-edit i{
+.content-profile .desc-profile .item-title a.func-edit i {
     opacity: .65;
     font-size: 20px;
 }
@@ -868,7 +898,7 @@ input, textarea {
     cursor: pointer;
     -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    box-shadow: 0 3px 4px rgba(0,0,0,.3);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, .3);
 }
 
 .content-profile .desc-profile .avatar--xl {
@@ -876,31 +906,31 @@ input, textarea {
 }
 
 .content-profile .desc-profile .avatar.has-edit .avatar-img {
-    box-shadow: 0 3px 4px rgba(0,0,0,.3);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, .3);
 }
 
-.content-profile .bar-line{
+.content-profile .bar-line {
     width: 45px;
     height: 1px;
     background: #141414;
     margin: 0 10px;
 }
 
-.content-profile .snippet .d-flex{
-	justify-content: flex-start;
-	margin-bottom: 10px;
+.content-profile .snippet .d-flex {
+    justify-content: flex-start;
+    margin-bottom: 10px;
 }
 
-.content-profile .line-info .d-flex{
-	width: calc(35% - 1rem);
+.content-profile .line-info .d-flex {
+    width: calc(35% - 1rem);
     margin-right: 1rem;
 }
 
-.content-profile .line-info .info{
-	display: flex;
+.content-profile .line-info .info {
+    display: flex;
     flex-direction: column;
     margin-right: 1rem;
-    background: hsla(0,0%,100%,.8);
+    background: hsla(0, 0%, 100%, .8);
     border: 1px solid #fff;
     border-radius: 5px;
     padding: .25rem 1rem;
@@ -908,19 +938,20 @@ input, textarea {
     align-items: center;
     min-height: 58px;
 }
-.content-profile .line-info .info:last-child{
-	margin-right: 0;
+
+.content-profile .line-info .info:last-child {
+    margin-right: 0;
 }
 
-.content-profile .line-info .info .label{
-	color: #6e6e6e;
+.content-profile .line-info .info .label {
+    color: #6e6e6e;
     font-size: 14px;
     font-weight: 700;
     margin-bottom: .25rem;
 }
 
-.content-profile .line-info .info .ctn{
-	position: relative;
+.content-profile .line-info .info .ctn {
+    position: relative;
     font-size: 14px;
     font-weight: 400;
     text-align: center;
@@ -933,13 +964,13 @@ input, textarea {
 
 .content-profile .desc-profile .inside {
     padding: 20px 0;
-    background: hsla(0,0%,100%,.8);
+    background: hsla(0, 0%, 100%, .8);
     margin-bottom: 20px;
 }
 
 .content-profile .information .inside {
     border-radius: 2px;
-    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
 }
 
 .content-profile .desc-profile .inside ul {
@@ -965,10 +996,11 @@ input, textarea {
     margin-bottom: 5px;
 }
 
-.content-profile .desc-profile .inside li span.label i{
-	margin-left: 10px;
-	opacity: .65;
+.content-profile .desc-profile .inside li span.label i {
+    margin-left: 10px;
+    opacity: .65;
 }
+
 .content-profile .desc-profile .inside li span.ctn {
     position: relative;
     width: 100%;
@@ -976,40 +1008,41 @@ input, textarea {
     font-weight: 400;
 }
 
-#editInfoForm{
+#editInfoForm {
     margin-bottom: 50px;
 }
-#editInfoForm .form-group{
+
+#editInfoForm .form-group {
     margin-bottom: 20px;
 }
 
-#editInfoForm .input-group{
+#editInfoForm .input-group {
     width: 100%;
 }
 
-#editInfoForm .input-group select{
+#editInfoForm .input-group select {
     border-radius: 3px;
     font-size: 14px;
 }
 
-#modelEdit input.input-lg{
-	height: 50px;
+#modelEdit input.input-lg {
+    height: 50px;
 }
 
-#notifiModal i.fa-exclamation-triangle{
-	color: #d60c0c;
+#notifiModal i.fa-exclamation-triangle {
+    color: #d60c0c;
 }
 
-#help-section .helps-step{
-	margin-bottom: 15px;
+#help-section .helps-step {
+    margin-bottom: 15px;
 }
 
-#help-section .helps-step .step-item{
-	padding: 0 35px;
+#help-section .helps-step .step-item {
+    padding: 0 35px;
 }
 
-#help-section .helps-step .step-item .step-detail h3{
-	color: #6c6c6e;
+#help-section .helps-step .step-item .step-detail h3 {
+    color: #6c6c6e;
     font-weight: 600;
     font-size: 18px;
     text-align: center;
@@ -1017,52 +1050,55 @@ input, textarea {
     margin-bottom: .5rem;
 }
 
-.section.list-mytrips{
-	min-height: 900px;
+.section.list-mytrips {
+    min-height: 900px;
 }
 
-.section.list-mytrips .mytrips-header{
-	background-color: #FFF;
-	box-shadow: 0 1px 1px rgba(0,0,0,.3);
-	min-height: 60px;
-	padding: 10px 0;
-	display: flex;
+.section.list-mytrips .mytrips-header {
+    background-color: #FFF;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    min-height: 60px;
+    padding: 10px 0;
+    display: flex;
 }
 
-.mytrips-header .tab-mode{
-	width: 40%;
+.mytrips-header .tab-mode {
+    width: 40%;
     padding: 0px 30px;
 }
-.mytrips-header .tab-mode p{
-	font-size: 18px;
+
+.mytrips-header .tab-mode p {
+    font-size: 18px;
     color: #00a550;
     font-weight: 600;
     height: 40px;
     margin: 0;
     line-height: 40px;
 }
-.mytrips-header .tab-mode p i{
-	margin-right: 5px;
+
+.mytrips-header .tab-mode p i {
+    margin-right: 5px;
 }
 
-.list-mytrips .mytrips-content .no-has-trip img{
-	width: 60%;
+.list-mytrips .mytrips-content .no-has-trip img {
+    width: 60%;
 }
 
-.list-mytrips .has-trips{
-	margin: 0 150px;
-	padding-top: 40px; 
+.list-mytrips .has-trips {
+    margin: 0 150px;
+    padding-top: 40px;
 }
 
-.list-mytrips .has-trips p{
-	font-size: 16px;
+.list-mytrips .has-trips p {
+    font-size: 16px;
 }
 
-.list-mytrips .has-trips .trip-box{
-	background-color: #fff;
+.list-mytrips .has-trips .trip-box {
+    background-color: #fff;
     margin-bottom: 30px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
 }
+
 .list-mytrips .has-trips .trip-box .trip-header {
     display: flex;
     justify-content: space-between;
@@ -1070,26 +1106,26 @@ input, textarea {
     padding: 10px 30px 5px;
 }
 
-.list-mytrips .has-trips .trip-box .trip-header .car-name{
-	font-weight: 600;
-	text-transform: uppercase;
-	font-size: 20px;
+.list-mytrips .has-trips .trip-box .trip-header .car-name {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 20px;
 }
 
 .list-mytrips .has-trips .trip-box .trip-body {
-	padding: 0 30px 0px;
+    padding: 0 30px 0px;
 }
 
-.list-mytrips .has-trips .trip-box .trip-body p{
-	margin-bottom: 10px;
+.list-mytrips .has-trips .trip-box .trip-body p {
+    margin-bottom: 10px;
 }
 
-.list-mytrips .has-trips .trip-box .trip-body p:last-child{
-	font-weight: 600;
+.list-mytrips .has-trips .trip-box .trip-body p:last-child {
+    font-weight: 600;
 }
 
-.list-mytrips .has-trips .trip-box .trip-footer{
-	border-top: 1px solid #e0e0e0;
+.list-mytrips .has-trips .trip-box .trip-footer {
+    border-top: 1px solid #e0e0e0;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -1097,398 +1133,359 @@ input, textarea {
     padding: 15px 30px;
 }
 
-
-.list-mytrips .trip-box .trip-box-left{
-	padding-right: 0;
+.list-mytrips .trip-box .trip-box-left {
+    padding-right: 0;
 }
 
-.list-mytrips .trip-box .trip-box-right{
-	padding-right: 0;
+.list-mytrips .trip-box .trip-box-right {
+    padding-right: 0;
 }
 
-
-.trip-detail .trip-detail-container{
-	margin: 50px 100px;
+.trip-detail .trip-detail-container {
+    margin: 50px 100px;
 }
 
-.trip-detail .content-trip-detail{
-	background-color: #FFFFFF;
-	padding: 40px 30px;
-	
+.trip-detail .content-trip-detail {
+    background-color: #FFFFFF;
+    padding: 40px 30px;
 }
 
-.trip-detail .trip-status-detail{
-	background-color: #FFFFFF;
-	padding: 15px 25px;
-	border-bottom: 1px solid #ddd;
+.trip-detail .trip-status-detail {
+    background-color: #FFFFFF;
+    padding: 15px 25px;
+    border-bottom: 1px solid #ddd;
 }
 
-.trip-detail .trip-status-detail p{
-	font-size: 16px;
+.trip-detail .trip-status-detail p {
+    font-size: 16px;
 }
 
 .trip-detail .trip-actions {
-	display: flex;
+    display: flex;
     justify-content: center;
 }
 
-.trip-detail .trip-actions .btn{
-	padding: 6px 30px;
+.trip-detail .trip-actions .btn {
+    padding: 6px 30px;
 }
 
-.content-change-pass{
-	min-height: 500px;
+.content-change-pass {
+    min-height: 500px;
 }
 
-#changePassForm{
-	margin: 50px 0;
+#changePassForm {
+    margin: 50px 0;
 }
-
 
 
 /* MOBILE */
 
-
 @media screen and (max-width: 1399px) {
-	.section .owl-theme .owl-controls .owl-buttons .owl-prev{
-		left: -55px;
-	  }
-	
-	  .section .owl-theme .owl-controls .owl-buttons .owl-next{
-		right: -55px;
-	  }
+    .section .owl-theme .owl-controls .owl-buttons .owl-prev {
+        left: -55px;
+    }
+    .section .owl-theme .owl-controls .owl-buttons .owl-next {
+        right: -55px;
+    }
 }
 
 @media screen and (max-width: 1199px) {
-	.content-profile .snippet .d-flex{
-		width: calc(35% - .5rem);
-		margin-right: .5rem;
-	}
-
-	.content-profile .line-info .info{
-		width: calc(50% - .25rem);
-		margin-right: .5rem;
-		min-height: 54px;
-	}
-	.section.banner .cover{
-		height: 708px;
-	}
-	.search_form label{
-		font-size: 13px;
-		font-weight: 600;
-		margin-bottom: 0;
-	}
-
-	.trip-detail .trip-detail-container {
-		margin: 30px 50px;
-	}
+    .content-profile .snippet .d-flex {
+        width: calc(35% - .5rem);
+        margin-right: .5rem;
+    }
+    .content-profile .line-info .info {
+        width: calc(50% - .25rem);
+        margin-right: .5rem;
+        min-height: 54px;
+    }
+    .section.banner .cover {
+        height: 708px;
+    }
+    .search_form label {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    .trip-detail .trip-detail-container {
+        margin: 30px 50px;
+    }
 }
 
 @media screen and (max-width: 991px) {
-	.cover-profile.new-profile {
-		height: 44vw;
-	}
-	.content-profile .desc-profile.desc-account .snippet{
-		width: 75%;
-		margin-left: 0;
-		padding-top: 15px;
-	}
-	.content-profile .snippet .d-flex{
-		width: 100%;
-		margin-right: 0;
-	}
-
-	.content-profile .line-info .info{
-		width: auto;
-		margin-right: .75rem;
-		padding: .25rem 1.5rem;
-	}
-	.content-profile .desc-profile .inside li{
-		flex-flow: row wrap;
-		width: 100%;
-	}
-
-	.content-profile .desc-profile .inside ul{
-		flex-wrap: wrap;
-		padding-left: 10px;
-	}
-
-	.content-profile .desc-profile .inside li span.label{
-		width: 25%;
-		text-align: left;
-	}
-
-	.content-profile .desc-profile .inside li span.ctn{
-		width: 75%;
-		text-align: left;
-	}
-
-	.content-profile .desc-profile .information .label a.func-edit {
-		position: absolute;
-		right: 10px;
-		z-index: 10;
-	}
-	.section.banner .cover{
-		height: 664px;
-	}
-	.section h2{
-		margin-bottom: 20px;
-	}
-	.section.top_car, .section.latest_car {
-		padding: 30px 0;
-	}
-	.filter-result .list-result-title{
-		display: none;
-	}
-	#confirmBookingModal .form_container hr{
-		display: none;
-	}
-	#confirmBookingModal .info-date-dress{
-		margin-top: 20px;
-	}
-
-	#confirmBookingModal .btn-cf-book{
-		margin-top: 10px;
-	}
-	.section .owl-theme .owl-controls .owl-buttons .owl-prev{
-		left: -40px;
-	}
-	
-	.section .owl-theme .owl-controls .owl-buttons .owl-next{
-		right: -40px;
-	}
-
-	.mytrips-header .tab-mode p{
-		font-size: 17px;
-	}
-
-	.section.list-mytrips{
-		min-height: 700px;
-	}
-
-	.list-mytrips .has-trips {
-		margin: 0;
-		padding-top: 40px;
-	}
-
-	.trip-detail .trip-detail-container {
-		margin: 15px 25px;
-	}
-	
+    .cover-profile.new-profile {
+        height: 44vw;
+    }
+    .content-profile .desc-profile.desc-account .snippet {
+        width: 75%;
+        margin-left: 0;
+        padding-top: 15px;
+    }
+    .content-profile .snippet .d-flex {
+        width: 100%;
+        margin-right: 0;
+    }
+    .content-profile .line-info .info {
+        width: auto;
+        margin-right: .75rem;
+        padding: .25rem 1.5rem;
+    }
+    .content-profile .desc-profile .inside li {
+        flex-flow: row wrap;
+        width: 100%;
+    }
+    .content-profile .desc-profile .inside ul {
+        flex-wrap: wrap;
+        padding-left: 10px;
+    }
+    .content-profile .desc-profile .inside li span.label {
+        width: 25%;
+        text-align: left;
+    }
+    .content-profile .desc-profile .inside li span.ctn {
+        width: 75%;
+        text-align: left;
+    }
+    .content-profile .desc-profile .information .label a.func-edit {
+        position: absolute;
+        right: 10px;
+        z-index: 10;
+    }
+    .section.banner .cover {
+        height: 664px;
+    }
+    .section h2 {
+        margin-bottom: 20px;
+    }
+    .section.top_car,
+    .section.latest_car {
+        padding: 30px 0;
+    }
+    .filter-result .list-result-title {
+        display: none;
+    }
+    #confirmBookingModal .form_container hr {
+        display: none;
+    }
+    #confirmBookingModal .info-date-dress {
+        margin-top: 20px;
+    }
+    #confirmBookingModal .btn-cf-book {
+        margin-top: 10px;
+    }
+    .section .owl-theme .owl-controls .owl-buttons .owl-prev {
+        left: -40px;
+    }
+    .section .owl-theme .owl-controls .owl-buttons .owl-next {
+        right: -40px;
+    }
+    .mytrips-header .tab-mode p {
+        font-size: 17px;
+    }
+    .section.list-mytrips {
+        min-height: 700px;
+    }
+    .list-mytrips .has-trips {
+        margin: 0;
+        padding-top: 40px;
+    }
+    .trip-detail .trip-detail-container {
+        margin: 15px 25px;
+    }
 }
 
 @media screen and (max-width: 769px) {
-	.content-profile .desc-profile.desc-account .snippet{
-		width: 100%;
-	}
-
-	.content-profile .line-info .info{
-		width: 50%;
-		padding: .25rem .5rem;
-		min-height: 56px;
-	}
-	.search_form{
-		flex-wrap: wrap;
-		align-items: flex-start;
-		margin-bottom: 3rem;
-		padding: 20px;
-		border-radius: 5px;
-		flex-direction: column;
-    	align-items: stretch;
-	}
-	.search_form .group {
-		padding-left: 0 !important;
-		margin-bottom: 1.5rem;
-		border-bottom: 1px solid #fff;
-		font-size: 15px;
-	}
-	.search_form .group::after {
-		display: none;
-	}
-	.section.banner .cover{
-		height: 600px;
-	}
-	.search_form .sub_group {
-		width: 100%;
-		padding-left: 0;
-		margin-top: 1rem;
-		flex: auto;
-	}
-	.search_form .btn_search{
-		width: 100%;
-		border-radius: 3px;
-		height: auto;
-		padding: .3rem .75rem;
-	}
-	.search_form .sub_group .btn_search>span{
-		color: #00a550;
-		font-weight: 600;
-		padding-left: 5px;
-		display: inline-block;
-		font-size: 15px;
-	}
-	.section.banner .content {
-		width: 100%;
-	}
-	.section .owl-theme .owl-controls .owl-buttons {
-		display: none;
-	}
-	.section.banner .content h1 {
-		font-size: 30px;
-		font-weight: 700;
-	}
-	.section.banner .wrap {
-		top: 45%;
-	}
-	.content-detail .car_info .col_title {
-		width: 100%;
-		margin-bottom: 10px;
-	}
-	
-	.content-detail .car_info .col_content {
-		width: 100%;
-	}
-	.content-detail .car_info {
-		padding: 40px 0 20px;
-		font-size: 16px;
-	}
-
-	.content-detail .car_booking {
-		padding: 15px 10px;
-	}
-	.search_form .place_result{
-		z-index: 1;
-	}
-	.content-detail .car_title{
-		font-size: 21px;
-	}
-	#help-section .helps-step{
-		padding: 0 50px;
-	}
-	#help-section .helps-step .step-item .step-img{
-		padding: 0 25px;
-	}
-	#help-section .helps-step .step-item{
-		padding: 15px 20px;
-	}
-	#help-section .helps-step .step-item .step-detail h3{
-		font-size: 18px;
-	}
-	#help-section .helps-step {
-		margin-bottom: 0;
-	}
-	.mytrips-header .tab-mode p{
-		font-size: 16px;
-	}
-	.mytrips-header .container{
-		width: 100%;
-	}
-	
+    .content-profile .desc-profile.desc-account .snippet {
+        width: 100%;
+    }
+    .content-profile .line-info .info {
+        width: 50%;
+        padding: .25rem .5rem;
+        min-height: 56px;
+    }
+    .search_form {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        margin-bottom: 3rem;
+        padding: 20px;
+        border-radius: 5px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search_form .group {
+        padding-left: 0 !important;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #fff;
+        font-size: 15px;
+    }
+    .search_form .group::after {
+        display: none;
+    }
+    .section.banner .cover {
+        height: 600px;
+    }
+    .search_form .sub_group {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 1rem;
+        flex: auto;
+    }
+    .search_form .btn_search {
+        width: 100%;
+        border-radius: 3px;
+        height: auto;
+        padding: .3rem .75rem;
+    }
+    .search_form .sub_group .btn_search>span {
+        color: #00a550;
+        font-weight: 600;
+        padding-left: 5px;
+        display: inline-block;
+        font-size: 15px;
+    }
+    .section.banner .content {
+        width: 100%;
+    }
+    .section .owl-theme .owl-controls .owl-buttons {
+        display: none;
+    }
+    .section.banner .content h1 {
+        font-size: 30px;
+        font-weight: 700;
+    }
+    .section.banner .wrap {
+        top: 45%;
+    }
+    .content-detail .car_info .col_title {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .content-detail .car_info .col_content {
+        width: 100%;
+    }
+    .content-detail .car_info {
+        padding: 40px 0 20px;
+        font-size: 16px;
+    }
+    .content-detail .car_booking {
+        padding: 15px 10px;
+    }
+    .search_form .place_result {
+        z-index: 1;
+    }
+    .content-detail .car_title {
+        font-size: 21px;
+    }
+    #help-section .helps-step {
+        padding: 0 50px;
+    }
+    #help-section .helps-step .step-item .step-img {
+        padding: 0 25px;
+    }
+    #help-section .helps-step .step-item {
+        padding: 15px 20px;
+    }
+    #help-section .helps-step .step-item .step-detail h3 {
+        font-size: 18px;
+    }
+    #help-section .helps-step {
+        margin-bottom: 0;
+    }
+    .mytrips-header .tab-mode p {
+        font-size: 16px;
+    }
+    .mytrips-header .container {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 576px) {
-	#help-section .helps-step .step-item .step-detail h3{
-		font-size: 16px;
-	}
-
-	#help-section .helps-step{
-		padding: 0 30px;
-	}
-
-	.footer .container {
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-
-	.section.list-mytrips{
-		min-height: 500px;
-	}
-
-
-	.mytrips-header .tab-mode {
-		width: 60%;
-		padding: 0px 10px;
-	}
-	.trip-detail .trip-detail-container {
-		margin: 0;
-	}
+    #help-section .helps-step .step-item .step-detail h3 {
+        font-size: 16px;
+    }
+    #help-section .helps-step {
+        padding: 0 30px;
+    }
+    .footer .container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .section.list-mytrips {
+        min-height: 500px;
+    }
+    .mytrips-header .tab-mode {
+        width: 60%;
+        padding: 0px 10px;
+    }
+    .trip-detail .trip-detail-container {
+        margin: 0;
+    }
 }
 
 @media screen and (max-width: 480px) {
-	.content-profile .desc-profile.desc-account .avatar-box {
-		margin-top: -60px;
-		margin-bottom: 0;
-		padding-bottom: 0;
-	}
-
-	.content-profile .desc-profile.desc-account .snippet{
-		width: 100%;
-		padding-top: 10px;
-	}
-
-	.content-profile .line-info .info{
-		padding: .25rem 1rem;
-		margin-right: .75rem;
-	}
-
-	.content-profile .desc-profile .inside li span.label{
-		font-size: 14px;
-	}
-
-	.content-profile .desc-profile .inside li span.ctn{
-		font-size: 14px;
-		word-break: break-word;
-	}
-	.content-detail .car_info ul li {
-		width: 100%;
-	}
-	.content-result .list-result ul li{
-		width: 100%;
-	}
-	#help-section .helps-step .step-item .step-img{
-		padding: 0 10px;
-	}
-	#help-section .helps-step .step-item{
-		padding: 10px 12px;
-	}
-	#help-section .helps-step .step-item .step-detail h3{
-		font-size: 15px;
-	}
-
-	#help-section .helps-step{
-		padding: 0 20px;
-	}
-
-	.list-mytrips .has-trips .trip-box .trip-header .car-name {
-		font-size: 18px;
-	}
-
-	.list-mytrips .has-trips p {
-		font-size: 14px;
-	}
+    .content-profile .desc-profile.desc-account .avatar-box {
+        margin-top: -60px;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .content-profile .desc-profile.desc-account .snippet {
+        width: 100%;
+        padding-top: 10px;
+    }
+    .content-profile .line-info .info {
+        padding: .25rem 1rem;
+        margin-right: .75rem;
+    }
+    .content-profile .desc-profile .inside li span.label {
+        font-size: 14px;
+    }
+    .content-profile .desc-profile .inside li span.ctn {
+        font-size: 14px;
+        word-break: break-word;
+    }
+    .content-detail .car_info ul li {
+        width: 100%;
+    }
+    .content-result .list-result ul li {
+        width: 100%;
+    }
+    #help-section .helps-step .step-item .step-img {
+        padding: 0 10px;
+    }
+    #help-section .helps-step .step-item {
+        padding: 10px 12px;
+    }
+    #help-section .helps-step .step-item .step-detail h3 {
+        font-size: 15px;
+    }
+    #help-section .helps-step {
+        padding: 0 20px;
+    }
+    .list-mytrips .has-trips .trip-box .trip-header .car-name {
+        font-size: 18px;
+    }
+    .list-mytrips .has-trips p {
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 367px) {
-	#help-section .helps-step .step-item .step-img{
-		padding: 0 10px;
-	}
-	#help-section .helps-step .step-item{
-		padding: 5px 10px;
-	}
-	#help-section .helps-step .step-item .step-detail h3{
-		font-size: 13px;
-	}
-
-	.list-mytrips .has-trips .trip-box .trip-body p {
-		margin-bottom: 5px;
-	}
-
-	.list-mytrips .has-trips p {
-		font-size: 12px;
-	}
-
-	
-	.list-mytrips .has-trips .trip-box .trip-header .car-name {
-		font-size: 16px;
-	}
+    #help-section .helps-step .step-item .step-img {
+        padding: 0 10px;
+    }
+    #help-section .helps-step .step-item {
+        padding: 5px 10px;
+    }
+    #help-section .helps-step .step-item .step-detail h3 {
+        font-size: 13px;
+    }
+    .list-mytrips .has-trips .trip-box .trip-body p {
+        margin-bottom: 5px;
+    }
+    .list-mytrips .has-trips p {
+        font-size: 12px;
+    }
+    .list-mytrips .has-trips .trip-box .trip-header .car-name {
+        font-size: 16px;
+    }
 }
