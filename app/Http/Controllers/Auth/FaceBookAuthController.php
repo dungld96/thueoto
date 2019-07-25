@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
 use App\User;
+use App\Models\Role;
+
 
 class FaceBookAuthController extends Controller
 {
