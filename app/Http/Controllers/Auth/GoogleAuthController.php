@@ -28,6 +28,7 @@ class GoogleAuthController extends Controller
                 $message = $e->getMessage();
             }
             toastr()->error($message);
+            sleep(2);
             return redirect()->route('home-client');
         }
         Auth::login($user, true);

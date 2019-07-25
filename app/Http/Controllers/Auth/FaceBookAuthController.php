@@ -20,7 +20,19 @@ class FaceBookAuthController extends Controller
     public function handleProviderCallback()
     {
         $facebookUser = Socialite::driver('facebook')->user();
-        $user = $this->findOrCreateUser($facebookUser);
+
+        try{
+            $user = $this->findOrCreateUser($facebookUser);
+        } catch (\Exception $e) {
+            if($e->errorInfo[1] == 1062){
+                $message = 'Email đã tồn tại.';
+            }else{
+                $message = $e->getMessage();
+            }
+            toastr()->error($message);
+            sleep(2);
+            return redirect()->route('home-client');
+        }
 
         Auth::login($user, true);
         return redirect()->route('home-client');
