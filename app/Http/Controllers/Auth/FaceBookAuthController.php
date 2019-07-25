@@ -17,8 +17,27 @@ class FaceBookAuthController extends Controller
 
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('facebook')->user();
-        dd($user);
+        $facebookUser = Socialite::driver('facebook')->user();
+        $user = $this->findOrCreateUser($facebookUser);
+
+        Auth::login($user, true);
+        return redirect()->route('home-client');
+    }
+
+    private function findOrCreateUser($facebookUser){
+        $authUser = User::where('social_type', 'facebook')->where('social_id', $facebookUser->id)->first();
+ 
+        if($authUser){
+            return $authUser;
+        }
+ 
+        return User::create([
+            'name' => $facebookUser->name,
+            'password' => $facebookUser->token,
+            'email' => $facebookUser->email,
+            'social_type' => 'facebook',
+            'social_id' => $facebookUser->id,
+        ]);
     }
 
 }
