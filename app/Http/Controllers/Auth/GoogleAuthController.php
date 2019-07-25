@@ -28,6 +28,7 @@ class GoogleAuthController extends Controller
                 $message = $e->getMessage();
             }
             toastr()->error($message);
+            dd('Email đã tồn tại');
             sleep(2);
             return redirect()->route('home-client');
         }
