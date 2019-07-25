@@ -29,9 +29,7 @@ class FaceBookAuthController extends Controller
             }else{
                 $message = $e->getMessage();
             }
-            toastr()->error($message);
-            sleep(2);
-            return redirect()->route('home-client');
+            return view('errors.error', ['message'=>$message]);
         }
 
         Auth::login($user, true);
