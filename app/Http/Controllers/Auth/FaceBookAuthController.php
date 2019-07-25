@@ -30,14 +30,16 @@ class FaceBookAuthController extends Controller
         if($authUser){
             return $authUser;
         }
- 
-        return User::create([
-            'name' => $facebookUser->name,
-            'password' => $facebookUser->token,
-            'email' => $facebookUser->email,
-            'social_type' => 'facebook',
-            'social_id' => $facebookUser->id,
-        ]);
+
+        $user = new User();
+        $user->name = $facebookUser->name;
+        $user->password = $facebookUser->token;
+        $user->email = $facebookUser->email;
+        $user->social_type = 'facebook';
+        $user->social_id = $facebookUser->id;
+        $user->save();
+        $user->roles()->attach(Role::where('role', 1)->first());
+        return $user;
     }
 
 }
