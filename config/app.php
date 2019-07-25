@@ -169,6 +169,7 @@ return [
          */
         Yajra\DataTables\DataTablesServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -228,7 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Sluggable' => Cviebrock\EloquentSluggable\Sluggable::class,
-        
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

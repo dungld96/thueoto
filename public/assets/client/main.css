@@ -535,7 +535,18 @@ input, textarea {
 }
 
 #signup_form {
-	padding: 60px 0 80px 0;
+	margin: 60px 0 20px 0;
+}
+.login-social {
+	text-align: center;
+}
+
+.login-social p{
+	margin-bottom: 15px;
+}
+
+.login-social .form-group a{
+	width: 100%;
 }
 
 #login_form {
@@ -571,6 +582,9 @@ input, textarea {
 	text-align: center;
 	font-weight: bold;
 	padding-bottom: 40px;
+}
+#signupContainer{
+	margin-bottom: 60px;
 }
 
 #signupContainer .noti-reg-success{

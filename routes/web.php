@@ -30,6 +30,17 @@
 		'uses'=> 'Auth\LoginController@logout'
 	]);
 
+	Route::get('/login/facebook', [
+		'as'=> 'login.facebook',
+		'uses'=> 'Auth\FaceBookAuthController@redirectToProvider'
+	]);
+
+	Route::get('/login/facebook/callback', [
+		'as'=> 'login.facebook.callback',
+		'uses'=> 'Auth\FaceBookAuthController@handleProviderCallback'
+	]);
+
+
 
 
 
