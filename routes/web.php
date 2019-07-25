@@ -5,53 +5,52 @@
 		'uses'=> 'Client\HomeController@index'
 	]);
 
-	Route::get('/signup', [
-		'as'=> 'user.signup',
-		'uses'=> 'Auth\RegisterController@register'
-	]);
-
-	Route::post('/signup/create', [
-		'as'=> 'user.signup.create',
-		'uses'=> 'Auth\RegisterController@create'
-	]);
-
-	Route::get('/login/view', [
-		'as'=> 'user.login.view',
-		'uses'=> 'Auth\LoginController@loginView'
-	]);
-
-	Route::post('/login/check', [
-		'as'=> 'user.login.check',
-		'uses'=> 'Auth\LoginController@login'
-	]);
-
 	Route::get('/logout', [
 		'as'=> 'user.logout',
 		'uses'=> 'Auth\LoginController@logout'
 	]);
 
-	Route::get('/login/facebook', [
-		'as'=> 'login.facebook',
-		'uses'=> 'Auth\FaceBookAuthController@redirectToProvider'
-	]);
-
-	Route::get('/login/facebook/callback', [
-		'as'=> 'login.facebook.callback',
-		'uses'=> 'Auth\FaceBookAuthController@handleProviderCallback'
-	]);
-
-	Route::get('/login/google', [
-		'as'=> 'login.google',
-		'uses'=> 'Auth\GoogleAuthController@redirectToProvider'
-	]);
-
-	Route::get('/login/google/callback', [
-		'as'=> 'login.google.callback',
-		'uses'=> 'Auth\GoogleAuthController@handleProviderCallback'
-	]);
-
-
-
+	Route::group(['middleware' => ['check-no-auth']], function(){
+		Route::get('/signup', [
+			'as'=> 'user.signup',
+			'uses'=> 'Auth\RegisterController@register'
+		]);
+	
+		Route::post('/signup/create', [
+			'as'=> 'user.signup.create',
+			'uses'=> 'Auth\RegisterController@create'
+		]);
+	
+		Route::get('/login/view', [
+			'as'=> 'user.login.view',
+			'uses'=> 'Auth\LoginController@loginView'
+		]);
+	
+		Route::post('/login/check', [
+			'as'=> 'user.login.check',
+			'uses'=> 'Auth\LoginController@login'
+		]);
+	
+		Route::get('/login/facebook', [
+			'as'=> 'login.facebook',
+			'uses'=> 'Auth\FaceBookAuthController@redirectToProvider'
+		]);
+	
+		Route::get('/login/facebook/callback', [
+			'as'=> 'login.facebook.callback',
+			'uses'=> 'Auth\FaceBookAuthController@handleProviderCallback'
+		]);
+	
+		Route::get('/login/google', [
+			'as'=> 'login.google',
+			'uses'=> 'Auth\GoogleAuthController@redirectToProvider'
+		]);
+	
+		Route::get('/login/google/callback', [
+			'as'=> 'login.google.callback',
+			'uses'=> 'Auth\GoogleAuthController@handleProviderCallback'
+		]);
+	});
 
 
 	Route::prefix('car')->group(function () {
