@@ -57,12 +57,17 @@
                                     <li>
                                         <span class="label">Facebook</span>
                                         <span class="ctn">
+                                            @if (isset($user->social_type) && $user->social_type == 'facebook')
+                                                {{ $user->name }}
+                                            @endif
                                         </span>
                                     </li>
                                     <li>
                                         <span class="label">Google</span>
                                         <span class="ctn">
-                                           
+                                            @if (isset($user->social_type) && $user->social_type == 'google')
+                                                {{ $user->name }}
+                                            @endif
                                         </span>
                                     </li>
                                 </ul>
