@@ -29,7 +29,12 @@ class RegisterController extends Controller
             $new_user->save();
             $new_user->roles()->attach(Role::where('role', 1)->first());
         } catch (\Exception $e) {
-            return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
+            if($e->errorInfo[1] == 1062){
+                $message = 'Email hoặc số điện thoại đã tồn tại.';
+            }else{
+                $message = $e->getMessage();
+            }
+            return response()->json(['message'=>$message, 'status' => 'error']);
         }
     	return response()->json(['message'=>'Thành công', 'status' => 'success']);
     }

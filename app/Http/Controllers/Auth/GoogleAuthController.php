@@ -19,8 +19,17 @@ class GoogleAuthController extends Controller
     public function handleProviderCallback()
     {
         $googleUser = Socialite::driver('google')->user();
-        $user = $this->findOrCreateUser($googleUser);
-
+        try {
+            $user = $this->findOrCreateUser($googleUser);
+        } catch (\Exception $e) {
+            if($e->errorInfo[1] == 1062){
+                $message = 'Email đã tồn tại.';
+            }else{
+                $message = $e->getMessage();
+            }
+            toastr()->error($message);
+            return redirect()->route('home-client');
+        }
         Auth::login($user, true);
         return redirect()->route('home-client');
     }
@@ -42,4 +51,7 @@ class GoogleAuthController extends Controller
         $user->roles()->attach(Role::where('role', 1)->first());
         return $user;
     }
+
+
+
 }
