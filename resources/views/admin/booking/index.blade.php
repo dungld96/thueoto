@@ -7,7 +7,7 @@
     <div class="row content-header">
         <div class="col-md-8">
             <h3 class="page-title">
-                Danh sách chuyễn xe chờ duyệt
+                Danh sách chuyến xe chờ duyệt
             </h3>
         </div>
         <div class="col-md-4">
@@ -21,15 +21,15 @@
                     <table class="table table-hover table-bordered table-striped datatable" id="BookingTable" style="width:100%">
                         <thead>
                             <tr>
-                            	<th width="35px">STT</th>
+                            	<th width="25px">STT</th>
                                 <th width="60px">Trip</th>
                                 <th width="120px">Tên khách hàng</th>
                                 <th width="120px">Số điện thoại</th>
                                 <th>Tên xe</th>
-                                <th width="120px">Ngày nhận xe</th>
-                                <th width="120px">Ngày trả xe</th>
-                                <th width="120px">Ngày tạo</th>
-                                <th width="150px">Trạng thái</th>
+                                <th width="100px">Ngày nhận xe</th>
+                                <th width="100px">Ngày trả xe</th>
+                                <th width="100px">Ngày tạo</th>
+                                <th>Trạng thái</th>
                                 <th width="120px">Acticon</th>
                             </tr>
                         </thead>

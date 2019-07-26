@@ -41,11 +41,11 @@
                                         <div class="trip-footer">
                                             <div class="trip-status">
                                                 <p><i class="fas fa-dot-circle 
-                                                    @if ($trip->bookingStatus < 3)
+                                                    @if ($trip->bookingStatus < 3 )
                                                         orange-dot
                                                     @elseif($trip->bookingStatus >= 3 && $trip->bookingStatus < 6)
                                                         green-dot
-                                                    @elseif($trip->bookingStatus >= 6 && $trip->bookingStatus < 8)
+                                                    @elseif($trip->bookingStatus >= 7 && $trip->bookingStatus < 9)
                                                         red-dot
                                                     @else
                                                         green-dot

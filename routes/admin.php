@@ -70,7 +70,7 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 			'uses'=> 'Admin\TripsController@storeApprove'
 		]);
 		Route::get('/cancel/{id}', [
-			'as'=> 'booking.apprcancelove',
+			'as'=> 'booking.approvecancel',
 			'uses'=> 'Admin\TripsController@cancelBooking'
 		]);
 	});
@@ -84,6 +84,30 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 			'as'=> 'trips.list.getdata',
 			'uses'=> 'Admin\TripsController@getTrips'
 		]);
+		Route::get('/view/{id}', [
+			'as'=> 'trips.view',
+			'uses'=> 'Admin\TripsController@view'
+		]);
+		Route::get('/action/{id}', [
+			'as'=> 'trips.action',
+			'uses'=> 'Admin\TripsController@tripAction'
+		]);
+		Route::get('/cancel/{id}', [
+			'as'=> 'trips.cancelTrip',
+			'uses'=> 'Admin\TripsController@cancelBooking'
+		]);
+		Route::get('/start/{id}', [
+			'as'=> 'trips.startTrip',
+			'uses'=> 'Admin\TripsController@startTrip'
+		]);
+		Route::get('/end/{id}', [
+			'as'=> 'trips.endTrip',
+			'uses'=> 'Admin\TripsController@endTrip'
+		]);
+		Route::get('/delete/{id}', [
+			'as'=> 'trips.deleteTrip',
+			'uses'=> 'Admin\TripsController@deleteTrip'
+		])->middleware('check-admin');
 	});
 	
 

@@ -1,81 +1,89 @@
-.dataTables_wrapper .dataTables_filter input{
-	height: 30px;
-}
-.dataTables_wrapper table.dataTable.no-footer{
-    border: none;
-    border-top: 1px solid #ddd;
-}
-#carsdata_processing {
-	margin: 0;
-    padding: 15px 20px;
-  	width: 150px;
-  	height: 50px;
+.color-red {
+    color: red;
 }
 
-#carsdata_processing .fa-refresh{
-    font-size: 20px;
-}
-
-.content-header .actions{
-	margin: 20px 0px;
+.textAlign-right {
     text-align: right;
 }
 
-.input-full{
-	width: 100% !important;
+.dataTables_wrapper .dataTables_filter input {
+    height: 30px;
 }
+
+.dataTables_wrapper table.dataTable.no-footer {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+#carsdata_processing {
+    margin: 0;
+    padding: 15px 20px;
+    width: 150px;
+    height: 50px;
+}
+
+#carsdata_processing .fa-refresh {
+    font-size: 20px;
+}
+
+.content-header .actions {
+    margin: 20px 0px;
+    text-align: right;
+}
+
+.input-full {
+    width: 100% !important;
+}
+
 
 /* start dropzone*/
-#dropzone{
-	min-height: 20px !important;
+
+#dropzone {
+    min-height: 20px !important;
 }
 
-.dz-image-preview{
-	display: inline-block;
+.dz-image-preview {
+    display: inline-block;
     position: relative;
     margin: 3px;
     margin: 2px;
 }
-.dz-image-preview img{
+
+.dz-image-preview img {
     width: 80px;
     height: 60px;
     max-width: 80px;
     max-height: 60px
 }
-.dz-remove
-{
-    display:inline-block !important;
-    width:1.2em;
-    height:1.2em;
-    
-    position:absolute;
-    top:0px;
-    right:0px;
-    z-index:1000;
-    
-    font-size:1.2em !important;
-    line-height:1em;
-   
-    text-align:center;
-    font-weight:bold;
-    border:1px solid gray !important;
-    border-radius:1.2em;
-    color:gray;
-    background-color:white;
-    opacity:.5;
-    
+
+.dz-remove {
+    display: inline-block !important;
+    width: 1.2em;
+    height: 1.2em;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 1000;
+    font-size: 1.2em !important;
+    line-height: 1em;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid gray !important;
+    border-radius: 1.2em;
+    color: gray;
+    background-color: white;
+    opacity: .5;
 }
 
-.dz-remove:hover
-{
-    text-decoration:none !important;
-    opacity:1;
+.dz-remove:hover {
+    text-decoration: none !important;
+    opacity: 1;
 }
+
 
 /* end dropzone*/
 
-
-.page-logo a{
+.page-logo a {
     padding: 0px 15px;
     text-transform: uppercase;
     font-size: 18px;
@@ -84,19 +92,25 @@
     color: #f8f8f8;
 }
 
-.page-logo a:hover{
+.page-logo a:hover {
     text-decoration: none;
 }
 
-.content-booing label{
+.content-booking label {
     font-weight: 600;
 }
 
-.content-booing .thumbnail{
+.content-booking .thumbnail {
     max-width: 260px;
 }
-.content-booing .bill_wrap .group{
+
+.content-booking .bill_wrap .group {
     display: flex;
     justify-content: space-between;
     line-height: 30px;
+}
+
+.modal-content .content-booking .status {
+    font-style: italic;
+    font-weight: 600;
 }

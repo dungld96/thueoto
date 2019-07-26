@@ -21,15 +21,15 @@
                     <table class="table table-hover table-bordered table-striped datatable" id="TripsTable" style="width:100%">
                         <thead>
                             <tr>
-                            	<th width="35px">STT</th>
+                                <th width="25px">STT</th>
                                 <th width="60px">Trip</th>
                                 <th width="120px">Tên khách hàng</th>
-                                <th width="100px">Số điện thoại</th>
+                                <th width="120px">Số điện thoại</th>
                                 <th>Tên xe</th>
-                                <th width="110px">Ngày nhận xe</th>
-                                <th width="110px">Ngày trả xe</th>
-                                <th width="110px">Ngày tạo</th>
-                                <th width="160px">Trạng thái</th>
+                                <th width="100px">Ngày nhận xe</th>
+                                <th width="100px">Ngày trả xe</th>
+                                <th width="100px">Ngày tạo</th>
+                                <th>Trạng thái</th>
                                 <th width="100px">Acticon</th>
                             </tr>
                         </thead>
@@ -40,17 +40,22 @@
     </div>
 
     <!-- /.modal -->
-    <div id="viewBooing" class="modal fade bs-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div id="modelTrip" class="modal fade bs-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                    
+            </div>
+        </div>
+    </div>
+    <div id="modelAction" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
             </div>
         </div>
     </div>
 @endsection
 
 @section('script-datatable')
-<script src="{{asset('js/admin/bookings.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/admin/trips.js')}}" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     var tripsTable = $('#TripsTable').DataTable({

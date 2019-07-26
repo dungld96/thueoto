@@ -10,7 +10,7 @@
       <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
       <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
       <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-      <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="margin-top:40px;">
+      <ul class="page-sidebar-menu page-sidebar-menu-closed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="margin-top:40px;">
         
         <li class="start {{ request()->is('admin/dashboard') ? 'active open' : '' }} ">
           <a href="{{route('dashboard')}}">
@@ -23,7 +23,7 @@
         </li>
         <li class="{{ request()->is('admin/booking*') || request()->is('admin/trips*') ? 'active open' : '' }}">
           <a href="javascript:;">
-          <i class="icon-basket"></i>
+          <i class="fas fa-list-alt"></i>
           <span class="title">Quản lý chuyến xe</span>
           @if (request()->is('admin/booking*') || request()->is('admin/trips*'))
             <span class="selected"></span>
@@ -51,7 +51,7 @@
 
         <li class="{{ request()->is('admin/cars*') ? 'active open' : '' }}">
           <a href="javascript:;">
-          <i class="fas fa-list-alt"></i>
+          <i class="icon-grid"></i>
           <span class="title">Danh mục</span>
           @if (request()->is('admin/cars*'))
             <span class="selected"></span>
