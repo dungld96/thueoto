@@ -4,7 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-class CheckAdmin
+
+class AccessDashboard
 {
     /**
      * Handle an incoming request.
@@ -15,8 +16,8 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(!Auth::user() || !Auth::user()->isAdmin()){
-            return redirect(route('dashboard'));
+        if(!Auth::user() || !Auth::user()->isModOrAdmin()){
+            return redirect(route('home-client'));
         }
         return $next($request);
     }

@@ -1,9 +1,11 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">×</button>
-    <h4 class="modal-title">Thông tin chuyến xe</h4>
+    <h4 class="modal-title">Thông tin chuyến xe #{{$bookingDetail->trip_code}}</h4>
 </div>
 <div class="modal-body">
         <div class="panel-body content-booing">
+				<div class="status"><p>Trạng thái: {{$bookingDetail->status_text}}</p></div>
+				<hr>
 				<div class="row info-customer">
 					<div class="col-md-4">
 						<label>Tên khách hàng</label>
@@ -85,7 +87,8 @@
 					</div>
 				</div>
 			</div>
-</div>
+	</div>
 <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+	<button type="button" data-id="{{$bookingDetail->id}}" id="approveBooking" class="btn btn-success">Duyệt</button>
+	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>

@@ -12,13 +12,34 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 4; $i++) { 
-            DB::table('roles')->insert(
-                [
-                    'role' => $i+1,
-                    'description' => 'role'
-                ]
-           );
-        }
+        DB::table('roles')->insert(
+            [
+                'role' => 0,
+                'description' => 'Ban user'
+            ]
+       );
+
+       DB::table('roles')->insert(
+            [
+                'role' => 1,
+                'description' => 'Customer'
+            ]
+        );
+
+       DB::table('roles')->insert(
+            [
+                'role' => 2,
+                'description' => 'Moderator'
+            ]
+        );
+
+       DB::table('roles')->insert(
+            [
+                'role' => 3,
+                'description' => 'Administrator'
+            ]
+        );
+
+
     }
 }
