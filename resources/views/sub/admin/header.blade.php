@@ -4,7 +4,7 @@
   <div class="page-header-inner">
     <!-- BEGIN LOGO -->
     <div class="page-logo">
-      <a href="#">
+      <a href="{{route('dashboard')}}">
         VT
       </a>
       <div class="menu-toggler sidebar-toggler">

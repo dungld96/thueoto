@@ -182,8 +182,18 @@ class BookingController extends Controller
 	public function tripCancel($tripCode)
 	{
 		$trip = BookingDetail::where('trip_code', $tripCode)->firstOrFail();
-		if(isset($trip->status) && $trip->status < 3){
+		if(isset($trip->status) && $trip->status < BookingDetail::STATUS_APPROVED){
 			$trip->status = BookingDetail::STATUS_CL_CANCEL;
+			$trip->save();
+		}
+		return redirect()->route('user.mytrips');
+	}
+
+	public function tripReturn($tripCode)
+	{
+		$trip = BookingDetail::where('trip_code', $tripCode)->firstOrFail();
+		if(isset($trip->status) && $trip->status == BookingDetail::STATUS_START){
+			$trip->status = BookingDetail::STATUS_PENDING_END;
 			$trip->save();
 		}
 		return redirect()->route('user.mytrips');

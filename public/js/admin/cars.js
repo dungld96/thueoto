@@ -1,4 +1,3 @@
-const BASE_URL = window.location.origin;
 $(document).ready(function() {
     $("a[data-target='#addCar']").on('click',function (ev) {
         ev.preventDefault();

@@ -2096,7 +2096,9 @@ Page content
 .page-container-bg-solid .page-title {
   color: #666;
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
+  font-size: 25px;
+  font-weight: 500;
 }
 .page-container-bg-solid .page-title small {
   color: #666;

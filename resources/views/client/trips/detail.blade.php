@@ -72,8 +72,10 @@
                                 </div>
                         </div>
                         <div class="trip-actions">
-                            @if ($trip->bookingStatus < 3)
+                            @if ($trip->bookingStatus < App\Models\BookingDetail::STATUS_APPROVED)
                                 <a class="btn btn-default" href="{{URL::to('/trip/cancel/'.$trip->tripCode)}}">Hủy</a>
+                            @elseif($trip->bookingStatus == App\Models\BookingDetail::STATUS_START)
+                                <a class="btn btn-default" href="{{URL::to('/trip/return/'.$trip->tripCode)}}">Trả xe</a>
                             @endif
                         </div>
                 </div>

@@ -52,7 +52,7 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 		]);
 	});
 
-	Route::prefix('booking')->group(function () {
+	Route::prefix('approve/booking')->group(function () {
 		Route::get('/', [
 			'as'=> 'booking.list',
 			'uses'=> 'Admin\TripsController@booking'
@@ -61,17 +61,32 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 			'as'=> 'booking.list.getdata',
 			'uses'=> 'Admin\TripsController@getBooking'
 		]);
-		Route::get('/approve/{id}', [
-			'as'=> 'booking.approve',
+		Route::get('/{id}', [
+			'as'=> 'approve.booking',
 			'uses'=> 'Admin\TripsController@approveBooking'
 		]);
-		Route::get('/storeapprove/{id}', [
-			'as'=> 'booking.storeapprove',
-			'uses'=> 'Admin\TripsController@storeApprove'
+		Route::get('/store/{id}', [
+			'as'=> 'approve.booking.store',
+			'uses'=> 'Admin\TripsController@storeApproveBooking'
 		]);
 		Route::get('/cancel/{id}', [
-			'as'=> 'booking.approvecancel',
+			'as'=> 'approve.booking.cancel',
 			'uses'=> 'Admin\TripsController@cancelBooking'
+		]);
+	});
+
+	Route::prefix('approve/return')->group(function () {
+		Route::get('/', [
+			'as'=> 'return.list',
+			'uses'=> 'Admin\TripsController@return'
+		]);
+		Route::get('/getdata', [
+			'as'=> 'return.list.getdata',
+			'uses'=> 'Admin\TripsController@getReturn'
+		]);
+		Route::get('/approve/{id}', [
+			'as'=> 'return.approve',
+			'uses'=> 'Admin\TripsController@approveReturn'
 		]);
 	});
 
@@ -108,6 +123,17 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 			'as'=> 'trips.deleteTrip',
 			'uses'=> 'Admin\TripsController@deleteTrip'
 		])->middleware('check-admin');
+	});
+	
+	Route::prefix('customer')->group(function () {
+		Route::get('/', [
+			'as'=> 'customer.list',
+			'uses'=> 'Admin\CustomerController@index'
+		]);
+		Route::get('/getdata', [
+			'as'=> 'customer.list.getdata',
+			'uses'=> 'Admin\CustomerController@getCustomers'
+		]);
 	});
 	
 

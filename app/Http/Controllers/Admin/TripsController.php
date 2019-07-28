@@ -19,9 +19,18 @@ class TripsController extends Controller
     	return view('admin.trips.index'); 
     }
 
-    public function getTrips()
+    public function getTrips(Request $request)
     {
-        $booking = DB::table('booking_details')
+        $inpStatusParams = $request->status_filter_params;
+        $status=[];
+        if (is_array($inpStatusParams) || is_object($inpStatusParams))
+        {
+            foreach ($inpStatusParams as $param) {
+                $status[] = $param['value'];
+            }
+        }
+        
+        $query = DB::table('booking_details')
             ->join('users', 'booking_details.user_id', '=', 'users.id')
     		->join('cars', 'booking_details.car_id', '=', 'cars.id')
             ->select(
@@ -34,16 +43,21 @@ class TripsController extends Controller
                 'booking_details.end_date as endDate', 
                 'booking_details.booking_date as bookingDate',
                 'booking_details.status as bookingStatus'
-            )
-            ->get();
+            );
 
-    	return Datatables::of($booking)
-            ->addColumn('action', function ($booking) {
-                $eView = '<a title="Xem" data-id="'.$booking->id.'" class="btnViewTrip btn btn-xs btn-info"><i class="fas fa-eye"></i></a>';
-                $eConfirm = '<a title="Hành động" data-id="'.$booking->id.'" class="btnActionTrip btn btn-xs btn-success"><i class="fas fa-edit"></i></a>';
-                $eDelete = '<a title="Xóa" data-id="'.$booking->id.'" class="btnDeleteTrip btn btn-xs btn-danger"><i class="fas fa-trash-alt"></i></a>';
+        if(count($status) > 0){
+            $query->whereIn('booking_details.status', $status);
+        }
+
+        $query =  $query->get();
+
+    	return Datatables::of($query)
+            ->addColumn('action', function ($query) {
+                $eView = '<a title="Xem" data-id="'.$query->id.'" class="btnViewTrip btn btn-xs btn-info"><i class="fas fa-eye"></i></a>';
+                $eConfirm = '<a title="Hành động" data-id="'.$query->id.'" class="btnActionTrip btn btn-xs btn-success"><i class="fas fa-edit"></i></a>';
+                $eDelete = '<a title="Xóa" data-id="'.$query->id.'" class="btnDeleteTrip btn btn-xs btn-danger"><i class="fas fa-trash-alt"></i></a>';
                 
-                if($booking->bookingStatus < BookingDetail::STATUS_APPROVED){
+                if($query->bookingStatus < BookingDetail::STATUS_APPROVED){
                     $eConfirm = '';
                 }
 
@@ -53,17 +67,17 @@ class TripsController extends Controller
 
                 return $eView.$eConfirm.$eDelete;
             })
-            ->editColumn('startDate', function ($booking) {
-                return date('H:i - d/m/Y', strtotime($booking->startDate));
+            ->editColumn('startDate', function ($query) {
+                return date('H:i - d/m/Y', strtotime($query->startDate));
             })
-            ->editColumn('endDate', function ($booking) {
-                return date('H:i - d/m/Y', strtotime($booking->endDate));
+            ->editColumn('endDate', function ($query) {
+                return date('H:i - d/m/Y', strtotime($query->endDate));
             })
-            ->editColumn('bookingDate', function ($booking) {
-                return date('H:i - d/m/Y', strtotime($booking->bookingDate));
+            ->editColumn('bookingDate', function ($query) {
+                return date('H:i - d/m/Y', strtotime($query->bookingDate));
             })
-            ->editColumn('bookingStatus', function ($booking) {
-                return BookingDetail::getStatus($booking->bookingStatus);
+            ->editColumn('bookingStatus', function ($query) {
+                return BookingDetail::getStatus($query->bookingStatus);
             })
 	        ->addIndexColumn()
             ->make();
@@ -76,7 +90,7 @@ class TripsController extends Controller
 
     public function getBooking()
     {
-        $booking = DB::table('booking_details')
+        $query = DB::table('booking_details')
             ->join('users', 'booking_details.user_id', '=', 'users.id')
     		->join('cars', 'booking_details.car_id', '=', 'cars.id')
             ->select(
@@ -94,23 +108,23 @@ class TripsController extends Controller
             ->get();
 
             
-    	return Datatables::of($booking)
-            ->addColumn('action', function ($booking) {
+    	return Datatables::of($query)
+            ->addColumn('action', function ($query) {
                 return 
-                '<a data-id="'.$booking->id.'" class="btnApproveBooking btn btn-xs btn-success"><i class="glyphicon glyphicon-edit"></i> Duyệt</a>
-                <a data-id="'.$booking->id.'" class="btnCancelBooking btn btn-xs btn-danger"><i class="fa fa-times"></i> Hủy</a>';
+                '<a data-id="'.$query->id.'" class="btnApproveBooking btn btn-xs btn-success"><i class="glyphicon glyphicon-edit"></i> Duyệt</a>
+                <a data-id="'.$query->id.'" class="btnCancelBooking btn btn-xs btn-danger"><i class="fa fa-times"></i> Hủy</a>';
             })
-            ->editColumn('startDate', function ($booking) {
-                return date('H:i - d/m/Y', strtotime($booking->startDate));
+            ->editColumn('startDate', function ($query) {
+                return date('H:i - d/m/Y', strtotime($query->startDate));
             })
-            ->editColumn('endDate', function ($booking) {
-                return date('H:i - d/m/Y', strtotime($booking->endDate));
+            ->editColumn('endDate', function ($query) {
+                return date('H:i - d/m/Y', strtotime($query->endDate));
             })
-            ->editColumn('bookingDate', function ($booking) {
-                return date('H:i - d/m/Y', strtotime($booking->bookingDate));
+            ->editColumn('bookingDate', function ($query) {
+                return date('H:i - d/m/Y', strtotime($query->bookingDate));
             })
-            ->editColumn('bookingStatus', function ($booking) {
-                return BookingDetail::getStatus($booking->bookingStatus);
+            ->editColumn('bookingStatus', function ($query) {
+                return BookingDetail::getStatus($query->bookingStatus);
             })
 	        ->addIndexColumn()
             ->make();
@@ -141,7 +155,7 @@ class TripsController extends Controller
             ]);
     }
 
-    public function storeApprove($id)
+    public function storeApproveBooking($id)
     {
         try {
             $bookingDetail = BookingDetail::find($id);
@@ -181,12 +195,12 @@ class TripsController extends Controller
                 $trip->status = BookingDetail::STATUS_START;
                 $trip->save();
             }else{
-                return response()->json(['message'=>'Không thể chuyển sang trạng thái giao xe', 'status' => 'error']);
+                return response()->json(['message'=>'Thất bại, chuyến xe phải đang ở trạng thái đã xác nhận đặt xe', 'status' => 'error']);
             }
         } catch (\Exception $e) {
             return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
-        return response()->json(['message'=>'Xác nhận chuyến xe đã được thuê thành công', 'status' => 'success']);
+        return response()->json(['message'=>'Xác nhận khách đã nhận xe và chuyến xe đã được thuê thành công', 'status' => 'success']);
     }
 
     public function endTrip($id)
@@ -197,12 +211,12 @@ class TripsController extends Controller
                 $trip->status = BookingDetail::STATUS_END;
                 $trip->save();
             }else{
-                return response()->json(['message'=>'Không thể chuyển sang trạng thái trả xe', 'status' => 'error']);
+                return response()->json(['message'=>'Thất bại, chuyến xe phải đang ở trạng thái nhận xe hoặc chờ xác nhận trả xe', 'status' => 'error']);
             }
         } catch (\Exception $e) {
             return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
-        return response()->json(['message'=>'Kết thúc chuyến xe thành công', 'status' => 'success']);
+        return response()->json(['message'=>'Xác nhận khách trả xe và kết thúc chuyến xe thành công', 'status' => 'success']);
     }
     
     public function view($id)
@@ -249,6 +263,54 @@ class TripsController extends Controller
         }
         return response()->json(['message'=>'Xóa chuyến xe thành công', 'status' => 'success']);
         
+    }
+
+
+    public function return(Request $request)
+    {
+    	return view('admin.return.index');
+    }
+
+    public function getReturn()
+    {
+        $query = DB::table('booking_details')
+            ->join('users', 'booking_details.user_id', '=', 'users.id')
+    		->join('cars', 'booking_details.car_id', '=', 'cars.id')
+            ->select(
+                'booking_details.id as id',
+                'users.name as name', 
+                'users.phone_number as phone', 
+                'cars.name as carName', 
+                'booking_details.trip_code as tripCode', 
+                'booking_details.start_date as startDate', 
+                'booking_details.end_date as endDate', 
+                'booking_details.booking_date as bookingDate',
+                'booking_details.status as bookingStatus'
+            )
+            ->where('booking_details.status' ,  BookingDetail::STATUS_PENDING_END)
+            ->get();
+
+            
+    	return Datatables::of($query)
+            ->addColumn('action', function ($query) {
+                return 
+                '<a title="Xem" data-id="'.$query->id.'" class="btnViewTrip btn btn-xs btn-info"><i class="fas fa-eye"></i></a>
+                <a title="Xác nhận" data-id="'.$query->id.'" class="btnConfirmReturn btn btn-xs btn-success"><i class="fas fa-edit"></i></a>';
+            })
+            ->editColumn('startDate', function ($query) {
+                return date('H:i - d/m/Y', strtotime($query->startDate));
+            })
+            ->editColumn('endDate', function ($query) {
+                return date('H:i - d/m/Y', strtotime($query->endDate));
+            })
+            ->editColumn('bookingDate', function ($query) {
+                return date('H:i - d/m/Y', strtotime($query->bookingDate));
+            })
+            ->editColumn('bookingStatus', function ($query) {
+                return BookingDetail::getStatus($query->bookingStatus);
+            })
+	        ->addIndexColumn()
+            ->make();
     }
 
 

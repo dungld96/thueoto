@@ -1,4 +1,3 @@
-const BASE_URL = window.location.origin;
 $(document).ready(function() {
     $('#btnAddCar').click(() => {
         $('#btnSaveCar').attr('disabled', 'disabled');

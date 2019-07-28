@@ -1,5 +1,5 @@
 @extends('layout.admin.admin')
-@section('title', 'Danh sách xe')
+@section('title', 'Danh sách chuyến xe')
 @section('style-page')
     <link href="{{asset('assets/global/plugins/dropzone/css/dropzone.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
@@ -14,7 +14,39 @@
             
         </div>
     </div>
-    <div class="row">
+    <div class="row table-filter">
+        <form role="form" id="formTripsTableFilter">
+            <div class="form-body">
+                <div class="form-group">
+                    <div class="checkbox-list">
+                        <label class="checkbox-inline">
+                        <input type="checkbox" class="trip-status-filter" id="statusPending"  name="statusPending" value="{{App\Models\BookingDetail::STATUS_PENDING}}"> Chờ xác nhận đặt xe</label>
+                        <label class="checkbox-inline">
+
+                        <input type="checkbox" class="trip-status-filter" id="statusApproved" name="statusApproved" value="{{App\Models\BookingDetail::STATUS_APPROVED}}"> Đã xác nhận </label>
+                        <label class="checkbox-inline">
+
+                        <input type="checkbox" class="trip-status-filter" id="statusStart" name="statusStart" value="{{App\Models\BookingDetail::STATUS_START}}"> Đang cho thuê </label>
+                        <label class="checkbox-inline">
+
+                        <input type="checkbox" class="trip-status-filter" id="statusPendingEnd" name="statusPendingEnd" value="{{App\Models\BookingDetail::STATUS_PENDING_END}}"> Chờ xác nhận trả xe </label>
+                        <label class="checkbox-inline">
+
+                        <input type="checkbox" class="trip-status-filter" id="statusEnd" name="statusEnd" value="{{App\Models\BookingDetail::STATUS_END}}"> Đã kết thúc </label>
+                        <label class="checkbox-inline">
+
+                        <input type="checkbox" class="trip-status-filter" id="statusAdCancel" name="statusAdCancel" value="{{App\Models\BookingDetail::STATUS_AD_CANCEL}}"> Quản trị viên hủy chuyến </label>
+                        <label class="checkbox-inline">
+
+                        <input type="checkbox" class="trip-status-filter" id="statusClCancel" name="statusClCancel" value="{{App\Models\BookingDetail::STATUS_CL_CANCEL}}">Khách hủy chuyến </label>
+                        <label class="checkbox-inline">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row content-table">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -61,7 +93,13 @@ $(document).ready(function() {
     var tripsTable = $('#TripsTable').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{{route('trips.list.getdata')}}',
+        ajax: {
+          url: '{{route('trips.list.getdata')}}',
+          type: 'GET',
+          data: function (d) {
+            d.status_filter_params = $('#formTripsTableFilter').serializeArray();
+          }
+         },
         language: {url: '{{asset('lang/datatable.json')}}'},
         columns: [
             { data: 'DT_Row_Index', name: 'DT_Row_Index' },

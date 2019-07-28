@@ -1,9 +1,8 @@
-const BASE_URL = window.location.origin;
 $(document).ready(function() {
     $('body').on('click', '.btnApproveBooking', function(ev) {
         ev.preventDefault();
         let id = $(this).data("id");
-        target = BASE_URL + "/admin/booking/approve/" + id;
+        target = BASE_URL + "/admin/approve/booking/" + id;
         $("#viewBooing .modal-content").load(target, function() {
             $("#viewBooing").modal("show");
         });
@@ -12,7 +11,7 @@ $(document).ready(function() {
     $('body').on('click', '.btnCancelBooking', function(ev) {
         ev.preventDefault();
         let id = $(this).data("id");
-        let url = BASE_URL + "/admin/booking/cancel/" + id;
+        let url = BASE_URL + "/admin/approve/booking/cancel/" + id;
         let cf = confirm("Bạn có chắc muốn hủy chuyến xe này!");
         if (cf) {
             $.ajax({
@@ -40,7 +39,7 @@ $(document).ready(function() {
 
     $('body').on('click', '#approveBooking', function(ev) {
         let id = $(this).data("id");
-        let url = BASE_URL + '/admin/booking/storeapprove/' + id;
+        let url = BASE_URL + '/admin/approve/booking/store/' + id;
         $.ajax({
             type: 'GET',
             url: url,

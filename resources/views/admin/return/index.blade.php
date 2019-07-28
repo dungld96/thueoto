@@ -1,5 +1,5 @@
 @extends('layout.admin.admin')
-@section('title', 'Xác nhận đặt xe')
+@section('title', 'Xác nhận trả xe')
 @section('style-page')
     <link href="{{asset('assets/global/plugins/dropzone/css/dropzone.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
@@ -7,7 +7,7 @@
     <div class="row content-header">
         <div class="col-md-8">
             <h3 class="page-title">
-                Danh sách chờ xác nhận đặt xe
+                Danh sách chờ xác nhận trả xe
             </h3>
         </div>
         <div class="col-md-4">
@@ -18,7 +18,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <table class="table table-hover table-bordered table-striped datatable" id="BookingTable" style="width:100%">
+                    <table class="table table-hover table-bordered table-striped datatable" id="ReturnTable" style="width:100%">
                         <thead>
                             <tr>
                             	<th width="25px">STT</th>
@@ -40,7 +40,7 @@
     </div>
 
     <!-- /.modal -->
-    <div id="viewBooing" class="modal fade bs-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div id="modelTrip" class="modal fade bs-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                     
@@ -50,13 +50,14 @@
 @endsection
 
 @section('script-datatable')
-<script src="{{asset('js/admin/bookings.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/admin/trips.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/admin/return.js')}}" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    var bookingTable = $('#BookingTable').DataTable({
+    var teturnTable = $('#ReturnTable').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{{route('booking.list.getdata')}}',
+        ajax: '{{route('return.list.getdata')}}',
         language: {url: '{{asset('lang/datatable.json')}}'},
         columns: [
             { data: 'DT_Row_Index', name: 'DT_Row_Index' },

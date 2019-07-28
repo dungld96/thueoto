@@ -1,4 +1,3 @@
-const BASE_URL = window.location.origin;
 $(document).ready(function() {
     $('body').on('click', '.btnViewTrip', function(ev) {
         ev.preventDefault();
@@ -69,6 +68,10 @@ $(document).ready(function() {
         }
     });
 
+    $('body').on('change', '#formTripsTableFilter .trip-status-filter', function(ev) {
+        var oTable = $('#TripsTable').dataTable();
+        oTable.fnDraw(false);
+    });
 
     $('#modelTrip').on('hidden.bs.modal', function() {
         $("#modelTrip .modal-content").html('');

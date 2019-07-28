@@ -141,6 +141,11 @@
 				'uses' => 'Client\BookingController@tripCancel'
 			]);
 
+			Route::get('/return/{tripCode}', [
+				'as' => 'trip.return',
+				'uses' => 'Client\BookingController@tripReturn'
+			]);
+
 		});		
 		
 

@@ -2,6 +2,42 @@
     color: red;
 }
 
+.dataTables_processing svg {
+    width: 3.75em;
+    transform-origin: center;
+    animation: rotate 2s linear infinite;
+  }
+  
+.dataTables_processing circle {
+    fill: none;
+    stroke: #fc2f70;
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 200;
+      stroke-dashoffset: -35px;
+    }
+    100% {
+      stroke-dashoffset: -125px;
+    }
+  }
+
 .textAlign-right {
     text-align: right;
 }
@@ -15,16 +51,16 @@
     border-top: 1px solid #ddd;
 }
 
-#carsdata_processing {
+.dataTables_wrapper .dataTables_processing {
     margin: 0;
     padding: 15px 20px;
     width: 150px;
-    height: 50px;
+    height: 91px;
+    box-shadow: none;
+    border: none;
+    background: none;
 }
 
-#carsdata_processing .fa-refresh {
-    font-size: 20px;
-}
 
 .content-header .actions {
     margin: 20px 0px;
@@ -113,4 +149,8 @@
 .modal-content .content-booking .status {
     font-style: italic;
     font-weight: 600;
+}
+
+#formTripsTableFilter {
+    margin: 0px 10px 20px 10px;
 }

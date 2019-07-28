@@ -72,4 +72,12 @@ class User extends Authenticatable
         }
     }
 
+    public static function getCustomer()
+    {
+        $customers = self::whereHas("roles", function($q){ $q->where("role", Role::CUSTOMER_ROLE); })
+                         ->get();
+        return $customers;
+
+    }
+
 }

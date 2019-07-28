@@ -25,7 +25,7 @@ class BookingDetail extends Model
                 2 => 'Chuyến chờ xác nhận đặt xe', 
                 3 => 'Chuyến đã xác nhận', 
                 4 => 'Chuyến đang thuê', 
-                5 => 'Chuyến chờ xác nhận kết thúc', 
+                5 => 'Chuyến chờ xác nhận trả xe', 
                 6 => 'Chuyến đã kết thúc', 
                 7 => 'Quản trị viên đã hủy chuyến',
                 8 => 'Khách thuê đã hủy chuyến'
