@@ -39,7 +39,7 @@ class CarController extends Controller
         try {
             $car = new Car();
             $car->code = $request->code;
-            $car->car_manufacturer = $request->car_manufacturer;
+            $car->car_make = $request->car_make;
             $car->description = $request->description;
             $car->name = $request->name;
             $car->seats = $request->seats;

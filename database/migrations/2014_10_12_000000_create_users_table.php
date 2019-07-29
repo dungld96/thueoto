@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->date('birthday')->nullable();
             $table->string('social_type')->nullable();
             $table->string('social_id')->nullable();
+            $table->string('status')->default('active');
             $table->rememberToken();
             $table->timestamps();
         });

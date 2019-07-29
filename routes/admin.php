@@ -134,6 +134,15 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 			'as'=> 'customer.list.getdata',
 			'uses'=> 'Admin\CustomerController@getCustomers'
 		]);
+		Route::get('/delete/{id}', [
+			'as'=> 'customer.deleteCustomer',
+			'uses'=> 'Admin\CustomerController@deleteCustomer'
+		])->middleware('check-admin');
+
+		Route::get('/view/{id}', [
+			'as'=> 'customer.viewCustomer',
+			'uses'=> 'Admin\CustomerController@viewCustomer'
+		]);
 	});
 	
 

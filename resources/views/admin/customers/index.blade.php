@@ -36,8 +36,8 @@
     </div>
 
     <!-- /.modal -->
-    <div id="viewCustomer" class="modal fade bs-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <div id="viewCustomer" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                     
             </div>
@@ -46,7 +46,7 @@
 @endsection
 
 @section('script-datatable')
-{{-- <script src="{{asset('js/admin/cars.js')}}" type="text/javascript"></script> --}}
+<script src="{{asset('js/admin/customer.js')}}" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     var customerTable = $('#CustomerTable').DataTable({
