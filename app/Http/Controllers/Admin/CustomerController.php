@@ -27,7 +27,7 @@ class CustomerController extends Controller
                 '<a title="Xem" data-id="'.$query->id.'" class="btnViewTrip btn btn-xs btn-info"><i class="fas fa-eye"></i></a>';
             })
             ->editColumn('created_at', function ($query) {
-                return date('d/m/Y', strtotime($query->startDate));
+                return date('d/m/Y', strtotime($query->created_at));
             })
 	        ->addIndexColumn()
             ->make();
