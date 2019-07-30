@@ -1,4 +1,5 @@
 @extends('layout.client.client')
+@section('title', 'Thông tin chi tiết xe cho thuê')
 @section('content')
     <div class="section content-detail">
         <div class="container">
@@ -10,7 +11,7 @@
                             @foreach ($carImages as $image)
                                 <div class="item car-item">
                                    <div class="car_image">
-                                       <img src="{{asset('uploads/'.$image->name)}}">
+                                       <img src="{{asset('uploads/'.$image->name)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                                    </div>
                                </div>
                            @endforeach
@@ -104,7 +105,7 @@
                         <div class="item car-item">
                            <a href="{{URL::to('/car/'.$car->slug)}}">
                             <div class="car-item-image">
-                                <img src="{{asset('uploads/'.$car->thumbnail)}}">
+                                <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                                 <div class="car-price">{{$car->costs}}K</div>
                             </div>
                             <div class="desc-car-item">

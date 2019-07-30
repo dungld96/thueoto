@@ -1,4 +1,5 @@
 @extends('layout.client.client')
+@section('title', 'Thông tin tài khoản')
 @section('content')
     <div class="section content-account">
         <div class="cover-profile new-profile" style="background-image: url('{{asset('images/car-9.jpg')}}');"></div>

@@ -32,6 +32,7 @@ class CreateCarsTable extends Migration
             $table->mediumText('rules')->nullable(); // yêu cầu
             $table->string('thumbnail')->nullable();
             $table->integer('costs');
+            $table->integer('promotion_costs')->nullable();
             $table->string('slug')->unique();
             $table->string('status', 10)->default('active'); // 1: deactive, 2: active
             $table->timestamps();

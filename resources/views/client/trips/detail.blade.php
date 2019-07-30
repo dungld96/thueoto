@@ -1,4 +1,5 @@
 @extends('layout.client.client')
+@section('title', 'Thông tin chi tiết chuyến xe')
 @section('content')
     <div class="section trip-detail bg-gray">
         <div class="container">
@@ -20,7 +21,7 @@
                             <div class="row">
                                 <div class="col-md-4 col-sm-4">
                                     <div class="thumbnail">
-                                        <img src="{{asset('uploads/'.$trip->carThumbnail)}}">
+                                        <img src="{{asset('uploads/'.$trip->carThumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-sm-8 info-date-dress">

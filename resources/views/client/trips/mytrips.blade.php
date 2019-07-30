@@ -1,4 +1,5 @@
 @extends('layout.client.client')
+@section('title', 'Danh sách chuyến xe')
 @section('content')
     <div class="section list-mytrips bg-gray">
             <div class="mytrips-header">
@@ -25,7 +26,7 @@
                                                 <div class="car-image">
                                                     <a href="{{URL::to('/trip/detail/'.$trip->tripCode)}}">
                                                         <div class="thumbnail">
-                                                            <img src="{{asset('uploads/'.$trip->carThumbnail)}}" alt="Cho thuê xe tự lái {{$trip->carName}}">
+                                                            <img src="{{asset('uploads/'.$trip->carThumbnail)}}" alt="Vĩnh Tín AUTO - Cho thuê xe tự lái {{$trip->carName}}">
                                                         </div>
                                                     </a>
                                                 </div>

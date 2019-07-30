@@ -1,4 +1,5 @@
 @extends('layout.client.client')
+@section('title', 'Danh sách xe cho thuê')
 @section('content')
     <div class="section filter-result bg-gray">
         <div class="container">
@@ -37,7 +38,7 @@
                                         <a href="{{URL::to('/car/'.$car->slug)}}">
                                             <div class="car-item">
                                                     <div class="car-item-image">
-                                                        <img src="{{asset('uploads/'.$car->thumbnail)}}">
+                                                        <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                                                     </div>
                                                     <div class="desc-car-item">
                                                         <div class="car-price">{{$car->costs}}K</div>

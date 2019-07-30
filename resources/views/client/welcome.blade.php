@@ -1,4 +1,5 @@
 @extends('layout.client.client')
+@section('title', 'Thuê xe sân bay Nội Bài, xe tự lái giá rẻ')
 @section('content')
 <div class="section banner">
         <div class="cover"></div>
@@ -6,7 +7,7 @@
             <div class="wrap">
                 <div class="container">
                     <div class="content">
-                        <h1>Thuê xe tự lái</h1>
+                        <h1>Thuê xe tự lái - Thuê xe sân bay</h1>
                         <div class="search_form">
                             <div class="group">
                                 <label>Địa điểm</label>
@@ -156,7 +157,7 @@
                     <div class="item car-item">
                        <a href="{{URL::to('/car/'.$car->slug)}}">
                         <div class="car-item-image">
-                            <img src="{{asset('uploads/'.$car->thumbnail)}}">
+                            <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                             <div class="car-price">{{$car->costs}}K</div>
                         </div>
                         <div class="desc-car-item">
@@ -179,7 +180,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-6 step-item">
                         <div class="step-img">
                             <div class="img-box">
-                                <img src="{{asset('images/step-1.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe tự lái">
+                                <img src="{{asset('images/step-1.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                             </div>
                         </div>
                         <div class="step-detail">
@@ -189,7 +190,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-6 step-item">
                         <div class="step-img">
                             <div class="img-box">
-                                <img src="{{asset('images/step-2.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe tự lái">
+                                <img src="{{asset('images/step-2.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                             </div>
                         </div>
                         <div class="step-detail">
@@ -199,7 +200,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-6 step-item">
                         <div class="step-img">
                             <div class="img-box">
-                                <img src="{{asset('images/step-3.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe tự lái">
+                                <img src="{{asset('images/step-3.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                             </div>
                         </div>
                         <div class="step-detail">
@@ -209,7 +210,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-6 step-item">
                         <div class="step-img">
                             <div class="img-box">
-                                <img src="{{asset('images/step-4.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe tự lái">
+                                <img src="{{asset('images/step-4.svg')}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                             </div>
                         </div>
                         <div class="step-detail">
@@ -229,7 +230,7 @@
                     <div class="item car-item">
                         <a href="{{URL::to('/car/'.$car->slug)}}">
                             <div class="car-item-image">
-                                <img src="{{asset('uploads/'.$car->thumbnail)}}">
+                                <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                                 <div class="car-price">{{$car->costs}}K</div>
                             </div>
                             <div class="desc-car-item">

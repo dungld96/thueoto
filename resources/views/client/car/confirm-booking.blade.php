@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-4">
-                        <img src="{{asset('uploads/'.$car->thumbnail)}}">
+                        <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                         </div>
                         <div class="col-md-8 info-date-dress">
                             <div class="form-group">
