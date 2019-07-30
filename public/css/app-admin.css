@@ -2,6 +2,10 @@
     color: red;
 }
 
+.modal-60{
+    width: 60%;
+}
+
 .dataTables_processing svg {
     width: 3.75em;
     transform-origin: center;
@@ -154,6 +158,30 @@
 #formTripsTableFilter {
     margin: 0px 10px 20px 10px;
 }
+
 .in_dam{
     font-weight: 600;
+}
+
+#carInfoForm .input-description{
+    display: flex;
+}
+
+#carInfoForm .input-description label{
+    width: 10%;
+    margin-right: 38px;
+}
+
+#carInfoForm .input-description textarea{
+    width: 82% !important;
+}
+
+#carInfoForm .form-group label{
+    padding-right: 0;
+}
+
+#uploadCarImg{
+    min-height: 170px;
+    margin: 15px 60px 15px 130px;
+    border: 1px dashed #ddd;
 }

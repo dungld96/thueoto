@@ -151,7 +151,10 @@
 
 	});
 	
-
+	Route::get('/getModels/{makeId}', [
+		'as' => 'get.models.by.make',
+		'uses' => 'SharedController@getModels'
+	]);
 
 
 

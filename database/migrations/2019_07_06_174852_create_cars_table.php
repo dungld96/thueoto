@@ -33,7 +33,7 @@ class CreateCarsTable extends Migration
             $table->string('thumbnail')->nullable();
             $table->integer('costs');
             $table->string('slug')->unique();
-            $table->smallInteger('status'); // 1: deactive, 2: active
+            $table->string('status', 10)->default('active'); // 1: deactive, 2: active
             $table->timestamps();
         });
     }

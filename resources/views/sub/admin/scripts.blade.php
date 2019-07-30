@@ -47,6 +47,8 @@
 <script src="{{asset('assets/global/plugins/dropzone/dropzone.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/global/plugins/jquery-validation/js/jquery.validate.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/global/plugins/jquery-validation/js/additional-methods.min.js')}}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- DataTables -->
 <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>

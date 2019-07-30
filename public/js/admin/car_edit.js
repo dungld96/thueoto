@@ -54,6 +54,41 @@ $(document).ready(function() {
             });
         }
     });
+
+    $('body').on('change', '#carMake', function(e) {
+        let makeId = this.value;
+        if(makeId){
+            url = BASE_URL + '/getModels/'+makeId;
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function(rs) {
+                    if (rs.status == 'success') {
+                        $('#carModel').removeAttr('disabled'); 
+                        $('#carModel').html(''); 
+                        $('#carModel').append(`<option value="">Chọn mẫu xe</option>`);
+                        rs.modelByMakes.forEach(make => {
+                            $('#carModel').append(`<option value="${make.id}">${make.name}</option>`);
+                        });
+                    } else {
+                        console.log(rs.message);
+                    }
+                },
+                error: function(e) {
+                    alert(e);
+                }
+    
+            });
+        }else{
+            $('#carModel').attr('disabled', 'disabled'); 
+            $('#carModel').html(''); 
+            $('#carModel').append(`<option value="">Chọn hãng xe trước</option>`);
+        }
+    });
+
+
+
+
     // Dropzone.autoDiscover = false;
     var uploadedDocumentMap = {}
     Dropzone.autoDiscover = false;
@@ -147,7 +182,7 @@ $(document).ready(function() {
         errorClass: 'help-block help-block-error', // default input error message class
         focusInvalid: true, // do not focus the last invalid input
         rules: {
-            name: {
+            number_plate: {
                 minlength: 2,
                 required: true
             },
@@ -155,7 +190,13 @@ $(document).ready(function() {
                 minlength: 2,
                 required: true
             },
-            car_manufacturer: {
+            car_make: {
+                required: true
+            },
+            car_model: {
+                required: true
+            },
+            car_year: {
                 required: true
             },
             seats: {
@@ -168,16 +209,22 @@ $(document).ready(function() {
             },
         },
         messages: {
-            name: {
-                required: "Tên không được để trống",
-                minlength: "Tên phải từ 2 ký tự trở lên",
+            number_plate: {
+                required: "Biển số không được để trống",
+                minlength: "Biển phải từ 2 ký tự trở lên",
             },
             code: {
                 required: "Mã xe không được để trống",
                 minlength: "Mã xe phải từ 2 ký tự trở lên",
             },
-            car_manufacturer: {
+            car_make: {
                 required: "Hãng xe không được để trống",
+            },
+            car_model: {
+                required: "Mẫu xe không được để trống",
+            },
+            car_year: {
+                required: "Năm sản xuất không được để trống",
             },
             seats: {
                 required: "Số ghế không được để trống",

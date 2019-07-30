@@ -40,8 +40,13 @@ class CarController extends Controller
             $car = new Car();
             $car->code = $request->code;
             $car->car_make = $request->car_make;
+            $car->car_model = $request->car_model;
+            $car->car_year = $request->car_year;
+            $car->name = $request->car_model.' '.$request->car_year;
+            $car->number_plate = $request->number_plate;
+            $car->transmission = $request->transmission;
+            $car->fuel = $request->fuel;
             $car->description = $request->description;
-            $car->name = $request->name;
             $car->seats = $request->seats;
             $car->costs = $request->costs;
             $car->status = 2;
@@ -67,8 +72,9 @@ class CarController extends Controller
     public function create()
     {
         $car = new Car();
-
-        return view('admin.cars._edit', ['car' => $car]);
+        $car->code = $this->generateCarCode();
+        $makes = json_decode(file_get_contents(storage_path() . "/app/json/makes.json"));
+        return view('admin.cars._edit', ['car' => $car, 'makes' => $makes]);
     }
 
     public function delete($id)
@@ -131,6 +137,23 @@ class CarController extends Controller
             return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
     }
+
+    public function generateCarCode()
+	{
+		$str = "";
+		$characters = array_merge(range('A','Z'),range('0','9'));
+		$max = count($characters) - 1;
+		for ($i = 0; $i < 5; $i++) {
+			$rand = mt_rand(0, $max);
+			$str .= $characters[$rand];
+		}
+		$checkFound = Car::where('code', $str);
+		if ($checkFound->exists()) {
+			$this->generateTripCode();
+		}else{
+			return $str;
+		}
+	}
 
 }
 
