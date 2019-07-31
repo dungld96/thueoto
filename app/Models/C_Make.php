@@ -10,7 +10,7 @@ class C_Make extends Model
 
     public static function getCMakelNameByCode($makeCode)
     {
-        $makeName = $this->where('code', $makeCode)->get()->name;
+        $makeName = self::where('code', $makeCode)->get()->name;
         return $makeName;
     }
     

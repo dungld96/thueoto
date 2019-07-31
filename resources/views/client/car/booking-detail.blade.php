@@ -25,8 +25,8 @@
                             <div class="col_content">
                                 <ul class="features">
                                     <li>Số ghế: {{$car->seats}}</li>
-                                    <li>Truyền động: Số tự động</li>
-                                    <li>Nhiên liệu: Xăng</li>
+                                    <li>Truyền động: {{getNameTransmission($car->transmission)}}</li>
+                                    <li>Nhiên liệu: {{getNameFuel($car->fuel)}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -85,15 +85,15 @@
 
                                         <div class="group">
                                             <p>Phí dịch vụ <i class="far fa-question-circle" data-toggle="tooltip" title="Phí dịch vụ"></i></p>
-                                            <p>30.000 / ngày</p>
+                                            <p>{{$serviceCosts}}.000 / ngày</p>
                                         </div>
                                         <div class="group line">
                                             <p>Tổng phí thuê xe</p>
                                             <p><span class="amount">
                                                 @if (isset($car->promotion_costs))
-                                                {{number_format($car->promotion_costs+30,0,",",".")}}
+                                                {{number_format($car->promotion_costs + $serviceCosts,0,",",".")}}
                                                 @else
-                                                {{number_format($car->costs+30,0,",",".")}}
+                                                {{number_format($car->costs + $serviceCosts,0,",",".")}}
                                                 @endif
                                                 .000</span> × <span class="days">1 ngày</span></p>
                                         </div>

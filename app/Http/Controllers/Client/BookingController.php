@@ -9,19 +9,23 @@ use App\Models\CarImages;
 use App\Models\BookingDetail;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Models\C_Config;
 
 class BookingController extends Controller
 {
     public function carDetail($slug)
     {
-    	$car = Car::where('slug', $slug)->first();
+		$car = Car::where('slug', $slug)->first();
+		$serviceCosts = C_Config::getServiceCosts();
     	$carSimilars = Car::where('status', 'active')->get();
     	$carImages = CarImages::where('car_id', $car->id)->get();
-    	return view('client.car.booking-detail', ['car' => $car, 'carSimilars' => $carSimilars, 'carImages' => $carImages]);
+    	return view('client.car.booking-detail', ['car' => $car, 'carSimilars' => $carSimilars, 'carImages' => $carImages, 'serviceCosts' => $serviceCosts]);
     }
 
     public function booking(Request $request)
     {
+		$serviceCosts = C_Config::getServiceCosts();
+
     	if(Auth::guest()){
     		return response()->json(['message'=>'Thất bại', 'status' => 'error', 'error' => 'no-auth']);
     	}
@@ -55,9 +59,9 @@ class BookingController extends Controller
 
 			$diffDays = $endDate->diff($startDate)->days + 1;
 			if(isset($car->promotion_costs)){
-				$sumAmount = ($car->promotion_costs + 30) * $diffDays;
+				$sumAmount = ($car->promotion_costs + $serviceCosts) * $diffDays;
 			}else{
-				$sumAmount = ($car->costs + 30) * $diffDays;
+				$sumAmount = ($car->costs + $serviceCosts) * $diffDays;
 			}
 	    	$startDate = $startDate->format('H:i - d/m/Y');
 			$endDate = $endDate->format('H:i - d/m/Y');
@@ -69,6 +73,7 @@ class BookingController extends Controller
 			$dataBooking['endDate'] = $endDate;
 			$dataBooking['sumAmount'] = $sumAmount;
 			$dataBooking['diffDays'] = $diffDays;
+			$dataBooking['serviceCosts'] = C_Config::getServiceCosts();
 			$returnHTML = view('client.car.confirm-booking')->with(['car'=> $car, 'dataBooking' => $dataBooking])->render();
 
     	} catch (\Exception $e) {
@@ -95,6 +100,9 @@ class BookingController extends Controller
 	    	$booking->end_date = date('Y-m-d H:i:s', $request->end_date);
 	    	$booking->place_delivery = $request->address;	
 	    	$booking->description = $request->description;	
+	    	$booking->costs = $request->costs;	
+	    	$booking->promotion_costs = $request->promotion_costs;
+	    	$booking->service_costs = $request->service_costs;
 	    	$booking->sum_amount = $request->sum_amount;	
 	    	$booking->status = BookingDetail::STATUS_PENDING;
 

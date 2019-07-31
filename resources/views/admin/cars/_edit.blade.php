@@ -182,28 +182,32 @@
                                         </div>
                                     </form>
                             </div>
-                            <div id="uploadCarImg">
-                                    <form method="post" action="{{route('admin_car_image_store')}}" enctype="multipart/form-data" class="dropzone" id="dropzone">
-                                        {{csrf_field()}}
-                                        <div class="dz-message">
-                                            <p>Kéo file hoặc bấm vào đây để tải ảnh lên</p>
-                                        </div>
-                                        
-                                    </form> 
-                                    <div style="display: none;">
-                                        <div class="dz-preview dz-file-preview well" id="dz-preview-template">
-                                          <div class="dz-image"><img data-dz-thumbnail /></div>
-                                          <div class="dz-details">
-                                            <div class="dz-filename"><span data-dz-name></span></div>
-                                            <div class="dz-size" data-dz-size></div>
-                                          </div>
-                                          <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
-                                          <div class="dz-success-mark"><span></span></div>
-                                          <div class="dz-error-mark"><span></span></div>
-                                          <div class="dz-error-message"><span data-dz-errormessage></span></div>
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div id="uploadCarImg">
+                                            <form method="post" action="{{route('admin_car_image_store')}}" enctype="multipart/form-data" class="dropzone" id="dropzone">
+                                                {{csrf_field()}}
+                                                <div class="dz-message">
+                                                    <p>Kéo file hoặc bấm vào đây để tải ảnh lên</p>
+                                                </div>
+                                                
+                                            </form> 
+                                            <div style="display: none;">
+                                                <div class="dz-preview dz-file-preview well" id="dz-preview-template">
+                                                  <div class="dz-image"><img data-dz-thumbnail /></div>
+                                                  <div class="dz-details">
+                                                    <div class="dz-filename"><span data-dz-name></span></div>
+                                                    <div class="dz-size" data-dz-size></div>
+                                                  </div>
+                                                  <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+                                                  <div class="dz-success-mark"><span></span></div>
+                                                  <div class="dz-error-mark"><span></span></div>
+                                                  <div class="dz-error-message"><span data-dz-errormessage></span></div>
+                                                </div>
+                                            </div>
+                                            <div id="template-preview"></div>
                                     </div>
-                                    <div id="template-preview"></div>
+                                </div>
                             </div>
                         </div>
                     </div>

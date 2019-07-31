@@ -12,6 +12,9 @@
                 <input type="hidden" name="start_date" value="{{$dataBooking['startDateTt']}}">
                 <input type="hidden" name="end_date" value="{{$dataBooking['endDateTt']}}">
                 <input type="hidden" name="address" value="{{$dataBooking['placeDelivery']}}">
+                <input type="hidden" name="costs" value="{{$car->costs}}">
+                <input type="hidden" name="promotion_costs" value="{{$car->promotion_costs}}">
+                <input type="hidden" name="service_costs" value="{{$dataBooking['serviceCosts']}}">
                 <input type="hidden" name="sum_amount" value="{{$dataBooking['sumAmount']}}">
                 <div class="form-group">
                     <div class="row">
@@ -57,15 +60,15 @@
 
                                         <div class="group">
                                             <p>Phí dịch vụ <i class="far fa-question-circle" data-toggle="tooltip" title="" data-original-title="Phí dịch vụ"></i></p>
-                                            <p>30.000 / ngày</p>
+                                            <p>{{$dataBooking['serviceCosts']}}.000 / ngày</p>
                                         </div>
                                         <div class="group line">
                                             <p>Tổng phí thuê xe</p>
                                             <p><span>
                                                 @if (isset($car->promotion_costs))
-                                                {{number_format($car->promotion_costs+30,0,",",".")}}
+                                                {{number_format($car->promotion_costs + $dataBooking['serviceCosts'],0,",",".")}}
                                                 @else
-                                                {{number_format($car->costs+30,0,",",".")}}
+                                                {{number_format($car->costs + $dataBooking['serviceCosts'],0,",",".")}}
                                                 @endif
                                                 .000</span> × <span class="days">{{$dataBooking['diffDays']}} ngày</span></p>
                                         </div>

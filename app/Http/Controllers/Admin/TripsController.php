@@ -49,6 +49,9 @@ class TripsController extends Controller
             $query->whereIn('booking_details.status', $status);
         }
 
+        $query->orderBy('booking_details.updated_at', 'desc');
+        $query->orderBy('booking_details.created_at', 'desc');
+
         $query =  $query->get();
 
     	return Datatables::of($query)
@@ -227,8 +230,6 @@ class TripsController extends Controller
         $startDate = new Carbon($bookingDetail->start_date);
         $endDate = new Carbon($bookingDetail->end_date);
         $diffDays = $endDate->diff($startDate)->days + 1;
-        $sumAmount = ($car->costs + 30) * $diffDays;
-        $sumAmount = number_format($sumAmount, 0, ',', '.');
         $bookingDetail->start_date = date('H:i - d/m/Y', strtotime($bookingDetail->start_date));
         $bookingDetail->end_date = date('H:i - d/m/Y', strtotime($bookingDetail->end_date));
         $bookingDetail->booking_date = date('H:i - d/m/Y', strtotime($bookingDetail->booking_date));
@@ -239,7 +240,6 @@ class TripsController extends Controller
                 'customer' => $customer, 
                 'car' => $car,
                 'diffDays' => $diffDays,
-                'sumAmount' => $sumAmount
             ]);
     }
 

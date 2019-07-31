@@ -62,21 +62,35 @@
                                 <div class="panel panel-default bill_wrap">
                                     <div class="panel-body">
                                         <div class="car_bill">
-                                            <div class="group">
+                                            <div class="group @if (isset($bookingDetail->promotion_costs)) gach-ngang @endif">
                                                 <p>Đơn giá thuê</p>
-                                                <p>{{$car->costs}}.000 / ngày</p>
+                                                <p>{{number_format($bookingDetail->costs,0,",",".")}}.000 / ngày</p>
                                             </div>
+
+                                            @if (isset($bookingDetail->promotion_costs))
+                                                <div class="group">
+                                                    <p>Giá khuyến mãi</p>
+                                                    <p>{{number_format($car->promotion_costs,0,",",".")}}.000 / ngày</p>
+                                                </div>
+                                            @endif
+
                                             <div class="group">
                                                 <p>Phí dịch vụ <i class="far fa-question-circle" data-toggle="tooltip" title="Phí dịch vụ"></i></p>
-                                                <p>30.000 / ngày</p>
+                                                <p>{{$bookingDetail->service_costs}}.000 / ngày</p>
                                             </div>
                                             <div class="group line">
                                                 <p>Tổng phí thuê xe</p>
-                                                <p><span>{{$car->costs+30}}.000</span> × <span><b>{{$diffDays}} ngày</b></span></p>
+                                                <p><span>
+                                                        @if (isset($bookingDetail->promotion_costs))
+                                                        {{number_format($bookingDetail->promotion_costs + $bookingDetail->service_costs,0,",",".")}}
+                                                        @else
+                                                        {{number_format($bookingDetail->costs+$bookingDetail->service_costs,0,",",".")}}
+                                                        @endif
+                                                    .000</span> × <span><b>{{$diffDays}} ngày</b></span></p>
                                             </div>
                                             <div class="group line">
                                                 <p><b>Tổng cộng</b></p>
-                                                <p><span><b>{{$sumAmount}}.000đ</b></span></p>
+                                                <p><span><b>{{number_format($bookingDetail->sum_amount,0,",",".")}}.000đ</b></span></p>
                                             </div>
                                         </div>
                                     </div>

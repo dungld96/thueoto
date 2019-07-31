@@ -22,9 +22,12 @@ class CreateBookingDetailsTable extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->string('place_delivery', 100);
+            $table->mediumInteger('costs');
+            $table->mediumInteger('promotion_costs')->nullable();
+            $table->mediumInteger('service_costs')->nullable();
+            $table->mediumInteger('discount')->nullable();
             $table->mediumInteger('sum_amount');
             $table->longText('description')->nullable();
-            $table->string('discount_code', 100)->nullable();
             $table->smallInteger('status');  
             $table->timestamps();
         });

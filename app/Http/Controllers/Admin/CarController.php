@@ -45,7 +45,7 @@ class CarController extends Controller
             $car->make_code = $request->make_code;
             $car->model_code = $request->model_code;
             $car->car_year = $request->car_year;
-            $car->name = $request->model_code.' '.$request->car_year;
+            $car->name = C_Model::getCModelNameByCode($request->model_code).' '.$request->car_year;
             $car->number_plate = $request->number_plate;
             $car->transmission = $request->transmission;
             $car->fuel = $request->fuel;

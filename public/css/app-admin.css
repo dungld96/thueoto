@@ -2,6 +2,10 @@
     color: red;
 }
 
+.gach-ngang{
+    text-decoration: line-through;
+}
+
 .modal-60{
     width: 60%;
 }
@@ -182,6 +186,6 @@
 
 #uploadCarImg{
     min-height: 170px;
-    margin: 15px 60px 15px 130px;
+    margin-left: 19%;
     border: 1px dashed #ddd;
 }
