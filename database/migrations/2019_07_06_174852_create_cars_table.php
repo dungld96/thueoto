@@ -17,8 +17,8 @@ class CreateCarsTable extends Migration
             $table->increments('id');
             $table->string('name', 100);
             $table->string('code', 100)->unique();
-            $table->string('car_make', 100); // hãng xe
-            $table->string('car_model', 100); // mẫu xe
+            $table->string('make_code', 45); // hãng xe
+            $table->string('model_code', 45); // mẫu xe
             $table->string('car_year', 100); // năm sản xuất
             $table->string('number_plate', 100)->unique(); // bien so
             $table->string('color', 100)->nullable(); //màu xe

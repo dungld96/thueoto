@@ -19,12 +19,17 @@ $(document).ready(function() {
             $.ajax({
                 type: "get",
                 url: BASE_URL + "/admin/cars/delete/"+carId,
-                success: function (data) {
-                var oTable = $('#carsdata').dataTable(); 
-                oTable.fnDraw(false);
+                success: function (rs) {
+                    if(rs.status == 'success'){
+                        toastr.success(rs.message);
+                        var oTable = $('#carsdata').dataTable(); 
+                        oTable.fnDraw(false);
+                    }else{
+                        toastr.error(rs.message);
+                    }
                 },
-                error: function (data) {
-                    console.log('Error:', data);
+                error: function (rs) {
+                    console.log('Error:', rs);
                 }
             });
         }

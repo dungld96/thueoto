@@ -43,17 +43,31 @@
                             <div class="panel panel-default bill_wrap">
                                 <div class="panel-body">
                                     <div class="car_bill">
-                                        <div class="group">
+                                        <div class="group @if (isset($car->promotion_costs)) gach-ngang @endif"">
                                             <p>Đơn giá thuê</p>
                                             <p>{{$car->costs}}.000 / ngày</p>
                                         </div>
+
+                                        @if (isset($car->promotion_costs))
+                                            <div class="group">
+                                                <p>Giá khuyến mãi</p>
+                                                <p>{{number_format($car->promotion_costs,0,",",".")}}.000 / ngày</p>
+                                            </div>
+                                        @endif
+
                                         <div class="group">
                                             <p>Phí dịch vụ <i class="far fa-question-circle" data-toggle="tooltip" title="" data-original-title="Phí dịch vụ"></i></p>
                                             <p>30.000 / ngày</p>
                                         </div>
                                         <div class="group line">
                                             <p>Tổng phí thuê xe</p>
-                                            <p><span>{{$car->costs+30}}.000</span> × <span class="days">{{$dataBooking['diffDays']}} ngày</span></p>
+                                            <p><span>
+                                                @if (isset($car->promotion_costs))
+                                                {{number_format($car->promotion_costs+30,0,",",".")}}
+                                                @else
+                                                {{number_format($car->costs+30,0,",",".")}}
+                                                @endif
+                                                .000</span> × <span class="days">{{$dataBooking['diffDays']}} ngày</span></p>
                                         </div>
                                         <div class="group line">
                                             <p><b>Tổng cộng</b></p>

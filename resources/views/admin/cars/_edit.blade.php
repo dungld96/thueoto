@@ -41,13 +41,13 @@
                                                 <div class="col-md-9">
                                                     <div class="input-icon right form-inline">
                                                         <i class="fa"></i>
-                                                        <select name="car_make" class="form-control input-full" id="carMake" data-placeholder="Hãng xe">
+                                                        <select name="make_code" class="form-control input-full" id="carMake" data-placeholder="Hãng xe">
                                                             <option value="">Chọn hãng xe</option>
                                                             @foreach ($makes as $make)
                                                                 <option 
-                                                                @if($car->car_make == $make->name) selected
+                                                                @if($car->make_code == $make->code) selected
                                                                 @endif
-                                                                value="{{$make->id}}">{{$make->name}}</option>
+                                                                value="{{$make->code}}">{{$make->name}}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -59,7 +59,7 @@
                                                 <div class="col-md-9">
                                                     <div class="input-icon right form-inline">
                                                         <i class="fa"></i>
-                                                         <select name="car_model" class="form-control input-full" id="carModel" data-placeholder="Mẫu xe" disabled>
+                                                         <select name="model_code" class="form-control input-full" id="carModel" data-placeholder="Mẫu xe" disabled>
                                                                 <option value="">Chọn hãng xe trước</option>
                                                         </select>
                                                     </div>
@@ -113,8 +113,8 @@
                                                     <div class="input-icon right form-inline">
                                                         <i class="fa"></i>
                                                          <select name="transmission" class="form-control input-full" data-placeholder="Truyền động">
-                                                                <option value="auto">Số tự động</option>
-                                                                <option value="manual">Số sàn</option>
+                                                                <option {{$car->transmission == 'auto' ? 'selected' : null}} value="auto">Số tự động</option>
+                                                                <option {{$car->transmission == 'manual' ? 'selected' : null}} value="manual">Số sàn</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -126,8 +126,8 @@
                                                      <div class="input-icon right">
                                                         <i class="fa"></i>
                                                         <select name="fuel" class="form-control input-full" data-placeholder="Loại nhiên liệu">
-                                                                <option value="petrol">Xăng</option>
-                                                                <option value="diesel">Dầu diesel</option>
+                                                                <option {{$car->fuel == 'petrol' ? 'selected' : null}} value="petrol">Xăng</option>
+                                                                <option {{$car->fuel == 'diesel' ? 'selected' : null}} value="diesel">Dầu diesel</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -146,13 +146,40 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="form-group col-md-6">
+                                                <label class="col-md-3 control-label">Giá khuyến mãi</label>
+                                                <div class="col-md-9">
+                                                    <div class="input-icon right input-group">
+                                                        <input type="text" class="form-control input-full" name="promotion_costs" 
+                                                        placeholder="Giá khuyến mãi" value="{{old('promotion_costs', $car->promotion_costs)}}"/>
+                                                        <span class="input-group-addon">.000đ</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
-                                       <div class="row">
+                                        
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label class="col-md-3 control-label">Trạng thái<span class="required">
+                                                * </span></label>
+                                                <div class="col-md-9">
+                                                    <div class="input-icon right">
+                                                        <select name="status" class="form-control input-full" data-placeholder="Trạng thái">
+                                                            <option {{$car->status == 'active' ? 'selected' : null}} value="active">Hoạt động</option>
+                                                            <option {{$car->status == 'inactive' ? 'selected' : null}} value="inactive">Không hoạt động</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
                                            <div class="form-group col-md-12 input-description">
                                                <label class="control-label">Mô tả</label>
                                                <textarea class="form-control input-full" rows="3" name="description" placeholder="Mô tả">{{$car->description}}</textarea>
                                            </div>
-                                       </div>
+                                        </div>
                                     </form>
                             </div>
                             <div id="uploadCarImg">
@@ -199,6 +226,12 @@
     @if (isset($car->id))
         <script>
             var $carId= {!! $car->id !!};
+        </script>
+    @endif
+    
+    @if (isset($car->model_code))
+        <script>
+            var $modelCode= "{!! $car->model_code !!}";
         </script>
     @endif
     

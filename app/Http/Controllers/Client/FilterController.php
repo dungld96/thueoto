@@ -11,7 +11,7 @@ class FilterController extends Controller
     public function filter(Request $request)
     {
         $params = $request->all();
-        $carResults = Car::all();
+        $carResults = Car::where('status', 'active')->get();
         return view('client.car.filter-result', ['carResults' => $carResults]);
     }
 }

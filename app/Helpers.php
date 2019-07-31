@@ -4,20 +4,14 @@
 if (! function_exists('getCarStatus')) {
 	function getCarStatus($status) {
         switch ($status) {
-        	case 1:
-        		return "Inactive";
+        	case 'active':
+        		return "Hoạt động";
         		break;
-        	case 2:
-        		return "Active";
-        		break;
-        	case 3:
-        		return "Booking";
-        		break;
-        	case 4:
-        		return "Booked";
+        	case 'inactive':
+        		return "Không hoạt động";
         		break;
         	default:
-        		return "Inactive";
+        		return "Không hoạt động";
         		break;
         }
     }

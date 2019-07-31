@@ -7,6 +7,9 @@ ul li {
 body {
     font-family: "Lato", sans-serif;
 }
+.gach-ngang{
+    text-decoration: line-through;
+}
 
 .space.m {
     padding-top: 10px;

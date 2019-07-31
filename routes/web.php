@@ -54,6 +54,11 @@
 
 
 	Route::prefix('car')->group(function () {
+		Route::get('/filter', [
+			'as' => 'car.filter',
+			'uses' => 'Client\FilterController@filter'
+		]);
+
 		Route::get('/{slug}', [
 			'as' => 'car.detail',
 			'uses' => 'Client\BookingController@carDetail'
@@ -69,10 +74,6 @@
 			'uses' => 'Client\BookingController@confirmBooking'
 		]);
 	
-		Route::get('/filter', [
-			'as' => 'car.filter',
-			'uses' => 'Client\FilterController@filter'
-		]);
 	});	
 
 	Route::group(['middleware' => ['check-auth']], function(){

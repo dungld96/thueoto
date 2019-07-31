@@ -3,19 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\C_Model;
 
 class SharedController extends Controller
 {
-    public function getModels($makeId)
+    public function getModels($makeCode)
     {
-        $models = json_decode(file_get_contents(storage_path() . "/app/json/models.json"));
-        $modelByMakes = [];
-        foreach ($models as $model) {
-            if($model->make_id == $makeId){
-                $modelByMakes[] = $model;
-            }
+        try {
+            $modelByMakes = C_Model::getModelsByMake($makeCode);
+        } catch (\Exception $e) {
+    		return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
-
         return response()->json(['message'=>'Thành công', 'status' => 'success', 'modelByMakes' => $modelByMakes]);
     }
 }

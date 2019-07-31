@@ -26,6 +26,8 @@
                             	<th width="80px">STT</th>
                                 <th width="180px">Code</th>
                                 <th>Tên xe</th>
+                                <th width="180px">Giá xe</th>
+                                <th width="180px">Giá khuyến mãi</th>
                                 <th width="150px">Trạng thái</th>
                                 <th width="120px">Tùy chọn</th>
                             </tr>
@@ -59,6 +61,8 @@ $(document).ready(function() {
              { data: 'DT_Row_Index', name: 'DT_Row_Index' },
             {data: 'code', name: 'code'},
             {data: 'name', name: 'name'},
+            {data: 'costs', costs: 'name'},
+            {data: 'promotion_costs', name: 'promotion_costs'},
             {data: 'status', name: 'status'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]

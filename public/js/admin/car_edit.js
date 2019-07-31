@@ -1,4 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
+    if ($('#carMake').val()) {
+        let makeCode = $('#carMake').val();
+        appendModelOption(makeCode, $modelCode);
+    }
+
     $('#btnAddCar').click(() => {
         $('#btnSaveCar').attr('disabled', 'disabled');
         let valid = $('#carInfoForm').valid();
@@ -9,7 +14,7 @@ $(document).ready(function() {
                 type: 'POST',
                 url: url,
                 data: carInfo,
-                success: function(data) {
+                success: function (data) {
                     if (data.status == 'success') {
                         toastr.success(data.message);
                         $('#addCar').modal('hide');
@@ -19,7 +24,7 @@ $(document).ready(function() {
                         toastr.error(data.message);
                     }
                 },
-                error: function(e) {
+                error: function (e) {
                     alert(e);
                 }
 
@@ -37,7 +42,7 @@ $(document).ready(function() {
                 type: 'PUT',
                 url: url,
                 data: carInfo,
-                success: function(data) {
+                success: function (data) {
                     if (data.status == 'success') {
                         toastr.success(data.message);
                         $('#addCar').modal('hide');
@@ -47,7 +52,7 @@ $(document).ready(function() {
                         toastr.error(data.message);
                     }
                 },
-                error: function(e) {
+                error: function (e) {
                     alert(e);
                 }
 
@@ -55,33 +60,13 @@ $(document).ready(function() {
         }
     });
 
-    $('body').on('change', '#carMake', function(e) {
-        let makeId = this.value;
-        if(makeId){
-            url = BASE_URL + '/getModels/'+makeId;
-            $.ajax({
-                type: 'GET',
-                url: url,
-                success: function(rs) {
-                    if (rs.status == 'success') {
-                        $('#carModel').removeAttr('disabled'); 
-                        $('#carModel').html(''); 
-                        $('#carModel').append(`<option value="">Chọn mẫu xe</option>`);
-                        rs.modelByMakes.forEach(make => {
-                            $('#carModel').append(`<option value="${make.id}">${make.name}</option>`);
-                        });
-                    } else {
-                        console.log(rs.message);
-                    }
-                },
-                error: function(e) {
-                    alert(e);
-                }
-    
-            });
-        }else{
-            $('#carModel').attr('disabled', 'disabled'); 
-            $('#carModel').html(''); 
+    $('body').on('change', '#carMake', function (e) {
+        let makeCode = this.value;
+        if (makeCode) {
+            appendModelOption(makeCode);
+        } else {
+            $('#carModel').attr('disabled', 'disabled');
+            $('#carModel').html('');
             $('#carModel').append(`<option value="">Chọn hãng xe trước</option>`);
         }
     });
@@ -95,7 +80,7 @@ $(document).ready(function() {
     var myDropzone = new Dropzone("#dropzone", {
         maxFilesize: 12,
         maxFiles: 12,
-        renameFile: function(file) {
+        renameFile: function (file) {
             var dt = new Date();
             var time = dt.getTime();
             return time + file.name;
@@ -110,7 +95,7 @@ $(document).ready(function() {
         thumbnailHeight: 60,
         // autoProcessQueue: false,
         dictMaxFilesExceeded: "Bạn chỉ được tải lên 12 file.",
-        init: function() {
+        init: function () {
             if (typeof $images !== 'undefined') {
                 $images.forEach(img => {
                     let mockFile = { file_name: img.name, size: img.size }; // here we get the file name and size as response 
@@ -121,11 +106,11 @@ $(document).ready(function() {
                 });
             }
         },
-        success: function(file, response) {
+        success: function (file, response) {
             $('#carInfoForm').append('<input type="hidden" name="document[]" value="' + response.name + '">')
             uploadedDocumentMap[file.name] = response.name
         },
-        removedfile: function(file) {
+        removedfile: function (file) {
             console.log(file);
             file.previewElement.remove()
             var name = ''
@@ -154,14 +139,14 @@ $(document).ready(function() {
                         "name": name,
                         "_token": token,
                     },
-                    success: function(data) {
+                    success: function (data) {
                         if (data.status == 'success') {
                             $('form').find('input[name="document[]"][value="' + name + '"]').remove();
                         } else {
                             console.log(data.message);
                         }
                     },
-                    error: function(e) {
+                    error: function (e) {
                         console.log(e);
                     }
                 });
@@ -172,7 +157,7 @@ $(document).ready(function() {
             }
 
         },
-        error: function(file, response) {
+        error: function (file, response) {
             return false;
         }
     });
@@ -190,10 +175,10 @@ $(document).ready(function() {
                 minlength: 2,
                 required: true
             },
-            car_make: {
+            make_code: {
                 required: true
             },
-            car_model: {
+            model_code: {
                 required: true
             },
             car_year: {
@@ -217,10 +202,10 @@ $(document).ready(function() {
                 required: "Mã xe không được để trống",
                 minlength: "Mã xe phải từ 2 ký tự trở lên",
             },
-            car_make: {
+            make_code: {
                 required: "Hãng xe không được để trống",
             },
-            car_model: {
+            model_code: {
                 required: "Mẫu xe không được để trống",
             },
             car_year: {
@@ -235,15 +220,39 @@ $(document).ready(function() {
                 number: "Số tiền phải dạng chữ số",
             },
         },
-        highlight: function(element) { // hightlight error inputs
+        highlight: function (element) { // hightlight error inputs
             $(element)
                 .closest('.form-group').addClass('has-error'); // set error class to the control group
         },
 
-        unhighlight: function(element) { // revert the change done by hightlight
+        unhighlight: function (element) { // revert the change done by hightlight
             $(element)
                 .closest('.form-group').removeClass('has-error'); // set error class to the control group
         },
     });
 
 });
+
+function appendModelOption(makeCode, modelCode = null) {
+    url = BASE_URL + '/getModels/' + makeCode;
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function (rs) {
+            if (rs.status == 'success') {
+                $('#carModel').removeAttr('disabled');
+                $('#carModel').html('');
+                $('#carModel').append(`<option value="">Chọn mẫu xe</option>`);
+                rs.modelByMakes.forEach(model => {
+                    $('#carModel').append(`<option ${modelCode == model.code ? 'selected' : ''} value="${model.code}">${model.name}</option>`);
+                }); 
+            } else {
+                console.log(rs.message);
+            }
+        },
+        error: function (e) {
+            alert(e);
+        }
+
+    });
+}

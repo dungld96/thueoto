@@ -15,7 +15,7 @@ class BookingController extends Controller
     public function carDetail($slug)
     {
     	$car = Car::where('slug', $slug)->first();
-    	$carSimilars = Car::all();
+    	$carSimilars = Car::where('status', 'active')->get();
     	$carImages = CarImages::where('car_id', $car->id)->get();
     	return view('client.car.booking-detail', ['car' => $car, 'carSimilars' => $carSimilars, 'carImages' => $carImages]);
     }
@@ -54,7 +54,11 @@ class BookingController extends Controller
 			}
 
 			$diffDays = $endDate->diff($startDate)->days + 1;
-			$sumAmount = ($car->costs + 30) * $diffDays;
+			if(isset($car->promotion_costs)){
+				$sumAmount = ($car->promotion_costs + 30) * $diffDays;
+			}else{
+				$sumAmount = ($car->costs + 30) * $diffDays;
+			}
 	    	$startDate = $startDate->format('H:i - d/m/Y');
 			$endDate = $endDate->format('H:i - d/m/Y');
 			
