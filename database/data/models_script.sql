@@ -155,3 +155,6 @@ insert into `c_models` (`make_code`, `name`, `code`, `type`) values('TOYOTA','TO
 insert into `c_models` (`make_code`, `name`, `code`, `type`) values('TOYOTA','TOYOTA LAND CRUISER','TOYOTA_LAND_CRUISER','7');
 insert into `c_models` (`make_code`, `name`, `code`, `type`) values('TOYOTA','TOYOTA RUSH','TOYOTA_RUSH','7');
 insert into `c_models` (`make_code`, `name`, `code`, `type`) values('TOYOTA','TOYOTA ZACE','TOYOTA_ZACE','7');
+insert into `c_models` (`make_code`, `name`, `code`, `type`) values('FORD','FORD TRANSIT','FORD_TRANSIT','16');
+insert into `c_models` (`make_code`, `name`, `code`, `type`) values('HYUNDAI','HYUNDAI COUNTY ','HYUNDAI_COUNTY','29');
+

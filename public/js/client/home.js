@@ -62,10 +62,10 @@ $(document).ready(function () {
         let address = $('input[name=place]').val().trim();
         let starDateTime = moment(startDate + " " +  startTime, "MM/DD/YYYY HH:mm:ss").valueOf();
         let endDateTime = moment(endDate + " " +  endTime, "MM/DD/YYYY HH:mm:ss").valueOf();
-        if(!address){
-            toastr.error('Bạn phải nhập điạ điểm để tìm kiếm');
-            return;
-        }
+        // if(!address){
+        //     toastr.error('Bạn phải nhập điạ điểm để tìm kiếm');
+        //     return;
+        // }
         window.location.href = `/car/filter?startDate=${starDateTime}&endDate=${endDateTime}&address=${address}`;
     });
    

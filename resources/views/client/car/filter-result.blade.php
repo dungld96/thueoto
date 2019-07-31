@@ -17,11 +17,10 @@
                                         <div class="form-group">
                                             <label class="control-label" class="slstitle">Sắp xếp</label>
                                             <div class="line-form">
-                                                <select class="bs-select form-control">
-                                                    <option>Tối ưu</option>
-                                                    <option>Ưu tiên khoảng cách</option>
-                                                    <option>Ưu tiên giá thấp</option>
-                                                    <option>Ưu tiên giá cao</option>
+                                                <select class="bs-select form-control"  id="filterCarSortBy">
+                                                    <option value="">Tối ưu</option>
+                                                    <option value="min">Ưu tiên giá thấp</option>
+                                                    <option value="max">Ưu tiên giá cao</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -62,5 +61,5 @@
 @endsection
 
 @section('script-client')
-<script src="{{asset('js/client/booking-detail.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/client/car-filter.js')}}" type="text/javascript"></script>
 @endsection

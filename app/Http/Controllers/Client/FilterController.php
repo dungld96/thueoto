@@ -10,8 +10,15 @@ class FilterController extends Controller
 {
     public function filter(Request $request)
     {
-        $params = $request->all();
-        $carResults = Car::where('status', 'active')->get();
+        $query = Car::where('status', 'active');
+        
+        $orderBy = $request->orderBy;
+        $sortBy = $request->sortBy;
+        if(isset($orderBy) && isset($sortBy)){
+            $query->orderBy($orderBy, $sortBy);
+        }
+        
+        $carResults = $query->get();
         return view('client.car.filter-result', ['carResults' => $carResults]);
     }
 }
