@@ -761,6 +761,15 @@ textarea {
     padding: 0;
 }
 
+.content-result .control-label{
+    margin-bottom: 10px;
+}
+
+.content-result .no-cars-result{
+    margin-top: 20%;
+    text-align: center;
+}
+
 .list-result li {
     float: left;
     margin-bottom: 30px;
@@ -1176,6 +1185,17 @@ textarea {
 #changePassForm {
     margin: 50px 0;
 }
+
+#rangeCarCosts .ui-slider-range{
+    background: #00a550;
+}
+
+
+
+
+
+
+
 
 
 /* MOBILE */

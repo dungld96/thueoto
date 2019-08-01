@@ -19,8 +19,29 @@
                                             <div class="line-form">
                                                 <select class="bs-select form-control"  id="filterCarSortBy">
                                                     <option value="">Tối ưu</option>
-                                                    <option value="min">Ưu tiên giá thấp</option>
-                                                    <option value="max">Ưu tiên giá cao</option>
+                                                    <option {{ Request::get('sortBy') && Request::get('sortBy') == 'asc' ? 'selected' : ''}} value="asc">Ưu tiên giá thấp</option>
+                                                    <option {{ Request::get('sortBy') && Request::get('sortBy') == 'desc' ? 'selected' : ''}} value="desc">Ưu tiên giá cao</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" class="slstitle">Mức giá</label>
+                                            <div class="line-form">
+                                                <div id="rangeCarCosts"></div>
+                                                <p id="amountCarCosts" style="border:0; color:#00a550; font-weight:bold;"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" class="slstitle">Hãng xe</label>
+                                            <div class="line-form">
+                                                <select class="bs-select form-control"  id="filterCarByMake">
+                                                    <option value="">Tất cả</option>
+                                                        @foreach ($makes as $make)
+                                                            <option 
+                                                            @if(Request::get('makeBy') && Request::get('makeBy') == $make->code) selected
+                                                            @endif
+                                                            value="{{$make->code}}">{{$make->name}}</option>
+                                                        @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -31,6 +52,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="list-result">
+                            @if (count($carResults) > 0)
                             <ul>
                                 @foreach ($carResults as $car)
                                     <li class="col-md-6 col-sm-6 col-xs-6">
@@ -51,8 +73,12 @@
                                         </a>
                                     </li>
                                 @endforeach
-                                
                             </ul>
+                            @else
+                            <div class="no-cars-result">
+                                <h4>Không tìm thấy xe phù hợp !</h4>
+                            </div>
+                            @endif
                     </div>
                 </div>
             </div>

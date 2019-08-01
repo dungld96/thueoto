@@ -12,7 +12,7 @@
                             <div class="group">
                                 <label>Địa điểm</label>
                                 <div class="place_wrap">
-                                    <input type="text" name="place" placeholder="Nhập địa điểm...">
+                                    <input type="text" name="place" placeholder="Nhập địa điểm..." value="Hà Nội, Việt Nam">
                                 </div>
                             </div>
                             <div class="group">

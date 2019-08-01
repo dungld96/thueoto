@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Car;
 
 class BookingDetail extends Model
 {
@@ -16,6 +17,11 @@ class BookingDetail extends Model
     CONST STATUS_CL_CANCEL = 8;
 
     protected $table = 'booking_details';
+
+    public function cars()
+    {
+      return $this->belongsTo(Car::class);
+    }
 
     public static function getStatus($status)
     {

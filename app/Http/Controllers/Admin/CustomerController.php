@@ -20,7 +20,11 @@ class CustomerController extends Controller
 
     public function getCustomers()
     {
-        $query = User::whereHas("roles", function($q){ $q->where("role", 1); })->where('status', 'active')->get();
+        $query = User::whereHas("roles", function($q){ 
+            $q->where("role", 1); 
+        })
+        ->where('status', 'active')
+        ->get();
             
     	return Datatables::of($query)
             ->addColumn('action', function ($query) {

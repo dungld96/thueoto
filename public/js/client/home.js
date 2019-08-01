@@ -1,13 +1,20 @@
 $(document).ready(function () {
     var date = moment();
+    let startTime = "00:00:00";
+    let endTime = "00:00:00";
+    let startDate = $('#start_date span').html();
+    let endDate = $('#end_date span').html();
 
     function start_date_change(date) {
         $('#start_date span').html(date.format('DD/MM/YYYY'));
         $('#end_date span').html(date.format('DD/MM/YYYY'));
+        startDate = date.format('DD/MM/YYYY');
+        endDate = date.format('DD/MM/YYYY');
     }
 
     function end_date_change(date) {
         $('#end_date span').html(date.format('DD/MM/YYYY'));
+        endDate = date.format('DD/MM/YYYY');
     }
 
     $('#start_date').daterangepicker({
@@ -44,11 +51,6 @@ $(document).ready(function () {
         }
         placesSuggest(text);
     });
-    
-    let startTime = "00:00:00";
-    let endTime = "00:00:00";
-    let startDate = $('#start_date span').html();
-    let endDate = $('#end_date span').html();
 
     $('#startTime').on('change', function() {
         startTime = this.value;
@@ -60,8 +62,10 @@ $(document).ready(function () {
 
     $('.search_form .btn_search').on('click', function () {
         let address = $('input[name=place]').val().trim();
-        let starDateTime = moment(startDate + " " +  startTime, "MM/DD/YYYY HH:mm:ss").valueOf();
-        let endDateTime = moment(endDate + " " +  endTime, "MM/DD/YYYY HH:mm:ss").valueOf();
+        console.log(moment(startDate + " " +  startTime, "DD/MM/YYYY HH:mm:ss"))
+        console.log(moment(endDate + " " +  endTime, "DD/MM/YYYY HH:mm:ss"))
+        let starDateTime = moment(startDate + " " +  startTime, "DD/MM/YYYY HH:mm:ss").unix();
+        let endDateTime = moment(endDate + " " +  endTime, "DD/MM/YYYY HH:mm:ss").unix();
         // if(!address){
         //     toastr.error('Bạn phải nhập điạ điểm để tìm kiếm');
         //     return;
