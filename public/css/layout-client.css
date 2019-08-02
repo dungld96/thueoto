@@ -298,6 +298,9 @@ body {
     #vtNavbar .navbar-nav {
         margin-left: 5px;
     }
+    .navbar-header .logo-container .navbar-brand {
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -310,6 +313,7 @@ body {
     .navbar-header .logo-container .navbar-brand {
         height: 30px;
         padding: 15px 4px;
+        font-size: 16px;
     }
     .footer ul li {
         font-size: 14px;
@@ -318,6 +322,20 @@ body {
         font-size: 16px;
         margin-bottom: 10px;
     }
+    .navbar-nav.navbar-right #btnRegister {
+        margin: 10px 5px;
+        height: 30px;
+        line-height: 30px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .navbar-header .logo-container .navbar-brand {
+        font-size: 14px;
+        height: 28px;
+        padding: 13px 4px;
+    }
+    
 }
 
 @media screen and (max-width: 480px) {
@@ -326,6 +344,12 @@ body {
         height: 100px;
         line-height: 100px;
     }
+    .navbar-header .logo-container .navbar-brand {
+        font-size: 14px;
+        height: 27px;
+        padding: 13px 4px;
+    }
+    
 }
 
 @media screen and (min-width: 768px) {

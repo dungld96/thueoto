@@ -265,6 +265,19 @@ textarea {
     background-color: #6c757d;
 }
 
+.filter-result .place_result {
+    border: 1px solid #fff;
+    background: rgba(0, 0, 0, .9);
+}
+
+.filter-result .place_result a {
+    color: #fff;
+}
+
+.filter-result .place_result a:hover {
+    background-color: #6c757d;
+}
+
 .car_booking .place_result {
     border: 1px solid #ccc;
     background-color: #fff;
@@ -723,11 +736,12 @@ textarea {
     position: relative;
     z-index: 10;
     padding: 10px 0;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .3)
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    display: flex;
 }
 
 .result-header .tab-mode {
-    width: 40%;
+    width: 35%;
     padding: 0px 30px;
 }
 
@@ -742,6 +756,64 @@ textarea {
 
 .result-header .tab-mode p i {
     margin-right: 5px;
+}
+
+.result-header .daterange {
+    display: flex;
+    width: 75%;
+}
+
+.result-header .daterange .place_wrap{
+    width: 70%;
+}
+.result-header .daterange .place_wrap input{
+    border: none;
+    height: 25px;
+}
+.result-header .daterange .place_wrap input:focus{
+    outline: none;
+}
+
+.result-header .daterange .select-datetime{
+    margin-right: 15px;
+    line-height: 40px;
+    height: 35px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+}
+
+.result-header .daterange .select-address{
+    width: 35%;
+}
+
+.result-header .daterange .select-datetime label{
+    color: #00a550;
+    margin-right: 15px;
+}
+
+
+.result-header .daterange span.date{
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.result-header .daterange .time{
+    background-color: unset;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-right: 5px;
+}
+.result-header .daterange .select-date{
+   margin-right: 10px;
+}
+
+.result-header #mb-address-daterange{
+    display: none;
 }
 
 .sidebar-result {
@@ -1190,6 +1262,9 @@ textarea {
     background: #00a550;
 }
 
+#mb-g{
+    display: none;
+}
 
 
 
@@ -1206,6 +1281,9 @@ textarea {
     }
     .section .owl-theme .owl-controls .owl-buttons .owl-next {
         right: -55px;
+    }
+    .result-header .daterange .place_wrap input{
+        width: 100%;
     }
 }
 
@@ -1229,6 +1307,21 @@ textarea {
     }
     .trip-detail .trip-detail-container {
         margin: 30px 50px;
+    }
+    .result-header .daterange .place_wrap {
+        width: 60%;
+    }
+    .result-header .daterange .select-datetime label {
+        margin-right: 0;
+    }
+    .result-header .daterange .select-datetime {
+        margin-right: 5px;
+    }
+    .result-header .daterange .select-date {
+        margin-right: 0px;
+    }
+    .result-header .daterange span.date {
+        margin-right: 2px;
     }
 }
 
@@ -1281,7 +1374,7 @@ textarea {
     .section.latest_car {
         padding: 30px 0;
     }
-    .filter-result .list-result-title {
+    .result-header .tab-mode .list-result-title{
         display: none;
     }
     #confirmBookingModal .form_container hr {
@@ -1311,6 +1404,29 @@ textarea {
     }
     .trip-detail .trip-detail-container {
         margin: 15px 25px;
+    }
+    .result-header .tab-mode {
+        width: 0%;
+        padding: 0px;
+    }
+    .result-header .daterange {
+        width: 100%;
+        margin: 0 15px;
+    }
+    .result-header .daterange .select-datetime label {
+        margin-right: 5px;
+    }
+    .result-header .daterange .select-datetime {
+        margin-right: 7px;
+    }
+    .result-header .daterange .select-date {
+        margin-right: 5px;
+    }
+    .result-header .daterange span.date {
+        margin-right: 2px;
+    }
+    .result-header .daterange .time {
+        margin-right: 2px;
     }
 }
 
@@ -1417,6 +1533,15 @@ textarea {
     .mytrips-header .container {
         width: 100%;
     }
+    .result-header #adress-daterange label{
+        display: none;
+    }
+    .result-header #adress-daterange #mb-g{
+        display: block;
+        margin: 0 10px;
+        line-height: 35px;
+    
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -1439,6 +1564,33 @@ textarea {
     }
     .trip-detail .trip-detail-container {
         margin: 0;
+    }
+    
+    .result-header {
+        padding: 5px 0;
+    }
+    .result-header #adress-daterange {
+        display: none;
+    }
+
+    .result-header #mb-address-daterange{
+        display: flex;
+        width: 100%;
+        margin: 0 15px;
+        border-bottom: 1px solid #ddd;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+    
+    .result-header #mb-address-daterange .mb-icon-dropdow{
+        line-height: 40px;
+    }
+    .result-header #mb-address-daterange .mb-icon-dropdow i{
+        font-size: 20px;
+        color: #3c3b3b;
+    }
+    .result-header #mb-address-daterange #mb-plade{
+        font-weight: 600;
     }
 }
 
@@ -1487,6 +1639,7 @@ textarea {
     .list-mytrips .has-trips p {
         font-size: 14px;
     }
+    
 }
 
 @media screen and (max-width: 367px) {
