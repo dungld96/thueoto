@@ -23,6 +23,41 @@ $(document).ready(function() {
         }
     });
 
+    $('body').on('click', '#btnMbApplyFilter', function (e) {
+        let sortBy = $('#mbFilterCarSortBy').val();
+        let makeBy = $('#mbFilterCarByMake').val();
+        let costsRange = $("#mbRangeCarCosts").slider('value');
+        let query = $.query;
+
+        if(sortBy){
+            query = query.set('orderBy', 'costs').set('sortBy', sortBy);
+        }else{
+            if(query.get('orderBy') && query.get('sortBy')){
+                query.REMOVE('orderBy').REMOVE('sortBy');
+            }
+        }
+
+        if(makeBy){
+            query = query.set('makeBy', makeBy);
+        }else{
+            if(query.get('makeBy')){
+                query.REMOVE('makeBy');
+            }
+        }
+
+        if(costsRange){
+            if(costsRange == 3001){
+                if(query.get('costsRange')){
+                    query.REMOVE('costsRange');
+                }
+            }else{
+                query = query.set('costsRange', costsRange);
+            }
+        }
+        console.log(query.toString());
+        window.location.search = query;
+    });
+
     $('#dropdownMbFilterHeader').on('click', function (e) {
         let submenuitem = $('#dropdown-menu-address-daterange');
         let display = $('#dropdown-menu-address-daterange').css('display');
@@ -60,6 +95,28 @@ $(document).ready(function() {
                 }
             }else{
                 window.location.search =  $.query.set('costsRange', ui.value);
+            }
+        }
+    });
+
+    $( "#mbRangeCarCosts" ).slider({
+        range: "min",
+        min: 100,
+        max: 3001,
+        create: function() {
+            let valueUrl = $.query.get('costsRange');
+            if(valueUrl){
+                $("#mbRangeCarCosts").slider('value', valueUrl);
+                $( "#mbAmountCarCosts" ).html( "< " + valueUrl + "K/Ngày");
+            }else{
+                $("#mbRangeCarCosts").slider('value', 3001);
+                $( "#mbAmountCarCosts" ).html( "Tất cả giá");
+            }
+        },
+        slide: function( event, ui ) {
+            $( "#mbAmountCarCosts" ).html( "< " + ui.value + "K/Ngày");
+            if(ui.value == 3001){
+                $( "#mbAmountCarCosts" ).html( "Tất cả giá");
             }
         }
     });
