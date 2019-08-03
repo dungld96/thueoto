@@ -268,6 +268,7 @@ textarea {
 .filter-result .place_result {
     border: 1px solid #fff;
     background: rgba(0, 0, 0, .9);
+    min-width: 260px;
 }
 
 .filter-result .place_result a {
@@ -800,7 +801,7 @@ textarea {
     cursor: pointer;
     margin-right: 5px;
 }
-.result-header .daterange .time{
+.result-header  .time{
     background-color: unset;
     color: #000;
     border: none;
@@ -808,7 +809,7 @@ textarea {
     -webkit-appearance: none;
     margin-right: 5px;
 }
-.result-header .daterange .select-date{
+.result-header  .select-date{
    margin-right: 10px;
 }
 
@@ -816,6 +817,9 @@ textarea {
     display: none;
 }
 
+.result-header #adress-daterange select{
+    outline: none;
+}
 .sidebar-result {
     height: calc(100vh - 120px);
     background-color: #fff;
@@ -1308,9 +1312,6 @@ textarea {
     .trip-detail .trip-detail-container {
         margin: 30px 50px;
     }
-    .result-header .daterange .place_wrap {
-        width: 60%;
-    }
     .result-header .daterange .select-datetime label {
         margin-right: 0;
     }
@@ -1428,6 +1429,9 @@ textarea {
     .result-header .daterange .time {
         margin-right: 2px;
     }
+    #btnAccount>span{
+        padding: 0 10px;
+    }
 }
 
 @media screen and (max-width: 769px) {
@@ -1542,6 +1546,9 @@ textarea {
         line-height: 35px;
     
     }
+    .result-header .daterange .place_wrap {
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -1574,13 +1581,51 @@ textarea {
     }
 
     .result-header #mb-address-daterange{
-        display: flex;
+        display: block;
         width: 100%;
         margin: 0 15px;
+    }
+
+    .result-header #mb-address-daterange #dropdown-menu-address-daterange{
+        width: 100%;
+        display: none;        
+    }
+
+    .result-header #mb-address-daterange #dropdown-menu-address-daterange .select-datetime{
+        display: flex;
+        width: 100%;
+        margin: 15px 0;
+        border-bottom: 1px solid #ddd;
+    }
+    .result-header #mb-address-daterange #dropdown-menu-address-daterange .select-datetime label{
+        width: 20%;
+        color: #00a550;
+        margin-bottom: 0;
+    }
+    .result-header #mb-address-daterange #dropdown-menu-address-daterange .select-datetime .place_wrap{
+        width: 80%;
+    }
+    .result-header #mb-address-daterange #dropdown-menu-address-daterange .select-datetime .place_wrap input{
+        border: none;
+        width: 100%;
+    }
+    .result-header #mb-address-daterange #dropdown-menu-address-daterange select{
+        border: none;
+    }
+
+    .result-header #mb-address-daterange #dropdown-menu-address-daterange span.date {
+        margin-right: 5px;
+    }
+    
+    .result-header #dropdownMbFilterHeader{
+        display: flex;
+        width: 100%;
         border-bottom: 1px solid #ddd;
         justify-content: space-between;
         cursor: pointer;
     }
+
+    
     
     .result-header #mb-address-daterange .mb-icon-dropdow{
         line-height: 40px;

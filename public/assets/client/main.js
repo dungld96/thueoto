@@ -160,6 +160,12 @@ $(document).ready(function() {
 
     $('.place_wrap').on('click', '.place_result a', function() {
         $(this).closest('.place_wrap').find('input').val($(this).text());
+        $(this).closest('.place_wrap').find('input').attr('title', $(this).text());
+
+        if($.query.get('address')){
+            window.location.search =  $.query.set('address', $(this).text());       
+        }
+
         $('.place_result').remove();
     });
 

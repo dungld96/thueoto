@@ -20,7 +20,7 @@
                         <li><a  id="btnRegister" href="{{route('user.signup')}}">Đăng ký</a></li>
                         @endif
                         @if (Auth::check())
-                        <li class="dropdown">
+                        <li class="dropdown" id="btnAccount">
                             <span style="cursor: pointer;">
                                 <div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="avatar avatar--s">
@@ -33,16 +33,16 @@
                                                 {{-- <i class="fas fa-angle-down"></i> --}}
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                </div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <ul>
                                             <li><a href="{{route('user.account')}}">Tài khoản</a></li>
                                             <li><a href="{{route('user.mytrips')}}">Chuyến của tôi</a></li>
                                             <li><a href="{{route('user.changepassword')}}">Đổi mật khẩu</a></li>
                                             <li><a href="{{route('user.logout')}}">Đăng Xuất</a></li>
                                         </ul>
-                                    </div>
-                                </span>
+                                </div>
+                            </span>
                         </li>
                         {{-- <li><a id="btnLogin" href="{{route('user.logout')}}"><i class="fas fa-sign-in-alt"></i> Đăng Xuất</a></li> --}}
                         @endif
