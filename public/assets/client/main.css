@@ -1608,7 +1608,7 @@ textarea {
     .result-header #mb-address-daterange #dropdown-menu-address-daterange .select-datetime .place_wrap input{
         border: none;
         width: 100%;
-        line-height: 1px;
+        height: 15px;
     }
     .result-header #mb-address-daterange #dropdown-menu-address-daterange select{
         border: none;
