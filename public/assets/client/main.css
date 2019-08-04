@@ -843,6 +843,7 @@ textarea {
 .content-result .no-cars-result{
     margin-top: 20%;
     text-align: center;
+    min-height: 180px;
 }
 
 .list-result li {
