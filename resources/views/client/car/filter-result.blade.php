@@ -214,7 +214,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group modal-footer">
                                             <button id="btnMbApplyFilter" type="button" class="btn btn-success"><i class="fas fa-sync-alt"></i> Áp dụng </button>
                                         </div>
                                 </form>

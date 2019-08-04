@@ -11,5 +11,6 @@
 <script type="text/javascript" src="{{asset('assets/global/plugins/jquery-validation/js/jquery.validate.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/global/plugins/jquery-validation/js/additional-methods.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/global/plugins/jquery-plugin-query-object/jquery.query-object.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/global/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/client/main.js')}}"></script>
 @yield('script-client')
