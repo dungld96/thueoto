@@ -1291,11 +1291,107 @@ textarea {
     display: none;
 }
 
+.section.section-quotes{
+    min-height: 450px;
+    position: relative;
+    background-color: #112E3B;
+    background-image: url('../../images/funfact-bg.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 90px 0 50px;
+}
 
+.rn-section-overlayer {
+    background-color: rgba(17, 46, 59, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
+.rn-section-title.rn-title-pos-left {
+    text-align: left;
+}
+.rn-section-title {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 50px;
+}
+.rn-section-title.rn-title-color-white .rn-title {
+    color: #fff;
+}
+.rn-section-title .rn-title {
+    font-weight: 700;
+    font-size: 30px;
+    text-align: left;
+    margin-top: 0;
+}
+.rn-section-title.rn-title-bg-color-white-10 .rn-title-bg {
+    color: rgba(255, 255, 255, 0.1);
+}
+.rn-section-title .rn-title-bg {
+    display: block;
+    width: 100%;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 1;
+    letter-spacing: -3px;
+    position: absolute;
+    top: 65%;
+    left: 10px;
+    z-index: -1;
+    color: rgba(211, 220, 225, 0.2);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.rn-testimonials2 {
+    padding-left: 45px;
+    background-image: url('../../images/quote.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 5px;
+    margin-bottom: 30px;
+}
 
+.rn-testimonials-carousel {
+    margin-bottom: 40px;
+}
 
+.rn-counter-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+.rn-counter-item .rn-counter-number-container {
+    font-size: 40px;
+    font-size: 2.85714rem;
+}
+.rn-counter-item .rn-counter-text {
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
 
+#owl-testimonials blockquote{
+    color: #FFFFFF;
+    font-style: italic;
+}
+
+.rn-testimonial2-item > p {
+    font-family: "Raleway", sans-serif;
+    font-size: 17px;
+    line-height: 2;
+    font-style: italic;
+}
 
 
 /* MOBILE */

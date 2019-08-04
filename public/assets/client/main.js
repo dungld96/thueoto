@@ -69,15 +69,8 @@ $(document).ready(function() {
         "hideMethod": "fadeOut"
     }
 
-    $(".cars-owl-carousel").owlCarousel({
-        loop: true,
-        items: 4,
-        navigation: true,
-        navigationText: [
-            "<i class='carousel-control-prev-icon'></i>",
-            "<i class='carousel-control-next-icon'></i>"
-        ],
-    });
+    initCarSlide();
+    initSlideQuote();
 
     $('#signup_form').submit(function(e) {
         e.preventDefault();
@@ -188,4 +181,27 @@ function toTimestamp(date, time) {
     var datetime = new Date(dateParts[2], parseInt(dateParts[1], 10) - 1, dateParts[0], timeParts[0], timeParts[1]);
     return datetime.getTime() / 1000;
 
+}
+
+function initSlideQuote() {
+    let owl = $("#owl-testimonials");
+    owl.owlCarousel({
+        loop: true,
+        items: 1,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+    });
+}
+
+function initCarSlide() {
+    $(".cars-owl-carousel").owlCarousel({
+        loop: true,
+        items: 4,
+        navigation: true,
+        navigationText: [
+            "<i class='carousel-control-prev-icon'></i>",
+            "<i class='carousel-control-next-icon'></i>"
+        ],
+    });
 }

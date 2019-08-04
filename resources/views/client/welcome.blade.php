@@ -148,30 +148,32 @@
             </div>
         </div>
     </div>
-    <div class="section section-body top_car">
-        <div class="container">
-            <h2>Xe nổi bật</h2>
 
-            <div id="owl-top_car" class="owl-carousel cars-owl-carousel">
-                @foreach ($cars as $car)
-                    <div class="item car-item">
-                       <a href="{{URL::to('/car/'.$car->slug)}}">
-                        <div class="car-item-image">
-                            <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
-                            <div class="car-price">{{$car->costs}}K</div>
+    <div class="section section-body top_car">
+            <div class="container">
+                <h2>Xe giảm giá</h2>
+    
+                <div id="owl-top_car" class="owl-carousel cars-owl-carousel">
+                    @foreach ($cars as $car)
+                        <div class="item car-item">
+                           <a href="{{URL::to('/car/'.$car->slug)}}">
+                            <div class="car-item-image">
+                                <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
+                                <div class="car-price">{{$car->costs}}K</div>
+                            </div>
+                            <div class="desc-car-item">
+                                <h3>{{$car->name}}</h3>
+                                <div class="location">
+                                        <p><i class="fas fa-map-marked-alt"></i></i>Hoàn Kiếm, Hà Nội</p>
+                                    </div>
+                            </div>
+                           </a>
                         </div>
-                        <div class="desc-car-item">
-                            <h3>{{$car->name}}</h3>
-                            <div class="location">
-                                    <p><i class="fas fa-map-marked-alt"></i></i>Hoàn Kiếm, Hà Nội</p>
-                                </div>
-                        </div>
-                       </a>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
-    </div>
+
     <div class="section section-body" id="help-section">
         <div class="container">
             <h2>Hướng dẫn thuê xe</h2>
@@ -218,6 +220,150 @@
                         </div>
                     </div>
                     
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-body top_car">
+            <div class="container">
+                <h2>Xe nổi bật</h2>
+    
+                <div id="owl-top_car" class="owl-carousel cars-owl-carousel">
+                    @foreach ($cars as $car)
+                        <div class="item car-item">
+                           <a href="{{URL::to('/car/'.$car->slug)}}">
+                            <div class="car-item-image">
+                                <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
+                                <div class="car-price">{{$car->costs}}K</div>
+                            </div>
+                            <div class="desc-car-item">
+                                <h3>{{$car->name}}</h3>
+                                <div class="location">
+                                        <p><i class="fas fa-map-marked-alt"></i></i>Hoàn Kiếm, Hà Nội</p>
+                                    </div>
+                            </div>
+                           </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+    <div class="section section-quotes">
+        <div class="rn-section-overlayer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+
+                    <!-- Section Title-->
+                    <div class="rn-section-title rn-title-pos-left rn-title-bg-color-white-10 rn-title-color-white">
+                        <h2 class="rn-title">Khách hàng hài lòng</h2>
+                        <span class="rn-title-bg">Khách hàng hài lòng</span>
+                    </div>
+
+                    <!-- Testimonials-->
+                    <div class="rn-testimonials rn-testimonials2">
+                        <div id="owl-testimonials" class="owl-carousel testimonials-owl-carousel">
+                            <div class="item">
+                                <blockquote class="rn-testimonial2-item">
+                                  <div class="row">
+                                    <div class="col-sm-3 text-center">
+                                      <img class="img-circle" src="http://www.reactiongifs.com/r/overbite.gif" style="width: 100px;height:100px;">
+                                      <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+                                    </div>
+                                    <div class="col-sm-9">
+                                      <p>Rất tiện lợi, giá cả hợp lý, tài xế cực kỳ thân thiện! Sẽ tiếp tục sử dụng dịch vụ này!!</p>
+                                      <small>Dũng Lê</small>
+                                    </div>
+                                  </div>
+                                </blockquote>
+                              </div>
+                              <!-- Quote 2 -->
+                              <div class="item">
+                                <blockquote class="rn-testimonial2-item">
+                                  <div class="row">
+                                    <div class="col-sm-3 text-center">
+                                      <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg" style="width: 100px;height:100px;">
+                                    </div>
+                                    <div class="col-sm-9">
+                                      <p>Rất tốt, hotline làm việc chuyên nghiệp, nhân viên tổng đài lễ phép, tài xế lịch sự chu đáo.</p>
+                                      <small>Tuấn Anh</small>
+                                    </div>
+                                  </div>
+                                </blockquote>
+                              </div>
+                              <!-- Quote 3 -->
+                              <div class="item">
+                                <blockquote class="rn-testimonial2-item">
+                                  <div class="row">
+                                    <div class="col-sm-3 text-center">
+                                      <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/keizgoesboom/128.jpg" style="width: 100px;height:100px;">
+                                    </div>
+                                    <div class="col-sm-9">
+                                      <p>Rất tiện lợi, giá cả hợp lý, tài xế cực kỳ thân thiện! Sẽ tiếp tục sử dụng dịch vụ này!</p>
+                                      <small>Minh Thúy</small>
+                                    </div>
+                                  </div>
+                                </blockquote>
+                              </div>
+                            </div>
+                        </div>
+                        
+                    <!-- End Testimonials-->
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <!-- CountUp Item-->
+                            <div class="rn-counter-item">
+                                <div class="rn-counter-number-container">
+                                    <span class="rn-counter-number">350</span>
+                                    <span class="rn-counter-postfix">+</span>
+                                </div>
+                                <div class="rn-counter-text">Xe cho thuê</div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <!-- CountUp Item-->
+                            <div class="rn-counter-item">
+                                <div class="rn-counter-number-container">
+                                    <span class="rn-counter-number">1500</span>
+                                    <span class="rn-counter-postfix">+</span>
+                                </div>
+                                <div class="rn-counter-text">Khách hàng hài lòng</div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <!-- CountUp Item-->
+                            <div class="rn-counter-item">
+                                <div class="rn-counter-number-container">
+                                    <span class="rn-counter-number">300</span>
+                                    <span class="rn-counter-postfix">+</span>
+                                </div>
+                                <div class="rn-counter-text">Chuyến xe trong tháng</div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <!-- CountUp Item-->
+                            <div class="rn-counter-item">
+                                <div class="rn-counter-number-container">
+                                    <span class="rn-counter-number">4500</span>
+                                    <span class="rn-counter-postfix">+</span>
+                                </div>
+                                <div class="rn-counter-text">Đánh giá hài lòng</div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

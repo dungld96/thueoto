@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 <link href="{{asset('assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
 <link href="{{asset('assets/global/plugins/jquery-ui/jquery-ui.min.css')}}" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
