@@ -23,9 +23,21 @@ $(document).ready(function() {
         }
     });
 
+    $('body').on('change', '#filterCarType', function (e) {
+        let type = this.value;
+        if(type){
+            window.location.search = $.query.set('type', type);
+        }else{
+            if($.query.get('type')){
+                window.location.search =  $.query.REMOVE('type');
+            }
+        }
+    });
+
     $('body').on('click', '#btnMbApplyFilter', function (e) {
         let sortBy = $('#mbFilterCarSortBy').val();
         let makeBy = $('#mbFilterCarByMake').val();
+        let type = $('#mbFilterCarType').val();
         let costsRange = $("#mbRangeCarCosts").slider('value');
         let query = $.query;
 
@@ -42,6 +54,14 @@ $(document).ready(function() {
         }else{
             if(query.get('makeBy')){
                 query.REMOVE('makeBy');
+            }
+        }
+
+        if(type){
+            query = query.set('type', type);
+        }else{
+            if(query.get('type')){
+                query.REMOVE('type');
             }
         }
 

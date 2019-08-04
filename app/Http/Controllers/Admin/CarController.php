@@ -78,7 +78,8 @@ class CarController extends Controller
         $car = new Car();
         $car->code = $this->generateCarCode();
         $makes = C_Make::all();
-        return view('admin.cars._edit', ['car' => $car, 'makes' => $makes]);
+        $c_seats = json_decode(file_get_contents(storage_path().'/app/json/seats.json', false));
+        return view('admin.cars._edit', ['car' => $car, 'makes' => $makes, 'c_seats' => $c_seats]);
     }
 
     public function delete($id)
@@ -120,7 +121,8 @@ class CarController extends Controller
             $img->size = File::size('uploads/'.$img->name);
             
         }
-        return view('admin.cars._edit', ['car' => $car, 'images' => $images, 'makes' => $makes]);
+        $c_seats = json_decode(file_get_contents(storage_path().'/app/json/seats.json', false));
+        return view('admin.cars._edit', ['car' => $car, 'images' => $images, 'makes' => $makes, 'c_seats' => $c_seats]);
     }
 
     public function update(Request $request)

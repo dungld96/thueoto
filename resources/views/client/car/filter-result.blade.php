@@ -114,6 +114,20 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="control-label" class="slstitle">Loại xe (số chỗ)</label>
+                                            <div class="line-form">
+                                                <select class="bs-select form-control"  id="filterCarType">
+                                                    <option value="">Tất cả</option>
+                                                        @foreach ($c_seats as $c_seat)
+                                                            <option 
+                                                            @if(Request::get('type') && Request::get('type') == $c_seat->number) selected
+                                                            @endif
+                                                            value="{{$c_seat->number}}">{{$c_seat->number}} chỗ</option>
+                                                        @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="control-label" class="slstitle">Hãng xe</label>
                                             <div class="line-form">
                                                 <select class="bs-select form-control"  id="filterCarByMake">
@@ -173,6 +187,8 @@
             </div>
         </div>
     </div> 
+
+    {{-- MOBILE MODAL --}}
     <div id="modalMbFilter" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -198,6 +214,20 @@
                                             <div class="line-form">
                                                 <div id="mbRangeCarCosts"></div>
                                                 <p id="mbAmountCarCosts" style="border:0; color:#00a550; font-weight:bold;"></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" class="slstitle">Loại xe (số chỗ)</label>
+                                            <div class="line-form">
+                                                <select class="bs-select form-control"  id="mbFilterCarType">
+                                                    <option value="">Tất cả</option>
+                                                        @foreach ($c_seats as $c_seat)
+                                                            <option 
+                                                            @if(Request::get('type') && Request::get('type') == $c_seat->number) selected
+                                                            @endif
+                                                            value="{{$c_seat->number}}">{{$c_seat->number}} chỗ</option>
+                                                        @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">

@@ -93,12 +93,12 @@
                                                      <div class="input-icon right">
                                                         <i class="fa"></i>
                                                         <select name="seats" class="form-control input-full" data-placeholder="Số ghế">
-                                                            @for ($i = 4; $i < 30; $i++)
+                                                            @foreach ($c_seats as $c_seat)
                                                                 <option 
-                                                                @if($car->seats == $i) selected
+                                                                @if($car->seats == $c_seat->number) selected
                                                                 @endif
-                                                                value="{{$i}}">{{$i}}</option>
-                                                            @endfor
+                                                                value="{{$c_seat->number}}">{{$c_seat->number}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
