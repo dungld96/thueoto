@@ -240,7 +240,17 @@
                            <a href="{{URL::to('/car/'.$car->slug)}}">
                             <div class="car-item-image">
                                 <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
-                                <div class="car-price">{{$car->costs}}K</div>
+                                <div class="car-price">
+                                    @if (isset($car->promotion_costs))
+                                    <span class="real">{{$car->costs}}K</span>                                    
+                                    {{$car->promotion_costs}}K
+                                    @else
+                                    {{$car->costs}}K
+                                    @endif
+                                </div>
+                                @if (isset($car->promotion_costs))
+                                <span class="label-pos"><span class="car-discount">Giảm {{intval((1-$car->promotion_costs/$car->costs)*100)}}%</span></span>
+                                @endif
                             </div>
                             <div class="desc-car-item">
                                 <h3>{{$car->name}}</h3>
@@ -383,7 +393,17 @@
                         <a href="{{URL::to('/car/'.$car->slug)}}">
                             <div class="car-item-image">
                                 <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
-                                <div class="car-price">{{$car->costs}}K</div>
+                                <div class="car-price">
+                                        @if (isset($car->promotion_costs))
+                                        <span class="real">{{$car->costs}}K</span>                                    
+                                        {{$car->promotion_costs}}K
+                                        @else
+                                        {{$car->costs}}K
+                                        @endif
+                                </div>
+                                @if (isset($car->promotion_costs))
+                                <span class="label-pos"><span class="car-discount">Giảm {{intval((1-$car->promotion_costs/$car->costs)*100)}}%</span></span>
+                                @endif
                             </div>
                             <div class="desc-car-item">
                                 <h3>{{$car->name}}</h3>
