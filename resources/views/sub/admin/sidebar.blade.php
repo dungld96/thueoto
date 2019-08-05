@@ -72,25 +72,25 @@
             </li> --}}
           </ul>
         </li>
-       {{--  <li>
+        <li>
           <a href="javascript:;">
-          <i class="icon-basket"></i>
+          <i class="fas fa-cogs"></i>
           <span class="title">Quản trị hệ thống</span>
           <span class="arrow "></span>
           </a>
           <ul class="sub-menu">
-            <li>
+            {{-- <li>
               <a href="javascript:;">
               <i class="icon-home"></i>
               Người dùng</a>
-            </li>
+            </li> --}}
             <li>
               <a href="javascript:;">
-              <i class="icon-basket"></i>
+              <i class="fas fa-tools"></i>
               Tham số hệ thống</a>
             </li>
           </ul>
-        </li> --}}
+        </li>
       </ul>
       <!-- END SIDEBAR MENU -->
     </div>

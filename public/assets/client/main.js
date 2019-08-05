@@ -187,7 +187,7 @@ function initSlideQuote() {
     let owl = $("#owl-testimonials");
     owl.owlCarousel({
         loop: true,
-        items: 1,
+        singleItem:true,
         autoplay:true,
         autoplayTimeout:3000,
         autoplayHoverPause:true,

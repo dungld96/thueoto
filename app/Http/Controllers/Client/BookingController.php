@@ -21,12 +21,12 @@ class BookingController extends Controller
     	$carSimilars = Car::where('status', 'active')->get();
     	$carImages = CarImages::where('car_id', $car->id)->get();
     	return view('client.car.booking-detail', [
-																								'car' => $car, 
-																								'carSimilars' => $carSimilars, 
-																								'carImages' => $carImages, 
-																								'serviceCosts' => $serviceCosts, 
-																								'infoSystemCf' => $infoSystemCf
-																								]);
+													'car' => $car, 
+													'carSimilars' => $carSimilars, 
+													'carImages' => $carImages, 
+													'serviceCosts' => $serviceCosts, 
+													'infoSystemCf' => $infoSystemCf
+												]);
     }
 
     public function booking(Request $request)

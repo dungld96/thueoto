@@ -1862,6 +1862,16 @@ textarea {
     .footer .copyright {
         margin-top: 20px;
     }
+
+    .rn-section-title .rn-title-bg{
+        font-size: 35px;
+    }
+    .rn-section-title .rn-title{
+        font-size: 24px;
+    }
+    .rn-testimonial2-item p{
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 480px) {

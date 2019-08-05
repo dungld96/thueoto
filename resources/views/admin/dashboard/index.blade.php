@@ -23,7 +23,7 @@
               </div>
               <div class="details">
                 <div class="number">
-                   1349
+                   {{count($customer)}}
                 </div>
                 <div class="desc">
                    Khách hàng
@@ -41,10 +41,10 @@
               </div>
               <div class="details">
                 <div class="number">
-                   12,5M đ
+                  {{count($car)}}
                 </div>
                 <div class="desc">
-                   Doanh thu
+                   Xe hoạt động
                 </div>
               </div>
               <a class="more" href="javascript:;">
@@ -59,7 +59,7 @@
               </div>
               <div class="details">
                 <div class="number">
-                   549
+                   {{count($tripInMonth)}}
                 </div>
                 <div class="desc">
                   Chuyến xe trong tháng
@@ -77,10 +77,10 @@
               </div>
               <div class="details">
                 <div class="number">
-                   +89%
+                   {{number_format($SumInMonth, 0, ',', '.')}}K
                 </div>
                 <div class="desc">
-                   Chuyến xe thành công
+                   Doanh thu
                 </div>
               </div>
               <a class="more" href="javascript:;">
