@@ -154,18 +154,23 @@
                 <h2>Xe giảm giá</h2>
     
                 <div id="owl-top_car" class="owl-carousel cars-owl-carousel">
-                    @foreach ($cars as $car)
+                    @foreach ($saleCars as $car)
                         <div class="item car-item">
                            <a href="{{URL::to('/car/'.$car->slug)}}">
                             <div class="car-item-image">
                                 <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
-                                <div class="car-price">{{$car->costs}}K</div>
+                                <div class="car-price">
+                                    <span class="real">{{$car->costs}}K</span>
+                                    {{$car->promotion_costs}}K
+                                </div>
+                                <span class="label-pos"><span class="car-discount">Giảm {{(1-$car->promotion_costs/$car->costs)*100}}%</span></span>
                             </div>
                             <div class="desc-car-item">
                                 <h3>{{$car->name}}</h3>
-                                <div class="location">
-                                        <p><i class="fas fa-map-marked-alt"></i></i>Hoàn Kiếm, Hà Nội</p>
-                                    </div>
+                                <div class="group-label"><span>{{getNameTransmission($car->transmission)}}</span><span>Giao xe tận nơi</span></div>
+                                <div class="group-label location">
+                                        <p><i class="fas fa-map-marked-alt"></i></i>{{$infoSystemCf->address}}</p>
+                                </div>
                             </div>
                            </a>
                         </div>
@@ -239,9 +244,10 @@
                             </div>
                             <div class="desc-car-item">
                                 <h3>{{$car->name}}</h3>
-                                <div class="location">
-                                        <p><i class="fas fa-map-marked-alt"></i></i>Hoàn Kiếm, Hà Nội</p>
-                                    </div>
+                                <div class="group-label"><span>{{getNameTransmission($car->transmission)}}</span><span>Giao xe tận nơi</span></div>
+                                <div class="group-label location">
+                                        <p><i class="fas fa-map-marked-alt"></i></i>{{$infoSystemCf->address}}</p>
+                                </div>
                             </div>
                            </a>
                         </div>
@@ -381,8 +387,9 @@
                             </div>
                             <div class="desc-car-item">
                                 <h3>{{$car->name}}</h3>
-                                <div class="location">
-                                <p><i class="fas fa-map-marked-alt"></i></i>Hoàn Kiếm, Hà Nội</p>
+                                <div class="group-label"><span>{{getNameTransmission($car->transmission)}}</span><span>Giao xe tận nơi</span></div>
+                                <div class="group-label location">
+                                        <p><i class="fas fa-map-marked-alt"></i></i>{{$infoSystemCf->address}}</p>
                                 </div>
                             </div>
                         </a>

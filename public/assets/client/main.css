@@ -113,12 +113,12 @@ textarea {
 
 .section.banner .wrap {
     position: relative;
-    top: 35%;
+    top: 33%;
     transform: translateY(-50%);
 }
 
 .section.banner .content {
-    width: 88%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -300,7 +300,7 @@ textarea {
 }
 
 .section.section-body {
-    padding: 50px 0;
+    padding: 50px 0 70px;
 }
 
 .owl-carousel.cars-owl-carousel .item {
@@ -391,10 +391,37 @@ textarea {
     position: absolute;
     right: 0px;
     bottom: 0px;
-    font-weight: bold;
     color: #fff;
-    background-color: #28a745;
+    background-color: rgba(0,161,80,.8);;
     padding: 4px 12px;
+    border-top-left-radius: 5px;
+    font-weight: 700;
+}
+
+.section .owl-carousel .car-item-image .car-price span.real {
+    font-weight: 700;
+    color: #ccc;
+    text-decoration: line-through;
+    margin-right: 5px;
+    font-size: 11px;
+}
+
+.section .owl-carousel .car-item-image .label-pos {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 2;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+}
+
+.section .owl-carousel .car-item-image .label-pos .car-discount{
+    background-color: rgba(255,53,1,.8);
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 20px;
 }
 
 .section .owl-carousel .desc-car {
@@ -676,6 +703,7 @@ textarea {
 .footer .copyright {
     text-align: center;
     padding-top: 30px;
+    margin-top: 120px;
 }
 
 .modal-header {
@@ -928,6 +956,18 @@ textarea {
 .desc-car-item .location p i {
     margin-right: 5px;
 }
+.desc-car-item .group-label {
+    margin-bottom: 15px;
+}
+.desc-car-item .group-label span {
+    font-size: 12px;
+    color: #6e6e6e;
+    background: #e8eaef;
+    padding: 5px 12px;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
 
 .sidebar-result .slstitle {
     margin-bottom: 10px;
@@ -1771,17 +1811,21 @@ textarea {
         cursor: pointer;
     }
 
-    
-    
     .result-header #mb-address-daterange .mb-icon-dropdow{
         line-height: 40px;
     }
+
     .result-header #mb-address-daterange .mb-icon-dropdow i{
         font-size: 20px;
         color: #3c3b3b;
     }
+
     .result-header #mb-address-daterange #mb-plade{
         font-weight: 600;
+    }
+
+    .footer .copyright {
+        margin-top: 20px;
     }
 }
 

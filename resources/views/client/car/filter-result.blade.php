@@ -160,8 +160,9 @@
                                                     <div class="desc-car-item">
                                                         <div class="car-price">{{$car->costs}}K</div>
                                                         <h3>{{$car->name}}</h3>
-                                                        <div class="location">
-                                                            <p><i class="fas fa-map-marked-alt"></i></i>Hoàn Kiếm, Hà Nội</p>
+                                                        <div class="group-label"><span>{{getNameTransmission($car->transmission)}}</span><span>Giao xe tận nơi</span></div>
+                                                        <div class="group-label location">
+                                                                <p><i class="fas fa-map-marked-alt"></i></i>{{$infoSystemCf->address}}</p>
                                                         </div>
                                                     </div>
                                                     

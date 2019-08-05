@@ -15,16 +15,23 @@ class BookingController extends Controller
 {
     public function carDetail($slug)
     {
-		$car = Car::where('slug', $slug)->first();
-		$serviceCosts = C_Config::getServiceCosts();
+		  $car = Car::where('slug', $slug)->first();
+			$serviceCosts = C_Config::getServiceCosts();
+			$infoSystemCf = C_Config::getInfoSystemCf();			
     	$carSimilars = Car::where('status', 'active')->get();
     	$carImages = CarImages::where('car_id', $car->id)->get();
-    	return view('client.car.booking-detail', ['car' => $car, 'carSimilars' => $carSimilars, 'carImages' => $carImages, 'serviceCosts' => $serviceCosts]);
+    	return view('client.car.booking-detail', [
+																								'car' => $car, 
+																								'carSimilars' => $carSimilars, 
+																								'carImages' => $carImages, 
+																								'serviceCosts' => $serviceCosts, 
+																								'infoSystemCf' => $infoSystemCf
+																								]);
     }
 
     public function booking(Request $request)
     {
-		$serviceCosts = C_Config::getServiceCosts();
+		  $serviceCosts = C_Config::getServiceCosts();
 
     	if(Auth::guest()){
     		return response()->json(['message'=>'Thất bại', 'status' => 'error', 'error' => 'no-auth']);

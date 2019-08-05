@@ -13,4 +13,9 @@ class C_Config extends Model
         $config = self::where('name', 'service_costs')->firstOrFail();
         return $config->value;
     }
+    public static function getInfoSystemCf()
+    {
+        $infoSystemCf = C_Config::where('name', 'info_system')->firstOrFail();
+        return json_decode($infoSystemCf->value);
+    }
 }
