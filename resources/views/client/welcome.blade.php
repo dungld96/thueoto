@@ -163,7 +163,7 @@
                                     <span class="real">{{$car->costs}}K</span>
                                     {{$car->promotion_costs}}K
                                 </div>
-                                <span class="label-pos"><span class="car-discount">Giảm {{(1-$car->promotion_costs/$car->costs)*100}}%</span></span>
+                                <span class="label-pos"><span class="car-discount">Giảm {{intval((1-$car->promotion_costs/$car->costs)*100)}}%</span></span>
                             </div>
                             <div class="desc-car-item">
                                 <h3>{{$car->name}}</h3>
