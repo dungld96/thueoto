@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\RoleUser;
 use App\Models\Role;
 use App\Models\Image;
+use App\Models\Coupon;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -39,10 +40,10 @@ class User extends Authenticatable
       return $this->belongsToMany(Role::class);
     }
 
-    // public function images()
-    // {
-    //     return $this->hasMany(Image::class);
-    // }
+    public function coupons()
+    {
+    return $this->belongsToMany(Coupon::class);
+    }
 
 
     public function isModOrAdmin(){

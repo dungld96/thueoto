@@ -40,7 +40,7 @@
           </ul>
         </li>
 
-        <li class="{{ request()->is('admin/cars*') ? 'active open' : '' }}">
+        <li class="{{ request()->is('admin/cars*') || request()->is('admin/customers*') || request()->is('admin/coupons*')? 'active open' : '' }}">
           <a href="javascript:;">
           <i class="icon-grid"></i>
           <span class="title">Danh mục</span>
@@ -60,23 +60,17 @@
               <i class="fas fa-users"></i>
               Danh mục khách hàng</a>
             </li>
-            <li>
-              <a href="javascript:;">
+            <li class="{{request()->is('admin/coupons') ? 'active' : ''}}">
+              <a href="{{route('coupons.list')}}">
               <i class="icon-tag"></i>
               Danh mục giảm giá</a>
             </li>
-            {{-- <li>
-              <a href="javascript:;">
-              <i class="icon-handbag"></i>
-              Danh mục giảm giá</a>
-            </li> --}}
           </ul>
         </li>
         <li>
           <a href="javascript:;">
           <i class="fas fa-cogs"></i>
           <span class="title">Quản trị hệ thống</span>
-          <span class="arrow "></span>
           </a>
           <ul class="sub-menu">
             {{-- <li>

@@ -143,9 +143,6 @@ Bootstrap Daterangepicker
   display: block;
 }
 
-.daterangepicker .ranges {
-  width: 170px;
-}
 .daterangepicker .ranges ul > li.active {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;

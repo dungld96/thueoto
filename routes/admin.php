@@ -144,6 +144,38 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 			'uses'=> 'Admin\CustomerController@viewCustomer'
 		]);
 	});
+
+	Route::prefix('coupons')->group(function () {
+		Route::get('/', [
+			'as'=> 'coupons.list',
+			'uses'=> 'Admin\CouponController@index'
+		]);
+		Route::get('/getdata', [
+			'as'=> 'coupons.list.getdata',
+			'uses'=> 'Admin\CouponController@getCoupons'
+		]);
+		Route::get('/create', [
+			'as'=> 'coupons.create',
+			'uses'=> 'Admin\CouponController@create'
+		]);
+		Route::get('/edit/{id}', [
+			'as'=> 'coupons.edit',
+			'uses'=> 'Admin\CouponController@edit'
+		]);
+		
+		Route::post('/store', [
+			'as'=> 'coupons.store',
+			'uses'=> 'Admin\CouponController@store'
+		]);
+		Route::put('/update', [
+			'as'=> 'coupons.store',
+			'uses'=> 'Admin\CouponController@update'
+		]);
+		Route::get('/delete/{id}', [
+			'as'=> 'coupons.delete',
+			'uses'=> 'Admin\CouponController@delete'
+		]);
+	});
 	
 
 });

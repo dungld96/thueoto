@@ -27,8 +27,8 @@ $(document).ready(function () {
         minDate: new Date()
     }, end_date_change);
 
-    $('#start_date span').on('apply.daterangepicker', function (ev, picker) {
-        $('#end_date span').daterangepicker({
+    $('#start_date').on('apply.daterangepicker', function (ev, picker) {
+        $('#end_date').daterangepicker({
             locale: { "format": "DD/MM/YYYY" },
             singleDatePicker: true,
             minDate: $('#start_date span').text()
