@@ -8,9 +8,7 @@
 <meta name="robots" content="index, follow">
 <meta itemprop="name" content="Vĩnh Tín Auto - Thuê xe sân bay Nội Bài">
 <meta name="author" itemprop="author" content="thuexesanbayvinhtin.com">
-<meta name="description" content="Thuê xe sân bay Vĩnh Tín với 100+ mẫu xe cho thuê tự lái từ phổ thông đến cao cấp. +300 khách đã thuê xe và hài lòng.
-  Xe mới, sạch, đẹp - Đặt xe nhanh chóng từ 5 - 15 phút - Thủ tục đơn giản - Dịch vụ nhiệt tình - Giá cả cạnh tranh từ +450k
-  Đa dạng các dòng xe Mini, Sedan, SUV, MPV, Hatchback, Bán tải. Gọi 08 6869 8682 để hỗ trợ đặt xe nhanh nhất."/>
+<meta name="description" content="Thuê xe sân bay Vĩnh Tín với 100+ mẫu xe cho thuê tự lái từ phổ thông đến cao cấp.Đặt xe nhanh chóng từ 5 - 15 phút - Thủ tục đơn giản - Dịch vụ nhiệt tình - Đa dạng các dòng xe - Giá cả cạnh tranh từ +400k. Gọi 08 6869 8682 để hỗ trợ đặt xe nhanh nhất."/>
 <meta name="keywords" content="Thuê xe tự lái, thuê xe sân bay, thue xe san bay noi bai, xe nội bài, thue xe du lich, cho thue xe tu lai, cho thuê xe tự lái, thue xe oto, Thuê xe tự lái hn, thue xe cuoi, xe tự lái, Cho thuê xe 7 chỗ, thuê xe cưới, xe tu lai, Thuê xe tự lái Hà NỘI, thue xe hoi, Cho thuê xe du lịch 7 chỗ, thuê xe hơi"/>
 <meta name="_token" content="{{csrf_token()}}" />
 <link rel="alternate" href="https://thuexesanbayvinhtin.com/" hreflang="vi">
