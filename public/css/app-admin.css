@@ -9,6 +9,12 @@
 .modal-60{
     width: 60%;
 }
+.modal-70{
+    width: 70%;
+}
+.modal-80{
+    width: 80%;
+}
 
 .dataTables_processing svg {
     width: 3.75em;
@@ -188,4 +194,8 @@
     min-height: 170px;
     margin-left: 19%;
     border: 1px dashed #ddd;
+}
+
+.control-label{
+    padding-right: 0;
 }

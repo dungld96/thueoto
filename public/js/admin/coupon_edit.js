@@ -70,9 +70,6 @@ $(document).ready(function () {
                 minlength: 2,
                 required: true
             },
-            type: {
-                required: true
-            },
             discount_amount: {
                 required: true,
                 number: true
@@ -95,9 +92,6 @@ $(document).ready(function () {
             name: {
                 required: "Tên không được để trống",
                 minlength: "Tên phải từ 2 ký tự trở lên",
-            },
-            type: {
-                required: "Loại giảm giá không được để trống",
             },
             discount_amount: {
                 required: "Số phần trăm không được để trống",

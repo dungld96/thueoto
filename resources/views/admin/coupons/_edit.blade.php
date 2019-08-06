@@ -44,16 +44,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="col-md-3 control-label">Loại <span class="required">*</span></label>
-                            <div class="col-md-9">
-                                <div class="input-icon right form-inline">
-                                    <i class="fa"></i>
-                                     <select name="type" class="form-control input-full" data-placeholder="Loại">
-                                            <option {{$coupon->type == 'one' ? 'selected' : null}} value="one">Dùng một lần</option>
-                                            <option {{$coupon->type == 'many' ? 'selected' : null}} value="many">Dùng nhiều lần</option>
-                                    </select>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="row">
@@ -76,20 +67,6 @@
                                     <span class="input-group-addon">.000đ</span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <label class="col-md-3 control-label">Số lượng </label>
-                            <div class="col-md-9">
-                                <div class="input-icon right">
-                                    <i class="fa"></i>
-                                    <input type="text" class="form-control input-full" name="max_uses" 
-                                    placeholder="Số lượng" value="{{old('max_uses', $coupon->max_uses)}}"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
                         </div>
                     </div>
                     <div class="row">

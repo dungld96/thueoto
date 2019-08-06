@@ -27,13 +27,11 @@
                                 <th width="100px">Mã</th>
                                 <th>Tên</th>
                                 <th>Mô tả</th>
-                                <th width="120px">Số lượng</th>
-                                <th width="120px">Loại</th>
-                                <th width="120px">Đã sử dụng</th>
-                                <th width="150px">Ngày bắt đầu</th>
-                                <th width="150px">Ngày kết thúc</th>
-                                <th width="120px">Trạng thái</th>
-                                <th width="100px">Tùy chọn</th>
+                                <th width="120px">Giảm tối đa</th>
+                                <th width="130px">Ngày bắt đầu</th>
+                                <th width="130px">Ngày kết thúc</th>
+                                <th width="130px">Trạng thái</th>
+                                <th width="80px">Tùy chọn</th>
                             </tr>
                         </thead>
                     </table>
@@ -66,9 +64,7 @@ $(document).ready(function() {
             {data: 'code', name: 'code'},
             {data: 'name', name: 'name'},
             {data: 'description', name: 'description'},
-            {data: 'max_uses', name: 'max_uses'},
-            {data: 'type', name: 'type'},
-            {data: 'uses', name: 'uses'},
+            {data: 'max_discount', name: 'max_discount'},
             {data: 'starts_at', name: 'starts_at'},
             {data: 'expires_at', name: 'expires_at'},
             {data: 'status', name: 'status'},

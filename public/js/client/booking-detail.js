@@ -88,6 +88,8 @@ $(document).ready(function () {
 	$('input[name=address]').on('focus', function() {
 		$('.error_address').addClass('hidden');
 	});
+
+
 	$('#booking_form').submit(function(e) {
 		e.preventDefault();
 		var start_date = $('input[name=start_date]').val();
@@ -139,6 +141,13 @@ $(document).ready(function () {
 		});
 	});
 
+	$('#useCoupon').on('click', function (e) {
+		e.preventDefault();
+        target = BASE_URL + "/coupon/my-coupons",
+        $("#useCouponModel .modal-content").load(target, function() {
+            $("#useCouponModel").modal("show");
+        });
+	});
 
 
 });

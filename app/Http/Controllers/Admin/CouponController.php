@@ -31,8 +31,8 @@ class CouponController extends Controller
             ->editColumn('expires_at', function ($query) {
                 return date('d/m/Y', strtotime($query->expires_at));
             })
-            ->editColumn('type', function ($query) {
-                return $query->type == 'one' ? "Một lần" : "Nhiều lần";
+            ->editColumn('status', function ($query) {
+                return $query->status == 'active' ? 'Hoạt động' : 'Không hoạt động';
             })
 	        ->addIndexColumn()
             ->make();
@@ -51,8 +51,6 @@ class CouponController extends Controller
             $coupon->code = $request->code;
             $coupon->name = $request->name;
             $coupon->description = $request->description;
-            $coupon->max_uses = $request->max_uses;
-            $coupon->type = $request->type;
             $coupon->discount_amount = $request->discount_amount;
             $coupon->max_discount = $request->max_discount;
             $coupon->starts_at = Carbon::createFromFormat('d/m/Y',$request->starts_at)->format('Y-m-d');;
@@ -81,8 +79,6 @@ class CouponController extends Controller
             $coupon->code = $request->code;
             $coupon->name = $request->name;
             $coupon->description = $request->description;
-            $coupon->max_uses = $request->max_uses;
-            $coupon->type = $request->type;
             $coupon->discount_amount = $request->discount_amount;
             $coupon->max_discount = $request->max_discount;
             $coupon->starts_at = Carbon::createFromFormat('d/m/Y',$request->starts_at)->format('Y-m-d');;

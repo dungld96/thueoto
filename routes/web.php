@@ -157,5 +157,11 @@
 		'uses' => 'SharedController@getModels'
 	]);
 
+	Route::prefix('coupon')->group(function () {
+		Route::get('/my-coupons', [
+			'as' => 'coupon.my-coupons',
+			'uses' => 'Client\BookingController@getMyCoupons'
+		]);
+	});		
 
 

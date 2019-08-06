@@ -18,11 +18,8 @@ class CreateCouponsTable extends Migration
             $table->string( 'code', 45 )->unique();
             $table->string( 'name' );
             $table->text( 'description' )->nullable( );
-            $table->integer( 'uses' )->unsigned( )->nullable( );
-            $table->integer( 'max_uses' )->unsigned()->nullable( );
-            $table->string( 'type' , 10); // one : một lần, many: nhiều lần
             $table->integer( 'discount_amount' );
-            $table->boolean( 'max_discount' )->nullable( );
+            $table->integer( 'max_discount' )->nullable( );
             $table->date( 'starts_at' );
             $table->date( 'expires_at' );
             $table->string('status', 10)->default('active');

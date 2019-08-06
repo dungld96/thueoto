@@ -101,6 +101,10 @@
                                             <p><b>Tổng cộng</b></p>
                                             <p><span class="sum_amount"></span><b>đ</b></p>
                                         </div>
+
+                                        <div class="group use-coupon">
+                                            <a href="javascript:void(0);" id="useCoupon">Mã khuyến mãi</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-success btn-lg btn-block">Đặt xe</button>
@@ -148,6 +152,13 @@
     <div id="confirmBookingModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
+            </div>
+        </div>
+    </div>
+    <div id="useCouponModel" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
             </div>
         </div>
     </div>

@@ -49,6 +49,11 @@ textarea {
     padding-bottom: 30px !important;
 }
 
+.modal-content .title-model{
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 30px; 
+}
 
 /* .modal-dialog.modal-lg {
 	width: 870px;
@@ -529,6 +534,9 @@ textarea {
     padding-left: 20px;
     padding-right: 20px;
 }
+.car_bill{
+    margin-bottom: 50px;
+}
 
 .car_bill .group {
     display: flex;
@@ -549,6 +557,14 @@ textarea {
     border-top: 1px solid #ccc;
     padding-top: 5px;
     margin-top: 5px;
+}
+
+.car_bill .group.use-coupon{
+    justify-content: flex-end;
+}
+
+.car_bill .group.use-coupon a{
+    color: #337ab7;
 }
 
 .group .days,
@@ -1469,6 +1485,54 @@ textarea {
 }
 
 
+.modal-coupon{
+    min-height: 300px;
+    margin: 0 15px 50px;
+}
+.modal-body .body-promo .box-promo:last-child {
+    border-bottom: none;
+}
+.modal-body .body-promo .box-promo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee8ee;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+.modal-body .body-promo .box-promo .left {
+    width: 15%;
+}
+.modal-body .body-promo .box-promo .left .img-promo{
+    width: 100%;
+}
+.modal-body .body-promo .box-promo .center {
+    width: 60%;
+    padding: 0 15px;
+}
+.modal-body .body-promo .box-promo .center .code {
+    font-size: 15px;
+    font-weight: 700;
+}
+.modal-body .body-promo .box-promo .center .desc {
+    font-size: 14px;
+    color: #a9aaad;
+}
+.modal-body .body-promo .link-desc {
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    color: #a9aaad;
+    position: relative;
+    display: block;
+}
+.modal-body .body-promo .box-promo .right {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+}
+.modal-body .body-promo .box-promo .right .btn-sm {
+    font-size: 14px;
+}
 /* MOBILE */
 
 @media screen and (max-width: 1399px) {

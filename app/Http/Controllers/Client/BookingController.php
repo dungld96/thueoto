@@ -10,6 +10,7 @@ use App\Models\BookingDetail;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\C_Config;
+use App\Models\Coupon;
 
 class BookingController extends Controller
 {
@@ -216,6 +217,20 @@ class BookingController extends Controller
 			$trip->save();
 		}
 		return redirect()->route('user.mytrips');
+	}
+
+	public function getMyCoupons()
+	{
+		$now = date('Y-m-d'); 
+		$myCoupons = Coupon::where('status', 'active')
+							->whereDate('starts_at', '<=',  $now)
+							->whereDate('expires_at', '>=',  $now)
+							->get();
+		foreach ($myCoupons as $myCoupon) {
+			$myCoupon->starts_at = Carbon::createFromFormat('Y-m-d', $myCoupon->starts_at)->format('d/m/Y');
+			$myCoupon->expires_at = Carbon::createFromFormat('Y-m-d', $myCoupon->expires_at)->format('d/m/Y');
+		}
+		return view('client.car._coupon', ['myCoupons' => $myCoupons]);
 	}
 
 }
