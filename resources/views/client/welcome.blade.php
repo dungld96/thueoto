@@ -285,7 +285,7 @@
                                 <blockquote class="rn-testimonial2-item">
                                   <div class="row">
                                     <div class="col-sm-3 text-center">
-                                      <img class="img-circle" src="http://www.reactiongifs.com/r/overbite.gif" style="width: 100px;height:100px;">
+                                      <img class="img-circle" src="http://www.reactiongifs.com/r/overbite.gif" style="width: 100px;height:100px;" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                                       <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
                                     </div>
                                     <div class="col-sm-9">
@@ -300,7 +300,7 @@
                                 <blockquote class="rn-testimonial2-item">
                                   <div class="row">
                                     <div class="col-sm-3 text-center">
-                                      <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg" style="width: 100px;height:100px;">
+                                      <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg" style="width: 100px;height:100px;" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                                     </div>
                                     <div class="col-sm-9">
                                       <p>Rất tốt, hotline làm việc chuyên nghiệp, nhân viên tổng đài lễ phép, tài xế lịch sự chu đáo.</p>
@@ -314,7 +314,7 @@
                                 <blockquote class="rn-testimonial2-item">
                                   <div class="row">
                                     <div class="col-sm-3 text-center">
-                                      <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/keizgoesboom/128.jpg" style="width: 100px;height:100px;">
+                                      <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/keizgoesboom/128.jpg" style="width: 100px;height:100px;" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">
                                     </div>
                                     <div class="col-sm-9">
                                       <p>Rất tiện lợi, giá cả hợp lý, tài xế cực kỳ thân thiện! Sẽ tiếp tục sử dụng dịch vụ này!</p>
