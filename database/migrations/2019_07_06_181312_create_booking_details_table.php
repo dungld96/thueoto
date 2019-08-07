@@ -25,7 +25,8 @@ class CreateBookingDetailsTable extends Migration
             $table->mediumInteger('costs');
             $table->mediumInteger('promotion_costs')->nullable();
             $table->mediumInteger('service_costs')->nullable();
-            $table->mediumInteger('discount')->nullable();
+            $table->string('coupon_code', 45)->nullable();
+            $table->mediumInteger('coupon_discount')->nullable();
             $table->mediumInteger('sum_amount');
             $table->longText('description')->nullable();
             $table->smallInteger('status');  

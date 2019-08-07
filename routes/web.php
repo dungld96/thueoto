@@ -162,6 +162,11 @@
 			'as' => 'coupon.my-coupons',
 			'uses' => 'Client\BookingController@getMyCoupons'
 		]);
+
+		Route::get('/check-coupon/{id}', [
+			'as' => 'coupon.check-coupon',
+			'uses' => 'Client\BookingController@checkCoupon'
+		]);
 	});		
 
 

@@ -16,6 +16,8 @@
                 <input type="hidden" name="promotion_costs" value="{{$car->promotion_costs}}">
                 <input type="hidden" name="service_costs" value="{{$dataBooking['serviceCosts']}}">
                 <input type="hidden" name="sum_amount" value="{{$dataBooking['sumAmount']}}">
+                <input type="hidden" name="coupon_code" value="{{isset($dataBooking['coupon_code']) ? $dataBooking['coupon_code'] : ''}}">
+                <input type="hidden" name="coupon_discount" value="{{isset($dataBooking['coupon_discount']) ? $dataBooking['coupon_discount'] : ''}}">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-4">
@@ -66,12 +68,18 @@
                                             <p>Tổng phí thuê xe</p>
                                             <p><span>
                                                 @if (isset($car->promotion_costs))
-                                                {{number_format($car->promotion_costs + $dataBooking['serviceCosts'],0,",",".")}}
+                                                {{number_format($car->promotion_costs + $dataBooking['serviceCosts'],0,",",".")}}.000
                                                 @else
-                                                {{number_format($car->costs + $dataBooking['serviceCosts'],0,",",".")}}
+                                                {{number_format($car->costs + $dataBooking['serviceCosts'],0,",",".")}}.000
                                                 @endif
-                                                .000</span> × <span class="days">{{$dataBooking['diffDays']}} ngày</span></p>
+                                                </span> × <span class="days">{{$dataBooking['diffDays']}} ngày</span></p>
                                         </div>
+                                        @if (isset($dataBooking['coupon_code']))
+                                            <div class="group">
+                                                <p>Khuyến mãi mã <span class="in-dam">{{$dataBooking['coupon_code']}}</span></p>
+                                                <p>-{{$dataBooking['coupon_discount']}}.000</p>
+                                            </div>
+                                        @endif
                                         <div class="group line">
                                             <p><b>Tổng cộng</b></p>
                                             <p><span class="sum_amount">{{number_format($dataBooking['sumAmount'], 0, ',', '.')}}.000</span><b>đ</b></p>

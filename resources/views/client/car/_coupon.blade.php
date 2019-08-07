@@ -26,12 +26,12 @@
                                 <p class="desc">Bắt đầu từ: <span>{{$myCoupon->starts_at}} </span> - Tới: <span> {{$myCoupon->expires_at}}</span></p>
                                 {{-- <a class="link-desc">Chi tiết <i class="fas fa-chevron-down"></i></a> --}}
                             </div>
-                            <div class="right"><a class="btn btn-success" id="applyCoupon">Áp dụng</a></div>
+                            <div class="right"><a class="applyCoupon btn btn-success" data-id="{{$myCoupon->id}}">Áp dụng</a></div>
                         </div>
                     @endforeach
                 </div>
         </div>
     </div>
 
-{{-- <script src="{{asset('js/client/_edit_account.js')}}" type="text/javascript"></script> --}}
+<script src="{{asset('js/client/coupon.js')}}" type="text/javascript"></script>
     

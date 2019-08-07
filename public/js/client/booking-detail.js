@@ -48,8 +48,12 @@ $(document).ready(function () {
 		$('input[name=days]').val(diff);
 		$('.days').text(diff + ' ngày');
 
+		var discount = $('input[name=coupon_discount]').val();
 		var amount = $('span.amount').text().replace(/[^\d]/g, "");
 		var sum_amount = amount * diff;
+		if(discount && discount>0){
+			sum_amount = sum_amount-discount*1000;
+		}
 		$('span.sum_amount').text(sum_amount).digits();
 	}
 	$('.start_date .date').daterangepicker({
@@ -128,6 +132,10 @@ $(document).ready(function () {
 							toastr.error(result.message);
 							break;
 
+						case 'has_promo':
+							toastr.error(result.message);
+							break;
+
 						default:
 							console.log(result.message)
 							break;
@@ -149,5 +157,40 @@ $(document).ready(function () {
         });
 	});
 
+	$('body').on('click', '.applyCoupon',function (ev) {
+        console.log('checkCoupon');
+        let couponId = $(this).data("id");
+        let url = BASE_URL + '/coupon/check-coupon/' + couponId;
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function (data) {
+                if (data.status == 'success') {
+					let coupon = data.coupon;
+					$("#useCouponModel").modal("hide");
+					$('input[name=coupon_code]').val(coupon.code);
+					let amount = $('span.sum_amount').text().replace(/[^\d]/g, "");
+					let discount = (amount*coupon.discount_amount)/100;
+					if(coupon.max_discount && discount >= coupon.max_discount){
+						discount = coupon.max_discount
+					}
+					$('input[name=coupon_discount]').val(discount);
+					$('#booking_form .group-get-amount').append(
+						`<div class="group">
+							<p>Khuyến mãi mã <span class="in-dam">${coupon.code}</span></p>
+							<p>-${discount}.000</p>
+						</div>`
+					);
+					$('span.sum_amount').text(amount-discount*1000).digits();
+                } else {
+                    toastr.error(data.message);
+                }
+            },
+            error: function (e) {
+                alert(e);
+            }
+
+        });
+    });
 
 });

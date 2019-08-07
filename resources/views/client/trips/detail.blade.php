@@ -51,21 +51,39 @@
                                     <div class="panel panel-default bill_wrap">
                                         <div class="panel-body">
                                             <div class="car_bill">
-                                                <div class="group">
+                                                <div class="group  @if (isset($trip->promotionCosts)) gach-ngang @endif">
                                                     <p>Đơn giá thuê</p>
                                                     <p>{{$trip->carCosts}}.000 / ngày</p>
                                                 </div>
+                                                @if (isset($trip->promotionCosts))
+                                                    <div class="group">
+                                                        <p>Giá khuyến mãi</p>
+                                                        <p>{{number_format($trip->promotionCosts,0,",",".")}}.000 / ngày</p>
+                                                    </div>
+                                                @endif
                                                 <div class="group">
                                                     <p>Phí dịch vụ <i class="far fa-question-circle" data-toggle="tooltip" title="" data-original-title="Phí dịch vụ"></i></p>
                                                     <p>30.000 / ngày</p>
                                                 </div>
                                                 <div class="group line">
                                                     <p>Tổng phí thuê xe</p>
-                                                    <p><span>{{$trip->carCosts+30}}.000</span> × <span class="days">{{$trip->diffDays}} ngày</span></p>
+                                                    <p><span>
+                                                            @if (isset($trip->promotionCosts))
+                                                            {{number_format($trip->promotionCosts + $trip->serviceCosts,0,",",".")}}.000
+                                                            @else
+                                                            {{number_format($trip->carCosts+$trip->serviceCosts,0,",",".")}}.000
+                                                            @endif
+                                                        </span> × <span class="days">{{$trip->diffDays}} ngày</span></p>
                                                 </div>
+                                                @if (isset($trip->couponCode))
+                                                    <div class="group">
+                                                        <p>Khuyến mãi mã <span class="in-dam">{{$trip->couponCode}}</span></p>
+                                                        <p>-{{$trip->couponDiscount}}.000</p>
+                                                    </div>
+                                                @endif
                                                 <div class="group line">
                                                     <p><b>Tổng cộng</b></p>
-                                                    <p><span class="sum_amount">{{number_format($trip['sumAmount'], 0, ',', '.')}}.000</span><b>đ</b></p>
+                                                    <p><span class="sum_amount">{{number_format($trip->sumAmount, 0, ',', '.')}}.000</span><b>đ</b></p>
                                                 </div>
                                             </div>
                                         </div>

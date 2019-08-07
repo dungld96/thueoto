@@ -5,6 +5,9 @@
 .gach-ngang{
     text-decoration: line-through;
 }
+.in-dam{
+    font-weight: 600;
+}
 
 .modal-60{
     width: 60%;
@@ -198,4 +201,9 @@
 
 .control-label{
     padding-right: 0;
+}
+.car_bill .group.line {
+    border-top: 1px solid #ccc;
+    padding-top: 5px;
+    margin-top: 5px;
 }

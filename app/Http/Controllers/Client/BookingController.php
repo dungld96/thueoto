@@ -45,44 +45,62 @@ class BookingController extends Controller
     	}
 
     	try {
-			$dataBooking = [];
-			$id = $request->id;
-			$car = Car::find($id);
-			
-			$startDate = Carbon::createFromTimestamp($request->start_date);
-			$endDate = Carbon::createFromTimestamp($request->end_date);
+				$dataBooking = [];
+				$id = $request->id;
+				$car = Car::find($id);
 
-			$bookedOfCar = BookingDetail::where('car_id',$id)->get();
-			if($bookedOfCar){
-				foreach ($bookedOfCar as $book) {
-					$bookedStartDate = new Carbon($book['start_date']);
-					$bookedEndDate = new Carbon($book['end_date']);
-					if($startDate->between($bookedStartDate, $bookedEndDate) 
-						|| $endDate->between($bookedStartDate, $bookedEndDate)){
-						return response()->json(['message'=> 'Xe đã được đặt trong thời gian trên, vui lòng chọn lại thời gian', 'status' => 'error', 'error' => 'booked']);
+				if(isset($car->promotion_costs) && isset($request->coupon_code)){
+					return response()->json(['message'=>'Không thể dùng mã khuyến mãi cho xe đang giảm giá', 'status' => 'error', 'error' => 'has_promo']);
+				}
+
+				$startDate = Carbon::createFromTimestamp($request->start_date);
+				$endDate = Carbon::createFromTimestamp($request->end_date);
+
+				$bookedOfCar = BookingDetail::where('car_id',$id)->get();
+				if($bookedOfCar){
+					foreach ($bookedOfCar as $book) {
+						$bookedStartDate = new Carbon($book['start_date']);
+						$bookedEndDate = new Carbon($book['end_date']);
+						if($startDate->between($bookedStartDate, $bookedEndDate) 
+							|| $endDate->between($bookedStartDate, $bookedEndDate)){
+							return response()->json(['message'=> 'Xe đã được đặt trong thời gian trên, vui lòng chọn lại thời gian', 'status' => 'error', 'error' => 'booked']);
+						}
+
 					}
+				}
+
+				$diffDays = $endDate->diff($startDate)->days + 1;
+				if(isset($car->promotion_costs)){
+					$sumAmount = ($car->promotion_costs + $serviceCosts) * $diffDays;
+				}else{
+					$sumAmount = ($car->costs + $serviceCosts) * $diffDays;
+				}
+				$startDate = $startDate->format('H:i - d/m/Y');
+				$endDate = $endDate->format('H:i - d/m/Y');
+				
+				$dataBooking['placeDelivery'] = $request->address;
+				$dataBooking['startDateTt'] = $request->start_date;
+				$dataBooking['endDateTt'] = $request->end_date;
+				$dataBooking['startDate'] = $startDate;
+				$dataBooking['endDate'] = $endDate;
+				$dataBooking['sumAmount'] = $sumAmount;
+				$dataBooking['diffDays'] = $diffDays;
+				$dataBooking['serviceCosts'] = C_Config::getServiceCosts();
+
+				if(isset($request->coupon_code)){
+					$dataBooking['coupon_code'] = $request->coupon_code;
+					$coupon = Coupon::where('code', $request->coupon_code)->firstOrFail();
+					$discount = ($sumAmount*$coupon->discount_amount)/100;
+					if(isset($coupon->max_discount) && $discount >= $coupon->max_discount){
+						$discount = $coupon->max_discount;
+						$dataBooking['sumAmount'] = $dataBooking['sumAmount'] - $discount;
+					}
+					$dataBooking['coupon_discount'] = $discount;
 
 				}
-			}
 
-			$diffDays = $endDate->diff($startDate)->days + 1;
-			if(isset($car->promotion_costs)){
-				$sumAmount = ($car->promotion_costs + $serviceCosts) * $diffDays;
-			}else{
-				$sumAmount = ($car->costs + $serviceCosts) * $diffDays;
-			}
-	    	$startDate = $startDate->format('H:i - d/m/Y');
-			$endDate = $endDate->format('H:i - d/m/Y');
-			
-			$dataBooking['placeDelivery'] = $request->address;
-			$dataBooking['startDateTt'] = $request->start_date;
-			$dataBooking['endDateTt'] = $request->end_date;
-			$dataBooking['startDate'] = $startDate;
-			$dataBooking['endDate'] = $endDate;
-			$dataBooking['sumAmount'] = $sumAmount;
-			$dataBooking['diffDays'] = $diffDays;
-			$dataBooking['serviceCosts'] = C_Config::getServiceCosts();
-			$returnHTML = view('client.car.confirm-booking')->with(['car'=> $car, 'dataBooking' => $dataBooking])->render();
+
+				$returnHTML = view('client.car.confirm-booking')->with(['car'=> $car, 'dataBooking' => $dataBooking])->render();
 
     	} catch (\Exception $e) {
             return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
@@ -98,6 +116,10 @@ class BookingController extends Controller
     		return response()->json(['message'=>'Thất bại', 'status' => 'login', 'error' => 'auth']);
     	}
 
+			if(isset($request->promotion_costs) && isset($request->coupon_code)){
+				return response()->json(['message'=>'Không thể dùng mã khuyến mãi cho xe đang giảm giá', 'status' => 'error']);
+			}
+
     	try {
     		$booking = new BookingDetail();
 	    	$booking->user_id = Auth::user()->id;
@@ -111,6 +133,8 @@ class BookingController extends Controller
 	    	$booking->costs = $request->costs;	
 	    	$booking->promotion_costs = $request->promotion_costs;
 	    	$booking->service_costs = $request->service_costs;
+	    	$booking->coupon_code = $request->coupon_code;
+	    	$booking->coupon_discount = $request->coupon_discount;
 	    	$booking->sum_amount = $request->sum_amount;	
 	    	$booking->status = BookingDetail::STATUS_PENDING;
 
@@ -185,6 +209,10 @@ class BookingController extends Controller
 						'booking_details.place_delivery as bookingPlaceDelivery', 
 						'booking_details.description as bookingDescription', 
 						'booking_details.status as bookingStatus', 
+						'booking_details.service_costs as serviceCosts',
+						'booking_details.promotion_costs as promotionCosts',
+						'booking_details.coupon_code as couponCode',
+						'booking_details.coupon_discount as couponDiscount',
 						'booking_details.sum_amount as sumAmount'
 					)
 					->where('booking_details.trip_code', $tripCode)
@@ -193,7 +221,7 @@ class BookingController extends Controller
 		$endDate = Carbon::createFromFormat('Y-m-d H:i:s',$trip->endDate);
 		$trip->startDate = $startDate->format('H:i - d/m/Y');
 		$trip->endDate = $endDate->format('H:i - d/m/Y');
-		$trip['diffDays'] = $endDate->diffInDays($startDate);
+		$trip['diffDays'] = $endDate->diffInDays($startDate)+1;
 		$trip['tripStatus'] = BookingDetail::getStatus($trip->bookingStatus);
 
 		return view('client.trips.detail', ['trip'=> $trip]);
@@ -232,5 +260,30 @@ class BookingController extends Controller
 		}
 		return view('client.car._coupon', ['myCoupons' => $myCoupons]);
 	}
+
+	public function checkCoupon($id)
+	{
+		$now = date('Y-m-d'); 
+		$coupon = Coupon::where('id', $id)
+							->where('status', 'active')
+							->whereDate('starts_at', '<=',  $now)
+							->whereDate('expires_at', '>=',  $now)
+							->firstOrFail();
+							
+		if(isset($coupon)){
+			return response()->json(['message'=>'Thành công', 'status' => 'success', 'coupon' => $coupon]);
+		}else{
+			return response()->json(['message'=>'Bạn không thể sử dụng mã này', 'status' => 'error']);
+		}
+	}
+
+
+
+
+
+
+
+
+
 
 }

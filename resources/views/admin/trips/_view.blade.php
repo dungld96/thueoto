@@ -70,7 +70,7 @@
                                             @if (isset($bookingDetail->promotion_costs))
                                                 <div class="group">
                                                     <p>Giá khuyến mãi</p>
-                                                    <p>{{number_format($car->promotion_costs,0,",",".")}}.000 / ngày</p>
+                                                    <p>{{number_format($bookingDetail->promotion_costs,0,",",".")}}.000 / ngày</p>
                                                 </div>
                                             @endif
 
@@ -88,6 +88,12 @@
                                                         @endif
                                                     .000</span> × <span><b>{{$diffDays}} ngày</b></span></p>
                                             </div>
+                                            @if (isset($bookingDetail->coupon_code))
+                                                <div class="group">
+                                                    <p>Khuyến mãi mã <span class="in-dam">{{$bookingDetail->coupon_code}}</span></p>
+                                                    <p>-{{$bookingDetail->coupon_discount}}.000</p>
+                                                </div>
+                                            @endif
                                             <div class="group line">
                                                 <p><b>Tổng cộng</b></p>
                                                 <p><span><b>{{number_format($bookingDetail->sum_amount,0,",",".")}}.000đ</b></span></p>

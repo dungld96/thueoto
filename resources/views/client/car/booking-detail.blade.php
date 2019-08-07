@@ -40,6 +40,8 @@
                                 <input type="hidden" name="id" value="{{$car->id}}">
                                 <input type="hidden" name="start_date" value="">
                                 <input type="hidden" name="end_date" value="">
+                                <input type="hidden" name="coupon_code" value="">
+                                <input type="hidden" name="coupon_discount" value="">
                                 <!-- <input type="hidden" name="days" value=""> -->
                                 <div class="price">
                                     <h3>{{$car->costs}}K<span> / ngày</span></h3>
@@ -87,24 +89,29 @@
                                             <p>Phí dịch vụ <i class="far fa-question-circle" data-toggle="tooltip" title="Phí dịch vụ"></i></p>
                                             <p>{{$serviceCosts}}.000 / ngày</p>
                                         </div>
-                                        <div class="group line">
-                                            <p>Tổng phí thuê xe</p>
-                                            <p><span class="amount">
-                                                @if (isset($car->promotion_costs))
-                                                {{number_format($car->promotion_costs + $serviceCosts,0,",",".")}}
-                                                @else
-                                                {{number_format($car->costs + $serviceCosts,0,",",".")}}
-                                                @endif
-                                                .000</span> × <span class="days">1 ngày</span></p>
+                                        <div class="group-get-amount">
+                                            <div class="group line">
+                                                <p>Tổng phí thuê xe</p>
+                                                <p><span class="amount">
+                                                    @if (isset($car->promotion_costs))
+                                                    {{number_format($car->promotion_costs + $serviceCosts,0,",",".")}}.000
+                                                    @else
+                                                    {{number_format($car->costs + $serviceCosts,0,",",".")}}.000
+                                                    @endif
+                                                    </span> × <span class="days">1 ngày</span></p>
+                                            </div>
                                         </div>
-                                        <div class="group line">
-                                            <p><b>Tổng cộng</b></p>
-                                            <p><span class="sum_amount"></span><b>đ</b></p>
+                                        <div class="group-amount">
+                                            <div class="group line">
+                                                <p><b>Tổng cộng</b></p>
+                                                <p><span class="sum_amount"></span><b>đ</b></p>
+                                            </div>
                                         </div>
-
                                         <div class="group use-coupon">
                                             <a href="javascript:void(0);" id="useCoupon">Mã khuyến mãi</a>
                                         </div>
+                                        @if (!isset($car->promotion_costs)) 
+                                        @endif
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-success btn-lg btn-block">Đặt xe</button>
