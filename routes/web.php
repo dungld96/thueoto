@@ -167,6 +167,11 @@
 			'as' => 'coupon.check-coupon',
 			'uses' => 'Client\BookingController@checkCoupon'
 		]);
+
+		Route::get('/search', [
+			'as' => 'coupon.search',
+			'uses' => 'Client\BookingController@searchCoupon'
+		]);
 	});		
 
 

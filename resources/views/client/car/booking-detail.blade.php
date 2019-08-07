@@ -100,6 +100,9 @@
                                                     @endif
                                                     </span> × <span class="days">1 ngày</span></p>
                                             </div>
+                                            <div class="group group-coupon">
+
+                                            </div>
                                         </div>
                                         <div class="group-amount">
                                             <div class="group line">
@@ -107,10 +110,10 @@
                                                 <p><span class="sum_amount"></span><b>đ</b></p>
                                             </div>
                                         </div>
-                                        <div class="group use-coupon">
-                                            <a href="javascript:void(0);" id="useCoupon">Mã khuyến mãi</a>
-                                        </div>
                                         @if (!isset($car->promotion_costs)) 
+                                            <div class="group use-coupon">
+                                                <a href="javascript:void(0);" id="useCoupon">Mã khuyến mãi</a>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>

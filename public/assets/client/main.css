@@ -1533,6 +1533,10 @@ textarea {
 .modal-body .body-promo .box-promo .right .btn-sm {
     font-size: 14px;
 }
+#searchCouponForm .input-group-addon{
+    cursor: pointer;
+}
+
 /* MOBILE */
 
 @media screen and (max-width: 1399px) {

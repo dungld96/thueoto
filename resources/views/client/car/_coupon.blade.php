@@ -9,13 +9,13 @@
                     {{csrf_field()}}
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="code" value="" class="form-control input-lg" placeholder="Nhập mã khuyễn mãi">
+                            <input type="text" id="inpCode" name="code" value="" class="form-control input-lg" placeholder="Nhập mã khuyễn mãi">
                             <span class="input-group-addon"><i class="fas fa-search"></i></span>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="body-promo">
+            <div class="body-promo" id="list-coupons">
                     @foreach ($myCoupons as $myCoupon)
                     <div class="box-promo">
                             <div class="left"><img class="img-promo" src="{{asset('images/percent.jpg')}}" alt="Mioto - Thuê xe tự lái"></div>

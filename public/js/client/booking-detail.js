@@ -168,22 +168,53 @@ $(document).ready(function () {
                 if (data.status == 'success') {
 					let coupon = data.coupon;
 					$("#useCouponModel").modal("hide");
-					$('input[name=coupon_code]').val(coupon.code);
-					let amount = $('span.sum_amount').text().replace(/[^\d]/g, "");
-					let discount = (amount*coupon.discount_amount)/100;
-					if(coupon.max_discount && discount >= coupon.max_discount){
-						discount = coupon.max_discount
-					}
-					$('input[name=coupon_discount]').val(discount);
-					$('#booking_form .group-get-amount').append(
-						`<div class="group">
-							<p>Khuyến mãi mã <span class="in-dam">${coupon.code}</span></p>
-							<p>-${discount}.000</p>
-						</div>`
-					);
-					$('span.sum_amount').text(amount-discount*1000).digits();
+					appendCoupon(coupon)
                 } else {
                     toastr.error(data.message);
+                }
+            },
+            error: function (e) {
+                alert(e);
+            }
+
+        });
+	});
+	
+	$('body').on('keyup', '#inpCode',function (ev) {
+		let key = $(this).val();
+		url =  BASE_URL + "/coupon/search",
+		data = {
+			key: key,
+		}
+		$.ajax({
+            type: 'GET',
+			url: url,
+			data: data,
+            success: function (data) {
+                if (data.status == 'success') {
+					let coupons = data.coupon;
+					$('#list-coupons').html('');
+					if (coupons.length > 0) {
+						coupons.forEach(coupon => {
+							$('#list-coupons').append(`
+							<div class="box-promo">
+								<div class="left"><img class="img-promo" src="${BASE_URL}/images/percent.jpg" alt="Mioto - Thuê xe tự lái"></div>
+								<div class="center">
+									<p class="code">${coupon.code}</p>
+									<p class="desc">Giảm <span>${coupon.discount_amount}%. </span>
+									${coupon.max_discount ? '(tối đa<span> ' + coupon.max_discount + 'K</span>)' : ''}</p>
+									<p class="desc">Bắt đầu từ: <span>${coupon.starts_at} </span> - Tới: <span> ${coupon.expires_at}</span></p>
+								</div>
+								<div class="right"><a class="applyCoupon btn btn-success" data-id="${coupon.id}">Áp dụng</a></div>
+							</div>
+						`);
+						});
+					} else {
+						$('#list-coupons').html('<h4>Không tìm thấy mã khuyến mãi</h4>');
+					}
+					
+                } else {
+					console.log(data.message)
                 }
             },
             error: function (e) {
@@ -194,3 +225,32 @@ $(document).ready(function () {
     });
 
 });
+
+function appendCoupon(coupon) {
+	$('input[name=coupon_code]').val(coupon.code);
+
+	let start_date = $('.start_date .date').text();
+	let end_date = $('.end_date .date').text();
+
+	let start = moment(start_date, 'DD/MM/YYYY');
+	let end   = moment(end_date, 'DD/MM/YYYY');
+	let diff = end.diff(start, 'days') + 1;
+	let amount = $('span.amount').text().replace(/[^\d]/g, "");
+
+	let sum_amount = amount * diff;
+	let discount = (sum_amount*coupon.discount_amount)/100;
+
+	if(coupon.max_discount && discount >= coupon.max_discount){
+		discount = coupon.max_discount
+	}
+	if(discount && discount>0){
+			sum_amount = sum_amount-discount*1000;
+	}
+	
+	$('input[name=coupon_discount]').val(discount);
+	$('#booking_form .group-coupon').html(
+		`<p>Khuyến mãi mã <span class="in-dam">${coupon.code}</span></p>
+		<p>-${discount}.000</p>`
+	);
+	$('span.sum_amount').text(sum_amount).digits();
+}

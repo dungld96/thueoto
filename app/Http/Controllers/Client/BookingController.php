@@ -264,20 +264,48 @@ class BookingController extends Controller
 	public function checkCoupon($id)
 	{
 		$now = date('Y-m-d'); 
-		$coupon = Coupon::where('id', $id)
-							->where('status', 'active')
-							->whereDate('starts_at', '<=',  $now)
-							->whereDate('expires_at', '>=',  $now)
-							->firstOrFail();
-							
-		if(isset($coupon)){
+		try {
+			$coupon = Coupon::where('id', $id)
+			->where('status', 'active')
+			->whereDate('starts_at', '<=',  $now)
+			->whereDate('expires_at', '>=',  $now)
+			->firstOrFail();
+
 			return response()->json(['message'=>'Thành công', 'status' => 'success', 'coupon' => $coupon]);
-		}else{
+		} catch (\Exception $e) {
 			return response()->json(['message'=>'Bạn không thể sử dụng mã này', 'status' => 'error']);
 		}
+
 	}
 
+	public function searchCoupon(Request $request)
+	{
+		$key = $request->key;
+		$now = date('Y-m-d'); 
+		try {
+			$myCoupons = Coupon::where('status', 'active')
+				->whereDate('starts_at', '<=',  $now)
+				->whereDate('expires_at', '>=',  $now);
+				
 
+			if(!empty($key)){
+				$myCoupons->where('code', $key);
+			}
+
+			$myCoupons = $myCoupons->get();
+			
+			foreach ($myCoupons as $myCoupon) {
+				$myCoupon->starts_at = Carbon::createFromFormat('Y-m-d', $myCoupon->starts_at)->format('d/m/Y');
+				$myCoupon->expires_at = Carbon::createFromFormat('Y-m-d', $myCoupon->expires_at)->format('d/m/Y');
+			}
+			
+
+			return response()->json(['message'=>'Thành công', 'status' => 'success', 'coupon' => $myCoupons]);
+		} catch (\Exception $e) {
+			return response()->json(['message'=>'Mã khuyến mãi không tồn tại', 'status' => 'error']);
+		}
+		
+	}
 
 
 
