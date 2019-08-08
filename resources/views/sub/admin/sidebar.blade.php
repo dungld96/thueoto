@@ -73,11 +73,11 @@
           <span class="title">Quản trị hệ thống</span>
           </a>
           <ul class="sub-menu">
-            {{-- <li>
+            <li>
               <a href="javascript:;">
-              <i class="icon-home"></i>
-              Người dùng</a>
-            </li> --}}
+              <i class="fas fa-users-cog"></i>
+              Quản trị người dùng</a>
+            </li>
             <li>
               <a href="javascript:;">
               <i class="fas fa-tools"></i>
