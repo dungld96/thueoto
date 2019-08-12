@@ -495,6 +495,10 @@ textarea {
     color: #6c757d;
 }
 
+.car_booking .price h3>span {
+    font-size: 16px;
+}
+
 .car_booking .datetime {
     width: 100%;
 }

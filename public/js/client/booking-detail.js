@@ -11,24 +11,53 @@ $(document).ready(function () {
 	});
 
 	var date = moment();
+
+	function initWithFilter() {
+		let startDateFilter = $.query.get('startDate');
+		let endDateFilter = $.query.get('endDate');
+
+		if(startDateFilter){
+			let startTime = moment.unix(startDateFilter).format('HH:mm:ss');
+			let startDate = moment.unix(startDateFilter).format('DD/MM/YYYY');
+			$('.start_date .date').html(startDate);
+			$('.start_date .time').val(startTime);
+			$('.start_date .date').data('daterangepicker').setStartDate(moment(startDate, 'DD/MM/YYYY').format('MM/DD/YYYY'));
+			$('.start_date .date').data('daterangepicker').setEndDate(moment(startDate, 'DD/MM/YYYY').format('MM/DD/YYYY'));
+		}
+
+		if(endDateFilter){
+			let endTime = moment.unix(endDateFilter).format('HH:mm:ss');
+			let endDate = moment.unix(endDateFilter).format('DD/MM/YYYY');
+			$('.end_date .date').html(endDate);
+			$('.end_date .time').val(endTime);
+			$('.end_date .date').data('daterangepicker').setStartDate(moment(endDate, 'DD/MM/YYYY').format('MM/DD/YYYY'));
+			$('.end_date .date').data('daterangepicker').setEndDate(moment(endDate, 'DD/MM/YYYY').format('MM/DD/YYYY'));
+		}
+		update_datetime();
+	}
+
 	$.fn.digits = function(){
 		return this.each(function(){
 			$(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") );
 		})
 	}
+
 	function start_date_change(date) {
 		var element = $('.start_date .date');
 		element.html(date.format('DD/MM/YYYY'));
 		end_date_change(date);
 	}
+
 	function end_date_change(date) {
 		var element = $('.end_date .date');
 		element.html(date.format('DD/MM/YYYY'));
 	}
+
 	$('select.time').on('change', function() {
 		$('.error_end_date').addClass('hidden');
 		update_datetime();
 	});
+
 	function update_datetime() {
 		var start_date = $('.start_date .date').text();
 		var start_time = $('.start_date .time').val();
@@ -56,14 +85,17 @@ $(document).ready(function () {
 		}
 		$('span.sum_amount').text(sum_amount).digits();
 	}
+
 	$('.start_date .date').daterangepicker({
 		singleDatePicker: true,
 		minDate: new Date()
 	}, start_date_change);
+
 	$('.end_date .date').daterangepicker({
 		singleDatePicker: true,
 		minDate: new Date()
 	}, end_date_change);
+
 	$('.start_date .date').on('apply.daterangepicker', function(ev, picker) {
 		$('.end_date .date').daterangepicker({
 			locale: { "format": "DD/MM/YYYY" },
@@ -75,12 +107,16 @@ $(document).ready(function () {
 		});
 		update_datetime();
 	});
+
 	$('.end_date .date').on('apply.daterangepicker', function(ev, picker) {
 		update_datetime();
 	});
+
 	start_date_change(date);
 	end_date_change(date);
 	update_datetime();
+	initWithFilter();
+
 	$('input[name=address]').on('input', function() {
 		var text = $(this).val();
 		if (text == '') {

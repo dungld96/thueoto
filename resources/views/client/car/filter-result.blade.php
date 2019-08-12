@@ -152,7 +152,7 @@
                             <ul>
                                 @foreach ($carResults as $car)
                                     <li class="col-md-6 col-sm-6 col-xs-6">
-                                        <a href="{{URL::to('/car/'.$car->slug)}}">
+                                        <a href="{{URL::to('/car/'.$car->slug.'?startDate='.Request::get('startDate').'&endDate='.Request::get('endDate'))}}">
                                             <div class="car-item">
                                                     <div class="car-item-image">
                                                         <img src="{{asset('uploads/'.$car->thumbnail)}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ">

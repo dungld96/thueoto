@@ -59,8 +59,8 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-default">
             <li>
-              <a href="extra_profile.html">
-              <i class="icon-user"></i> My Profile </a>
+              <a href="{{route('users.changepassword')}}">
+              <i class="icon-user"></i> Đổi mật khẩu </a>
             </li>
             {{-- <li>
               <a href="inbox.html">

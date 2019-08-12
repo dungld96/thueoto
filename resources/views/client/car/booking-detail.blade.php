@@ -44,7 +44,12 @@
                                 <input type="hidden" name="coupon_discount" value="">
                                 <!-- <input type="hidden" name="days" value=""> -->
                                 <div class="price">
-                                    <h3>{{$car->costs}}K<span> / ngày</span></h3>
+                                    @if (isset($car->promotion_costs))
+                                        <h3><span class="real gach-ngang">{{$car->costs}}K</span> {{$car->promotion_costs}}K<span> / ngày</span></h3>
+                                    @else
+                                        <h3>{{$car->costs}}K<span> / ngày</span></h3>
+                                        
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Ngày bắt đầu</label>

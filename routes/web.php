@@ -118,7 +118,7 @@
 				'uses'=> 'UserController@changePassword'
 			]);
 
-			Route::post('/passward/update', [
+			Route::post('/password/update', [
 				'as'=> 'user.updatepassword',
 				'uses'=> 'UserController@updatePassword'
 			]);

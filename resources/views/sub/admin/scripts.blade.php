@@ -55,6 +55,7 @@
 <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('js/admin/app-admin.js')}}" type="text/javascript"></script>
 @yield('script-datatable')
+@yield('script-admin-custom')
 <script>
 jQuery(document).ready(function() {    
    Metronic.init(); // init metronic core componets

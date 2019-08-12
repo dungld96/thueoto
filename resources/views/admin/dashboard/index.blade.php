@@ -1,8 +1,5 @@
 @extends('layout.admin.admin')
 @section('title', 'Dashboard')
-@section('style-page')
-    <link href="{{asset('assets/global/plugins/dropzone/css/dropzone.css')}}" rel="stylesheet" type="text/css"/>
-@endsection
 @section('content')
     <div class="row content-header">
         <div class="col-md-8">

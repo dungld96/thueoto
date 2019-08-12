@@ -74,7 +74,7 @@
           </a>
           <ul class="sub-menu">
             <li>
-              <a href="javascript:;">
+              <a href="{{route('users.list')}}">
               <i class="fas fa-users-cog"></i>
               Quản trị người dùng</a>
             </li>

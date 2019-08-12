@@ -1,34 +1,6 @@
 $(document).ready(function() {
-
-    $('#editInfoAcc').on('click', function(e) {
-        e.preventDefault();
-        target = BASE_URL + "/user/account/editinfo",
-            $("#modelEdit .modal-content").load(target, function() {
-                $("#modelEdit").modal("show");
-            });
-    });
-
-    $('#editPhoneNumber').on('click', function(e) {
-        e.preventDefault();
-        target = BASE_URL + "/user/account/editphonenumber",
-            $("#modelEdit .modal-content").load(target, function() {
-                $("#modelEdit").modal("show");
-            });
-    });
-
-    $('#editEmail').on('click', function(e) {
-        e.preventDefault();
-        target = BASE_URL + "/user/account/editemail",
-            $("#modelEdit .modal-content").load(target, function() {
-                $("#modelEdit").modal("show");
-            });
-    });
-
-    $('#modelEdit').on('hidden.bs.modal', function() {
-        $("#modelEdit .modal-content").html('');
-    });
-
-    $('#changePassForm').submit(function(e) {
+    $('#adChangePwForm').submit(function(e) {
+        console.log('cc')
         e.preventDefault();
         var current_password = $('input[name=current_password]').val().trim();
         var password = $('input[name=password]').val().trim();
@@ -37,18 +9,18 @@ $(document).ready(function() {
             toastr.error('Xác nhận mật khẩu không chính xác!')
             return false;
         }
-        let valid = $('#changePassForm').valid();
+        let valid = $('#adChangePwForm').valid();
         if (valid) {
             $.ajax({
-                url: BASE_URL + '/user/password/update',
+                url: BASE_URL + '/admin/users/updatepassword',
                 type: 'POST',
-                data: $('#changePassForm').serialize(),
+                data: $('#adChangePwForm').serialize(),
                 dataType: 'json',
                 success: function(result) {
                     if (result.status == 'success') {
                         toastr.success("Bạn đã đổi mật khẩu thành công");
                         setTimeout(() => {
-                            window.location.href = "/";
+                            window.location.href = "/admin/dashboard";
                         }, 1000);
                     } else {
                         toastr.error(result.message);
@@ -65,7 +37,7 @@ $(document).ready(function() {
         }
     });
 
-    $('#changePassForm').validate({
+    $('#adChangePwForm').validate({
         errorElement: 'span', //default input error message container
         errorClass: 'help-block help-block-error', // default input error message class
         focusInvalid: true, // do not focus the last invalid input

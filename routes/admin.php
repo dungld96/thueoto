@@ -176,6 +176,25 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 			'uses'=> 'Admin\CouponController@delete'
 		]);
 	});
+
+	Route::prefix('users')->group(function () {
+		Route::get('/', [
+			'as'=> 'users.list',
+			'uses'=> 'Admin\AdminController@index'
+		]);
+		Route::get('/getdata', [
+			'as'=> 'users.list.getdata',
+			'uses'=> 'Admin\AdminController@getUsers'
+		]);
+		Route::get('/changepassword', [
+			'as'=> 'users.changepassword',
+			'uses'=> 'Admin\AdminController@changePassword'
+		]);
+		Route::post('/updatepassword', [
+			'as'=> 'users.updatepassword',
+			'uses'=> 'Admin\AdminController@updatePassword'
+		]);
+	});
 	
 
 });

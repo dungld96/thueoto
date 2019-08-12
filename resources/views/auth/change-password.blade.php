@@ -29,6 +29,3 @@
 	</div>
 </div>
 @endsection
-@section('script-client')
-<script src="{{asset('js/client/account.js')}}" type="text/javascript"></script>
-@endsection
