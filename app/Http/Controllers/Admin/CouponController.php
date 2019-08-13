@@ -16,7 +16,9 @@ class CouponController extends Controller
 
     public function getCoupons()
     {
-        $query = Coupon::all();
+        $query = Coupon::orderBy('updated_at', 'desc')
+                ->orderBy('created_at', 'desc')
+                ->get();
             
     	return Datatables::of($query)
             ->addColumn('action', function ($query) {

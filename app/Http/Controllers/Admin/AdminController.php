@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
+use App\Models\Role;
 use DataTables;
 
 class AdminController extends Controller
@@ -21,6 +22,8 @@ class AdminController extends Controller
             $q->where("role", 2); 
         })
         ->where('status', 'active')
+        ->orderBy('updated_at', 'desc')
+        ->orderBy('created_at', 'desc')
         ->get();
         
     	return Datatables::of($query)
@@ -68,4 +71,101 @@ class AdminController extends Controller
             }
             return response()->json(['message'=>'Thành công', 'status' => 'success']);
     }
+
+    public function createMod()
+    {
+        $user = new User();
+        return view('admin.users._edit', ['user' => $user]);
+    }
+    
+
+    public function storeMod(Request $request)
+    {
+        $validatedData = $request->validate(
+            [
+                'email' => 'required|regex:/^.+@.+$/',
+            ],
+            [
+                'phone_number' => 'required|regex:/^[0-9]{9,15}$/',
+            ],
+            [
+                'email.required' => 'Email không được để trống',
+                'email.regex' => 'Email không hợp lệ'
+            ],
+            [
+                'phone_number.required' => 'Số điện thoại không được để trống',
+                'phone_number.regex' => 'Số điện thoại không hợp lệ'
+            ]);
+        
+            try {
+                $user = new User();
+                $user->name = $request->name;
+                $user->email = $request->email;
+                $user->phone_number = $request->phone_number;
+                $user->password = bcrypt('vinhtin123');
+                $user->save();
+                $user->roles()->attach(Role::where('role', 2)->first());
+            } catch (\Exception $e) {
+                if($e->errorInfo[1] == 1062){
+                    $message = 'Số điện thoại hoặc email đã tồn tại.';
+                }else{
+                    $message = $e->getMessage();
+                }
+                return response()->json(['message'=>$message, 'status' => 'error']);
+            }
+            return response()->json(['message'=>'Thành công', 'status' => 'success']);
+    }
+
+    public function editMod($id)
+    {
+        $user = User::find($id);
+        return view('admin.users._edit', ['user' => $user]);
+    }
+
+    public function updateMod(Request $request)
+    {
+        $validatedData = $request->validate(
+            [
+                'email' => 'required|regex:/^.+@.+$/',
+            ],
+            [
+                'phone_number' => 'required|regex:/^[0-9]{9,15}$/',
+            ],
+            [
+                'email.required' => 'Email không được để trống',
+                'email.regex' => 'Email không hợp lệ'
+            ],
+            [
+                'phone_number.required' => 'Số điện thoại không được để trống',
+                'phone_number.regex' => 'Số điện thoại không hợp lệ'
+            ]);
+        
+            try {
+                $user = User::find($request->id);
+                $user->name = $request->name;
+                $user->email = $request->email;
+                $user->phone_number = $request->phone_number;
+                $user->password = bcrypt('vinhtin123');
+                $user->save();
+            } catch (\Exception $e) {
+                if($e->errorInfo[1] == 1062){
+                    $message = 'Số điện thoại hoặc email đã tồn tại.';
+                }else{
+                    $message = $e->getMessage();
+                }
+                return response()->json(['message'=>$message, 'status' => 'error']);
+            }
+            return response()->json(['message'=>'Thành công', 'status' => 'success']);
+    }
+
+    public function deleteMod($id)
+    {
+        try {
+            User::find($id)->delete();;
+        } catch (Exception $e) {
+            return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
+        }
+        return response()->json(['message'=>'Xóa tài khoản thành công', 'status' => 'success']);
+    }
+
 }

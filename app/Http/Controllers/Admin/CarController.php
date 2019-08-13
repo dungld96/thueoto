@@ -21,7 +21,10 @@ class CarController extends Controller
 
     public function getAll(Request $request)
     {
-    	$cars = Car::select(['id', 'code', 'name', 'costs', 'promotion_costs', 'status'])->get();
+        $cars = Car::select(['id', 'code', 'name', 'costs', 'promotion_costs', 'status'])
+        ->orderBy('updated_at', 'desc')
+        ->orderBy('created_at', 'desc')
+        ->get();
 
     	return DataTables::of($cars)
     	->addColumn('action', function ($cars) {

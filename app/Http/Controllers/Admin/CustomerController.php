@@ -24,6 +24,7 @@ class CustomerController extends Controller
             $q->where("role", 1); 
         })
         ->where('status', 'active')
+        ->orderBy('created_at', 'desc')
         ->get();
             
     	return Datatables::of($query)

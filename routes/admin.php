@@ -194,6 +194,30 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 			'as'=> 'users.updatepassword',
 			'uses'=> 'Admin\AdminController@updatePassword'
 		]);
+		
+		Route::get('/createmod', [
+			'as'=> 'users.createmod',
+			'uses'=> 'Admin\AdminController@createMod'
+		]);
+		
+		Route::post('/storemod', [
+			'as'=> 'users.storemod',
+			'uses'=> 'Admin\AdminController@storeMod'
+		]);
+		
+		Route::get('/editmod/{id}', [
+			'as'=> 'users.editmod',
+			'uses'=> 'Admin\AdminController@editMod'
+		]);
+		Route::put('/updatemod', [
+			'as'=> 'users.updatemod',
+			'uses'=> 'Admin\AdminController@updateMod'
+		]);
+		Route::get('/deletemod/{id}', [
+			'as'=> 'users.deletemod',
+			'uses'=> 'Admin\AdminController@deleteMod'
+		]);
+
 	});
 	
 
