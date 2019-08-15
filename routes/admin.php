@@ -1,6 +1,21 @@
 <?php
 Route::group(['middleware' => ['access-dashboard']], function(){
+
+	Route::get('/users/changepassword', [
+		'as'=> 'users.changepassword',
+		'uses'=> 'Admin\AdminController@changePassword'
+	]);
+	
+	Route::post('/users/updatepassword', [
+		'as'=> 'users.updatepassword',
+		'uses'=> 'Admin\AdminController@updatePassword'
+	]);
+
 	Route::get('/dashboard', [
+		'as'=> 'dashboard',
+		'uses'=> 'Admin\DashboardController@index'
+	]);
+	Route::get('/', [
 		'as'=> 'dashboard',
 		'uses'=> 'Admin\DashboardController@index'
 	]);
@@ -177,47 +192,40 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 		]);
 	});
 
-	Route::prefix('users')->group(function () {
-		Route::get('/', [
-			'as'=> 'users.list',
-			'uses'=> 'Admin\AdminController@index'
-		]);
-		Route::get('/getdata', [
-			'as'=> 'users.list.getdata',
-			'uses'=> 'Admin\AdminController@getUsers'
-		]);
-		Route::get('/changepassword', [
-			'as'=> 'users.changepassword',
-			'uses'=> 'Admin\AdminController@changePassword'
-		]);
-		Route::post('/updatepassword', [
-			'as'=> 'users.updatepassword',
-			'uses'=> 'Admin\AdminController@updatePassword'
-		]);
-		
-		Route::get('/createmod', [
-			'as'=> 'users.createmod',
-			'uses'=> 'Admin\AdminController@createMod'
-		]);
-		
-		Route::post('/storemod', [
-			'as'=> 'users.storemod',
-			'uses'=> 'Admin\AdminController@storeMod'
-		]);
-		
-		Route::get('/editmod/{id}', [
-			'as'=> 'users.editmod',
-			'uses'=> 'Admin\AdminController@editMod'
-		]);
-		Route::put('/updatemod', [
-			'as'=> 'users.updatemod',
-			'uses'=> 'Admin\AdminController@updateMod'
-		]);
-		Route::get('/deletemod/{id}', [
-			'as'=> 'users.deletemod',
-			'uses'=> 'Admin\AdminController@deleteMod'
-		]);
-
+	Route::group(['middleware' => ['check-admin']], function(){
+		Route::prefix('users')->group(function () {
+			Route::get('/', [
+				'as'=> 'users.list',
+				'uses'=> 'Admin\AdminController@index'
+			]);
+			Route::get('/getdata', [
+				'as'=> 'users.list.getdata',
+				'uses'=> 'Admin\AdminController@getUsers'
+			]);
+			Route::get('/createmod', [
+				'as'=> 'users.createmod',
+				'uses'=> 'Admin\AdminController@createMod'
+			]);
+			
+			Route::post('/storemod', [
+				'as'=> 'users.storemod',
+				'uses'=> 'Admin\AdminController@storeMod'
+			]);
+			
+			Route::get('/editmod/{id}', [
+				'as'=> 'users.editmod',
+				'uses'=> 'Admin\AdminController@editMod'
+			]);
+			Route::put('/updatemod', [
+				'as'=> 'users.updatemod',
+				'uses'=> 'Admin\AdminController@updateMod'
+			]);
+			Route::get('/deletemod/{id}', [
+				'as'=> 'users.deletemod',
+				'uses'=> 'Admin\AdminController@deleteMod'
+			]);
+	
+		});
 	});
 	
 

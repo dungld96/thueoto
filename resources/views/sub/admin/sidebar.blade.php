@@ -67,6 +67,7 @@
             </li>
           </ul>
         </li>
+        @if (Auth::user()->isAdmin())
         <li>
           <a href="javascript:;">
           <i class="fas fa-cogs"></i>
@@ -85,6 +86,7 @@
             </li>
           </ul>
         </li>
+        @endif
       </ul>
       <!-- END SIDEBAR MENU -->
     </div>

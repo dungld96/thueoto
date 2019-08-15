@@ -11,6 +11,7 @@ use App\User;
 use DataTables;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 
 class TripsController extends Controller
 {
@@ -170,7 +171,8 @@ class TripsController extends Controller
         } catch (\Exception $e) {
             return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
-        return response()->json(['message'=>'Thành công', 'status' => 'success']);
+        $sendSms = $this->sendSms($bookingDetail);
+        return response()->json(['message'=>'Thành công', 'smsMessage' => $sendSms, 'status' => 'success']);
     }
 
     public function cancelBooking($id)
@@ -312,6 +314,32 @@ class TripsController extends Controller
             ->make();
     }
 
+    public function sendSms($trip)
+    {
+        $user = User::find($trip->user_id);
+        $car = Car::find($trip->car_id);
+        $content = 'Xac nhan dat xe: '.$car->name.', gia thue: '.$trip->sum_amount.'000Đ. Ma: '.$trip->trip_code.' tai VinhTinAuto. Cam on ban da su dung dich vu cua chung toi';
+        $client = new Client();
+        $res = $client->get(
+            'http://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_get?Phone='.$user->phone_number
+            .'&Content='.$content.'&ApiKey=781151A257AEFC6C850904C1969420&SecretKey=4277DE3783E761358B9CFF600A7DA8&SmsType=7'
+        );
+        if($res->getStatusCode() == 200){
+            $data = json_decode($res->getBody()->getContents());
+            if($data->CodeResult == 100){
+                return 'Request gửi tin nhắn thành công';
+            }
 
+            if($data->CodeResult == 102){
+                return 'Tài khoản bị khóa';
+            }
+            
+            if($data->CodeResult == 103){
+                return 'Số dư tài khoản không đủ để gửi tin nhắn';
+            }
+        }else{
+            return 'Gửi tin nhắn thất bại';
+        }
+    }
 
 }
