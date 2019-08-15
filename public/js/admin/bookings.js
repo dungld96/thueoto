@@ -46,6 +46,7 @@ $(document).ready(function() {
             success: function(rs) {
                 if (rs.status == 'success') {
                     toastr.success("Chuyến xe được duyệt thành công");
+                    toastr.info(rs.smsMessage);
                     $('#viewBooing').modal('hide');
                     var oTable = $('#BookingTable').dataTable();
                     oTable.fnDraw(false);

@@ -65,6 +65,11 @@
               <i class="icon-tag"></i>
               Danh mục giảm giá</a>
             </li>
+            <li class="{{request()->is('admin/cars/models') ? 'active' : ''}}">
+              <a href="{{route('cars.models.list')}}">
+              <i class="fas fa-box"></i>
+              Danh mục mẫu xe</a>
+            </li>
           </ul>
         </li>
         @if (Auth::user()->isAdmin())
@@ -77,7 +82,7 @@
             <li>
               <a href="{{route('users.list')}}">
               <i class="fas fa-users-cog"></i>
-              Quản trị người dùng</a>
+              Người dùng</a>
             </li>
             <li>
               <a href="javascript:;">

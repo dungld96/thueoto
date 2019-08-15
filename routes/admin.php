@@ -65,8 +65,39 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 			'as' => 'car.delete',
 			'uses' => 'Admin\CarController@delete'
 		]);
-	});
 
+		Route::prefix('models')->group(function () {
+			Route::get('/', [
+				'as'=> 'cars.models.list',
+				'uses'=> 'Admin\CarModelController@index'
+			]);
+			Route::get('/getdata', [
+				'as'=> 'cars.models.getdata',
+				'uses'=> 'Admin\CarModelController@getCarModels'
+			]);
+			Route::get('/create', [
+				'as'=> 'cars.models.create',
+				'uses'=> 'Admin\CarModelController@create'
+			]);
+			Route::post('/store', [
+				'as'=> 'cars.models.store',
+				'uses'=> 'Admin\CarModelController@store'
+			]);
+			Route::get('/edit/{id}', [
+				'as'=> 'cars.models.edit',
+				'uses'=> 'Admin\CarModelController@edit'
+			]);
+			Route::post('/update', [
+				'as'=> 'cars.models.update',
+				'uses'=> 'Admin\CarModelController@update'
+			]);
+			Route::get('/delete/{id}', [
+				'as'=> 'cars.models.delete',
+				'uses'=> 'Admin\CarModelController@delete'
+			]);
+		});
+	});
+	
 	Route::prefix('approve/booking')->group(function () {
 		Route::get('/', [
 			'as'=> 'booking.list',

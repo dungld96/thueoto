@@ -318,11 +318,11 @@ class TripsController extends Controller
     {
         $user = User::find($trip->user_id);
         $car = Car::find($trip->car_id);
-        $content = 'Xac nhan dat xe: '.$car->name.', gia thue: '.$trip->sum_amount.'000Đ. Ma: '.$trip->trip_code.' tai VinhTinAuto. Cam on ban da su dung dich vu cua chung toi';
+        $content = 'Xac nhan dat xe: '.$car->name.', gia thue: '.$trip->sum_amount.'000 dong. Ma: '.$trip->trip_code.' tai VinhTinAuto. Cam on ban da su dung dich vu cua chung toi';
         $client = new Client();
         $res = $client->get(
             'http://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_get?Phone='.$user->phone_number
-            .'&Content='.$content.'&ApiKey=781151A257AEFC6C850904C1969420&SecretKey=4277DE3783E761358B9CFF600A7DA8&SmsType=7'
+            .'&Content='.$content.'&ApiKey=781151A257AEFC6C850904C1969420&SecretKey=4277DE3783E761358B9CFF600A7DA8&SmsType=4'
         );
         if($res->getStatusCode() == 200){
             $data = json_decode($res->getBody()->getContents());

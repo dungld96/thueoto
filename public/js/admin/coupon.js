@@ -14,7 +14,7 @@ $(document).ready(function() {
     $('body').on('click', '.btnDeleteCoupon',function (ev) {
         ev.preventDefault();
         var couponId = $(this).data("id");
-        var cf = confirm("Bạn có chắc muốn xóa mã khuyến mãi này này!");
+        var cf = confirm("Bạn có chắc muốn xóa mã khuyến mãi này!");
         if(cf){
             $.ajax({
                 type: "get",
