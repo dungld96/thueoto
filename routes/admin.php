@@ -20,17 +20,6 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 		'uses'=> 'Admin\DashboardController@index'
 	]);
 	
-	Route::prefix('configs')->group(function () {
-		Route::get('/', [
-			'as'=> 'admin.configs',
-			'uses'=> 'Admin\AdminController@configs'
-		]);
-		Route::post('/update', [
-			'as'=> 'admin.configs.update',
-			'uses'=> 'Admin\AdminController@updateConfigs'
-		]);
-	});
-
 	Route::prefix('cars')->group(function () {
 		Route::get('/', [
 			'as'=> 'admin_cars_index',
@@ -268,7 +257,16 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 			]);
 	
 		});
-		
+		Route::prefix('configs')->group(function () {
+			Route::get('/', [
+				'as'=> 'admin.configs',
+				'uses'=> 'Admin\AdminController@configs'
+			]);
+			Route::post('/update', [
+				'as'=> 'admin.configs.update',
+				'uses'=> 'Admin\AdminController@updateConfigs'
+			]);
+		});
 	});
 	
 
