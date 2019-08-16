@@ -257,7 +257,7 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 			]);
 	
 		});
-		Route::prefix('configs')->group(function () {
+		Route::prefix('dm')->group(function () {
 			Route::get('/', [
 				'as'=> 'admin.configs',
 				'uses'=> 'Admin\AdminController@configs'
