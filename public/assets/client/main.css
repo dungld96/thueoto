@@ -304,11 +304,11 @@ textarea {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .section.section-body {
-    padding: 50px 0 70px;
+    padding: 40px 0 70px;
 }
 
 .owl-carousel.cars-owl-carousel .item {
@@ -897,6 +897,18 @@ textarea {
     min-height: 180px;
 }
 
+.content-result .load-more {
+    text-align: center;
+    margin-bottom: 20px;
+ }
+.content-result .load-more button{
+    padding: 6px 15px;
+    border: 0px solid rgb(28, 49, 72);
+    background-color: rgb(50, 132, 109);
+    color: rgb(255, 255, 255);
+    border-radius: 0;
+ }
+
 .list-result .car-item-image .label-pos {
     position: absolute;
     top: 8px;
@@ -923,6 +935,7 @@ textarea {
 
 .list-result ul {
     padding: 0;
+    margin: 10px 0;
 }
 
 .list-result .car-item-image img {

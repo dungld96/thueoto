@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
 use App\Models\Role;
+use App\Models\C_Config;
 use DataTables;
 
 class AdminController extends Controller
@@ -166,6 +167,50 @@ class AdminController extends Controller
             return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
         return response()->json(['message'=>'Xóa tài khoản thành công', 'status' => 'success']);
+    }
+
+    public function configs()
+    {
+        $infoSystemCf = C_Config::getInfoSystemCf();	
+        $serviceCostsCf = C_Config::getServiceCosts();	
+        $esmsKeyCf = C_Config::getEsmsKeyCf();	
+
+        return view('admin.configs.index', [
+            'infoSystemCf' => $infoSystemCf, 
+            'serviceCostsCf' => $serviceCostsCf,
+            'esmsKeyCf' => $esmsKeyCf 
+        ]);
+    }
+
+    public function updateConfigs(Request $request)
+    {
+        try {
+            $serviceCost = $request->service_costs;
+            $address = $request->address;
+            $apiKey = $request->api_key;
+            $secretKey = $request->secret_key;
+
+            $serviceCF = C_Config::where('name', 'service_costs')->firstOrFail();
+            $serviceCF->value = $serviceCost;
+            $serviceCF->save();
+
+            $infoSysCF =  C_Config::where('name', 'info_system')->firstOrFail();
+            $infoSysCFValue = json_decode($infoSysCF->value);
+            $infoSysCFValue->address = $address;
+            $infoSysCF->value = json_encode($infoSysCFValue);
+            $infoSysCF->save();
+
+            $keyEsms =  C_Config::where('name', 'key_esms')->firstOrFail();
+            $keyEsmsValue = json_decode($keyEsms->value);
+            $keyEsmsValue->api_key = $apiKey;
+            $keyEsmsValue->secret_key = $secretKey;
+            $keyEsms->value = json_encode($keyEsmsValue);
+            $keyEsms->save();
+        } catch (\Excreption $e) {
+            return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
+        }
+        return response()->json(['message'=>'Thành công', 'status' => 'success']);
+        
     }
 
 }

@@ -71,7 +71,12 @@ class CarController extends Controller
             
             return response()->json(['message'=>'Thêm xe thành công', 'status' => 'success']);
         } catch (\Exception $e) {
-            return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
+            if($e->errorInfo[1] == 1062){
+                $message = 'Biển số xe hoặc mã xe đã tồn tại.';
+            }else{
+                $message = $e->getMessage();
+            }
+            return response()->json(['message'=>$message, 'status' => 'error']);
         }
         
     }
@@ -178,7 +183,12 @@ class CarController extends Controller
             
             return response()->json(['message'=>'Thành công', 'status' => 'success']);
         } catch (\Exception $e) {
-            return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
+            if($e->errorInfo[1] == 1062){
+                $message = 'Biển số xe hoặc mã xe đã tồn tại.';
+            }else{
+                $message = $e->getMessage();
+            }
+            return response()->json(['message'=>$message, 'status' => 'error']);
         }
     }
 

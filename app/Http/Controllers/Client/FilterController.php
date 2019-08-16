@@ -8,11 +8,16 @@ use App\Models\Car;
 use App\Models\C_Make;
 use Carbon\Carbon;
 use App\Models\C_Config;
-
+use Response;
+use View;
 class FilterController extends Controller
 {
     public function filter(Request $request)
     {
+        $makes = C_Make::all();
+        $c_seats = json_decode(file_get_contents(storage_path().'/app/json/seats.json', false));
+        $infoSystemCf = C_Config::getInfoSystemCf();	
+        
         $query = Car::where('status', 'active');
 
         $startDate = Carbon::createFromTimestamp($request->startDate)->format('Y-m-d H:i:s');
@@ -49,11 +54,14 @@ class FilterController extends Controller
             $query->orderBy($orderBy, $sortBy);
         }
         
-        $carResults = $query->get();
-
-        $makes = C_Make::all();
-        $c_seats = json_decode(file_get_contents(storage_path().'/app/json/seats.json', false));
-		$infoSystemCf = C_Config::getInfoSystemCf();			
+        $carResults = $query->paginate(10);
+        if ($request->wantsJson() || $request->ajax()) {
+            $dataMore = View::make('client.car.content_filter_load_more', array('carResults' => $carResults, 'infoSystemCf' => $infoSystemCf))->render();
+            return [
+                'dataMore' => $dataMore,
+                'lastPage' => $carResults->lastPage()
+            ];
+        }
         return view('client.car.filter-result', ['carResults' => $carResults, 'makes' => $makes, 'c_seats' => $c_seats, 'infoSystemCf' => $infoSystemCf]);
     }
 }

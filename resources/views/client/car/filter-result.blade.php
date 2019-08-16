@@ -149,7 +149,7 @@
                     <div class="col-md-8">
                         <div class="list-result">
                             @if (count($carResults) > 0)
-                            <ul>
+                            <ul class="row" id="ulCarResult">
                                 @foreach ($carResults as $car)
                                     <li class="col-md-6 col-sm-6 col-xs-6">
                                         <a href="{{URL::to('/car/'.$car->slug.'?startDate='.Request::get('startDate').'&endDate='.Request::get('endDate'))}}">
@@ -189,6 +189,12 @@
                                 <h4>Không tìm thấy xe phù hợp !</h4>
                             </div>
                             @endif
+                        </div>
+                        @if ($carResults->currentPage() != $carResults->lastPage())
+                        <div class="load-more">
+                            <button type="button" class="btn" id="btnLoadMore" >Xem thêm</button>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>

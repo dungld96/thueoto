@@ -1,35 +1,35 @@
-$(document).ready(function() {
+$(document).ready(function () {
     initSearchAdressDaterange();
 
     $('body').on('change', '#filterCarSortBy', function (e) {
         let sortby = this.value;
-        if(sortby){
+        if (sortby) {
             window.location.search = $.query.set('orderBy', 'costs').set('sortBy', sortby);
-        }else{
-            if($.query.get('orderBy') && $.query.get('sortBy')){
-                window.location.search =  $.query.REMOVE('orderBy').REMOVE('sortBy');
+        } else {
+            if ($.query.get('orderBy') && $.query.get('sortBy')) {
+                window.location.search = $.query.REMOVE('orderBy').REMOVE('sortBy');
             }
         }
     });
 
     $('body').on('change', '#filterCarByMake', function (e) {
         let makeBy = this.value;
-        if(makeBy){
+        if (makeBy) {
             window.location.search = $.query.set('makeBy', makeBy);
-        }else{
-            if($.query.get('makeBy')){
-                window.location.search =  $.query.REMOVE('makeBy');
+        } else {
+            if ($.query.get('makeBy')) {
+                window.location.search = $.query.REMOVE('makeBy');
             }
         }
     });
 
     $('body').on('change', '#filterCarType', function (e) {
         let type = this.value;
-        if(type){
+        if (type) {
             window.location.search = $.query.set('type', type);
-        }else{
-            if($.query.get('type')){
-                window.location.search =  $.query.REMOVE('type');
+        } else {
+            if ($.query.get('type')) {
+                window.location.search = $.query.REMOVE('type');
             }
         }
     });
@@ -41,36 +41,36 @@ $(document).ready(function() {
         let costsRange = $("#mbRangeCarCosts").slider('value');
         let query = $.query;
 
-        if(sortBy){
+        if (sortBy) {
             query = query.set('orderBy', 'costs').set('sortBy', sortBy);
-        }else{
-            if(query.get('orderBy') && query.get('sortBy')){
+        } else {
+            if (query.get('orderBy') && query.get('sortBy')) {
                 query.REMOVE('orderBy').REMOVE('sortBy');
             }
         }
 
-        if(makeBy){
+        if (makeBy) {
             query = query.set('makeBy', makeBy);
-        }else{
-            if(query.get('makeBy')){
+        } else {
+            if (query.get('makeBy')) {
                 query.REMOVE('makeBy');
             }
         }
 
-        if(type){
+        if (type) {
             query = query.set('type', type);
-        }else{
-            if(query.get('type')){
+        } else {
+            if (query.get('type')) {
                 query.REMOVE('type');
             }
         }
 
-        if(costsRange){
-            if(costsRange == 3001){
-                if(query.get('costsRange')){
+        if (costsRange) {
+            if (costsRange == 3001) {
+                if (query.get('costsRange')) {
                     query.REMOVE('costsRange');
                 }
-            }else{
+            } else {
                 query = query.set('costsRange', costsRange);
             }
         }
@@ -81,66 +81,82 @@ $(document).ready(function() {
     $('#dropdownMbFilterHeader').on('click', function (e) {
         let submenuitem = $('#dropdown-menu-address-daterange');
         let display = $('#dropdown-menu-address-daterange').css('display');
-        if( display == 'none' ){
+        if (display == 'none') {
             submenuitem.show(500);
-        }else{
+        } else {
             submenuitem.hide(500);
         }
     });
 
-    $( "#rangeCarCosts" ).slider({
+    $("#rangeCarCosts").slider({
         range: "min",
         min: 100,
         max: 3001,
-        create: function() {
+        create: function () {
             let valueUrl = $.query.get('costsRange');
-            if(valueUrl){
+            if (valueUrl) {
                 $("#rangeCarCosts").slider('value', valueUrl);
-                $( "#amountCarCosts" ).html( "< " + valueUrl + "K/Ngày");
-            }else{
+                $("#amountCarCosts").html("< " + valueUrl + "K/Ngày");
+            } else {
                 $("#rangeCarCosts").slider('value', 3001);
-                $( "#amountCarCosts" ).html( "Tất cả giá");
+                $("#amountCarCosts").html("Tất cả giá");
             }
         },
-        slide: function( event, ui ) {
-            $( "#amountCarCosts" ).html( "< " + ui.value + "K/Ngày");
-            if(ui.value == 3001){
-                $( "#amountCarCosts" ).html( "Tất cả giá");
+        slide: function (event, ui) {
+            $("#amountCarCosts").html("< " + ui.value + "K/Ngày");
+            if (ui.value == 3001) {
+                $("#amountCarCosts").html("Tất cả giá");
             }
         },
-        stop: function(event, ui) {
-            if(ui.value == 3001){
-                if($.query.get('costsRange')){
-                    window.location.search =  $.query.REMOVE('costsRange');
+        stop: function (event, ui) {
+            if (ui.value == 3001) {
+                if ($.query.get('costsRange')) {
+                    window.location.search = $.query.REMOVE('costsRange');
                 }
-            }else{
-                window.location.search =  $.query.set('costsRange', ui.value);
+            } else {
+                window.location.search = $.query.set('costsRange', ui.value);
             }
         }
     });
 
-    $( "#mbRangeCarCosts" ).slider({
+    $("#mbRangeCarCosts").slider({
         range: "min",
         min: 100,
         max: 3001,
-        create: function() {
+        create: function () {
             let valueUrl = $.query.get('costsRange');
-            if(valueUrl){
+            if (valueUrl) {
                 $("#mbRangeCarCosts").slider('value', valueUrl);
-                $( "#mbAmountCarCosts" ).html( "< " + valueUrl + "K/Ngày");
-            }else{
+                $("#mbAmountCarCosts").html("< " + valueUrl + "K/Ngày");
+            } else {
                 $("#mbRangeCarCosts").slider('value', 3001);
-                $( "#mbAmountCarCosts" ).html( "Tất cả giá");
+                $("#mbAmountCarCosts").html("Tất cả giá");
             }
         },
-        slide: function( event, ui ) {
-            $( "#mbAmountCarCosts" ).html( "< " + ui.value + "K/Ngày");
-            if(ui.value == 3001){
-                $( "#mbAmountCarCosts" ).html( "Tất cả giá");
+        slide: function (event, ui) {
+            $("#mbAmountCarCosts").html("< " + ui.value + "K/Ngày");
+            if (ui.value == 3001) {
+                $("#mbAmountCarCosts").html("Tất cả giá");
             }
         }
     });
 
+    let page = 2;
+    $('#btnLoadMore').on('click', function () {
+        let url = BASE_URL + '/car/filter' + $.query.set('page', page).toString();
+        $.ajax({
+            type: "GET",
+            url: url,
+            cache: false,
+            success: function (rs) {
+                $("#ulCarResult").append(rs.dataMore);
+                if(page == rs.lastPage){
+                    $('.load-more').remove();
+                }
+                page = page + 1;
+            }
+        });
+    });
 });
 
 function initSearchAdressDaterange() {
@@ -152,13 +168,13 @@ function initSearchAdressDaterange() {
     let address = $.query.get('address');
 
 
-    if(address){
+    if (address) {
         $('input[name=place]').val(address);
         $('input[name=place]').attr('title', address);
         $('#mb-plade').html(address);
     }
 
-    if(startDate){
+    if (startDate) {
         startTime = moment.unix(startDate).format('HH:mm:ss');
         startDate = moment.unix(startDate).format('DD/MM/YYYY');
         $('.start_date span').html(startDate);
@@ -167,7 +183,7 @@ function initSearchAdressDaterange() {
         $('#mb-start-time').html(startTime);
     }
 
-    if(endDate){
+    if (endDate) {
         endTime = moment.unix(endDate).format('HH:mm:ss');
         endDate = moment.unix(endDate).format('DD/MM/YYYY');
         $('.end_date span').html(endDate);
@@ -221,19 +237,23 @@ function initSearchAdressDaterange() {
         placesSuggest(text);
     });
 
-    $('.start_date .time').on('change', function() {
+    $('.start_date .time').on('change', function () {
         startTime = this.value;
         search();
     });
 
-    $('.end_date .time').on('change', function() {
+    $('.end_date .time').on('change', function () {
         endTime = this.value;
         search();
     });
 
     function search() {
-        let starDateTime = moment(startDate + " " +  startTime, "DD/MM/YYYY HH:mm:ss").unix();
-        let endDateTime = moment(endDate + " " +  endTime, "DD/MM/YYYY HH:mm:ss").unix();
-        window.location.search =  $.query.set('startDate', starDateTime).set('endDate', endDateTime);
+        let starDateTime = moment(startDate + " " + startTime, "DD/MM/YYYY HH:mm:ss").unix();
+        let endDateTime = moment(endDate + " " + endTime, "DD/MM/YYYY HH:mm:ss").unix();
+        window.location.search = $.query.set('startDate', starDateTime).set('endDate', endDateTime);
     }
+}
+
+function loadmore() {
+    
 }

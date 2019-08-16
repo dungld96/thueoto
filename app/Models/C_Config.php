@@ -18,4 +18,9 @@ class C_Config extends Model
         $infoSystemCf = C_Config::where('name', 'info_system')->firstOrFail();
         return json_decode($infoSystemCf->value);
     }
+    public static function getEsmsKeyCf()
+    {
+        $esmsKeyCf = C_Config::where('name', 'key_esms')->firstOrFail();
+        return json_decode($esmsKeyCf->value);
+    }
 }

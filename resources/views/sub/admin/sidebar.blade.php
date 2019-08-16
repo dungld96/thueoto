@@ -73,19 +73,19 @@
           </ul>
         </li>
         @if (Auth::user()->isAdmin())
-        <li>
+        <li class="{{ request()->is('admin/users*') || request()->is('admin/customers*') || request()->is('admin/coupons*')? 'active open' : '' }}">
           <a href="javascript:;">
           <i class="fas fa-cogs"></i>
           <span class="title">Quản trị hệ thống</span>
           </a>
           <ul class="sub-menu">
-            <li>
+            <li class="{{request()->is('admin/users') ? 'active' : ''}}">
               <a href="{{route('users.list')}}">
               <i class="fas fa-users-cog"></i>
               Người dùng</a>
             </li>
-            <li>
-              <a href="javascript:;">
+            <li class="{{request()->is('admin/configs') ? 'active' : ''}}">
+              <a href="{{route('admin.configs')}}">
               <i class="fas fa-tools"></i>
               Tham số hệ thống</a>
             </li>

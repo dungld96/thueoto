@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BookingDetail;
 use App\Models\Car;
+use App\Models\C_Config;
 use App\User;
 use DataTables;
 use Illuminate\Support\Facades\DB;
@@ -318,11 +319,16 @@ class TripsController extends Controller
     {
         $user = User::find($trip->user_id);
         $car = Car::find($trip->car_id);
-        $content = 'Xac nhan dat xe: '.$car->name.', gia thue: '.$trip->sum_amount.'000 dong. Ma: '.$trip->trip_code.' tai VinhTinAuto. Cam on ban da su dung dich vu cua chung toi';
+        $esmsKeyCf = C_Config::getEsmsKeyCf();	
+        $start = date('d/m/Y', strtotime($trip->start_date));
+        $end = date('d/m/Y', strtotime($trip->end_date));
+
+        $content = 'Ban da dat xe thanh cong tai VinhTinAuto: xe '.$car->name.', thoi gian thue tu ngay: '.$start.' den '.$end.', ma dat xe: '.$trip->trip_code
+                    .'. Hotline: 0868698682. Cam on ban da su dung dich vu.';
         $client = new Client();
         $res = $client->get(
             'http://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_get?Phone='.$user->phone_number
-            .'&Content='.$content.'&ApiKey=781151A257AEFC6C850904C1969420&SecretKey=4277DE3783E761358B9CFF600A7DA8&SmsType=4'
+            .'&Content='.$content.'&ApiKey='.$esmsKeyCf->api_key.'&SecretKey='.$esmsKeyCf->secret_key.'&SmsType=4'
         );
         if($res->getStatusCode() == 200){
             $data = json_decode($res->getBody()->getContents());

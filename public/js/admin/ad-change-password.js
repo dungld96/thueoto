@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $('#adChangePwForm').submit(function(e) {
-        console.log('cc')
         e.preventDefault();
         var current_password = $('input[name=current_password]').val().trim();
         var password = $('input[name=password]').val().trim();

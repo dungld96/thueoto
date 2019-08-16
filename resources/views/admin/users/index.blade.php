@@ -1,5 +1,5 @@
 @extends('layout.admin.admin')
-@section('title', 'Danh sách chuyến xe')
+@section('title', 'Danh sách người kiểm duyệt')
 @section('content')
     <div class="row content-header">
         <div class="col-md-8">
