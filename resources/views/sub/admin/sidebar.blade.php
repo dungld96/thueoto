@@ -73,7 +73,7 @@
           </ul>
         </li>
         @if (Auth::user()->isAdmin())
-        <li class="{{ request()->is('admin/users*') || request()->is('admin/customers*') || request()->is('admin/coupons*')? 'active open' : '' }}">
+        <li class="{{ request()->is('admin/users*') || request()->is('admin/customers*') ? 'active open' : '' }}">
           <a href="javascript:;">
           <i class="fas fa-cogs"></i>
           <span class="title">Quản trị hệ thống</span>

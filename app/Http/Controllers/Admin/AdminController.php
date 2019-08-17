@@ -171,9 +171,14 @@ class AdminController extends Controller
 
     public function configs()
     {
-        $infoSystemCf = C_Config::getInfoSystemCf();	
-        $serviceCostsCf = C_Config::getServiceCosts();	
-        $esmsKeyCf = C_Config::getEsmsKeyCf();	
+        try {
+            $infoSystemCf = C_Config::getInfoSystemCf();	
+            $serviceCostsCf = C_Config::getServiceCosts();	
+            $esmsKeyCf = C_Config::getEsmsKeyCf();	
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+       
 
         return view('admin.configs.index', [
             'infoSystemCf' => $infoSystemCf, 

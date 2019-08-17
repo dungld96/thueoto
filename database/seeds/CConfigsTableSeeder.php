@@ -26,5 +26,12 @@ class CConfigsTableSeeder extends Seeder
                 'default' => '{"address":"Sân bay Nội Bài - Sóc Sơn - Hà Nội","phone_number_1":"08 6869 8682","phone_number_2":"0246 327 8686","email":"vinhtin2069@gmail.com"}'
             ]
        );
+       DB::table('c_configs')->insert(
+        [
+            'name' => 'key_esms',
+            'value' => '{"api_key":"xxx","secret_key":"xxxx"}',
+            'default' => '{"api_key":"xxx","secret_key":"xxxx"}'
+        ]
+   );
     }
 }
