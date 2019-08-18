@@ -71,7 +71,45 @@ $(document).ready(function () {
         }
     });
 
+    
+    $('body').on('change', '#file-car-spec', function (e) {
 
+        if ($(this).val() != '') {
+            let car_spec = this.files[0];
+            var form_data = new FormData();
+            form_data.append('file', car_spec);
+            $.ajax({
+                url: BASE_URL + '/admin/images/upload/store',
+                data: form_data,
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    $('#car-spec').val(data.name);
+                    $('.preview-car-spec img').attr('src', BASE_URL + '/uploads/' + data.name);
+                    $('#remove-car-spec').show();
+                },
+                error: function (e) {
+                    console.log(e)
+                   
+                }
+            });
+        }
+    });
+
+    $('#remove-car-spec').on('click', function (e) {
+        $('#car-spec').val('');
+        $('#file-car-spec').val('');
+        $('.preview-car-spec img').attr('src', '');
+        $('#remove-car-spec').hide();
+
+    });
+
+    $('#btn-car-spec').on('click', function (e) {
+        $('#file-car-spec').click();
+    });
+
+    
 
 
     // Dropzone.autoDiscover = false;
@@ -120,7 +158,7 @@ $(document).ready(function () {
                 name = uploadedDocumentMap[file.name]
             }
 
-            let url = BASE_URL + '/admin/cars/images/remove/' + name;
+            let url = BASE_URL + '/admin/images/remove/' + name;
             let token = $('meta[name="_token"]').attr('content');
             let isStored = false;
             if (typeof $images !== 'undefined') {

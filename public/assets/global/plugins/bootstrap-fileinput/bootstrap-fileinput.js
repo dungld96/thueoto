@@ -15,7 +15,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * ========================================================== */
+ * ========================================================== 
+ * 
+ * Dungld edited
+ * skype: dungken_uet
+ * */
 
 +function ($) { "use strict";
 
@@ -32,10 +36,10 @@
 
     this.name = this.$input.attr('name') || options.name
 
-    this.$hidden = this.$element.find('input[type=hidden][name="' + this.name + '"]')
-    if (this.$hidden.length === 0) {
-      this.$hidden = $('<input type="hidden">').insertBefore(this.$input)
-    }
+    this.$hidden = this.$element.find('input[type=hidden][name="car_spec"]')
+    // if (this.$hidden.length === 0) {
+    //   this.$hidden = $('<input type="hidden">').insertBefore(this.$input)
+    // }
 
     this.$preview = this.$element.find('.fileinput-preview')
     var height = this.$preview.css('height')
@@ -46,7 +50,7 @@
     this.original = {
       exists: this.$element.hasClass('fileinput-exists'),
       preview: this.$preview.html(),
-      hiddenVal: this.$hidden.val()
+      // hiddenVal: this.$hidden.val()
     }
     
     this.listen()
@@ -63,15 +67,15 @@
   Fileinput.prototype.change = function(e) {
     var files = e.target.files === undefined ? (e.target && e.target.value ? [{ name: e.target.value.replace(/^.+\\/, '')}] : []) : e.target.files
     
-    e.stopPropagation()
+    // e.stopPropagation()
 
     if (files.length === 0) {
       this.clear()
       return
     }
 
-    this.$hidden.val('')
-    this.$hidden.attr('name', '')
+    // this.$hidden.val('')
+    // this.$hidden.attr('name', '')
     this.$input.attr('name', this.name)
 
     var file = files[0]
@@ -112,7 +116,7 @@
     if (e) e.preventDefault()
     
     this.$hidden.val('')
-    this.$hidden.attr('name', this.name)
+    // this.$hidden.attr('name', this.name)
     this.$input.attr('name', '')
 
     //ie8+ doesn't support changing the value of input with type=file so clone instead
@@ -138,7 +142,7 @@
   Fileinput.prototype.reset = function() {
     this.clear()
 
-    this.$hidden.val(this.original.hiddenVal)
+    // this.$hidden.val(this.original.hiddenVal)
     this.$preview.html(this.original.preview)
     this.$element.find('.fileinput-filename').text('')
 

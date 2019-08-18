@@ -16,18 +16,20 @@ class BookingController extends Controller
 {
     public function carDetail($slug)
     {
-		  $car = Car::where('slug', $slug)->first();
-			$serviceCosts = C_Config::getServiceCosts();
-			$infoSystemCf = C_Config::getInfoSystemCf();			
+		$car = Car::where('slug', $slug)->first();
+        $carFunction = json_decode($car->function);
+		$serviceCosts = C_Config::getServiceCosts();
+		$infoSystemCf = C_Config::getInfoSystemCf();			
     	$carSimilars = Car::where('status', 'active')->get();
     	$carImages = CarImages::where('car_id', $car->id)->get();
     	return view('client.car.booking-detail', [
-													'car' => $car, 
-													'carSimilars' => $carSimilars, 
-													'carImages' => $carImages, 
-													'serviceCosts' => $serviceCosts, 
-													'infoSystemCf' => $infoSystemCf
-												]);
+				'car' => $car, 
+				'carSimilars' => $carSimilars, 
+				'carImages' => $carImages, 
+				'serviceCosts' => $serviceCosts, 
+				'infoSystemCf' => $infoSystemCf,
+				'carFunction' => $carFunction
+		]);
     }
 
     public function booking(Request $request)
@@ -308,6 +310,11 @@ class BookingController extends Controller
 	}
 
 
+    public function viewCarSpec($id)
+    {
+		$car = Car::find($id);
+        return view('client.car.car-spec', ['car' => $car]);
+    }
 
 
 

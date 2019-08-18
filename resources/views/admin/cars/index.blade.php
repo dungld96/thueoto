@@ -2,6 +2,7 @@
 @section('title', 'Danh sách xe')
 @section('style-page')
     <link href="{{asset('assets/global/plugins/dropzone/css/dropzone.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
     <div class="row content-header">
@@ -40,7 +41,7 @@
 
     <!-- /.modal -->
     <div id="addCar" class="modal fade bs-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-70">
+        <div class="modal-dialog modal-90">
             <div class="modal-content">
                     
             </div>
@@ -50,6 +51,7 @@
 
 @section('script-datatable')
 <script src="{{asset('js/admin/cars.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     var carsTable = $('#carsdata').DataTable({

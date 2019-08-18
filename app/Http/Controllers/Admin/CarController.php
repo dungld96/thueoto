@@ -54,10 +54,25 @@ class CarController extends Controller
             $car->fuel = $request->fuel;
             $car->description = $request->description;
             $car->seats = $request->seats;
+            $car->consumption = $request->consumption;
             $car->costs = $request->costs;
             $car->promotion_costs = $request->promotion_costs;
+            $car->is_top = isset($request->is_top) && $request->is_top == 'T' ? 'T' : 'F';
             $car->status = $request->status;
             $car->thumbnail = isset($files[0]) ? $files[0] : '';
+            $car->car_spec = $request->car_spec;
+
+            $function = [
+                'sr' => isset($request->sr) && $request->sr == 'T' ? true : false,
+                'gp' => isset($request->gp) && $request->gp == 'T' ? true : false,
+                'bs' => isset($request->bs) && $request->bs == 'T' ? true : false,
+                'sc' => isset($request->sc) && $request->sc == 'T' ? true : false,
+                'bt' => isset($request->bt) && $request->bt == 'T' ? true : false,
+                'us' => isset($request->us) && $request->us == 'T' ? true : false,
+                'mp' => isset($request->mp) && $request->mp == 'T' ? true : false
+            ];
+
+            $car->function = json_encode($function);
             $car->save();
 
             if(isset($files)){
@@ -85,9 +100,22 @@ class CarController extends Controller
     {
         $car = new Car();
         $car->code = $this->generateCarCode();
+        $car->consumption = 10;
         $makes = C_Make::all();
         $c_seats = json_decode(file_get_contents(storage_path().'/app/json/seats.json', false));
-        return view('admin.cars._edit', ['car' => $car, 'makes' => $makes, 'c_seats' => $c_seats]);
+
+        $carFunction = [
+            'sr' => false,
+            'gp' => false,
+            'bs' => false,
+            'sc' => false,
+            'bt' => false,
+            'us' => false,
+            'mp' => false
+        ];
+
+        $carFunction = json_decode(json_encode($carFunction));
+        return view('admin.cars._edit', ['car' => $car, 'makes' => $makes, 'c_seats' => $c_seats, 'carFunction' => $carFunction]);
     }
 
     public function delete($id)
@@ -123,6 +151,7 @@ class CarController extends Controller
     public function edit($id)
     {
         $car = Car::find($id);
+        $carFunction = json_decode($car->function);
         $makes = C_Make::all();
         $images = CarImages::select('name')->where('car_id', $id)->get();
         foreach ($images as $i=> $img) {
@@ -130,7 +159,13 @@ class CarController extends Controller
             
         }
         $c_seats = json_decode(file_get_contents(storage_path().'/app/json/seats.json', false));
-        return view('admin.cars._edit', ['car' => $car, 'images' => $images, 'makes' => $makes, 'c_seats' => $c_seats]);
+        return view('admin.cars._edit', [
+            'car' => $car, 
+            'images' => $images, 
+            'makes' => $makes, 
+            'c_seats' => $c_seats, 
+            'carFunction' => $carFunction
+        ]);
     }
 
     public function update(Request $request)
@@ -149,10 +184,13 @@ class CarController extends Controller
             $car->fuel = $request->fuel;
             $car->description = $request->description;
             $car->seats = $request->seats;
+            $car->consumption = $request->consumption;
             $car->costs = $request->costs;
             $car->promotion_costs = $request->promotion_costs;
+            $car->is_top = isset($request->is_top) && $request->is_top == 'T' ? 'T' : 'F';
             $car->status = $request->status;
             $car->thumbnail = isset($files[0]) ? $files[0] : '';
+            $car->car_spec = $request->car_spec;
             
             if($request->status == 'inactive'){
                 $allTripByCar = BookingDetail::where('car_id', $request->id)->get();
@@ -168,6 +206,17 @@ class CarController extends Controller
                 }
             }
 
+            $function = [
+                'sr' => isset($request->sr) && $request->sr == 'T' ? true : false,
+                'gp' => isset($request->gp) && $request->gp == 'T' ? true : false,
+                'bs' => isset($request->bs) && $request->bs == 'T' ? true : false,
+                'sc' => isset($request->sc) && $request->sc == 'T' ? true : false,
+                'bt' => isset($request->bt) && $request->bt == 'T' ? true : false,
+                'us' => isset($request->us) && $request->us == 'T' ? true : false,
+                'mp' => isset($request->mp) && $request->mp == 'T' ? true : false
+            ];
+
+            $car->function = json_encode($function);
             $car->save();
 
             $images = CarImages::select('id','name')->where('car_id', $request->id)->get()->toArray();

@@ -31,10 +31,12 @@ class CreateCarsTable extends Migration
             $table->mediumText('mortgage')->nullable(); // điều kiện thế chấp
             $table->mediumText('rules')->nullable(); // yêu cầu
             $table->string('thumbnail')->nullable();
+            $table->string('car_spec')->nullable();
             $table->integer('costs');
             $table->integer('promotion_costs')->nullable();
             $table->string('slug')->unique();
-            $table->string('status', 10)->default('active'); // 1: deactive, 2: active
+            $table->string('is_top', 10)->nullable()->default('F'); // F: false, T: true
+            $table->string('status', 10)->default('active');
             $table->timestamps();
         });
     }

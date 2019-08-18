@@ -10,7 +10,38 @@ body {
 .gach-ngang{
     text-decoration: line-through;
 }
-
+.ic{
+    background: url(../images/main_icon.png);
+    background-repeat: no-repeat;
+    background-size: 450px;
+    height: 24px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    text-indent: -9999px;
+}
+.ic.ic-chair {
+    background-position: -115px -281px;
+    width: 32px;
+}
+.ic.ic-trans {
+    background-position: -239px -281px;
+    width: 32px;
+}
+.ic.ic-diesel {
+    background-position: -161px -281px;
+    width: 32px;
+    -webkit-transform: scale(.8);
+    transform: scale(.8);
+}
+.ic.ic-consumption {
+    background-position: -202px -281px;
+    width: 32px;
+}
+.img-icon{
+    width: 20px;
+    height: 20px;
+}
 .space.m {
     padding-top: 10px;
     padding-bottom: 10px;

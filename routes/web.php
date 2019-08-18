@@ -73,6 +73,11 @@
 			'as' => 'car.booking.confirm',
 			'uses' => 'Client\BookingController@confirmBooking'
 		]);
+
+		Route::get('car-spec/{id}', [
+			'as' => 'car.car-spec',
+			'uses' => 'Client\BookingController@viewCarSpec'
+		]);
 	
 	});	
 

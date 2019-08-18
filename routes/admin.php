@@ -10,16 +10,27 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 		'as'=> 'users.updatepassword',
 		'uses'=> 'Admin\AdminController@updatePassword'
 	]);
+	
+	Route::get('/', [
+		'as'=> 'dashboard',
+		'uses'=> 'Admin\DashboardController@index'
+	]);
 
 	Route::get('/dashboard', [
 		'as'=> 'dashboard',
 		'uses'=> 'Admin\DashboardController@index'
 	]);
-	Route::get('/', [
-		'as'=> 'dashboard',
-		'uses'=> 'Admin\DashboardController@index'
+
+	Route::post('/images/upload/store', [
+		'as'=> 'upload_image_store',
+		'uses'=> 'ImagesController@imageStore'
 	]);
-	
+
+	Route::post('/images/remove/{name}', [
+		'as'=> 'admin_car_image_remove',
+		'uses'=> 'ImagesController@imageRemove'
+	]);
+
 	Route::prefix('cars')->group(function () {
 		Route::get('/', [
 			'as'=> 'admin_cars_index',
@@ -34,16 +45,6 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 		Route::post('/store', [
 			'as'=> 'admin_car_store',
 			'uses'=> 'Admin\CarController@store'
-		]);
-	
-		Route::post('/images/upload/store', [
-			'as'=> 'admin_car_image_store',
-			'uses'=> 'ImagesController@imageStore'
-		]);
-	
-		Route::post('/images/remove/{name}', [
-			'as'=> 'admin_car_image_remove',
-			'uses'=> 'ImagesController@imageRemove'
 		]);
 	
 		Route::get('/create', [

@@ -36,6 +36,9 @@
                                 </div>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <ul>
+                                            @if (Auth::user()->isModOrAdmin())
+                                                <li><a href="{{route('dashboard')}}">Trang quản lý</a></li>
+                                            @endif
                                             <li><a href="{{route('user.account')}}">Tài khoản</a></li>
                                             <li><a href="{{route('user.mytrips')}}">Chuyến của tôi</a></li>
                                             <li><a href="{{route('user.changepassword')}}">Đổi mật khẩu</a></li>

@@ -332,17 +332,28 @@ class TripsController extends Controller
         );
         if($res->getStatusCode() == 200){
             $data = json_decode($res->getBody()->getContents());
-            if($data->CodeResult == 100){
-                return 'Request gửi tin nhắn thành công';
-            }
-
-            if($data->CodeResult == 102){
-                return 'Tài khoản bị khóa';
+            switch ($data->CodeResult) {
+                case '100':
+                    return 'Request gửi tin nhắn thành công';
+                    break;
+                
+                case '101':
+                    return 'Gửi tin nhắn thật bại, api key hoặc secrect key không đúng';
+                    break;
+                
+                case '102':
+                    return 'Tài khoản bị khóa';
+                    break;
+                
+                case '103':
+                    return 'Số dư tài khoản không đủ để gửi tin nhắn';
+                    break;
+                
+                default:
+                    return $data->CodeResult;
+                    break;
             }
             
-            if($data->CodeResult == 103){
-                return 'Số dư tài khoản không đủ để gửi tin nhắn';
-            }
         }else{
             return 'Gửi tin nhắn thất bại';
         }

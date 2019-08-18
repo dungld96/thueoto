@@ -457,8 +457,6 @@ textarea {
 }
 
 .car_info {
-    display: flex;
-    /*width: 100%;*/
     padding: 40px 0;
     font-size: 16px;
     color: #6c757d;
@@ -1554,6 +1552,63 @@ textarea {
     cursor: pointer;
 }
 
+.pr-section{
+    background-color: #F4F5F7;
+    min-height: 480px;
+}
+
+.pr-section .pr-list .pr-item {
+    display: flex;
+    margin-top: 20px;
+}
+
+.pr-section .pr-list .row.equal {
+    display: -webkit-flex;
+    flex-wrap: wrap;
+}
+
+.pr-section .pr-list .pr-item .pr-icon {
+    text-align: center;
+    margin: 25px 30px;
+}
+
+.pr-section .pr-list .pr-item .content p {
+    text-align: justify;
+}
+
+.pr-section .pr-list .pr-item .pr-icon i {
+    font-size: 35px;
+    color: #00a550;
+}
+.content-detail .car-info-more{
+    display: flex;
+    justify-content: center;
+}
+.content-detail .car-info-more a{
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid #00a550;
+    color: #00a550;
+    cursor: pointer;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+.content-detail .car-info-more a:hover{
+    border: 1px solid #ff9300;
+    color: #ff9300;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+
+.car-spec-content{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
 /* MOBILE */
 
 @media screen and (max-width: 1399px) {
@@ -1854,6 +1909,9 @@ textarea {
     .result-header .daterange .place_wrap {
         width: 90%;
     }
+    .pr-section .pr-list .pr-item .content h3 {
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -1956,6 +2014,15 @@ textarea {
     }
     .rn-testimonial2-item p{
         font-size: 16px;
+    }
+    .pr-section .pr-list {
+        margin: 0 10px;
+    }
+    .pr-section .pr-list .pr-item {
+        display: block;
+    }
+    .pr-section .pr-list .pr-item .content h3 {
+        text-align: center;
     }
 }
 

@@ -23,14 +23,94 @@
                                 Đặc điểm
                             </div>
                             <div class="col_content">
+                                <ul class="features">   
+                                    <li>
+                                        <i class="ic ic-chair"></i>
+                                        Số ghế: {{$car->seats}}</li>
+                                    <li>
+                                        <i class="ic ic-trans"></i>
+                                        Truyền động: {{getNameTransmission($car->transmission)}}</li>
+                                    <li>
+                                        <i class="ic ic-diesel"></i>
+                                        Nhiên liệu: {{getNameFuel($car->fuel)}}</li>
+                                    @if (isset($car->consumption))
+                                    <li>
+                                        <i class="ic ic-consumption"></i>
+                                        Tiêu thụ: {{$car->consumption}} lít/100km</li>
+                                    @endif
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        @if (!empty($car->description))
+                        <div class="group">
+                            <div class="col_title">
+                                Mô tả
+                            </div>
+                            <div class="col_content">
                                 <ul class="features">
-                                    <li>Số ghế: {{$car->seats}}</li>
-                                    <li>Truyền động: {{getNameTransmission($car->transmission)}}</li>
-                                    <li>Nhiên liệu: {{getNameFuel($car->fuel)}}</li>
+                                    <li>{{$car->description}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        @endif
+                        
+                        <div class="group">
+                            <div class="col_title">
+                                Tính năng
+                            </div>
+                            <div class="col_content">
+                                <ul class="features">
+                                    @if ($carFunction->sr)
+                                    <li>
+                                        <img class="img-icon" src="{{asset('images/icons/sunroof.png')}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ" >
+                                        Cửa sổ trời</li>
+                                    @endif
+                                    
+                                    @if ($carFunction->bt)
+                                    <li>
+                                        <img class="img-icon" src="{{asset('images/icons/bluetooth.png')}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ" >                                        
+                                        Bluetooth</li>
+                                    @endif
+                                    
+                                    @if ($carFunction->gp)
+                                    <li>
+                                        <img class="img-icon" src="{{asset('images/icons/gps.png')}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ" >                                        
+                                        Định vị GPS</li>
+                                    @endif
+                                    
+                                    @if ($carFunction->us)
+                                    <li>
+                                        <img class="img-icon" src="{{asset('images/icons/usb.png')}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ" >                                        
+                                        Khe cắm USB</li>
+                                    @endif
+                                    
+                                    @if ($carFunction->bs)
+                                    <li>
+                                        <img class="img-icon" src="{{asset('images/icons/babyseat.png')}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ" >                                        
+                                        Ghế trẻ em</li>
+                                    @endif
+                                    
+                                    @if ($carFunction->mp)
+                                    <li>
+                                        <img class="img-icon" src="{{asset('images/icons/map.png')}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ" >                                        
+                                        Bản đồ</li>
+                                    @endif
+                                    
+                                    @if ($carFunction->sc)
+                                    <li>
+                                        <img class="img-icon" src="{{asset('images/icons/reverse_camera.png')}}" alt="Vĩnh Tín AUTO - Thuê xe sân bay Nội bài, xe tự lái giá rẻ" >                                        
+                                        Camera lùi</li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
                     </div>
+                    @if (isset($car->car_spec))
+                    <div class="car-info-more">
+                        <a data-id="{{$car->id}}" href="javascript:;" id="box-car-spec" class="btn">Xem thông số chi tiết</a>
+                    </div>
+                    @endif
                 </div>
                 <div class="col-md-5">
                     <div class="booking-info">
@@ -172,6 +252,13 @@
     </div>
     <div id="useCouponModel" class="modal fade" role="dialog">
         <div class="modal-dialog">
+            <div class="modal-content">
+                
+            </div>
+        </div>
+    </div>
+    <div id="carSpecModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 
             </div>

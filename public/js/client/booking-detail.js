@@ -258,7 +258,17 @@ $(document).ready(function () {
             }
 
         });
-    });
+	});
+
+	$('#box-car-spec').on('click', function (e) {
+		e.preventDefault();
+		var carId = $(this).data("id");
+        target = BASE_URL + "/car/car-spec/" + carId,
+        $("#carSpecModal .modal-content").load(target, function() {
+            $("#carSpecModal").modal("show");
+        });
+	});
+
 
 });
 

@@ -18,6 +18,9 @@
 .modal-80{
     width: 80%;
 }
+.modal-90{
+    width: 90%;
+}
 
 .dataTables_processing svg {
     width: 3.75em;
@@ -195,7 +198,6 @@
 
 #uploadCarImg{
     min-height: 170px;
-    margin-left: 19%;
     border: 1px dashed #ddd;
 }
 
@@ -223,4 +225,30 @@
     width: 250px;
     max-width: 300px;
     margin: 20px;
+}
+
+.form-add-car .form-left{
+    padding-right: 0;
+}
+
+.form-add-car .form-right{
+    padding-left: 0;
+}
+
+.preview-car-spec{
+    margin-bottom: 10px;
+    width: 90px;
+}
+.preview-car-spec img{
+    height: 120px;
+    width: auto;
+}
+#remove-car-spec{
+    display: none;
+}
+#file-car-spec{
+    opacity: 0;
+}
+.btn-car-spec{
+    padding: 5px 8px;
 }
