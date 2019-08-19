@@ -53,6 +53,10 @@ $(document).ready(function() {
         }
     });
 
+    $('body').on('change', '#isTop', function(ev) {
+        var oTable = $('#carsdata').dataTable();
+        oTable.fnDraw(false);
+    });
 
     
 });

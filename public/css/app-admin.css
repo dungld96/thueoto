@@ -171,8 +171,8 @@
     font-weight: 600;
 }
 
-#formTripsTableFilter {
-    margin: 0px 10px 20px 10px;
+.table-filter {
+    margin: 0;
 }
 
 .in_dam{

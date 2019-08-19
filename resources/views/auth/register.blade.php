@@ -1,5 +1,6 @@
 
 @extends('layout.client.client')
+@section('title', 'Thuê xe sân bay Nội Bài, xe tự lái giá rẻ')
 @section('content')
 <div class="container">
 	<div class="row">

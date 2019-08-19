@@ -21,19 +21,32 @@ class CarController extends Controller
 
     public function getAll(Request $request)
     {
-        $cars = Car::select(['id', 'code', 'name', 'costs', 'promotion_costs', 'status'])
-        ->orderBy('updated_at', 'desc')
-        ->orderBy('created_at', 'desc')
-        ->get();
+        $inpCarFilters = $request->car_filter_params;
+        $isTop = 'F';
+        
+        $query = Car::select(['id', 'code', 'name', 'costs', 'promotion_costs', 'is_top', 'status']);
 
-    	return DataTables::of($cars)
-    	->addColumn('action', function ($cars) {
+        if (is_array($inpCarFilters) || is_object($inpCarFilters))
+        {
+            foreach ($inpCarFilters as $param) {
+                if($param['name'] == 'is_top') {
+                    $query->where('is_top', $param['value']);
+                }
+            }
+        }
+
+        $query->orderBy('updated_at', 'desc');
+        $query->orderBy('created_at', 'desc');
+
+        $query = $query->get();
+    	return DataTables::of($query)
+    	->addColumn('action', function ($query) {
             return 
-            '<a data-id="'.$cars->id.'" class="btnEditCar btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Sửa</a> 
-            <a data-id="'.$cars->id.'" class="btnDeleteCar btn btn-xs btn-danger btn-delete"><i class="fa fa-times"></i> Xóa</a>';
+            '<a data-id="'.$query->id.'" class="btnEditCar btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Sửa</a> 
+            <a data-id="'.$query->id.'" class="btnDeleteCar btn btn-xs btn-danger btn-delete"><i class="fa fa-times"></i> Xóa</a>';
         })
-        ->editColumn('status', function($cars) {
-                    return getCarStatus($cars->status);
+        ->editColumn('status', function($query) {
+                    return getCarStatus($query->status);
          })
     	->addIndexColumn()
 	    ->make();

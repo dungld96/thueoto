@@ -17,6 +17,19 @@
             </div>
         </div>
     </div>
+    <div class="row table-filter">
+        <form role="form" id="formCarsFilter">
+            <div class="form-body">
+                <div class="form-group">
+                    <div class="checkbox-list">
+                        <label class="checkbox-inline">
+                        <input type="checkbox" class="car-is-top" id="isTop"  name="is_top" value="T">Xe nổi bật</label>
+                        <label class="checkbox-inline">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -57,7 +70,13 @@ $(document).ready(function() {
     var carsTable = $('#carsdata').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{{route('admin_cars_getdata')}}',
+        ajax: {
+          url: '{{route('admin_cars_getdata')}}',
+          type: 'GET',
+          data: function (d) {
+            d.car_filter_params = $('#formCarsFilter').serializeArray();
+          }
+         },
         language: {url: '{{asset('lang/datatable.json')}}'},
         columns: [
              { data: 'DT_Row_Index', name: 'DT_Row_Index' },
