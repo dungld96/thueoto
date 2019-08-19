@@ -1569,6 +1569,7 @@ textarea {
 }
 
 .pr-section .pr-list .row.equal {
+    display: flex;
     display: -webkit-flex;
     flex-wrap: wrap;
 }
@@ -2030,6 +2031,7 @@ textarea {
     }
     .pr-section .pr-list .pr-item .content h3 {
         text-align: center;
+        font-size: 17px;
     }
 }
 
