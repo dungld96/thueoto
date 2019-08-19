@@ -153,8 +153,6 @@
             <div class="container">
                 <h2>Lý do nên chọn chúng tôi</h2>
                 <div class="pr-list">
-                    <div class="row equal">
-                        <div class="col-md-4 col-sm-4 col-xs-6">
                             <div class="pr-item">
                                 <div class="pr-icon">
                                     <i class="fas fa-cart-plus"></i>
@@ -164,8 +162,6 @@
                                     <p>Hàng trăm loại xe đa dạng phục vụ mọi nhu cầu của khách hàng</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-6">
                             <div class="pr-item">
                                 <div class="pr-icon">
                                     <i class="fab fa-searchengin"></i>
@@ -175,8 +171,6 @@
                                     <p>Dề dàng tìm kiếm, so sánh và đặt chiếc xe như ý chỉ với vài click chuột</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-6">
                             <div class="pr-item">
                                 <div class="pr-icon">
                                     <i class="fas fa-hand-holding-usd"></i>
@@ -186,8 +180,7 @@
                                     <p>Giá cả được niêm yết công khai và rẻ hơn 10% so với giá truyền thống</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-6">
+                        
                             <div class="pr-item">
                                 <div class="pr-icon">
                                     <i class="fas fa-user-check"></i>
@@ -197,8 +190,7 @@
                                     <p>Các xe luôn được đảm bảo tình trạng vận hành tốt nhất với các kỹ sư chuyên ngành</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-6">
+                        
                             <div class="pr-item">
                                 <div class="pr-icon">
                                     <i class="fas fa-star"></i>
@@ -208,8 +200,7 @@
                                     <p>Có nhân viên hỗ trợ khách hàng trong suốt thời gian thuê xê</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-6">
+                        
                             <div class="pr-item">
                                 <div class="pr-icon">
                                     <i class="fas fa-shield-alt"></i>
@@ -219,8 +210,6 @@
                                     <p>An tâm với các gói bảo hiểm vật chất và tai nạn trong suốt quá trình thuê xe</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -1614,8 +1614,15 @@ textarea {
     margin-bottom: 30px;
 }
 
+.pr-section .pr-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 10px 20px;
+}
 
-
+/* .pr-section .pr-list .pr-item{
+    grid-column: span 4;
+} */
 
 /* MOBILE */
 
@@ -2026,12 +2033,16 @@ textarea {
     .pr-section .pr-list {
         margin: 0 10px;
     }
-    .pr-section .pr-list .pr-item {
+    /*.pr-section .pr-list .pr-item {
         display: block;
-    }
-    .pr-section .pr-list .pr-item .content h3 {
+    } */
+    /* .pr-section .pr-list .pr-item .content h3 {
         text-align: center;
         font-size: 17px;
+    } */
+    .pr-section .pr-list .pr-item .pr-icon {
+        
+        margin-left: 0;
     }
 }
 
@@ -2101,5 +2112,9 @@ textarea {
     }
     .list-mytrips .has-trips .trip-box .trip-header .car-name {
         font-size: 16px;
+    }
+    .pr-section .pr-list {
+        grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+        grid-gap: 0px 20px;
     }
 }
