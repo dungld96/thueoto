@@ -13,4 +13,15 @@
 <script type="text/javascript" src="{{asset('assets/global/plugins/jquery-plugin-query-object/jquery.query-object.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/global/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/client/main.js')}}"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145858170-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-145858170-1');
+</script>
+
 @yield('script-client')

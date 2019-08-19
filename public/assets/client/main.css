@@ -703,9 +703,9 @@ textarea {
     font-size: 16px;
 }
 
-.footer .container {
-    padding-top: 50px;
-    padding-bottom: 50px;
+.footer .footer-top {
+    padding-top: 70px;
+    padding-bottom: 40px;
 }
 
 .footer h4 {
@@ -722,9 +722,15 @@ textarea {
 }
 
 .footer .copyright {
-    text-align: center;
-    padding-top: 30px;
-    margin-top: 120px;
+    padding: 25px 0;
+    margin-top: 100px;
+    border-top: 1px solid #212121;
+
+}
+
+.footer .copyright code{
+    background-color: unset;
+    color: #fff;
 }
 
 .modal-header {
@@ -1604,6 +1610,7 @@ textarea {
 .car-spec-content{
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 

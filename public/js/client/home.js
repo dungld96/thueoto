@@ -73,6 +73,37 @@ $(document).ready(function () {
         window.location.href = `/car/filter?startDate=${starDateTime}&endDate=${endDateTime}&address=${address}`;
     });
    
+    $(window).on('scroll', function() {
+        animateCounters();
+    });
 
+    var animateCounters = function animateCounters() {
+        $('.rn-counter-item').each(function() {
+            var countUpItem = $(this);
+            console.log(countUpItem.isInViewport());
+            console.log(countUpItem.prop('animated'));
+            if (countUpItem.isInViewport() && !countUpItem.prop('animated')) {
+                countUpItem.prop('animated', true).find('.rn-counter-number').prop('Counter', 0).animate({
+                    Counter: parseInt(countUpItem.text())
+                }, {
+                    duration: 4000,
+                    easing: 'swing',
+                    step: function step(now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            }
+        });
+    };
+
+    $.fn.isInViewport = function() {
+        var $this = $(this),
+            elementTop = $this.offset().top,
+            elementBottom = elementTop + $this.outerHeight(),
+            $window = $(window);
+        var viewportTop = $window.scrollTop();
+        var viewportBottom = viewportTop + $window.height();
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
     
 });

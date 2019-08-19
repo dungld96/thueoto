@@ -1,5 +1,5 @@
 <div class="footer">
-        <div class="container">
+        <div class="container footer-top">
             <div class="row">
                 <div class="col-md-4">
                     <h4>Thông tin liên hệ</h4>
@@ -26,8 +26,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
-                Vĩnh Tín Auto © 2019
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <code>Copyright © Vĩnh Tín Auto  2019</code>
             </div>
         </div>
     </div>

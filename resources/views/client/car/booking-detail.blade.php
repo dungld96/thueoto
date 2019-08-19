@@ -38,6 +38,9 @@
                                         <i class="ic ic-consumption"></i>
                                         Tiêu thụ: {{$car->consumption}} lít/100km</li>
                                     @endif
+                                    <li>
+                                        <i class="ic ic-year"></i>
+                                        Đời xe: {{$car->car_year}}</li>
                                 </ul>
                             </div>
                         </div>
