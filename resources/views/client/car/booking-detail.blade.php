@@ -58,7 +58,7 @@
                         </div>
                         @endif
                         
-                        <div class="group">
+                        <div class="group function-group">
                             <div class="col_title">
                                 Tính năng
                             </div>

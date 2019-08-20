@@ -1590,6 +1590,8 @@ textarea {
 .content-detail .car-info-more{
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
+
 }
 .content-detail .car-info-more a{
     display: inline-block;
@@ -1612,6 +1614,9 @@ textarea {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+}
+.car-spec-content img{
+    width: 100%;
 }
 
 .pr-section .pr-list {
@@ -1927,6 +1932,17 @@ textarea {
     .pr-section .pr-list .pr-item .content h3 {
         font-size: 20px;
     }
+    .content-detail .car_info {
+        padding: 40px 20px 10px;
+    }
+    .content-detail .booking-info{
+        padding: 30px 10px;
+    }
+    
+    .content-detail .album{
+        padding: 0 5px;
+    }
+
 }
 
 @media screen and (max-width: 576px) {
@@ -2067,8 +2083,14 @@ textarea {
         font-size: 14px;
         word-break: break-word;
     }
+    .content-detail .car_info {
+        padding: 40px 10px 20px;
+    }
     .content-detail .car_info ul li {
         width: 100%;
+    }
+    .content-detail .car_info .function-group ul li {
+        width: 50%;
     }
     .content-result .list-result ul li {
         width: 100%;
