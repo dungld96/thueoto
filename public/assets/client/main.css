@@ -1936,13 +1936,9 @@ textarea {
         padding: 40px 20px 10px;
     }
     .content-detail .booking-info{
-        padding: 30px 10px;
+        padding: 30px 5px;
     }
     
-    .content-detail .album{
-        padding: 0 5px;
-    }
-
 }
 
 @media screen and (max-width: 576px) {
