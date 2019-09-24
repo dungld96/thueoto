@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\C_Config;
 use App\Models\Coupon;
+use App\Models\Role;
+use App\User;
+use App\Notifications\NewBooking;
+use App\Notifications\CustomerReturnCar;
+use DB;
 
 class BookingController extends Controller
 {
@@ -121,7 +126,7 @@ class BookingController extends Controller
 			if(isset($request->promotion_costs) && isset($request->coupon_code)){
 				return response()->json(['message'=>'Không thể dùng mã khuyến mãi cho xe đang giảm giá', 'status' => 'error']);
 			}
-
+		DB::beginTransaction();
     	try {
     		$booking = new BookingDetail();
 	    	$booking->user_id = Auth::user()->id;
@@ -140,8 +145,19 @@ class BookingController extends Controller
 	    	$booking->sum_amount = $request->sum_amount;	
 	    	$booking->status = BookingDetail::STATUS_PENDING;
 
-	    	$booking->save();
+			$booking->save();
+
+			$userSendNoti = User::whereHas("roles", function($q){ 
+				$q->where("role", Role::MOD_ROLE)->orWhere('role', Role::ADMIN_ROLE); 
+			})
+			->where('status', 'active')
+			->get();
+			foreach ($userSendNoti as $u) {
+				$u->notify(new NewBooking($booking));
+			}
+			DB::commit();
     	} catch (\Exception $e) {
+			DB::rollback();
             return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
     		
     	}
@@ -245,6 +261,14 @@ class BookingController extends Controller
 		if(isset($trip->status) && $trip->status == BookingDetail::STATUS_START){
 			$trip->status = BookingDetail::STATUS_PENDING_END;
 			$trip->save();
+			$userSendNoti = User::whereHas("roles", function($q){ 
+				$q->where("role", 2)->orWhere('role', 3); 
+			})
+			->where('status', 'active')
+			->get();
+			foreach ($userSendNoti as $u) {
+				$u->notify(new CustomerReturnCar($trip));
+			}
 		}
 		return redirect()->route('user.mytrips');
 	}

@@ -9,12 +9,34 @@ use App\User;
 use App\Models\Role;
 use App\Models\C_Config;
 use DataTables;
+use DB;
 
 class AdminController extends Controller
 {
     public function index()
     {
         return view('admin.users.index');
+    }
+
+    public function notifications()
+    {
+        try {
+            $notifications = auth()->user()->notifications()->orderBy('created_at')->limit(15)->get()->toArray();
+        } catch (\Exception $e) {
+            return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
+        }
+        return response()->json(['message'=>'Thành công', 'status' => 'success', 'data' => $notifications]);
+    }
+
+    public function readNotifications($id)
+    {
+        $notification = auth()->user()->notifications()->where('id',$id)->first();
+      
+        if($notification != null){
+            $notification->markAsRead();
+            return response()->json(['message'=>'Thành công', 'status' => 'success']);
+        }
+        return response()->json(['message'=> 'Not read', 'status' => 'error']);
     }
 
     public function getUsers()
@@ -97,7 +119,7 @@ class AdminController extends Controller
                 'phone_number.required' => 'Số điện thoại không được để trống',
                 'phone_number.regex' => 'Số điện thoại không hợp lệ'
             ]);
-        
+            DB::beginTransaction();
             try {
                 $user = new User();
                 $user->name = $request->name;
@@ -106,7 +128,9 @@ class AdminController extends Controller
                 $user->password = bcrypt('vinhtin123');
                 $user->save();
                 $user->roles()->attach(Role::where('role', 2)->first());
+                DB::commit();
             } catch (\Exception $e) {
+                DB::rollback();
                 if($e->errorInfo[1] == 1062){
                     $message = 'Số điện thoại hoặc email đã tồn tại.';
                 }else{
@@ -161,9 +185,14 @@ class AdminController extends Controller
 
     public function deleteMod($id)
     {
+        DB::beginTransaction();
         try {
-            User::find($id)->delete();;
+            $user = User::find($id);
+            $user->delete();
+            $user->roles()->detach();
+            DB::commit();
         } catch (Exception $e) {
+            DB::rollback();
             return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
         return response()->json(['message'=>'Xóa tài khoản thành công', 'status' => 'success']);

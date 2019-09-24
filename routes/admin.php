@@ -270,6 +270,7 @@ Route::group(['middleware' => ['access-dashboard']], function(){
 		});
 	});
 	
-
+	Route::get('/notifications', 'Admin\AdminController@notifications');
+	Route::get('/notifications/{id}', 'Admin\AdminController@readNotifications');
 });
 	

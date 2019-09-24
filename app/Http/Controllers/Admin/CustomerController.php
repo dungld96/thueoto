@@ -10,6 +10,7 @@ use App\Models\BookingDetail;
 use Carbon\Carbon;
 use App\Models\Role;
 use DataTables;
+use DB;
 
 class CustomerController extends Controller
 {
@@ -48,6 +49,7 @@ class CustomerController extends Controller
     {
         $inTrip = BookingDetail::where('user_id', $id)->where('status', BookingDetail::STATUS_START);
         if(!$inTrip->exists()){
+            DB::beginTransaction();
             try {
                 $customer = User::findOrFail($id);
                 $customer->status = 'delete';
@@ -57,7 +59,9 @@ class CustomerController extends Controller
                     $trip->status = BookingDetail::STATUS_AD_CANCEL;
                     $trip->save();
                 }
+                DB::commit();
             } catch (\Exception $e) {
+                DB::rollback();
                 return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
             }
             return response()->json(['message'=>'Xóa khách hàng thành công', 'status' => 'success']);

@@ -252,3 +252,16 @@
 .btn-car-spec{
     padding: 5px 8px;
 }
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu .dropdown-menu-list > li a{
+    display: flex;
+    justify-content: space-between;
+}
+.notification-unread{
+    background: #eff2f5;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu {
+    min-width: 160px;
+    max-width: 350px;
+    width: 350px;
+}

@@ -11,6 +11,7 @@ use App\Models\C_Make;
 use App\Models\C_Model;
 use App\Models\CarImages;
 use App\Models\BookingDetail;
+use DB;
 
 class CarController extends Controller
 {
@@ -55,6 +56,7 @@ class CarController extends Controller
     public function store(Request $request)
     {
         $files = $request->input('document', []);
+        DB::beginTransaction();
         try {
             $car = new Car();
             $car->code = $request->code;
@@ -96,9 +98,10 @@ class CarController extends Controller
                     $carImage->save();
                 }
             }
-            
+            DB::commit();
             return response()->json(['message'=>'Thêm xe thành công', 'status' => 'success']);
         } catch (\Exception $e) {
+            DB::rollback();
             if($e->errorInfo[1] == 1062){
                 $message = 'Biển số xe hoặc mã xe đã tồn tại.';
             }else{
@@ -133,6 +136,7 @@ class CarController extends Controller
 
     public function delete($id)
     {
+        DB::beginTransaction();
         try {
             $allTripByCar = BookingDetail::where('car_id', $id)->get();
             if(count($allTripByCar) > 0){
@@ -154,8 +158,9 @@ class CarController extends Controller
 
             CarImages::whereIn('id', $idImages_to_delete)->delete();
             Car::find($id)->delete();;
-
+            DB::commit();
         } catch (Exception $e) {
+            DB::rollback();
             return response()->json(['message'=>$e->getMessage(), 'status' => 'error']);
         }
         return response()->json(['message'=>'Xóa xe thành công', 'status' => 'success']);
@@ -184,6 +189,7 @@ class CarController extends Controller
     public function update(Request $request)
     {
         $files = $request->input('document', []);
+        DB::beginTransaction();
         try {
             $car = Car::find($request->id);
 
@@ -242,9 +248,10 @@ class CarController extends Controller
                 $carImage->name = $file;
                 $carImage->save();
             }
-            
+            DB::commit();
             return response()->json(['message'=>'Thành công', 'status' => 'success']);
         } catch (\Exception $e) {
+            DB::rollback();
             if($e->errorInfo[1] == 1062){
                 $message = 'Biển số xe hoặc mã xe đã tồn tại.';
             }else{
