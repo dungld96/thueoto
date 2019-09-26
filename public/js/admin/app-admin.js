@@ -82,7 +82,7 @@ function getNotifies() {
           });
         }
       }
-      setTimeout(getNotifies, 10000);
+      setTimeout(getNotifies, 20000);
     },
     error: function(e) {
       alert(e);
