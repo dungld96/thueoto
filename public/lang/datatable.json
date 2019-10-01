@@ -1,0 +1,12 @@
+{
+    "processing": "<svg viewBox='25 25 50 50'><circle cx='50' cy='50' r='20'></circle> </svg>",
+    "search": "Tìm kiếm",
+    "paginate":
+    {
+        "first": "Đầu tiên",
+        "previous": "Quay lại",
+        "next": "Tiếp theo",
+        "sLast": "Cuối cùng"
+    },
+    "emptyTable": "Chưa có dữ liệu"
+}
