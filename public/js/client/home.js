@@ -80,8 +80,8 @@ $(document).ready(function () {
     var animateCounters = function animateCounters() {
         $('.rn-counter-item').each(function() {
             var countUpItem = $(this);
-            console.log(countUpItem.isInViewport());
-            console.log(countUpItem.prop('animated'));
+            // console.log(countUpItem.isInViewport());
+            // console.log(countUpItem.prop('animated'));
             if (countUpItem.isInViewport() && !countUpItem.prop('animated')) {
                 countUpItem.prop('animated', true).find('.rn-counter-number').prop('Counter', 0).animate({
                     Counter: parseInt(countUpItem.text())
